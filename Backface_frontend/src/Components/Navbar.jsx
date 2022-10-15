@@ -23,7 +23,7 @@ const Navbar = () => {
         <Input
           type={`text`}
           name={`search`}
-          placeholder={`search backface`}
+          placeholder={`Search backface`}
           handleChange={(e) => setSearchValue(e.target.value)}
           value={searchValue}
         />

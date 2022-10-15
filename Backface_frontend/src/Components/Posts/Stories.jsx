@@ -1,7 +1,5 @@
 import React from 'react'
-import { MdOutlineExpandMore } from 'react-icons/md'
 import { Link } from 'react-router-dom'
-import { profile } from '../../Assets/exports'
 
 const Stories = ({
   tallings: {

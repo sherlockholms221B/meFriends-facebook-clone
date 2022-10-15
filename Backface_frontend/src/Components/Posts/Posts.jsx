@@ -1,19 +1,22 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { RiAddLine } from 'react-icons/ri'
+import { MdVideoCameraBack, MdOutlinePhotoLibrary } from 'react-icons/md'
+import { BsEmojiWink } from 'react-icons/bs'
 
-import Post from './Post'
-import Stories from './Stories'
-import { stories, storiesbox } from '../../utils/constants'
-import { person_fourteen } from '../../Assets/exports'
+import { Stories, Post } from '../exports'
+import { posts, storiesbox } from '../../utils/constants'
+import { person_fourteen, profile } from '../../Assets/exports'
 
 const Posts = () => {
   const isActiveStyle = 'border-b-4 border-blue-500'
   const isNotActiveStyle = ''
 
+  const handleState = () => {}
+
   return (
-    <div className='w-full h-full overflow-auto'>
-      <div className='bg-white rounded-md '>
+    <div className='w-full h-full overflow-auto  scroll_hidden pb-20'>
+      <div className='bg-white rounded-md shadow-lg mt-4 '>
         <div className='flex flex-row justify-around items-center capitalize border-b-2  border-[#D8D5D5] '>
           {['stories', 'reals', 'rooms'].map((talling, i) => (
             <NavLink
@@ -30,7 +33,7 @@ const Posts = () => {
           ))}
         </div>
         <>
-          <div className='flex gap-2 flex-nowrap overflow-x-scroll mt-4 mb-4 ml-2 pb-2 hide-scroll-bar'>
+          <div className='flex gap-2 flex-nowrap overflow-x-scroll mt-4 mb-4 ml-2 pb-2 scroll_styled'>
             <div className='inline-block w-28 h-52'>
               <div className=' flex flex-col w-28 h-52 rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out relative text-center'>
                 <img
@@ -55,6 +58,58 @@ const Posts = () => {
           </div>
         </>
       </div>
+      <div className='bg-white rounded-md shadow-lg'>
+        <div className='flex flex-row justify-between items-center mx-2 border-b-2 border-gray-300 py-4'>
+          <Link to={`/backface/api/profile`}>
+            <div className=' border-2 border-white rounded-full cursor-pointer'>
+              <img
+                src={profile}
+                alt='profile'
+                className='object-cover w-10 h-10'
+              />
+            </div>
+          </Link>
+          <div
+            className='rounded-full bg-[#E3E3E3]  hover:bg-[#D8D5D5]  px-3 py-2 w-[90%] cursor-pointer flex flex-row justify-start items-center'
+            onClick={handleState}
+          >
+            <h1 className='text-md text-gray-500'>
+              Whats on your mind, User ?
+            </h1>
+          </div>
+        </div>
+        <div className='flex flex-row flex-nowrap justify-around px-2 py-3  items-center '>
+          <div className='flex flex-row flex-nowrap items-center hover:bg-[#E3E3E3] rounded-md px-6 py-2 cursor-pointer '>
+            <MdVideoCameraBack className='text-2xl font-bold text-red-500 mr-1' />
+            <p className='text-md text-gray-500 font-semibold'>Live video</p>
+          </div>
+          <div className='flex flex-row flex-nowrap items-center hover:bg-[#E3E3E3] rounded-md px-4 py-2 cursor-pointer'>
+            <MdOutlinePhotoLibrary className='text-2xl font-bold text-green-500 mr-1' />
+            <p className='text-md text-gray-500 font-semibold'>Photo/Video</p>
+          </div>
+          <div className='flex flex-row flex-nowrap items-center hover:bg-[#E3E3E3] rounded-md px-3 py-2 cursor-pointer'>
+            <BsEmojiWink className='text-2xl font-bold text-yellow-500 mr-1' />
+            <p className='text-md text-gray-500 font-semibold'>
+              Feeling/activity
+            </p>
+          </div>
+        </div>
+      </div>
+      {posts.map(
+        (
+          { creator, profile: [{ profileImage, createdAt }], isPrivate, post },
+          index
+        ) => (
+          <Post
+            creator={creator}
+            profileImage={profileImage}
+            createdAt={createdAt}
+            isPrivate={isPrivate}
+            post={post}
+            key={`${creator + index}`}
+          />
+        )
+      )}
     </div>
   )
 }
