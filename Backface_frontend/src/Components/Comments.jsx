@@ -12,7 +12,6 @@ const Comments = ({
 }) => {
   return (
     <>
-      <button onClick={() => setIsComment(!isComment)}></button>
       {isComment && (
         <div className='flex flex-row flex-nowrap items-start pl-2 justify-start mt-2 mb-1 '>
           <Link to={`/backface/api/profile`} className='cousor-pointer mr-3 '>
