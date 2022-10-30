@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { RiAddLine } from 'react-icons/ri'
 import { MdVideoCameraBack, MdOutlinePhotoLibrary } from 'react-icons/md'
 import { BsEmojiWink } from 'react-icons/bs'
@@ -9,27 +9,30 @@ import { posts, storiesbox } from '../../utils/constants'
 import { person_fourteen, profile } from '../../Assets/exports'
 
 const Posts = () => {
-  const isActiveStyle = 'border-b-4 border-blue-500'
-  const isNotActiveStyle = ''
+  const isActiveStyle =
+    'py-3 px-14   mt-1 cursor-pointer  border-b-4 border-blue-500'
+  const isNotActiveStyle =
+    'py-3 px-14 rounded-sm  mt-1 mb-1 cursor-pointer hover:bg-[#E3E3E3] '
+
+  const search = useLocation().search
+  const query = new URLSearchParams(search).get('talling')
 
   const handleState = () => {}
 
   return (
     <div className='w-full h-full overflow-auto  scroll_hidden pb-20'>
       <div className='bg-white rounded-md shadow-lg mt-4 '>
-        <div className='flex flex-row justify-around items-center capitalize border-b-2  border-[#D8D5D5] '>
+        <div className='flex flex-row justify-around items-center capitalize border-b-2 px-1  border-[#D8D5D5] '>
           {['stories', 'reals', 'rooms'].map((talling, i) => (
-            <NavLink
-              to={`/?talling=${talling}`}
-              className={({ isActive }) =>
-                isActive ? isActiveStyle : isNotActiveStyle
-              }
-              key={i}
+            <Link
+              to={`?talling=${talling}`}
+              className={`
+                ${query === talling ? isActiveStyle : isNotActiveStyle} 
+              `}
+              key={i + talling}
             >
-              <div className='py-4 px-10 rounded-md  mt-1 mb-1'>
-                <h1>{talling}</h1>
-              </div>
-            </NavLink>
+              <h1 className='font-medium text-md text-gray-500'>{talling}</h1>
+            </Link>
           ))}
         </div>
         <>

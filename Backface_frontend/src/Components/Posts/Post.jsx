@@ -29,7 +29,7 @@ const Post = ({ isPrivate, profileImage, createdAt, creator, post }) => {
   return (
     <>
       <div className='flex flex-col rounded-md bg-white shadow-xl mt-4 '>
-        <div className='flex flex-row flex-nowrap justify-between items-center px-3 py-2'>
+        <div className=' relative flex flex-row flex-nowrap justify-between items-center px-3 py-2'>
           <div className='flex gap-2 items-center'>
             <Link to={`/backface/api/profile`}>
               <div className=' border-2 border-white rounded-full cursor-pointer'>

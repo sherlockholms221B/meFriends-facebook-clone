@@ -9,7 +9,7 @@ const Stories = ({
   },
 }) => {
   return (
-    <div className='inline-block w-28 h-52 '>
+    <div className='inline-block w-28 h-52  '>
       <div className='w-28 h-52  overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out relative text-center'>
         <img src={talling} alt='str' className='w-full h-full' />
         <div className='absolute top-0 bottom-0 right-0 left-0 cursor-pointer z-10 ' />
