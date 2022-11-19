@@ -1,8 +1,12 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { RiAddLine } from 'react-icons/ri'
-import { MdVideoCameraBack, MdOutlinePhotoLibrary } from 'react-icons/md'
-import { BsEmojiWink } from 'react-icons/bs'
+import {
+  MdVideoCameraBack,
+  MdOutlinePhotoLibrary,
+  MdOutlineOndemandVideo,
+} from 'react-icons/md'
+import { BsEmojiWink, BsBookFill } from 'react-icons/bs'
 
 import { Stories, Post } from '../exports'
 import { posts, storiesbox } from '../../utils/constants'
@@ -10,12 +14,13 @@ import { person_fourteen, profile } from '../../Assets/exports'
 
 const Posts = () => {
   const isActiveStyle =
-    'py-3 px-14   mt-1 cursor-pointer  border-b-4 border-blue-500'
+    'py-3 px-8   mt-1 cursor-pointer  border-b-[3px] border-blue-600 text-blue-500'
   const isNotActiveStyle =
-    'py-3 px-14 rounded-sm  mt-1 mb-1 cursor-pointer hover:bg-[#E3E3E3] '
+    'py-3 px-8 rounded-lg  mt-1 mb-1  cursor-pointer hover:bg-[#E3E3E3] '
 
   const search = useLocation().search
   const query = new URLSearchParams(search).get('talling')
+  console.log(query)
 
   const handleState = () => {}
 
@@ -23,15 +28,22 @@ const Posts = () => {
     <div className='w-full h-full overflow-auto  scroll_hidden pb-20'>
       <div className='bg-white rounded-md shadow-lg mt-4 '>
         <div className='flex flex-row justify-around items-center capitalize border-b-2 px-1  border-[#D8D5D5] '>
-          {['stories', 'reals', 'rooms'].map((talling, i) => (
+          {[
+            { name: 'stories', icon: <BsBookFill /> },
+            { name: 'reels', icon: <MdOutlineOndemandVideo /> },
+            { name: 'rooms', icon: <MdVideoCameraBack /> },
+          ].map(({ name, icon }, i) => (
             <Link
-              to={`?talling=${talling}`}
+              to={`?talling=${name}`}
               className={`
-                ${query === talling ? isActiveStyle : isNotActiveStyle} 
+                ${query === name ? isActiveStyle : isNotActiveStyle} 
               `}
-              key={i + talling}
+              key={i + name}
             >
-              <h1 className='font-medium text-md text-gray-500'>{talling}</h1>
+              <div className='flex flex-row gap-2 items-center '>
+                <p className='font-bold text-[20px]'>{icon} </p>
+                <h1 className='font-medium text-md'>{name}</h1>
+              </div>
             </Link>
           ))}
         </div>

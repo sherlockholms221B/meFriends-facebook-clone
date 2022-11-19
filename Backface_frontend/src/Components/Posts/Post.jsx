@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import moment from 'moment'
@@ -16,15 +16,25 @@ import { RiShareForwardLine } from 'react-icons/ri'
 import { Comments, Input } from '../exports'
 import { comments } from '../../utils/constants'
 import { profile } from '../../Assets/exports'
+import { useGlobalContext } from '../../Context/UseContext'
 
 const Post = ({ isPrivate, profileImage, createdAt, creator, post }) => {
   const [value, setValue] = useState('')
   const [isComment, setIsComment] = useState(false)
   const [viewMore, setViewMore] = useState(false)
+  const togleMenu = useRef(null)
+  const { dynamicLocation } = useGlobalContext()
 
   useEffect(() => {
     setViewMore(false)
   }, [isComment])
+
+  const postLocation = () => {
+    const locationDetails = togleMenu.current.getBoundingClientRect()
+    const top = locationDetails.top
+    const center = (locationDetails.left + locationDetails.right) / 2
+    dynamicLocation({ top, center })
+  }
 
   return (
     <>
@@ -54,7 +64,11 @@ const Post = ({ isPrivate, profileImage, createdAt, creator, post }) => {
               </div>
             </div>
           </div>
-          <div className='text-2xl font-semibold text-gray-500 p-2 rounded-full hover:bg-[#E3E3E3] cursor-pointer'>
+          <div
+            className='text-2xl font-semibold text-gray-500 p-2 rounded-full hover:bg-[#E3E3E3] cursor-pointer'
+            ref={togleMenu}
+            onClick={postLocation}
+          >
             <HiDotsHorizontal />
           </div>
         </div>
