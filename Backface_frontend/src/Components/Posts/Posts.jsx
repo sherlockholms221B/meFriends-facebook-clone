@@ -8,11 +8,14 @@ import {
 } from 'react-icons/md'
 import { BsEmojiWink, BsBookFill } from 'react-icons/bs'
 
+import { useGlobalContext } from '../../Context/UseContext'
 import { Stories, Post } from '../exports'
 import { posts, storiesbox } from '../../utils/constants'
 import { person_fourteen, profile } from '../../Assets/exports'
 
 const Posts = () => {
+  const { setMegState, megState } = useGlobalContext()
+  console.log(megState)
   const isActiveStyle =
     'py-3 px-8   mt-1 cursor-pointer  border-b-[3px] border-blue-600 text-blue-500'
   const isNotActiveStyle =
@@ -20,8 +23,6 @@ const Posts = () => {
 
   const search = useLocation().search
   const query = new URLSearchParams(search).get('talling')
-
-  const handleState = () => {}
 
   return (
     <div className='w-full h-full overflow-auto  scroll_hidden pb-20'>
@@ -35,7 +36,15 @@ const Posts = () => {
             <Link
               to={`?talling=${name}`}
               className={`
-                ${query === name ? isActiveStyle : isNotActiveStyle} 
+                ${
+                  query === name
+                    ? isActiveStyle
+                    : `${
+                        i === 0 && query === null
+                          ? isActiveStyle
+                          : isNotActiveStyle
+                      }`
+                } 
               `}
               key={i + name}
             >
@@ -85,7 +94,7 @@ const Posts = () => {
           </Link>
           <div
             className='rounded-full bg-[#E3E3E3]  hover:bg-[#D8D5D5]  px-3 py-2 w-[90%] cursor-pointer flex flex-row justify-start items-center'
-            onClick={handleState}
+            onClick={() => setMegState(!megState)}
           >
             <h1 className='text-md text-gray-500'>
               Whats on your mind, User ?

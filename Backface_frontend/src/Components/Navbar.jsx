@@ -9,37 +9,26 @@ import {
 import { RiChatSmile3Fill } from 'react-icons/ri'
 import { profile } from '../Assets/exports'
 import { Input } from './exports'
-import { useGlobalContext } from '../Context/UseContext'
 
 const Navbar = () => {
   const [searchValue, setSearchValue] = useState('')
-  const navbarRef = useRef(null)
-  const { navLocation } = useGlobalContext()
-
-  useEffect(() => {
-    const navhieght = navbarRef.current.getBoundingClientRect().hieght
-    navLocation(navhieght)
-  }, [navLocation])
 
   return (
-    <div
-      className='flex flex-row justify-between fixed top-0 right-0 w-full  z-10 items-center bg-white shadow-xl px-4 py-2 '
-      ref={navbarRef}
-    >
+    <nav className='flex flex-row justify-between fixed top-0 right-0 w-full  z-10 items-center bg-white shadow-xl px-4 py-1.5 '>
       <Link to={`/`}>
-        <div className=''>
-          <h1> Backface logo coming </h1>
+        <div className='border-2 border-blue-500 px-2 rounded-lg'>
+          <h1 className='font-bold text-[29px] text-blue-600'> facebook </h1>
         </div>
       </Link>
       <div className='relative  rounded-full'>
         <Input
           type={`text`}
           name={`search`}
-          placeholder={`Search backface`}
+          placeholder={`Search facebook`}
           handleChange={(e) => setSearchValue(e.target.value)}
           value={searchValue}
         />
-        <MdOutlineSearch className='absolute top-2 left-3 text-gray-700 text-2xl cursor-pointer ' />
+        <MdOutlineSearch className='absolute top-2 left-3 text-gray-400 text-2xl cursor-pointer ' />
       </div>
 
       <div className='flex flex-row gap-2 items-center'>
@@ -64,7 +53,7 @@ const Navbar = () => {
           </div>
         </Link>
       </div>
-    </div>
+    </nav>
   )
 }
 
