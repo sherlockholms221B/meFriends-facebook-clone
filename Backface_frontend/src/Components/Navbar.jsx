@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { MdLink } from 'react-icons/md'
 import {
@@ -9,14 +9,26 @@ import {
 import { RiChatSmile3Fill } from 'react-icons/ri'
 import { profile } from '../Assets/exports'
 import { Input } from './exports'
+import { useGlobalContext } from '../Context/UseContext'
 
 const Navbar = () => {
   const [searchValue, setSearchValue] = useState('')
+  const navbarRef = useRef(null)
+  const { navLocation } = useGlobalContext()
+
+  useEffect(() => {
+    const navhieght = navbarRef.current.getBoundingClientRect().hieght
+    navLocation(navhieght)
+  }, [navLocation])
+
   return (
-    <div className='flex flex-row justify-between items-center bg-white shadow-lg px-4 py-2 '>
+    <div
+      className='flex flex-row justify-between fixed top-0 right-0 w-full  z-10 items-center bg-white shadow-xl px-4 py-2 '
+      ref={navbarRef}
+    >
       <Link to={`/`}>
         <div className=''>
-          <h1>backface logo</h1>
+          <h1> Backface logo coming </h1>
         </div>
       </Link>
       <div className='relative  rounded-full'>
