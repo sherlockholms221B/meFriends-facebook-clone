@@ -16,11 +16,10 @@ const Posts = () => {
   const isActiveStyle =
     'py-3 px-8   mt-1 cursor-pointer  border-b-[3px] border-blue-600 text-blue-500'
   const isNotActiveStyle =
-    'py-3 px-8 rounded-lg  mt-1 mb-1  cursor-pointer hover:bg-[#E3E3E3] '
+    'py-3 px-8 rounded-lg  mt-1 mb-1 text-gray-600 cursor-pointer hover:bg-[#E3E3E3] '
 
   const search = useLocation().search
   const query = new URLSearchParams(search).get('talling')
-  console.log(query)
 
   const handleState = () => {}
 

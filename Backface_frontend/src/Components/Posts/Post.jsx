@@ -13,7 +13,7 @@ import { AiOutlineLike } from 'react-icons/ai'
 import { GoComment } from 'react-icons/go'
 import { RiShareForwardLine } from 'react-icons/ri'
 
-import { Comments, Input } from '../exports'
+import { Comments, Input, PostOptions } from '../exports'
 import { comments } from '../../utils/constants'
 import { profile } from '../../Assets/exports'
 import { useGlobalContext } from '../../Context/UseContext'
@@ -22,6 +22,7 @@ const Post = ({ isPrivate, profileImage, createdAt, creator, post }) => {
   const [value, setValue] = useState('')
   const [isComment, setIsComment] = useState(false)
   const [viewMore, setViewMore] = useState(false)
+  const [postOption, setPostOption] = useState(false)
   const togleMenu = useRef(null)
   const { dynamicLocation } = useGlobalContext()
 
@@ -30,7 +31,9 @@ const Post = ({ isPrivate, profileImage, createdAt, creator, post }) => {
   }, [isComment])
 
   const postLocation = () => {
-    const locationDetails = togleMenu.current.getBoundingClientRect()
+    setPostOption(!postOption)
+    const locationDetails = togleMenu.current.getClientRects()
+    console.log(locationDetails)
     const top = locationDetails.top
     const center = (locationDetails.left + locationDetails.right) / 2
     dynamicLocation({ top, center })
@@ -64,12 +67,15 @@ const Post = ({ isPrivate, profileImage, createdAt, creator, post }) => {
               </div>
             </div>
           </div>
-          <div
-            className='text-2xl font-semibold text-gray-500 p-2 rounded-full hover:bg-[#E3E3E3] cursor-pointer'
-            ref={togleMenu}
-            onClick={postLocation}
-          >
-            <HiDotsHorizontal />
+          <div className=''>
+            <div
+              className='text-2xl font-semibold text-gray-500 p-2 rounded-full hover:bg-[#E3E3E3] '
+              ref={togleMenu}
+              onClick={postLocation}
+            >
+              <HiDotsHorizontal />
+            </div>
+            {postOption && <PostOptions />}
           </div>
         </div>
         <div className='h-full w-[100%] border-b-2 border-t-2 border-gray-300 '>
