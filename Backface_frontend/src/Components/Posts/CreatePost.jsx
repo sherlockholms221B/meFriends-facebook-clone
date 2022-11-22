@@ -33,7 +33,11 @@ const CreatePost = () => {
     setPostAudienceState,
   } = useGlobalContext()
   return (
-    <div className='bg-white z-20  w-full h-full rounded-lg'>
+    <div
+      className={` ${
+        createPostState ? 'translate_x' : ''
+      } bg-white z-20  w-full h-full rounded-lg`}
+    >
       <div className='relative flex flex-row py-4 items-center justify-center border-b border-gray-300'>
         <h3 className='text-xl font-bold text-gray-900'>Create post</h3>
         <p
@@ -69,8 +73,8 @@ const CreatePost = () => {
           className={` w-full mt-2 mb-8 h-max  outline-none placeholder:text-2xl pt-4 pl-2 placeholder:text-gray-500`}
         />
         <div className='w-full flex flex-row justify-between items-center'>
-          <div className='cursor-pointer flex items-center justify-center py-1 px-1.5 rounded-md bg-blue-400'>
-            <p className='text-white text-xl text-gray-500'>Aa</p>
+          <div className='cursor-pointer flex items-center justify-center py-1 px-1.5 rounded-md bg-gradient-to-r from-purple-500 to-pink-500'>
+            <p className='text-white text-xl '>Aa</p>
           </div>
           <BsEmojiWink className='cursor-pointer text-xl text-gray-500' />
         </div>

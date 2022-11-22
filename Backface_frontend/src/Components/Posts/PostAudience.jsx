@@ -15,7 +15,11 @@ const PostAudience = () => {
     setPostAudienceState,
   } = useGlobalContext()
   return (
-    <div className='bg-white z-20  w-full h-full rounded-lg'>
+    <div
+      className={` ${
+        postAudienceState ? 'translate_x' : ''
+      } bg-white z-20  w-full h-full rounded-lg`}
+    >
       <div className='relative flex flex-row py-4 items-center justify-center border-b border-gray-300'>
         <h3 className='text-xl font-bold text-gray-900'>Post audience</h3>
         <p
