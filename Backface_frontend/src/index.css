@@ -98,3 +98,20 @@ body {
 .content:hover {
   -webkit-mask-position: left top;
 }
+
+.translate_x {
+  transition: all 0.2s ease-in-out;
+  animation: animate 0.2s ease-in-out;
+}
+
+@keyframes animate {
+  0% {
+    transform: translateX(5em);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
