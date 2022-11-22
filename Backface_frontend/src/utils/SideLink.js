@@ -1,12 +1,12 @@
-import { AiFillHome, AiOutlineClockCircle } from 'react-icons/ai'
-import { FaUserFriends } from 'react-icons/fa'
+import { AiFillHome } from 'react-icons/ai'
+import { FaUserFriends, FaBookmark } from 'react-icons/fa'
 import { HiOutlineKey } from 'react-icons/hi'
 import { TbGridDots } from 'react-icons/tb'
+import { GiBackwardTime } from 'react-icons/gi'
 import {
   MdMapsHomeWork,
   MdOutlineOndemandVideo,
   MdGroups,
-  MdBookmarkBorder,
 } from 'react-icons/md'
 import { profile } from '../Assets/exports'
 
@@ -38,11 +38,11 @@ const links = [
   },
   {
     title: 'Memories',
-    icon: <AiOutlineClockCircle />,
+    icon: <GiBackwardTime className='text-2xl font-bold' />,
   },
   {
     title: 'Saved',
-    icon: <MdBookmarkBorder />,
+    icon: <FaBookmark />,
   },
   { title: 'Groups', icon: <MdGroups /> },
   {

@@ -359,7 +359,7 @@ export const posts = [
       },
     ],
     post: feed_one,
-    isPrivate: false,
+    isPrivate: true,
   },
   {
     creator: 'samson',
@@ -392,7 +392,7 @@ export const posts = [
       },
     ],
     post: feed_three,
-    isPrivate: false,
+    isPrivate: true,
   },
   {
     creator: 'nuclues nuclis',
@@ -425,7 +425,7 @@ export const posts = [
       },
     ],
     post: feed_six,
-    isPrivate: false,
+    isPrivate: true,
   },
   {
     creator: 'john diggle',
@@ -447,7 +447,7 @@ export const posts = [
       },
     ],
     post: feed_eight,
-    isPrivate: false,
+    isPrivate: true,
   },
   {
     creator: 'malcom merlyen',
