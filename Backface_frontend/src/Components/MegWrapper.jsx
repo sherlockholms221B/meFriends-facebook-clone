@@ -5,16 +5,24 @@ import { useGlobalContext } from '../Context/UseContext'
 
 const MegWrapper = (Component, idName) =>
   function HOC() {
-    const { megState } = useGlobalContext()
+    const {
+      createPostState,
+      addToYourState,
+      setAddToYourState,
+      setCreatePostState,
+      postAudienceState,
+    } = useGlobalContext()
+    console.log(addToYourState)
     return (
       <>
-        {megState && (
-          <motion.div
-            whileInView={{ scale: [0, 1] }}
-            className='flex justify-center items-center absolute top-0 right-0 bg-gray-400 z-10 h-screen w-screen'
-          >
-            <Component />
-          </motion.div>
+        {createPostState || addToYourState || postAudienceState ? (
+          <div className='flex justify-center items-center absolute top-0 backdrop-blur-sm right-0  z-10 h-screen w-screen'>
+            <div className='w-[500px] h-max bg-white rounded-lg h-fit'>
+              <Component />
+            </div>
+          </div>
+        ) : (
+          <div className=''>no command found</div>
         )}
       </>
     )
