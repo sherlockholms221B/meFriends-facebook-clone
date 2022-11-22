@@ -13,7 +13,7 @@ const SideBar = () => {
   const query = new URLSearchParams(search).get('talling')
 
   return (
-    <div className='flex flex-col justify-start items-start w-ful h-full pb-2 pt-2  wrapper '>
+    <div className='flex flex-col justify-start items-start w-ful h-full pb-2 pt-2 '>
       {links.map((page, i) => (
         <div
           key={i + page.title}
@@ -46,7 +46,7 @@ const SideBar = () => {
                     i === links.length - (links.length - 9)
                       ? 'text-gray-700 border-2 border-gray-300 rounded-full bg-gray-300 p-[4px] '
                       : 'text-blue-600'
-                  } text-xl `}
+                  }  text-xl `}
                 >
                   {page.icon}
                 </p>
