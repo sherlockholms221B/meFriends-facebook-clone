@@ -3,24 +3,34 @@ import { useContext, createContext, useState } from 'react'
 const AppContext = createContext()
 
 export const AppProvider = ({ children }) => {
-  const [construction, setConstruction] = useState('')
+  const [createPostState, setCreatePostState] = useState(false)
+  const [postAudienceState, setPostAudienceState] = useState(false)
+  const [addToYourState, setAddToYourState] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
   const [location, setLocation] = useState({
     top: 0,
     center: 0,
   })
 
-  const menuLocation = (cordinate) => {
-    setLocation(cordinate)
+  const dynamicLocation = (cordinate) => {
+    const { top, center } = cordinate
+    setLocation({ top: top, center: center })
   }
 
   return (
     <AppContext.Provider
       value={{
-        construction,
-        setConstruction,
         location,
         setLocation,
-        menuLocation,
+        dynamicLocation,
+        createPostState,
+        setCreatePostState,
+        addToYourState,
+        setAddToYourState,
+        postAudienceState,
+        setPostAudienceState,
+        isLoading,
+        setIsLoading,
       }}
     >
       {children}
