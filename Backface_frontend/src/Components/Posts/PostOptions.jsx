@@ -13,7 +13,6 @@ import {
 import { DynamicMenu } from '../index'
 
 const PostOptions = ({ addOptions }) => {
-  console.log(addOptions)
   return (
     <>
       {addOptions ? (

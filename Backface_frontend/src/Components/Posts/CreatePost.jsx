@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import {
   MdClose,
   MdArrowBack,
@@ -20,10 +20,11 @@ import { BsEmojiWink } from 'react-icons/bs'
 import MegWrapper from '../MegWrapper'
 import { useGlobalContext } from '../../Context/UseContext'
 import { ProfilePicture } from '../index'
-import { previous, audience } from '../../utils/Functions'
+import { previous, audience, iconHandler } from '../../utils/Functions'
 
 const CreatePost = () => {
   const [postvalue, setPostvalue] = useState('')
+  const iconRef = useRef(null)
   const {
     createPostState,
     setCreatePostState,
@@ -31,11 +32,14 @@ const CreatePost = () => {
     setAddToYourState,
     postAudienceState,
     setPostAudienceState,
+    goBack,
+    setGoBack,
   } = useGlobalContext()
+
   return (
     <div
       className={` ${
-        createPostState ? 'translate_x' : ''
+        goBack ? 'translate__x' : ''
       } bg-white z-20  w-full h-full rounded-lg`}
     >
       <div className='relative flex flex-row py-4 items-center justify-center border-b border-gray-300'>
@@ -59,7 +63,7 @@ const CreatePost = () => {
               onClick={() => audience(setCreatePostState, setPostAudienceState)}
             >
               <GiEarthAmerica />
-              <h4 className='text-sm text-gray-900 '>Public</h4>
+              <h4 className='text-sm text-gray-900 '> {'Public'} </h4>
               <GoTriangleDown />
             </div>
           </div>
@@ -79,7 +83,10 @@ const CreatePost = () => {
           <BsEmojiWink className='cursor-pointer text-xl text-gray-500' />
         </div>
 
-        <div className='w-full border-2 flex flex-row justify-between items-center p-3 mt-4 rounded-md'>
+        <div
+          className='w-full border-2 cursor-pointer flex flex-row justify-between items-center p-3 mt-4 rounded-md'
+          onClick={() => audience(setCreatePostState, setAddToYourState)}
+        >
           <h5 className='text-md font-semibold text-gray-800 '>
             Add to your post
           </h5>
@@ -96,17 +103,24 @@ const CreatePost = () => {
               },
             ].map(({ icon }, i) => (
               <p
-                className={`${i === 0 && 'text-green-600'} ${
-                  i === 1 && 'text-blue-600'
-                } ${i === 2 && 'text-yellow-600'} ${
-                  i === 3 && 'text-red-600'
-                } ${i === 4 && 'text-blue-400'} cursor-pointer text-2xl`}
+                ref={iconRef}
+                className={`${i === 0 ? 'text-green-600' : ''} ${
+                  i === 1 ? 'text-blue-600' : ''
+                } ${i === 2 ? 'text-yellow-600' : ''} ${
+                  i === 3 ? 'text-red-600' : ''
+                } ${
+                  i === 4 ? 'text-blue-400' : ''
+                } p-1.5 hover:bg-gray-200 rounded-full  text-2xl`}
                 key={i}
+                onClick={(e) => iconHandler(e, iconRef)}
               >
                 {icon}
               </p>
             ))}
-            <p className='text-xl text-gray-500b rounded-full p-1.5 hover:bg-gray-200 cursor-pointer'>
+            <p
+              className='text-xl text-gray-500b rounded-full p-1.5 hover:bg-gray-200 cursor-pointer'
+              onClick={() => audience(setCreatePostState, setAddToYourState)}
+            >
               <HiDotsHorizontal />
             </p>
           </div>
