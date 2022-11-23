@@ -9,7 +9,13 @@ export const audience = (setcre, setaud) => {
   setcre(false)
 }
 
-export const previous = (setcre, setaud) => {
+export const previous = (setcre, setaud, goback) => {
   setaud(false)
   setcre(true)
+  goback(true)
+}
+
+export const iconHandler = (e, iconRef) => {
+  e.stopPropagation()
+  const _ = iconRef.current.classList
 }
