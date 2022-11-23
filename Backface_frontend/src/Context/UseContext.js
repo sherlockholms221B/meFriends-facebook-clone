@@ -7,6 +7,7 @@ export const AppProvider = ({ children }) => {
   const [postAudienceState, setPostAudienceState] = useState(false)
   const [addToYourState, setAddToYourState] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
+  const [goBack, setGoBack] = useState(false)
   const [location, setLocation] = useState({
     top: 0,
     center: 0,
@@ -31,6 +32,8 @@ export const AppProvider = ({ children }) => {
         setPostAudienceState,
         isLoading,
         setIsLoading,
+        goBack,
+        setGoBack,
       }}
     >
       {children}
