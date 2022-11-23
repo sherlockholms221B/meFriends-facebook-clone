@@ -31,7 +31,6 @@ const Post = ({ isPrivate, profileImage, createdAt, creator, post }) => {
   const postLocation = () => {
     setPostOption(!postOption)
     const locationDetails = togleMenu.current.getClientRects()
-    console.log(locationDetails)
     const top = locationDetails.top
     const center = (locationDetails.left + locationDetails.right) / 2
     dynamicLocation({ top, center })
