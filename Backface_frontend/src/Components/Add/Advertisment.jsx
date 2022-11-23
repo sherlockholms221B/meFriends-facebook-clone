@@ -50,7 +50,7 @@ const Advertisment = () => {
           className='flex flex-row gap-4 items-center p-2 cursor-pointer rounded-md hover:bg-gray-300 items-center'
           key={i + name}
         >
-          <icon className='text-3xl text-blue-400'>{img}</icon>
+          <p className='text-3xl text-blue-400'>{img}</p>
           <div className=''>
             <h3 className='text-md text-gray-900'>
               <span className='text-md font-semibold text-gray-900 capitalize'>
