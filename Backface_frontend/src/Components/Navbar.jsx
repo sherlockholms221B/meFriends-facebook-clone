@@ -37,7 +37,10 @@ const Navbar = () => {
             alarts: '1',
           },
         ].map(({ icon, alarts }, i) => (
-          <div className='relative p-[11px] rounded-full bg-[#E3E3E3]  hover:bg-[#D8D5D5] cursor-pointer '>
+          <div
+            className='relative p-[11px] rounded-full bg-[#E3E3E3]  hover:bg-[#D8D5D5] cursor-pointer '
+            key={i + alarts}
+          >
             <p className='text-lg font-semibold'> {icon} </p>
             <div className='flex items-center justify-center absolute w-[20px] h-[20px] rounded-full bg-red-600 top-0 right-0 border-2 border-white z-10'>
               <p className='text-white text-[12px] font-bold'>{alarts}</p>
