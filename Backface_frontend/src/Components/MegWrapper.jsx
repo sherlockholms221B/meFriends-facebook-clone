@@ -12,7 +12,6 @@ const MegWrapper = (Component, idName) =>
       setCreatePostState,
       postAudienceState,
     } = useGlobalContext()
-    console.log(addToYourState)
     return (
       <>
         {createPostState || addToYourState || postAudienceState ? (
