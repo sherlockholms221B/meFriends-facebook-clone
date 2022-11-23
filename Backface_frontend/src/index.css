@@ -115,3 +115,20 @@ body {
     opacity: 1;
   }
 }
+
+.translate__x {
+  transition: all 0.2s ease-in-out;
+  animation: translate__x 0.2s ease-in-out;
+}
+
+@keyframes translate__x {
+  0% {
+    transform: translateX(-5em);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
