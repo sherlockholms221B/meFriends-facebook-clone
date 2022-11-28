@@ -24,6 +24,7 @@ import { previous, audience, iconHandler } from '../../utils/Functions'
 
 const CreatePost = () => {
   const [postvalue, setPostvalue] = useState('')
+  // this comment is just to let this crepy preachers pass by
   const iconRef = useRef(null)
   const {
     createPostState,
@@ -63,7 +64,7 @@ const CreatePost = () => {
               onClick={() => audience(setCreatePostState, setPostAudienceState)}
             >
               <GiEarthAmerica />
-              <h4 className='text-sm text-gray-900 '> {'Public'} </h4>
+              <h4 className='text-sm text-gray-900  '> {'Public'} </h4>
               <GoTriangleDown />
             </div>
           </div>

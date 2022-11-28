@@ -16,7 +16,7 @@ const MegWrapper = (Component, idName) =>
       <>
         {createPostState || addToYourState || postAudienceState ? (
           <div className='flex justify-center items-center absolute top-0 backdrop-blur-sm right-0  z-10 h-screen w-screen'>
-            <div className='w-[500px] h-max bg-white rounded-lg h-fit'>
+            <div className='w-[500px] h-max bg-white rounded-lg '>
               <Component />
             </div>
           </div>
