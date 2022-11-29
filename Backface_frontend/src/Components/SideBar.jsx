@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 import profile from '../Assets/profile.png'
-import links from '../utils/SideLink'
+import { links } from '../utils/links'
 
 const SideBar = () => {
   const activeNav =
