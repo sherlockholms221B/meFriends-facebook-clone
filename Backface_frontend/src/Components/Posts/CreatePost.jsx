@@ -12,8 +12,7 @@ import {
   MdOutlinePhotoLibrary,
 } from 'react-icons/md'
 import { GiEarthAmerica } from 'react-icons/gi'
-import { HiDotsHorizontal, HiLockClosed } from 'react-icons/hi'
-import { FaUserFriends } from 'react-icons/fa'
+import { HiDotsHorizontal } from 'react-icons/hi'
 import { GoTriangleDown } from 'react-icons/go'
 import { BsEmojiWink } from 'react-icons/bs'
 
@@ -24,7 +23,6 @@ import { previous, audience, iconHandler } from '../../utils/Functions'
 
 const CreatePost = () => {
   const [postvalue, setPostvalue] = useState('')
-  // this comment is just to let this crepy preachers pass by
   const iconRef = useRef(null)
   const {
     createPostState,
