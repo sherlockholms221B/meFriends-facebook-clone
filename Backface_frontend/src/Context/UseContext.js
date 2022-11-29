@@ -18,9 +18,11 @@ export const AppProvider = ({ children }) => {
     setLocation({ top: top, center: center })
   }
 
+  const stateAcceptor = (states) => {}
   return (
     <AppContext.Provider
       value={{
+        stateAcceptor,
         location,
         setLocation,
         dynamicLocation,
