@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 import profile from '../Assets/profile.png'
-import { links } from '../utils/links'
+import { sideLinks } from '../utils/links'
 
 const SideBar = () => {
   const activeNav =
@@ -14,7 +14,7 @@ const SideBar = () => {
 
   return (
     <div className='flex flex-col justify-start items-start w-ful h-full pb-2 pt-2 '>
-      {links.map((page, i) => (
+      {sideLinks.map((page, i) => (
         <div
           key={i + page.title}
           className={`${
@@ -23,7 +23,7 @@ const SideBar = () => {
               : `${i === 0 && query === null ? activeNav : notActiveNav}`
           }`}
         >
-          {i === links.length - (links.length - 1) ? (
+          {i === sideLinks.length - (sideLinks.length - 1) ? (
             <Link to={`/backface/api/profile`}>
               <div className='flex flex-row gap-2 mt-1.5 mb-1.5 px-3 py-2 rounded-md hover:bg-gray-300 items-center '>
                 <img
@@ -41,9 +41,9 @@ const SideBar = () => {
               <div className='flex flex-row gap-2 px-3 py-2 rounded-md hover:bg-gray-300 items-center'>
                 <p
                   className={`  ${
-                    i === links.length - (links.length - 2) ||
-                    i === links.length - (links.length - 8) ||
-                    i === links.length - (links.length - 9)
+                    i === sideLinks.length - (sideLinks.length - 2) ||
+                    i === sideLinks.length - (sideLinks.length - 8) ||
+                    i === sideLinks.length - (sideLinks.length - 9)
                       ? 'text-gray-700 border-2 border-gray-300 rounded-full bg-gray-300 p-[4px] '
                       : 'text-blue-600'
                   }  text-xl `}
