@@ -70,19 +70,6 @@ body {
   background: rgb(185, 184, 184);
 }
 
-.before::before {
-  content: '';
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  background-color: red;
-  clip-path: polygon(100% 0%, 100% 100%, 0% 100%);
-  border-top-right-radius: 5px;
-  right: 0;
-  top: 0;
-  z-index: 40;
-}
-
 .content {
   mask-size: 100% 20000px;
   mask-position: left bottom;

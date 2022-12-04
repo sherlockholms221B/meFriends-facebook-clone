@@ -1,5 +1,5 @@
 import { AiFillHome } from 'react-icons/ai'
-import { FaUserFriends, FaBookmark } from 'react-icons/fa'
+import { FaUserFriends, FaBookmark, FaFacebookMessenger } from 'react-icons/fa'
 import { HiOutlineKey, HiLockClosed } from 'react-icons/hi'
 import { TbGridDots } from 'react-icons/tb'
 import { GiBackwardTime, GiEarthAmerica } from 'react-icons/gi'
@@ -9,13 +9,19 @@ import {
   MdMapsHomeWork,
   MdOutlineOndemandVideo,
   MdGroups,
+  MdNotifications,
+  MdVideoCameraBack,
+  MdOutlinePhotoLibrary,
+  MdOutlineLocationOn,
+  MdFlag,
 } from 'react-icons/md'
+import { BsBookFill, BsEmojiWink } from 'react-icons/bs'
 
 import { profile } from '../Assets/exports'
 
 const repeatStyle = 'text-2xl text-gray-800'
 
-export const links = [
+export const sideLinks = [
   {
     title: 'Home',
     icon: <AiFillHome />,
@@ -81,4 +87,23 @@ export const postAudienceLinks = [
     title: 'Custom',
     description: 'Include and exclude friends and lists',
   },
+]
+
+export const navLinks = [
+  {
+    icon: <FaFacebookMessenger />,
+    alarts: '3',
+    tip: 'messenger',
+  },
+  {
+    icon: <MdNotifications />,
+    alarts: '1',
+    tip: 'notification',
+  },
+]
+
+export const feedLinks = [
+  { name: 'stories', icon: <BsBookFill /> },
+  { name: 'reels', icon: <MdOutlineOndemandVideo /> },
+  { name: 'rooms', icon: <MdVideoCameraBack /> },
 ]

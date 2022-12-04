@@ -1,21 +1,37 @@
-import { useGlobalContext } from '../Context/UseContext'
-
 export const refresh = async () => {
   window.location.reload()
 }
 
-export const audience = (setcre, setaud) => {
-  setaud(true)
-  setcre(false)
+export const forward = (setFirstState, setSecondState) => {
+  setFirstState(false)
+  setSecondState(true)
 }
 
-export const previous = (setcre, setaud, goback) => {
-  setaud(false)
-  setcre(true)
-  goback(true)
+export const previous = (setFirstState, setSecondState, setThirdState) => {
+  setFirstState(true)
+  setSecondState(false)
+  setThirdState(true)
 }
 
-export const iconHandler = (e, iconRef) => {
+export const iconHandler = (value) => {
+  const {
+    e,
+    ref,
+    setAddPictureState,
+    setTagPeopleState,
+    setCreatePostState,
+    setGoBack,
+    tagPeopleState,
+    createPostState,
+  } = value
   e.stopPropagation()
-  const _ = iconRef.current.classList
+  const classNames = Object.values(ref.current.classList)
+  if (classNames.includes('text-green-600')) {
+    setAddPictureState(true)
+  }
+
+  if (classNames.includes('text-blue-600')) {
+    setTagPeopleState(true)
+    setGoBack(false)
+  }
 }

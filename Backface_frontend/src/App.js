@@ -2,12 +2,23 @@ import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 
 import { Home, Login, Profile, Protector } from './Pages/exports'
-import { Navbar, CreatePost, PostAudience, AddToYour } from './Components/index'
+import {
+  Navbar,
+  CreatePost,
+  PostAudience,
+  AddToYour,
+  TagPeople,
+} from './Components/index'
 import { useGlobalContext } from './Context/UseContext'
 
 const App = () => {
-  const { addToYourState, postAudienceState, createPostState, isLoading } =
-    useGlobalContext()
+  const {
+    addToYourState,
+    postAudienceState,
+    createPostState,
+    tagPeopleState,
+    isLoading,
+  } = useGlobalContext()
   return (
     <>
       {!isLoading && <Navbar />}
@@ -25,6 +36,7 @@ const App = () => {
       </Routes>
       {createPostState && <CreatePost />}
       {postAudienceState && <PostAudience />}
+      {tagPeopleState && <TagPeople />}
       {addToYourState && <AddToYour />}
     </>
   )
