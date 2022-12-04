@@ -2,13 +2,12 @@ import React, { useState } from 'react'
 import { HiDotsHorizontal } from 'react-icons/hi'
 
 import { PostOptions } from '../index'
-import { person_nine, person_eight } from '../../Assets/exports'
 
 const Add = ({ add, setAdd, title, description, img, index }) => {
   const [addOptions, setAddOptions] = useState(false)
   return (
     <>
-      <div className='relative flex flex-row items-center justify-strech gap-4 p-2 w-full rounded-md hover:bg-gray-300 cursor-pointer items-center'>
+      <div className='relative flex flex-row justify-strech gap-4 p-2 w-full rounded-md hover:bg-gray-300 cursor-pointer items-center'>
         <img
           onClick={() => setAdd(!add)}
           src={img}

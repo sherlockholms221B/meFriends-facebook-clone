@@ -47,7 +47,7 @@ const Advertisment = () => {
         },
       ].map(({ img, name, count, description }, i) => (
         <div
-          className='flex flex-row gap-4 items-center p-2 cursor-pointer rounded-md hover:bg-gray-300 items-center'
+          className='flex flex-row gap-4 items-center p-2 cursor-pointer rounded-md hover:bg-gray-300 '
           key={i + name}
         >
           <p className='text-3xl text-blue-400'>{img}</p>
