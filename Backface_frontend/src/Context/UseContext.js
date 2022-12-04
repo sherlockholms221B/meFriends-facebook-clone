@@ -6,6 +6,8 @@ export const AppProvider = ({ children }) => {
   const [createPostState, setCreatePostState] = useState(false)
   const [postAudienceState, setPostAudienceState] = useState(false)
   const [addToYourState, setAddToYourState] = useState(false)
+  const [addPictureState, setAddPictureState] = useState(false)
+  const [tagPeopleState, setTagPeopleState] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [goBack, setGoBack] = useState(false)
   const [location, setLocation] = useState({
@@ -32,6 +34,10 @@ export const AppProvider = ({ children }) => {
         setAddToYourState,
         postAudienceState,
         setPostAudienceState,
+        addPictureState,
+        setAddPictureState,
+        tagPeopleState,
+        setTagPeopleState,
         isLoading,
         setIsLoading,
         goBack,
