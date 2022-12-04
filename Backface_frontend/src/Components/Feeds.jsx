@@ -1,13 +1,10 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import {
-  MdVideoCameraBack,
-  MdOutlinePhotoLibrary,
-  MdOutlineOndemandVideo,
-} from 'react-icons/md'
-import { BsEmojiWink, BsBookFill } from 'react-icons/bs'
+import { MdVideoCameraBack, MdOutlinePhotoLibrary } from 'react-icons/md'
+import { BsEmojiWink } from 'react-icons/bs'
 
 import { useGlobalContext } from '../Context/UseContext'
+import { feedLinks } from '../utils/links'
 import { Stories, Post } from './index.js'
 import { posts } from '../utils/constants'
 import { profile } from '../Assets/exports'
@@ -26,11 +23,7 @@ const Posts = () => {
     <div className='w-full h-full overflow-auto  scroll_hidden pb-20'>
       <div className='bg-white rounded-md shadow-lg mt-4 '>
         <div className='flex flex-row justify-around items-center capitalize border-b-2 px-1  border-[#D8D5D5] '>
-          {[
-            { name: 'stories', icon: <BsBookFill /> },
-            { name: 'reels', icon: <MdOutlineOndemandVideo /> },
-            { name: 'rooms', icon: <MdVideoCameraBack /> },
-          ].map(({ name, icon }, i) => (
+          {feedLinks.map(({ name, icon }, i) => (
             <Link
               to={`?talling=${name}`}
               className={`
@@ -68,7 +61,7 @@ const Posts = () => {
           </Link>
           <div
             className='rounded-full bg-[#E3E3E3]  hover:bg-[#D8D5D5]  px-3 py-2 w-[90%] cursor-pointer flex flex-row justify-start items-center'
-            onClick={() => setCreatePostState(!createPostState)}
+            onClick={() => setCreatePostState(true)}
           >
             <h1 className='text-md text-gray-500'>
               Whats on your mind, User ?

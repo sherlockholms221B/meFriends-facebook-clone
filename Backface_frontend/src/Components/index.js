@@ -11,11 +11,17 @@ import Story from './Stories/Story'
 import Advertisment from './Add/Advertisment'
 import Add from './Add/Add'
 import DynamicMenu from './DynamicMenu/DynamicMenu'
-import CreatePost from './Posts/CreatePost'
+import CreatePost from './CreatePost/CreatePost'
 import PostOptions from './Posts/PostOptions'
-import PostAudience from './Posts/PostAudience'
-import AddToYour from './Posts/AddToYour'
+import PostAudience from './CreatePost/PostAudience'
+import AddToYour from './CreatePost/AddToYour'
 import ProfilePicture from './Posts/ProfilePicture'
+import AddPicture from './CreatePost/AddPicture'
+import Head from './CreatePost/Head'
+import CreatePostLinks from './CreatePost/CreatePostLinks'
+import TagPeople from './CreatePost/TagPeople'
+import ToolTip from './ToolTip'
+import NoPost from './NoPost'
 
 export {
   Navbar,
@@ -24,10 +30,14 @@ export {
   Advertisment,
   Add,
   Post,
+  Head,
   CreatePost,
+  CreatePostLinks,
   PostOptions,
   PostAudience,
   AddToYour,
+  AddPicture,
+  TagPeople,
   Like,
   Input,
   Stories,
@@ -36,4 +46,6 @@ export {
   Comment,
   DynamicMenu,
   ProfilePicture,
+  ToolTip,
+  NoPost,
 }
