@@ -8,6 +8,8 @@ export const AppProvider = ({ children }) => {
   const [addToYourState, setAddToYourState] = useState(false)
   const [addPictureState, setAddPictureState] = useState(false)
   const [tagPeopleState, setTagPeopleState] = useState(false)
+  const [messageState, setMessageState] = useState(false)
+  const [notificationState, setNotificationState] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [goBack, setGoBack] = useState(false)
   const [location, setLocation] = useState({
@@ -38,6 +40,10 @@ export const AppProvider = ({ children }) => {
         setAddPictureState,
         tagPeopleState,
         setTagPeopleState,
+        messageState,
+        setMessageState,
+        notificationState,
+        setNotificationState,
         isLoading,
         setIsLoading,
         goBack,
