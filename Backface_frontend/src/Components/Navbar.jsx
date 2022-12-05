@@ -1,15 +1,24 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { MdLink } from 'react-icons/md'
+import { MdNotifications } from 'react-icons/md'
 import { MdOutlineExpandMore, MdOutlineSearch } from 'react-icons/md'
+import { FaFacebookMessenger } from 'react-icons/fa'
 
 import { profile } from '../Assets/exports'
 import { Input, ToolTip } from './index'
-import { refresh } from '../utils/Functions'
-import { navLinks } from '../utils/links'
+import { iconHandler, refresh } from '../utils/Functions'
+import { useGlobalContext } from '../Context/UseContext'
 
 const Navbar = () => {
   const [searchValue, setSearchValue] = useState('')
+  const messengerRef = useRef(null)
+  const notificationRef = useRef(null)
+  const {
+    setMessageState,
+    setNotificationState,
+    messageState,
+    notificationState,
+  } = useGlobalContext()
 
   return (
     <nav className='flex flex-row justify-between fixed top-0 right-0 w-full  z-10 items-center bg-white shadow-xl px-4 py-1 '>
@@ -28,11 +37,35 @@ const Navbar = () => {
       </div>
 
       <div className='flex flex-row gap-2 items-center'>
-        {navLinks.map(({ icon, alarts, tip }, i) => (
+        {[
+          {
+            icon: <FaFacebookMessenger />,
+            alarts: '3',
+            tip: 'messenger',
+            ref: messengerRef,
+          },
+          {
+            icon: <MdNotifications />,
+            alarts: '1',
+            tip: 'notification',
+            ref: notificationRef,
+          },
+        ].map(({ icon, alarts, tip, ref }, i) => (
           <div
+            ref={ref}
             data-tip
             data-for={tip}
-            className='relative p-[11px] rounded-full bg-[#E3E3E3]  hover:bg-[#D8D5D5] cursor-pointer '
+            onClick={(e) =>
+              iconHandler({
+                e,
+                ref,
+                setMessageState,
+                setNotificationState,
+                messageState,
+                notificationState,
+              })
+            }
+            className={`relative p-[11px] ${tip} rounded-full bg-[#E3E3E3]  hover:bg-[#D8D5D5] cursor-pointer`}
             key={i + alarts}
           >
             <p className='text-lg font-semibold'> {icon} </p>

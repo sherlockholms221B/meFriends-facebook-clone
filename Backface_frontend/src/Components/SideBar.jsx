@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 
 import profile from '../Assets/profile.png'
 import { sideLinks } from '../utils/links'
+import Groups from './Groups'
 
 const SideBar = () => {
   const activeNav =
@@ -58,6 +59,7 @@ const SideBar = () => {
           )}
         </div>
       ))}
+      <Groups />
       <div className='mt-10 mb-4 p-2 flex flex-col gap-3'>
         <h3 className='text-sm text-gray-500 '>
           This is a facebook clone web3 application designed only for
