@@ -168,7 +168,7 @@ const CreatePostLinks = ({ home }) => {
                 >
                   {icon}
                 </p>
-                <h5 className='font-medium'>{title}</h5>
+                <h5 className='font -medium'>{title}</h5>
               </div>
             ))}
           </>
