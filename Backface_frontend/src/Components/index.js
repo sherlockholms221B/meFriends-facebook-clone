@@ -22,6 +22,9 @@ import CreatePostLinks from './CreatePost/CreatePostLinks'
 import TagPeople from './CreatePost/TagPeople'
 import ToolTip from './ToolTip'
 import NoPost from './NoPost'
+import Messages from './Messages/Messages'
+import Notifications from './Notifications/Notifications'
+import Groups from './Groups'
 
 export {
   Navbar,
@@ -48,4 +51,7 @@ export {
   ProfilePicture,
   ToolTip,
   NoPost,
+  Notifications,
+  Messages,
+  Groups,
 }
