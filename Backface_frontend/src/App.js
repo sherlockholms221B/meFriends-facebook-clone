@@ -8,6 +8,9 @@ import {
   PostAudience,
   AddToYour,
   TagPeople,
+  Notifications,
+  Messages,
+  GoPorfile,
 } from './Components/index'
 import { useGlobalContext } from './Context/UseContext'
 
@@ -17,6 +20,9 @@ const App = () => {
     postAudienceState,
     createPostState,
     tagPeopleState,
+    messageState,
+    notificationState,
+    profileState,
     isLoading,
   } = useGlobalContext()
   return (
@@ -38,6 +44,9 @@ const App = () => {
       {postAudienceState && <PostAudience />}
       {tagPeopleState && <TagPeople />}
       {addToYourState && <AddToYour />}
+      {messageState && <Messages />}
+      {notificationState && <Notifications />}
+      {profileState && <GoPorfile />}
     </>
   )
 }
