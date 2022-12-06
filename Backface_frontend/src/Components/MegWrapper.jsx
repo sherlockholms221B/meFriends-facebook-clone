@@ -13,6 +13,7 @@ const MegWrapper = (Component) =>
       tagPeopleState,
       notificationState,
       messageState,
+      profileState,
     } = useGlobalContext()
     return (
       <>
@@ -28,9 +29,15 @@ const MegWrapper = (Component) =>
         ) : (
           ''
         )}
-        {messageState || notificationState ? (
-          <div className='flex justify-center items-center absolute top-10 backdrop-blur-sm right-10 z-10  bg-red-500'>
-            <div className='w-[500px] h-max bg-white  shadow-black '>
+        {messageState || notificationState || profileState ? (
+          <div className='flex justify-center items-center absolute top-10  bg-white  right-10 z-10 rounded-lg  shadow-lg'>
+            <div
+              className={`${
+                profileState
+                  ? 'w-[380px] h-fit bg-white rounded-lg p-4 '
+                  : 'w-[380px] h-fit bg-white rounded-lg '
+              }`}
+            >
               <Component />
             </div>
           </div>

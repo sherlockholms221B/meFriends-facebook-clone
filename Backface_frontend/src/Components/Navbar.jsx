@@ -18,6 +18,8 @@ const Navbar = () => {
     setNotificationState,
     messageState,
     notificationState,
+    profileState,
+    setProfileState,
   } = useGlobalContext()
 
   return (
@@ -61,6 +63,7 @@ const Navbar = () => {
                 ref,
                 setMessageState,
                 setNotificationState,
+                setProfileState,
                 messageState,
                 notificationState,
               })
@@ -68,7 +71,7 @@ const Navbar = () => {
             className={`relative p-[11px] ${tip} rounded-full bg-[#E3E3E3]  hover:bg-[#D8D5D5] cursor-pointer`}
             key={i + alarts}
           >
-            <p className='text-lg font-semibold'> {icon} </p>
+            <i className='text-lg font-semibold'> {icon} </i>
             <div className='flex items-center justify-center absolute w-[20px] h-[20px] rounded-full bg-red-600 top-0 right-0 border-2 border-white z-10'>
               <p className='text-white text-[12px] font-bold'>{alarts}</p>
             </div>
@@ -81,14 +84,18 @@ const Navbar = () => {
             />
           </div>
         ))}
-        <Link
+        <button
           data-tip
           data-for='profile'
-          to={`/backface/api/profile`}
           className='relative border-2 border-white rounded-full cursor-pointer'
+          onClick={() => {
+            setProfileState(!profileState)
+            setMessageState(false)
+            setNotificationState(false)
+          }}
         >
           <img src={profile} alt='profile' className='object-cover w-9 h-9' />
-          <div className='absolute w-[15px] h-[15px] rounded-full bg-red-600 top-0 right-0 border-2 border-white z-10'></div>
+          <div className='absolute w-[15px] h-[15px] rounded-full bg-red-600 top-0 right-0 border-2 border-white z-10' />
           <div className='absolute bottom-[-3px] right-0 rounded-full bg-[#E3E3E3]'>
             <MdOutlineExpandMore className='text-lg ' />
           </div>
@@ -99,7 +106,7 @@ const Navbar = () => {
             place={`left`}
             id={`profile`}
           />
-        </Link>
+        </button>
       </div>
     </nav>
   )
