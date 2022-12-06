@@ -359,6 +359,8 @@ export const posts = [
       },
     ],
     post: feed_one,
+    postText:
+      'When i went to become programer what basic language must be i learn?',
     isPrivate: true,
   },
   {
@@ -370,6 +372,8 @@ export const posts = [
       },
     ],
     post: feed_two,
+    postText:
+      'Want to ensure your writing is out of this world? 🧑‍🚀 💫 With Grammarly for Windows and Mac, you can get instant writing feedback as you move between desktop apps and sites. Install it now!',
     isPrivate: false,
   },
   {
@@ -381,6 +385,7 @@ export const posts = [
       },
     ],
     post: feed_one,
+    postText: 'Jenna Ortega 😻✨',
     isPrivate: false,
   },
   {
@@ -392,6 +397,8 @@ export const posts = [
       },
     ],
     post: feed_three,
+    postText:
+      'Your condition has made many people run away from you,but listen to me. Before 2 months time they will beg for your attention.',
     isPrivate: true,
   },
   {
@@ -403,6 +410,7 @@ export const posts = [
       },
     ],
     post: feed_four,
+    postText: '#me',
     isPrivate: false,
   },
   {
@@ -414,6 +422,8 @@ export const posts = [
       },
     ],
     post: feed_five,
+    postText:
+      'Your condition has made many people run away from you,but listen to me. Before 2 months time they will beg for your attention.',
     isPrivate: false,
   },
   {
@@ -425,6 +435,7 @@ export const posts = [
       },
     ],
     post: feed_six,
+    postText: 'Your condition has made many people run away from you',
     isPrivate: true,
   },
   {
@@ -436,6 +447,8 @@ export const posts = [
       },
     ],
     post: feed_seven,
+    postText:
+      'Your condition has made many people run away from you,but listen to me. Before 2 months time they will beg for your attention.',
     isPrivate: false,
   },
   {
@@ -447,6 +460,7 @@ export const posts = [
       },
     ],
     post: feed_eight,
+    postText: 'walter steel from arrow',
     isPrivate: true,
   },
   {
@@ -458,6 +472,8 @@ export const posts = [
       },
     ],
     post: feed_nine,
+    postText:
+      'Your condition has made many people run away from you,but listen to me. Before 2 months time they will beg for your attention.',
     isPrivate: false,
   },
   {
@@ -469,6 +485,8 @@ export const posts = [
       },
     ],
     post: feed_ten,
+    postText:
+      'Want to ensure your writing is out of this world? 🧑‍🚀 💫 With Grammarly for Windows and Mac, you can get instant writing feedback as you move between desktop apps and sites. Install it now!',
     isPrivate: false,
   },
   {
@@ -480,6 +498,8 @@ export const posts = [
       },
     ],
     isPrivate: false,
+    postText:
+      'Your condition has made many people run away from you,but listen to me. Before 2 months time they will beg for your attention.',
     post: feed_eleven,
   },
   {
@@ -491,6 +511,8 @@ export const posts = [
       },
     ],
     post: feed_tweleve,
+    postText:
+      'Want to ensure your writing is out of this world? 🧑‍🚀 💫 With Grammarly for Windows and Mac, you can get instant writing feedback as you move between desktop apps and sites. Install it now!',
     isPrivate: true,
   },
   {
@@ -502,6 +524,8 @@ export const posts = [
       },
     ],
     post: feed_therteen,
+    postText:
+      'Your condition has made many people run away from you,but listen to me. Before 2 months time they will beg for your attention.',
     isPrivate: true,
   },
   {
@@ -513,6 +537,8 @@ export const posts = [
       },
     ],
     post: feed_fourteen,
+    postText:
+      'When i went to become programer what basic language must be i learn?',
     isPrivate: true,
   },
 ]

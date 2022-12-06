@@ -1,6 +1,6 @@
 import { AiFillHome } from 'react-icons/ai'
-import { FaUserFriends, FaBookmark, FaFacebookMessenger } from 'react-icons/fa'
-import { HiOutlineKey, HiLockClosed } from 'react-icons/hi'
+import { FaUserFriends, FaBookmark } from 'react-icons/fa'
+import { HiLockClosed } from 'react-icons/hi'
 import { TbGridDots } from 'react-icons/tb'
 import { GiBackwardTime, GiEarthAmerica } from 'react-icons/gi'
 import {
@@ -9,15 +9,12 @@ import {
   MdMapsHomeWork,
   MdOutlineOndemandVideo,
   MdGroups,
-  MdNotifications,
   MdVideoCameraBack,
-  MdOutlinePhotoLibrary,
-  MdOutlineLocationOn,
-  MdFlag,
 } from 'react-icons/md'
-import { BsBookFill, BsEmojiWink } from 'react-icons/bs'
+import { BsBookFill, BsLink45Deg } from 'react-icons/bs'
 
 import { profile } from '../Assets/exports'
+import { feed_eight, feed_nine, feed_ten } from '../Assets/exports'
 
 const repeatStyle = 'text-2xl text-gray-800'
 
@@ -58,7 +55,22 @@ export const sideLinks = [
   { title: 'Groups', icon: <MdGroups /> },
   {
     title: 'Shortcuts',
-    icon: <HiOutlineKey />,
+    icon: <BsLink45Deg />,
+  },
+]
+
+export const groupsLinks = [
+  {
+    name: 'The house of dragons',
+    img: feed_eight,
+  },
+  {
+    name: 'THE LAUGH HOUSE',
+    img: feed_nine,
+  },
+  {
+    name: 'JavaScript Mastery',
+    img: feed_ten,
   },
 ]
 
@@ -89,18 +101,18 @@ export const postAudienceLinks = [
   },
 ]
 
-export const navLinks = [
-  {
-    icon: <FaFacebookMessenger />,
-    alarts: '3',
-    tip: 'messenger',
-  },
-  {
-    icon: <MdNotifications />,
-    alarts: '1',
-    tip: 'notification',
-  },
-]
+// export const navLinks = [
+//   {
+//     icon: <FaFacebookMessenger />,
+//     alarts: '3',
+//     tip: 'messenger',
+//   },
+//   {
+//     icon: <MdNotifications />,
+//     alarts: '1',
+//     tip: 'notification',
+//   },
+// ]
 
 export const feedLinks = [
   { name: 'stories', icon: <BsBookFill /> },

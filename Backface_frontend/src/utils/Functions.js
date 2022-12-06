@@ -20,9 +20,12 @@ export const iconHandler = (value) => {
     setAddPictureState,
     setTagPeopleState,
     setCreatePostState,
+    setMessageState,
+    setNotificationState,
+    setProfileState,
+    messageState,
+    notificationState,
     setGoBack,
-    tagPeopleState,
-    createPostState,
   } = value
   e.stopPropagation()
   const classNames = Object.values(ref.current.classList)
@@ -32,6 +35,19 @@ export const iconHandler = (value) => {
 
   if (classNames.includes('text-blue-600')) {
     setTagPeopleState(true)
+    setCreatePostState(false)
     setGoBack(false)
+  }
+
+  if (classNames.includes('messenger')) {
+    setMessageState(!messageState)
+    setNotificationState(false)
+    setProfileState(false)
+  }
+
+  if (classNames.includes('notification')) {
+    setMessageState(false)
+    setProfileState(false)
+    setNotificationState(!notificationState)
   }
 }
