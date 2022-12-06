@@ -25,6 +25,7 @@ import NoPost from './NoPost'
 import Messages from './Messages/Messages'
 import Notifications from './Notifications/Notifications'
 import Groups from './Groups'
+import GoPorfile from './GoProfile.jsx/GoPorfile'
 
 export {
   Navbar,
@@ -54,4 +55,5 @@ export {
   Notifications,
   Messages,
   Groups,
+  GoPorfile,
 }

@@ -10,7 +10,13 @@ import { posts } from '../utils/constants'
 import { profile } from '../Assets/exports'
 
 const Posts = () => {
-  const { createPostState, setCreatePostState } = useGlobalContext()
+  const {
+    createPostState,
+    setCreatePostState,
+    setMessageState,
+    setNotificationState,
+    setProfileState,
+  } = useGlobalContext()
   const isActiveStyle =
     'py-3 px-8   mt-1 cursor-pointer  border-b-[3px] border-blue-600 text-blue-500'
   const isNotActiveStyle =
@@ -60,8 +66,13 @@ const Posts = () => {
             </div>
           </Link>
           <div
-            className='rounded-full bg-[#E3E3E3]  hover:bg-[#D8D5D5]  px-3 py-2 w-[90%] cursor-pointer flex flex-row justify-start items-center'
-            onClick={() => setCreatePostState(true)}
+            className='rounded-full bg-[#E3E3E3]  hover:bg-[#D8D5D5]  px-3 py-1 w-[90%] cursor-pointer flex flex-row justify-start items-center'
+            onClick={() => {
+              setMessageState(false)
+              setNotificationState(false)
+              setProfileState(false)
+              setCreatePostState(true)
+            }}
           >
             <h1 className='text-md text-gray-500'>
               Whats on your mind, User ?
@@ -87,7 +98,13 @@ const Posts = () => {
       </div>
       {posts.map(
         (
-          { creator, profile: [{ profileImage, createdAt }], isPrivate, post },
+          {
+            creator,
+            profile: [{ profileImage, createdAt }],
+            isPrivate,
+            post,
+            postText,
+          },
           index
         ) => (
           <Post
@@ -96,6 +113,7 @@ const Posts = () => {
             createdAt={createdAt}
             isPrivate={isPrivate}
             post={post}
+            postText={postText}
             key={`${creator + index}`}
           />
         )
