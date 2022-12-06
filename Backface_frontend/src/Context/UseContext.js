@@ -10,6 +10,7 @@ export const AppProvider = ({ children }) => {
   const [tagPeopleState, setTagPeopleState] = useState(false)
   const [messageState, setMessageState] = useState(false)
   const [notificationState, setNotificationState] = useState(false)
+  const [profileState, setProfileState] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [goBack, setGoBack] = useState(false)
   const [location, setLocation] = useState({
@@ -44,6 +45,8 @@ export const AppProvider = ({ children }) => {
         setMessageState,
         notificationState,
         setNotificationState,
+        profileState,
+        setProfileState,
         isLoading,
         setIsLoading,
         goBack,
