@@ -16,7 +16,14 @@ import { RiShareForwardLine } from 'react-icons/ri'
 import { Comments, PostOptions, Like } from '../index'
 import { useGlobalContext } from '../../Context/UseContext'
 
-const Post = ({ isPrivate, profileImage, createdAt, creator, post }) => {
+const Post = ({
+  isPrivate,
+  profileImage,
+  createdAt,
+  creator,
+  post,
+  postText,
+}) => {
   const [value, setValue] = useState('')
   const [isComment, setIsComment] = useState(false)
   const [viewMore, setViewMore] = useState(false)
@@ -38,7 +45,7 @@ const Post = ({ isPrivate, profileImage, createdAt, creator, post }) => {
 
   return (
     <>
-      <div className='flex flex-col rounded-md bg-white shadow-xl mt-4 '>
+      <section className='flex flex-col rounded-md bg-white shadow-xl mt-4 '>
         <div className=' relative flex flex-row flex-nowrap justify-between items-center px-3 py-2'>
           <div className='flex gap-2 items-center'>
             <Link to={`/backface/api/profile`}>
@@ -74,6 +81,9 @@ const Post = ({ isPrivate, profileImage, createdAt, creator, post }) => {
             </div>
             {postOption && <PostOptions />}
           </div>
+        </div>
+        <div className='flex items-start-center justify-start px-3 py-2'>
+          <h5 className='text-lg text-gray-700'> {postText} </h5>
         </div>
         <div className='h-full w-[100%] border-b-2 border-t-2 border-gray-300 '>
           <img src={post} alt='post' className='h-full w-[100%] object-cover' />
@@ -117,7 +127,7 @@ const Post = ({ isPrivate, profileImage, createdAt, creator, post }) => {
             setValue={setValue}
           />
         </div>
-      </div>
+      </section>
     </>
   )
 }
