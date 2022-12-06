@@ -119,3 +119,7 @@ body {
     opacity: 1;
   }
 }
+
+.shadow {
+  box-shadow: 1px 1px 10px 5px #e3e3e3;
+}
