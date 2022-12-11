@@ -34,8 +34,12 @@ const CreatePost = () => {
     addPictureState,
     setAddPictureState,
     tagPeopleState,
+    firstImg,
+    setFirstImg,
     goBack,
     setGoBack,
+    selectedFriends,
+    setSelectedFriends,
   } = useGlobalContext()
 
   const createPostHeadings = (e) => {
@@ -64,12 +68,28 @@ const CreatePost = () => {
         </p>
       </div>
       <div className='w-full h-full p-4'>
-        <div className='flex flex-row gap-4 items-center'>
+        <div className='flex flex-row gap-2 items-center mb-2'>
           <ProfilePicture />
-          <div>
-            <h3 className='text-md font-semibold text-gray-800 capitalize'>
-              Don christsanctus chinedu
-            </h3>
+          <div className=' w-fit'>
+            <div className='w-full flex flex-wrap items-center'>
+              <h3 className='text-md font-semibold pr-1 text-gray-800 capitalize'>
+                Don christsanctus chinedu
+              </h3>
+              {selectedFriends.length > 0 && (
+                <h3 className='text-md pr-1 font-semibold text-gray-800 '>
+                  is with{' '}
+                </h3>
+              )}
+              {selectedFriends.length > 0 &&
+                selectedFriends.map((friend, i) => (
+                  <h3
+                    key={i}
+                    className='text-md pl-1 hover:underline cursor-pointer pr-1 font-semibold text-gray-800 '
+                  >
+                    {`${friend},`}
+                  </h3>
+                ))}
+            </div>
             <div
               className='flex flex-row gap-2 items-center rounded-sm bg-gray-200 w-min py-0.5 px-1 cursor-pointer '
               onClick={() => forward(setCreatePostState, setPostAudienceState)}
@@ -80,7 +100,7 @@ const CreatePost = () => {
             </div>
           </div>
         </div>
-        <div className='w-full max-h-[300px] overflow-auto vertical_scroll '>
+        <div className='w-full max-h-[280px] overflow-auto vertical_scroll '>
           <textarea
             ref={textRef}
             value={postvalue}
@@ -91,7 +111,7 @@ const CreatePost = () => {
             placeholder={`What's on your mind, ${'Don'}`}
             className=' outline-none w-full cursor-pointer resize-none  mt-2 mb-2 placeholder:text-2xl pt-2 pl-2 placeholder:text-gray-500 font-meduim scroll_hidden'
           />
-          {addPictureState && <AddPicture />}
+          {(addPictureState || firstImg) && <AddPicture />}
         </div>
         <div className='w-full flex flex-row justify-between items-center'>
           {!addPictureState && (

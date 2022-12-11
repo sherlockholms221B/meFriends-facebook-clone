@@ -68,34 +68,32 @@ const CreatePostLinks = ({ home }) => {
                 tip: 'life event',
               },
             ].map(({ icon, ref, tip }, i) => (
-              <>
-                <button
-                  data-tip
-                  data-for={tip}
-                  key={i}
-                  ref={ref}
-                  className={`${
-                    i === 0 ? 'text-green-600  hover:bg-green-100' : ''
-                  } ${i === 1 ? 'text-blue-600  hover:bg-blue-100' : ''} ${
-                    i === 2 ? 'text-yellow-600  hover:bg-yellow-100' : ''
-                  } ${i === 3 ? 'text-red-600  hover:bg-red-100' : ''} ${
-                    i === 4 ? 'text-blue-400  hover:bg-blue-100' : ''
-                  }  text-2xl p-2 rounded-full`}
-                  onClick={(e) =>
-                    iconHandler({
-                      e,
-                      ref,
-                      setAddPictureState,
-                      setTagPeopleState,
-                      setCreatePostState,
-                      tagPeopleState,
-                      createPostState,
-                      setGoBack,
-                    })
-                  }
-                >
-                  {icon}
-                </button>
+              <button
+                data-tip
+                data-for={tip}
+                key={i}
+                ref={ref}
+                className={`${
+                  i === 0 ? 'text-green-600  hover:bg-green-100' : ''
+                } ${i === 1 ? 'text-blue-600  hover:bg-blue-100' : ''} ${
+                  i === 2 ? 'text-yellow-600  hover:bg-yellow-100' : ''
+                } ${i === 3 ? 'text-red-600  hover:bg-red-100' : ''} ${
+                  i === 4 ? 'text-blue-400  hover:bg-blue-100' : ''
+                }  text-2xl p-2 rounded-full`}
+                onClick={(e) =>
+                  iconHandler({
+                    e,
+                    ref,
+                    setAddPictureState,
+                    setTagPeopleState,
+                    setCreatePostState,
+                    tagPeopleState,
+                    createPostState,
+                    setGoBack,
+                  })
+                }
+              >
+                {icon}
                 <ToolTip
                   title={tip}
                   effect={`float`}
@@ -103,7 +101,7 @@ const CreatePostLinks = ({ home }) => {
                   id={tip}
                   type={`dark`}
                 />
-              </>
+              </button>
             ))}
 
             <p
@@ -145,6 +143,7 @@ const CreatePostLinks = ({ home }) => {
               },
             ].map(({ icon, title }, i) => (
               <div
+                key={i}
                 className={`${
                   i === 0 ? 'text-green-600  hover:bg-green-100' : ''
                 } ${i === 1 ? 'text-blue-600  hover:bg-blue-100' : ''} ${
@@ -154,7 +153,6 @@ const CreatePostLinks = ({ home }) => {
                 } ${
                   i === 5 ? 'text-red-600  hover:bg-red-100' : ''
                 } flex flex-row items-center  gap-2 pl-2 pr-12 py-2 w-[40%] hover:bg-gray-100 rounded-md cursor-pointer `}
-                key={i}
               >
                 <p
                   className={`${i === 0 ? 'text-green-600 ' : ''} ${

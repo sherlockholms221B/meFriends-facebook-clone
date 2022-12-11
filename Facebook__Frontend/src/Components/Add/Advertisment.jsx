@@ -12,7 +12,7 @@ import { MdOutlineSearch, MdVideoCall } from 'react-icons/md'
 const Advertisment = () => {
   const [add, setAdd] = useState(false)
   return (
-    <div className='flex flex-col  gap-3 justify-start items-start w-full h-max pt-4 pl-4 pr-2 pb-4'>
+    <div className='flex flex-col  gap-3 justify-start items-start w-full h-max pt-2 pb-4'>
       <h3 className='text-lg font-bold text-gray-900'>Sponsored</h3>
       {[
         {

@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { MdArrowBack } from 'react-icons/md'
 
 import { useGlobalContext } from '../../Context/UseContext'
 import { previous, forward } from '../../utils/Functions'
@@ -8,6 +7,10 @@ import { Head } from '../index'
 import MegWrapper from '../MegWrapper'
 
 const PostAudience = () => {
+  const active =
+    'flex justify-between items-center mt-2 mb-2 bg-blue-100 p-2 rounded-md'
+  const notActive =
+    'flex justify-between items-center mt-2 mb-2 p-2  rounded-md'
   const [value, setValue] = useState(true)
   const {
     createPostState,
@@ -47,10 +50,7 @@ const PostAudience = () => {
         </div>
 
         {postAudienceLinks.map(({ icon, title, description }, i) => (
-          <div
-            className='flex justify-between items-center mt-2 mb-2 p-2 bg-blue-100 rounded-md  '
-            key={i + title}
-          >
+          <div className={` ${active} `} key={i + title}>
             <div className='flex items-center gap-2 '>
               <p className='rounded-full bg-gray-300 p-4'> {icon} </p>
               <div className='flex flex-col gap-0 '>
@@ -71,7 +71,6 @@ const PostAudience = () => {
             value={value}
             onClick={(e) => {
               setValue(!value)
-              console.log(e.target.value)
             }}
           />
           <label htmlFor='default' className='text-gray-600 font-semibold'>
@@ -80,12 +79,18 @@ const PostAudience = () => {
         </div>
         <div className='flex justify-end items-center gap-4'>
           <button
+            onClick={() =>
+              previous(setCreatePostState, setPostAudienceState, setGoBack)
+            }
             className='text-blue-600 font-semibold hover:bg-gray-100 py-2 px-4 rounded-sm  '
             type='button'
           >
             Cancle
           </button>
           <button
+            onClick={() =>
+              previous(setCreatePostState, setPostAudienceState, setGoBack)
+            }
             className='text-white font-semibold bg-blue-600 hover:bg-blue-700 py-2 px-8 rounded-md  '
             type='button'
           >

@@ -10,7 +10,6 @@ import { posts } from '../../utils/constants'
 
 const TagPeople = () => {
   const [searchFriends, setSearchFriends] = useState('')
-  const [selectedFriends, setSelectedFriends] = useState([])
   const {
     createPostState,
     setCreatePostState,
@@ -21,6 +20,8 @@ const TagPeople = () => {
     tagPeopleState,
     setTagPeopleState,
     setGoBack,
+    selectedFriends,
+    setSelectedFriends,
   } = useGlobalContext()
 
   return (
@@ -57,13 +58,13 @@ const TagPeople = () => {
         </button>
       </div>
       <div className='max-h-[350px] overflow-auto home_scroll p-2'>
-        {selectedFriends.length !== 0 && (
+        {selectedFriends?.length !== 0 && (
           <div className='flex flex-col justify-start items-start w-full '>
             <h4 className='uppercase text-sm ml-2 text-gray-400 font-medium'>
               taged
             </h4>
             <div className='flex flex-row gap-2 flex-wrap home-scroll items-center justify-start p-2 rounded-md  mt-1 mb-1 overflow-auto border-2 border-gray-300 w-full'>
-              {selectedFriends.map((friend, i) => (
+              {selectedFriends?.map((friend, i) => (
                 <div
                   key={i + friend}
                   className='flex flex-row items-center gap-0.5 px-2 py-0.5 rounded-md bg-blue-100'
