@@ -11,8 +11,16 @@ export const AppProvider = ({ children }) => {
   const [messageState, setMessageState] = useState(false)
   const [notificationState, setNotificationState] = useState(false)
   const [profileState, setProfileState] = useState(false)
+  const [settingsState, setSettingsState] = useState(false)
+  const [displayState, setDisplayState] = useState(false)
+  const [feedbackState, setFeedbackState] = useState(false)
+  const [supportState, setSupportState] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [goBack, setGoBack] = useState(false)
+  const [firstImg, setFirstImg] = useState(false)
+  const [result, setResult] = useState('')
+  const [selectedFriends, setSelectedFriends] = useState([])
+
   const [location, setLocation] = useState({
     top: 0,
     center: 0,
@@ -47,6 +55,20 @@ export const AppProvider = ({ children }) => {
         setNotificationState,
         profileState,
         setProfileState,
+        settingsState,
+        setSettingsState,
+        displayState,
+        setDisplayState,
+        feedbackState,
+        setFeedbackState,
+        supportState,
+        setSupportState,
+        firstImg,
+        setFirstImg,
+        result,
+        setResult,
+        selectedFriends,
+        setSelectedFriends,
         isLoading,
         setIsLoading,
         goBack,
