@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { FaMoon, FaQuestionCircle } from 'react-icons/fa'
 import { RiFeedbackFill, RiLogoutBoxRFill } from 'react-icons/ri'
@@ -7,11 +7,24 @@ import { MdOutlineArrowForwardIos, MdSettingsSuggest } from 'react-icons/md'
 import MegWrapper from '../MegWrapper'
 import { ProfilePicture } from '../index'
 import { useGlobalContext } from '../../Context/UseContext'
+import { iconHandler } from '../../utils/Functions'
 const GoPorfile = () => {
-  const { setProfileState } = useGlobalContext()
+  const settings = useRef(null)
+  const support = useRef(null)
+  const feedback = useRef(null)
+  const logOut = useRef(null)
+  const display = useRef(null)
+  const {
+    setSettingsState,
+    setDisplayState,
+    setFeedbackState,
+    setSupportState,
+    setProfileState,
+    goBack,
+  } = useGlobalContext()
   return (
     <>
-      <section className='p-1 shadow rounded-md'>
+      <section className={` ${goBack && 'translate__x'} p-1 shadow rounded-md`}>
         <Link
           onClick={() => setProfileState(false)}
           to={`/backface/api/profile`}
@@ -38,25 +51,50 @@ const GoPorfile = () => {
             icon: <MdSettingsSuggest />,
             title: 'Settings & privacy',
             isMove: true,
+            ref: settings,
           },
           {
             icon: <FaQuestionCircle />,
             title: 'Help & support',
             isMove: true,
+            ref: support,
           },
-          { icon: <FaMoon />, title: 'Display & accessibility', isMove: true },
-          { icon: <RiFeedbackFill />, title: 'Give feedback', isMove: false },
+          {
+            icon: <FaMoon />,
+            title: 'Display & accessibility',
+            isMove: true,
+            ref: display,
+          },
+          {
+            icon: <RiFeedbackFill />,
+            title: 'Give feedback',
+            isMove: false,
+            ref: feedback,
+          },
           {
             icon: <RiLogoutBoxRFill />,
             title: 'Log Out',
             isMove: false,
+            ref: logOut,
           },
-        ].map(({ icon, title, isMove }, i) => (
+        ].map(({ icon, title, isMove, ref }, i) => (
           <div
+            ref={ref}
+            onClick={(e) =>
+              iconHandler({
+                e,
+                ref,
+                setSettingsState,
+                setDisplayState,
+                setFeedbackState,
+                setSupportState,
+                setProfileState,
+              })
+            }
             key={i + title}
             className={` ${
               isMove && 'justify-between flex flex-row items-center'
-            } hover:bg-gray-100 p-2 w-full rounded-md cursor-pointer`}
+            } ${title} hover:bg-gray-100 p-2 w-full rounded-md cursor-pointer`}
           >
             <div className='flex flex-row items-center gap-2 w-fit '>
               <p className='text-xl rounded-full bg-gray-200 p-2 w-fit h-fit'>
