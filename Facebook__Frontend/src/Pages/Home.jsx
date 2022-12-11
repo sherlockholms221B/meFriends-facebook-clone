@@ -25,15 +25,15 @@ const Home = () => {
           </h3>
         </div>
       ) : (
-        <div className='relative overflow-hidden h-[100vh] w-[100vw] pt-[60px] bg-[#E3E3E3]'>
-          <div className='flex items-strech w-[100vw] h-[100%] gap-24 px-1'>
-            <div className='overflow-auto home_scroll content w-[350px]'>
+        <div className='relative overflow-hidden h-[100vh] w-[100vw] pt-[55px] bg-[#E3E3E3]'>
+          <div className='border-red-500 border-2 relative  flex items-strech  justify-between w-[100vw] h-[100%]'>
+            <div className='overflow-auto home_scroll content w-min xl:w-[300px] xl:bg-inherit  bg-white'>
               <SideBar />
             </div>
-            <div className=' flex items-center justify-center w-[500px]  px-1 '>
+            <div className=' flex items-center justify-center w-[500px] px-1 '>
               <Feeds />
             </div>
-            <div className='overflow-auto home_scroll hidden md:block w-[350px]'>
+            <div className='overflow-auto home_scroll hidden lg:block w-[300px]'>
               <Advertisment />
             </div>
           </div>
