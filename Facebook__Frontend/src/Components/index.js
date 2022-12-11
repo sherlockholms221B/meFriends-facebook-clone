@@ -26,6 +26,10 @@ import Messages from './Messages/Messages'
 import Notifications from './Notifications/Notifications'
 import Groups from './Groups'
 import GoPorfile from './GoProfile.jsx/GoPorfile'
+import Support from './GoProfile.jsx/Support'
+import Settings from './GoProfile.jsx/Settings'
+import Feedback from './GoProfile.jsx/Feedback'
+import Display from './GoProfile.jsx/Display'
 
 export {
   Navbar,
@@ -56,4 +60,8 @@ export {
   Messages,
   Groups,
   GoPorfile,
+  Support,
+  Settings,
+  Feedback,
+  Display,
 }

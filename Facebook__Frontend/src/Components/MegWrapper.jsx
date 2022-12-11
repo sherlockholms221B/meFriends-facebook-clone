@@ -14,12 +14,17 @@ const MegWrapper = (Component) =>
       notificationState,
       messageState,
       profileState,
+      settingsState,
+      displayState,
+      feedbackState,
+      supportState,
     } = useGlobalContext()
     return (
       <>
         {createPostState ||
         addToYourState ||
         postAudienceState ||
+        feedbackState ||
         tagPeopleState ? (
           <div className='flex justify-center items-center absolute top-0 backdrop-blur-sm right-0  z-10 h-screen w-screen'>
             <div className='w-[500px] h-max bg-white rounded-lg shadow-black '>
@@ -29,20 +34,25 @@ const MegWrapper = (Component) =>
         ) : (
           ''
         )}
-        {messageState || notificationState || profileState ? (
+        {messageState ||
+        notificationState ||
+        profileState ||
+        settingsState ||
+        displayState ||
+        supportState ? (
           <div className='flex justify-center items-center absolute top-10  bg-white  right-10 z-10 rounded-lg  shadow-lg'>
             <div
               className={`${
                 profileState
-                  ? 'w-[380px] h-fit bg-white rounded-lg p-4 '
-                  : 'w-[380px] h-fit bg-white rounded-lg '
+                  ? 'w-[380px] h-fit bg-white rounded-lg p-4 overflow-hidden'
+                  : 'w-[380px] h-fit bg-white rounded-lg overflow-hidden '
               }`}
             >
               <Component />
             </div>
           </div>
         ) : (
-          <NoPost title={`No chart found`} />
+          ''
         )}
       </>
     )

@@ -14,7 +14,7 @@ const SideBar = () => {
   const query = new URLSearchParams(search).get('talling')
 
   return (
-    <div className='flex flex-col justify-start items-start w-ful h-full pb-2 pt-2 '>
+    <div className='flex flex-col justify-start items-start w-full h-fit pb-2 pt-2'>
       {sideLinks.map((page, i) => (
         <div
           key={i + page.title}
@@ -25,17 +25,20 @@ const SideBar = () => {
           }`}
         >
           {i === sideLinks.length - (sideLinks.length - 1) ? (
-            <Link to={`/backface/api/profile`}>
-              <div className='flex flex-row gap-2 mt-1.5 mb-1.5 px-3 py-2 rounded-md hover:bg-gray-300 items-center '>
-                <img
-                  src={profile}
-                  alt='profile'
-                  className='object-cover w-6 h-6'
-                />
-                <h3 className='text-md font-semibold text-gray-900'>
-                  {page.title}
-                </h3>
-              </div>
+            <Link
+              to={`/backface/api/profile`}
+              className='flex flex-row gap-2 mt-1.5 mb-1.5 px-3 py-2 rounded-md hover:bg-gray-300 items-center '
+            >
+              <img
+                src={profile}
+                alt='profile'
+                className='object-cover w-6 h-6'
+              />
+              <h3
+                className={` hidden xl:block text-md font-semibold text-gray-900`}
+              >
+                {page.title}
+              </h3>
             </Link>
           ) : (
             <Link to={`?talling=${page.title}`}>
@@ -45,13 +48,15 @@ const SideBar = () => {
                     i === sideLinks.length - (sideLinks.length - 2) ||
                     i === sideLinks.length - (sideLinks.length - 8) ||
                     i === sideLinks.length - (sideLinks.length - 9)
-                      ? 'text-gray-700 border-2 border-gray-300 rounded-full bg-gray-300 p-[4px] '
+                      ? 'text-gray-700 border-2 border-gray-300 rounded-full bg-gray-300 xl:p-[4px] '
                       : 'text-blue-600'
-                  }  text-xl `}
+                  }  xl:text-xl `}
                 >
                   {page.icon}
                 </p>
-                <p className={`  text-md font-semibold text-gray-900 `}>
+                <p
+                  className={` hidden xl:block text-md font-semibold text-gray-900`}
+                >
                   {page.title}
                 </p>
               </div>
@@ -60,7 +65,7 @@ const SideBar = () => {
         </div>
       ))}
       <Groups />
-      <div className='mt-10 mb-4 p-2 flex flex-col gap-3'>
+      <div className='  hidden mt-10 mb-4 p-2 xl:flex flex-col gap-3'>
         <h3 className='text-sm text-gray-500 '>
           This is a facebook clone web3 application designed only for
           educational purposes contact the developer for more.

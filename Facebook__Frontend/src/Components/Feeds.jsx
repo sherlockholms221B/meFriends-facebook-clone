@@ -74,7 +74,7 @@ const Posts = () => {
               setCreatePostState(true)
             }}
           >
-            <h1 className='text-md text-gray-500'>
+            <h1 className='text-md text-gray-500 p-1'>
               Whats on your mind, User ?
             </h1>
           </div>

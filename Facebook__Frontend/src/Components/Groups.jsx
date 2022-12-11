@@ -14,7 +14,11 @@ const Groups = () => {
               alt='profile'
               className='object-cover w-6 h-6 rounded-lg'
             />
-            <h3 className='text-md font-semibold text-gray-900'>{name}</h3>
+            <h3
+              className={` hidden xl:block text-md font-semibold text-gray-900`}
+            >
+              {name}
+            </h3>
           </div>
         </Link>
       ))}

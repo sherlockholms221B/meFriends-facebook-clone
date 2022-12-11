@@ -35,7 +35,7 @@ const Navbar = () => {
           handleChange={(e) => setSearchValue(e.target.value)}
           value={searchValue}
         />
-        <MdOutlineSearch className='absolute top-2 left-3 text-gray-400 text-2xl cursor-pointer ' />
+        <MdOutlineSearch className='absolute md:top-2 md:left-3 top-0 left-0 text-gray-400 text-2xl cursor-pointer ' />
       </div>
 
       <div className='flex flex-row gap-2 items-center'>
@@ -71,7 +71,7 @@ const Navbar = () => {
             className={`relative p-[11px] ${tip} rounded-full bg-[#E3E3E3]  hover:bg-[#D8D5D5] cursor-pointer`}
             key={i + alarts}
           >
-            <i className='text-lg font-semibold'> {icon} </i>
+            <i className='text-lg font-semibold '> {icon} </i>
             <div className='flex items-center justify-center absolute w-[20px] h-[20px] rounded-full bg-red-600 top-0 right-0 border-2 border-white z-10'>
               <p className='text-white text-[12px] font-bold'>{alarts}</p>
             </div>
