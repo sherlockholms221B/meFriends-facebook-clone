@@ -23,6 +23,10 @@ export const iconHandler = (value) => {
     setMessageState,
     setNotificationState,
     setProfileState,
+    setSettingsState,
+    setDisplayState,
+    setFeedbackState,
+    setSupportState,
     messageState,
     notificationState,
     setGoBack,
@@ -49,5 +53,22 @@ export const iconHandler = (value) => {
     setMessageState(false)
     setProfileState(false)
     setNotificationState(!notificationState)
+  }
+
+  if (classNames.includes('Settings')) {
+    setSettingsState(true)
+    setProfileState(false)
+  }
+  if (classNames.includes('support')) {
+    setSupportState(true)
+    setProfileState(false)
+  }
+  if (classNames.includes('accessibility')) {
+    setDisplayState(true)
+    setProfileState(false)
+  }
+  if (classNames.includes('feedback')) {
+    setFeedbackState(true)
+    setProfileState(false)
   }
 }
