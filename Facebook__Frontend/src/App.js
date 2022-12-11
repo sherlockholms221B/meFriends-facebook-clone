@@ -11,6 +11,10 @@ import {
   Notifications,
   Messages,
   GoPorfile,
+  Support,
+  Settings,
+  Feedback,
+  Display,
 } from './Components/index'
 import { useGlobalContext } from './Context/UseContext'
 
@@ -23,6 +27,10 @@ const App = () => {
     messageState,
     notificationState,
     profileState,
+    settingsState,
+    displayState,
+    feedbackState,
+    supportState,
     isLoading,
   } = useGlobalContext()
   return (
@@ -47,6 +55,10 @@ const App = () => {
       {messageState && <Messages />}
       {notificationState && <Notifications />}
       {profileState && <GoPorfile />}
+      {settingsState && <Settings />}
+      {displayState && <Display />}
+      {supportState && <Support />}
+      {feedbackState && <Feedback />}
     </>
   )
 }

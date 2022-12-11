@@ -93,7 +93,7 @@ body {
 
 @keyframes animate {
   0% {
-    transform: translateX(5em);
+    transform: translateX(2em);
     opacity: 0;
   }
 
