@@ -1,4 +1,4 @@
-import { AiFillHome } from 'react-icons/ai'
+import { AiFillHome, AiOutlineFieldTime } from 'react-icons/ai'
 import { FaUserFriends, FaBookmark } from 'react-icons/fa'
 import { HiLockClosed } from 'react-icons/hi'
 import { TbGridDots } from 'react-icons/tb'
@@ -13,49 +13,30 @@ import {
 } from 'react-icons/md'
 import { BsBookFill, BsLink45Deg } from 'react-icons/bs'
 
-import { profile } from '../Assets/exports'
 import { feed_eight, feed_nine, feed_ten } from '../Assets/exports'
 
 const repeatStyle = 'text-2xl text-gray-800'
 
 export const sideLinks = [
   {
-    title: 'Home',
-    icon: <AiFillHome />,
-  },
-  {
-    title: 'Don christsanctus',
-    icon: profile,
-  },
-
-  {
-    title: 'Menu',
-    icon: <TbGridDots />,
-  },
-  {
     title: 'Friends',
     icon: <FaUserFriends />,
+  },
+  {
+    title: 'Saved',
+    icon: <FaBookmark />,
   },
   {
     title: 'Market place',
     icon: <MdMapsHomeWork />,
   },
   {
-    title: 'Watched',
+    title: 'Watch',
     icon: <MdOutlineOndemandVideo />,
   },
   {
     title: 'Memories',
-    icon: <GiBackwardTime className='text-2xl font-bold' />,
-  },
-  {
-    title: 'Saved',
-    icon: <FaBookmark />,
-  },
-  { title: 'Groups', icon: <MdGroups /> },
-  {
-    title: 'Shortcuts',
-    icon: <BsLink45Deg />,
+    icon: <AiOutlineFieldTime />,
   },
 ]
 
@@ -78,25 +59,30 @@ export const postAudienceLinks = [
   {
     icon: <GiEarthAmerica className={`${repeatStyle}`} />,
     title: 'Public',
+    id: 'public',
     description: 'Anyone on or off Facebook',
   },
   {
     icon: <FaUserFriends className={`${repeatStyle}`} />,
     title: 'Friends',
+    id: 'friends',
     description: 'Your friends on Facebook',
   },
   {
     icon: <HiLockClosed className={`${repeatStyle}`} />,
     title: 'Only me',
+    id: 'me',
   },
   {
     icon: <MdPerson className={`${repeatStyle}`} />,
     title: 'Specific friends',
     description: 'Only show to some friends',
+    id: 'specific',
   },
   {
     icon: <MdSettings className={`${repeatStyle}`} />,
     title: 'Custom',
+    id: 'custom',
     description: 'Include and exclude friends and lists',
   },
 ]
