@@ -9,9 +9,9 @@ import { person_fourteen } from '../../Assets/exports'
 const Stories = () => {
   return (
     <>
-      <div className='flex gap-2 flex-nowrap overflow-x-scroll mt-4 mb-4 ml-2 pb-2 scroll_styled'>
-        <div className='inline-block w-28 h-52'>
-          <div className=' flex flex-col w-28 h-52 rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out relative text-center'>
+      <div className='flex gap-2.5 flex-nowrap overflow-x-scroll mb-4 p-4 scroll_styled'>
+        <div className='inline-block w-fit h-fit ring-2 dark:ring-slate-700 ring-white rounded-lg shadow-md shadow-slate-700'>
+          <div className='dark:bg-darkSecondary flex flex-col w-32 h-52 rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out relative text-center'>
             <img
               src={person_fourteen}
               alt='str'

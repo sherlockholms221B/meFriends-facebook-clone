@@ -1,22 +1,16 @@
 import React, { useState } from 'react'
 import { MdClose, MdOutlineSearch } from 'react-icons/md'
-import { Link } from 'react-router-dom'
 
 import { useGlobalContext } from '../../Context/UseContext'
 import MegWrapper from '../MegWrapper'
 import { Head, Input, NoPost } from '../index'
-import { previous } from '../../utils/Functions'
+import { previous } from '../../functions/stateHandler'
 import { posts } from '../../utils/constants'
 
 const TagPeople = () => {
   const [searchFriends, setSearchFriends] = useState('')
   const {
-    createPostState,
     setCreatePostState,
-    addToYourState,
-    setAddToYourState,
-    postAudienceState,
-    setPostAudienceState,
     tagPeopleState,
     setTagPeopleState,
     setGoBack,
@@ -28,7 +22,7 @@ const TagPeople = () => {
     <div
       className={` ${
         tagPeopleState && 'translate_x'
-      } bg-white z-20  w-full h-full rounded-lg  shadow-slate-600`}
+      }  z-20  w-full h-full rounded-lg dark:border dark:border-borderDark`}
     >
       <Head
         title={`Tag people`}
@@ -94,7 +88,7 @@ const TagPeople = () => {
                   console.log(selectedFriends)
                 }}
                 key={i + creator}
-                className='flex flex-row gap-2 items-center px-2 py-0.5 hover:bg-gray-300 rounded-md w-full mt-1 mb-1'
+                className='flex flex-row gap-2 items-center px-2 py-0.5 hover:bg-hover rounded-md w-full mt-1 mb-1'
               >
                 <div className='rounded-full cursor-pointer'>
                   <img

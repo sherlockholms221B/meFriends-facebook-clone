@@ -10,9 +10,8 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+    'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
 
 .scroll_hidden::-webkit-scrollbar {
@@ -123,3 +122,10 @@ body {
 .shadow {
   box-shadow: 1px 1px 10px 5px #e3e3e3;
 }
+
+/* .display-none {
+  @apply hidden;
+} */
+/* .black {
+  background-color: #d4d8e8;
+} */

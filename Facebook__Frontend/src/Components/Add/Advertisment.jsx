@@ -47,7 +47,7 @@ const Advertisment = () => {
         },
       ].map(({ img, name, count, description }, i) => (
         <div
-          className='flex flex-row gap-4 items-center p-2 cursor-pointer rounded-md hover:bg-gray-300 '
+          className='flex flex-row gap-4 items-center p-2 cursor-pointer rounded-md hover:bg-hover '
           key={i + name}
         >
           <p className='text-3xl text-blue-400'>{img}</p>
@@ -80,7 +80,7 @@ const Advertisment = () => {
             },
           ].map((option, i) => (
             <div
-              className='rounded-full p-2 hover:bg-gray-300 cursor-pointer'
+              className='rounded-full p-2 hover:bg-hover cursor-pointer'
               key={i}
             >
               <p className='text-gray-500 text-lg'>{option.icon}</p>
@@ -93,7 +93,7 @@ const Advertisment = () => {
           <Link
             to={`/backface/api/profile`}
             key={i + creator}
-            className='flex flex-row gap-2 items-center p-2 hover:bg-gray-300 rounded-md w-full'
+            className='flex flex-row gap-2 items-center p-2 hover:bg-hover rounded-md w-full'
           >
             <div className='relative border-2 hover:border-gray-300 border-white rounded-full cursor-pointer'>
               <img

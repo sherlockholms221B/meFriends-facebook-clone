@@ -21,8 +21,8 @@ const Comment = ({
               className='object-cover w-8 h-8 rounded-full'
             />
           </Link>
-          <div className='flex flex-col items-start gap-2  w-3/4 rounded-lg bg-[#E3E3E3] pt-2 pl-2 pr-5 shadow-lg'>
-            <div className='flex flex-col items-start  w-full rounded-lg bg-[#E3E3E3] py-2 pl-2 pr-5 shadow-lg'>
+          <div className='flex flex-col items-start gap-2  w-3/4 rounded-lg bg-primary pt-2 pl-2 pr-5 shadow-lg'>
+            <div className='flex flex-col items-start  w-full rounded-lg bg-primary py-2 pl-2 pr-5 shadow-lg'>
               <h2 className='capitalize text-md text-black-200 font-medium mb-1 cursor-pointer'>
                 {creator}
               </h2>

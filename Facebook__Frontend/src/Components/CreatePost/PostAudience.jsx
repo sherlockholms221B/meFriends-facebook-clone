@@ -1,14 +1,12 @@
 import React, { useState } from 'react'
 
 import { useGlobalContext } from '../../Context/UseContext'
-import { previous, forward } from '../../utils/Functions'
+import { previous, forward } from '../../functions/stateHandler'
 import { postAudienceLinks } from '../../utils/links'
 import { Head } from '../index'
 import MegWrapper from '../MegWrapper'
 
 const PostAudience = () => {
-  const active =
-    'flex justify-between items-center mt-2 mb-2 bg-blue-100 p-2 rounded-md'
   const notActive =
     'flex justify-between items-center mt-2 mb-2 p-2  rounded-md'
   const [value, setValue] = useState(true)
@@ -25,7 +23,7 @@ const PostAudience = () => {
     <div
       className={` ${
         postAudienceState ? 'translate_x' : ''
-      } bg-white z-20  w-full h-full rounded-lg`}
+      }  z-20  w-full h-full rounded-lg dark:border dark:border-borderDark`}
     >
       <Head
         title={`Post audience`}
@@ -49,20 +47,32 @@ const PostAudience = () => {
           </p>
         </div>
 
-        {postAudienceLinks.map(({ icon, title, description }, i) => (
-          <div className={` ${active} `} key={i + title}>
-            <div className='flex items-center gap-2 '>
-              <p className='rounded-full bg-gray-300 p-4'> {icon} </p>
-              <div className='flex flex-col gap-0 '>
-                <h3 className='text-lg font-semibold text-gray-800'>{title}</h3>
-                <p className='text-md text-gray-500 mt-[-5px]'>{description}</p>
-              </div>
+        <div className=''>
+          {postAudienceLinks.map(({ icon, title, description, id }, i) => (
+            <div key={i + title}>
+              <input type='radio' className='hidden' id={id} />
+              <label
+                htmlFor={id}
+                className={`flex ${id} justify-between items-center mt-2 mb-2 p-2 rounded-md`}
+              >
+                <div className='flex items-center gap-2 '>
+                  <p className='rounded-full bg-gray-300 p-4'> {icon} </p>
+                  <div className='flex flex-col gap-0 '>
+                    <h3 className='text-lg font-semibold text-gray-800'>
+                      {title}
+                    </h3>
+                    <p className='text-md text-gray-500 mt-[-5px]'>
+                      {description}
+                    </p>
+                  </div>
+                </div>
+                <div className='border-2 border-gray-500 h-6 w-6 rounded-full ' />
+              </label>
             </div>
-            <div className='border-2 border-gray-500 h-6 w-6 rounded-full ' />
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-      <div className='relative flex flex-col gap-2 border-t-2 border-gray-300 p-3'>
+      <div className='relative flex flex-col gap-2 border-t-2 dark:border-borderDark border-gray-300 p-3'>
         <div className='flex justify-start items-center gap-2'>
           <input
             type='checkbox'
@@ -82,7 +92,7 @@ const PostAudience = () => {
             onClick={() =>
               previous(setCreatePostState, setPostAudienceState, setGoBack)
             }
-            className='text-blue-600 font-semibold hover:bg-gray-100 py-2 px-4 rounded-sm  '
+            className='text-blue-600 font-semibold hover:bg-hover py-2 px-4 rounded-sm  '
             type='button'
           >
             Cancle

@@ -29,7 +29,7 @@ const Messages = () => {
               },
             ].map((option, i) => (
               <div
-                className='rounded-full p-2 hover:bg-gray-100 cursor-pointer'
+                className='rounded-full p-2 hover:bg-hover cursor-pointer'
                 key={i}
               >
                 <i

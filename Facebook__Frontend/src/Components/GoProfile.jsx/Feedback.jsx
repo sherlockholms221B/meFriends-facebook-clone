@@ -18,7 +18,11 @@ const Feedback = () => {
     feedbackState,
   } = useGlobalContext()
   return (
-    <div className={` ${feedbackState ? 'py-4 translate_x' : 'py-4'} `}>
+    <div
+      className={` ${
+        feedbackState ? 'py-4 translate_x' : 'py-4'
+      } dark:border dark:border-borderDark rounded-lg `}
+    >
       <Head
         title={`Give feedback to Facebook`}
         setFirstState={setProfileState}
@@ -40,7 +44,7 @@ const Feedback = () => {
         ].map(({ icon, title, description }, i) => (
           <div
             key={i + title}
-            className={`  ${title} hover:bg-gray-100 p-2 w-full rounded-md cursor-pointer`}
+            className={`  ${title} hover:bg-hover p-2 w-full rounded-md cursor-pointer`}
           >
             <div className='flex flex-row items-center gap-2 w-fit '>
               <p className='text-2xl rounded-full bg-gray-200 p-4 w-fit h-fit'>

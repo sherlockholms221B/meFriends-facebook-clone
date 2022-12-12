@@ -7,7 +7,7 @@ import { MdOutlineArrowForwardIos, MdSettingsSuggest } from 'react-icons/md'
 import MegWrapper from '../MegWrapper'
 import { ProfilePicture } from '../index'
 import { useGlobalContext } from '../../Context/UseContext'
-import { iconHandler } from '../../utils/Functions'
+import { iconHandler } from '../../functions/stateHandler'
 const GoPorfile = () => {
   const settings = useRef(null)
   const support = useRef(null)
@@ -24,23 +24,27 @@ const GoPorfile = () => {
   } = useGlobalContext()
   return (
     <>
-      <section className={` ${goBack && 'translate__x'} p-1 shadow rounded-md`}>
+      <section
+        className={` ${
+          goBack && 'translate__x'
+        } p-1 shadow-lg rounded-md drop-shadow-2xl shadow-gray-400 dark:shadow-zinc-900`}
+      >
         <Link
           onClick={() => setProfileState(false)}
           to={`/backface/api/profile`}
-          className='hover:bg-gray-100 h-fit flex flex-row items-center gap-3 px-2 py-1 rounded-md cursor-pointer'
+          className='hover:bg-hover dark:hover:bg-darkComplementry h-fit flex flex-row items-center gap-3 px-2 py-1 rounded-md cursor-pointer'
         >
           <ProfilePicture />
           <h5 className='text-lg font-semibold text-gray-900'>
             Don Christsantus Outis
           </h5>
         </Link>
-        <div className='border mt-1 mb-1' />
-        <div className='hover:bg-gray-100 h-fit flex flex-row justify-between items-center gap-3 p-2 rounded-md'>
+        <div className='border mt-1 mb-1 dark:border-borderDark' />
+        <div className='dark:hover:bg-darkComplementry hover:bg-hover h-fit flex flex-row justify-between items-center gap-3 p-2 rounded-md'>
           <h5 className='text-blue-600 cursor-pointer font-medium'>
             See all profiles
           </h5>
-          <div className='flex items-center justify-center  w-6 h-6 rounded-full bg-red-600  border-2 border-white'>
+          <div className='flex items-center justify-center  w-6 h-6 rounded-full bg-red-600  border-2 dark:border-borderDark border-white'>
             <p className='text-white text-[12px] font-bold'>10</p>
           </div>
         </div>
@@ -94,16 +98,18 @@ const GoPorfile = () => {
             key={i + title}
             className={` ${
               isMove && 'justify-between flex flex-row items-center'
-            } ${title} hover:bg-gray-100 p-2 w-full rounded-md cursor-pointer`}
+            } ${title} dark:hover:bg-darkComplementry hover:bg-hover p-2 w-full rounded-md cursor-pointer`}
           >
             <div className='flex flex-row items-center gap-2 w-fit '>
-              <p className='text-xl rounded-full bg-gray-200 p-2 w-fit h-fit'>
+              <p className='text-xl rounded-full  dark:shadow-black dark:shadow-sm dark:bg-darkComplementry bg-gray-200 p-2 w-fit h-fit'>
                 {icon}
               </p>
-              <h4 className='text-gray-900 font-medium '>{title}</h4>
+              <h4 className='text-gray-900 font-medium dark:text-white'>
+                {title}
+              </h4>
             </div>
             {isMove && (
-              <p className='font-medium text-2xl'>
+              <p className='font-medium text-2xl dark:text-white'>
                 <MdOutlineArrowForwardIos />
               </p>
             )}

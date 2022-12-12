@@ -6,7 +6,7 @@ import { FaFacebookMessenger } from 'react-icons/fa'
 
 import { profile } from '../Assets/exports'
 import { Input, ToolTip } from './index'
-import { iconHandler, refresh } from '../utils/Functions'
+import { iconHandler, refresh } from '../functions/stateHandler'
 import { useGlobalContext } from '../Context/UseContext'
 
 const Navbar = () => {
@@ -23,22 +23,24 @@ const Navbar = () => {
   } = useGlobalContext()
 
   return (
-    <nav className='flex flex-row justify-between fixed top-0 right-0 w-full  z-10 items-center bg-white shadow-xl px-4 py-1 '>
+    <nav className='dark:bg-darkSecondary flex flex-row justify-between fixed top-0 right-0 w-full  z-10 items-center bg-white shadow-inner border-b dark:border-b-4 dark:pb-1 dark:border-borderDark px-4 py-2 '>
       <Link to={`/`} onClick={refresh}>
-        <h1 className='font-bold text-[29px] text-blue-600'> facebook </h1>
+        <h1 className='font-bold text-[32px] dark:text-white text-blue-600'>
+          facebook
+        </h1>
       </Link>
       <div className='relative  rounded-full'>
         <Input
           type={`text`}
           name={`search`}
-          placeholder={`Search facebook`}
+          placeholder={`Search Facebook`}
           handleChange={(e) => setSearchValue(e.target.value)}
           value={searchValue}
         />
-        <MdOutlineSearch className='absolute md:top-2 md:left-3 top-0 left-0 text-gray-400 text-2xl cursor-pointer ' />
+        <MdOutlineSearch className='absolute md:top-2 md:left-3 top-0 left-0 text-gray-500 text-2xl cursor-pointer ' />
       </div>
 
-      <div className='flex flex-row gap-2 items-center'>
+      <div className='flex flex-row gap-3 items-center'>
         {[
           {
             icon: <FaFacebookMessenger />,
@@ -53,7 +55,7 @@ const Navbar = () => {
             ref: notificationRef,
           },
         ].map(({ icon, alarts, tip, ref }, i) => (
-          <div
+          <ul
             ref={ref}
             data-tip
             data-for={tip}
@@ -68,11 +70,12 @@ const Navbar = () => {
                 notificationState,
               })
             }
-            className={`relative p-[11px] ${tip} rounded-full bg-[#E3E3E3]  hover:bg-[#D8D5D5] cursor-pointer`}
+            className={`relative p-2.5 dark:bg-darkComplementry  ${tip} rounded-full bg-hover  hover:bg-primaryWhite
+            cursor-pointer`}
             key={i + alarts}
           >
-            <i className='text-lg font-semibold '> {icon} </i>
-            <div className='flex items-center justify-center absolute w-[20px] h-[20px] rounded-full bg-red-600 top-0 right-0 border-2 border-white z-10'>
+            <li className='text-2xl font-semibold dark:text-white'> {icon} </li>
+            <div className='dark:border-0 flex items-center justify-center absolute w-[20px] h-[20px] rounded-full bg-red-600 top-0 right-0 border-2 border-white z-10'>
               <p className='text-white text-[12px] font-bold'>{alarts}</p>
             </div>
             <ToolTip
@@ -82,22 +85,22 @@ const Navbar = () => {
               type={`dark`}
               place={`bottom`}
             />
-          </div>
+          </ul>
         ))}
         <button
           data-tip
           data-for='profile'
-          className='relative border-2 border-white rounded-full cursor-pointer'
+          className='relative dark:ring-2 dark:ring-slate-800  rounded-full cursor-pointer'
           onClick={() => {
             setProfileState(!profileState)
             setMessageState(false)
             setNotificationState(false)
           }}
         >
-          <img src={profile} alt='profile' className='object-cover w-9 h-9' />
+          <img src={profile} alt='profile' className='object-cover w-11 h-11' />
           <div className='absolute w-[15px] h-[15px] rounded-full bg-red-600 top-0 right-0 border-2 border-white z-10' />
-          <div className='absolute bottom-[-3px] right-0 rounded-full bg-[#E3E3E3]'>
-            <MdOutlineExpandMore className='text-lg ' />
+          <div className='absolute bottom-[-3px] dark:ring-slate-800 dark:bg-darkComplementry right-0 rounded-full bg-hover border-white  ring-2 ring-white w-4 h-4 flex justify-center items-center'>
+            <MdOutlineExpandMore className='text-lg dark:text-white text-black font-bold' />
           </div>
           <ToolTip
             title={`account`}

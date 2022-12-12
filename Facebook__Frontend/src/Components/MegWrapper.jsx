@@ -27,7 +27,7 @@ const MegWrapper = (Component) =>
         feedbackState ||
         tagPeopleState ? (
           <div className='flex justify-center items-center absolute top-0 backdrop-blur-sm right-0  z-10 h-screen w-screen'>
-            <div className='w-[500px] h-max bg-white rounded-lg shadow-black '>
+            <div className='w-[560px] h-max bg-white dark:bg-darkSecondary rounded-lg shadow-black '>
               <Component />
             </div>
           </div>
@@ -40,12 +40,12 @@ const MegWrapper = (Component) =>
         settingsState ||
         displayState ||
         supportState ? (
-          <div className='flex justify-center items-center absolute top-10  bg-white  right-10 z-10 rounded-lg  shadow-lg'>
+          <div className='flex justify-center items-center absolute top-10  bg-white  right-10 z-10 rounded-lg dark:bg-darkSecondary shadow-lg'>
             <div
               className={`${
                 profileState
-                  ? 'w-[380px] h-fit bg-white rounded-lg p-4 overflow-hidden'
-                  : 'w-[380px] h-fit bg-white rounded-lg overflow-hidden '
+                  ? 'w-[380px] h-fit rounded-lg p-4 overflow-hidden'
+                  : 'w-[380px] h-fit rounded-lg overflow-hidden '
               }`}
             >
               <Component />

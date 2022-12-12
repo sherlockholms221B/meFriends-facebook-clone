@@ -45,20 +45,20 @@ const Post = ({
 
   return (
     <>
-      <section className='flex flex-col rounded-md bg-white shadow-xl mt-4 '>
+      <section className='dark:border dark:border-borderDark dark:bg-darkSecondary flex flex-col rounded-md bg-white shadow-xl mt-4 '>
         <div className=' relative flex flex-row flex-nowrap justify-between items-center px-3 py-2'>
           <div className='flex gap-2 items-center'>
             <Link to={`/backface/api/profile`}>
-              <div className=' border-2 border-white rounded-full cursor-pointer'>
+              <div className=' rounded-full cursor-pointer'>
                 <img
                   src={profileImage}
                   alt='profile'
-                  className='object-cover w-10 h-10 rounded-full'
+                  className='object-cover w-11 h-11 rounded-full'
                 />
               </div>
             </Link>
             <div className='flex flex-col'>
-              <h2 className='capitalize text-md text-black-200 font-medium mb-1 cursor-pointer'>
+              <h2 className='capitalize text-md dark:text-white text-black-200 font-medium mb-1 cursor-pointer'>
                 {creator}
               </h2>
               <div className='flex flex-row flex-nowrap items-center gap-2'>
@@ -73,7 +73,7 @@ const Post = ({
           </div>
           <div className=''>
             <div
-              className='text-2xl font-semibold text-gray-500 p-2 rounded-full hover:bg-[#E3E3E3] '
+              className='text-2xl font-semibold text-gray-500 p-2 rounded-full hover:bg-primary '
               ref={togleMenu}
               onClick={postLocation}
             >
@@ -83,13 +83,13 @@ const Post = ({
           </div>
         </div>
         <div className='flex items-start-center justify-start px-3 py-2'>
-          <h5 className='text-lg text-gray-700'> {postText} </h5>
+          <h5 className='text-lg dark:text-white text-gray-700'>{postText}</h5>
         </div>
-        <div className='h-full w-[100%] border-b-2 border-t-2 border-gray-300 '>
+        <div className='h-full w-[100%] border-b-2 border-t-2 border-gray-300 dark:border-[#3a3b3c]'>
           <img src={post} alt='post' className='h-full w-[100%] object-cover' />
         </div>
         <div className='flex flex-col '>
-          <div className='flex flex-row flex-nowrap justify-between items-center mx-2 p-2 border-b-2 border-gray-300'>
+          <div className='flex flex-row flex-nowrap justify-between items-center mx-2 p-2 border-b-2 border-gray-300 dark:border-[#3a3b3c]'>
             <div className='flex items-center justify-center'>
               <AiOutlineLike className='mr-1 text-blue-500' />
               <p className='text-sm text-gray-500 '>234</p>
@@ -106,13 +106,13 @@ const Post = ({
           >
             <Like />
             <div
-              className='flex flex-row justify-center flex-nowrap items-center  hover:bg-[#E3E3E3] rounded-[3px] px-8 py-2 cursor-pointer'
+              className='flex flex-row justify-center flex-nowrap items-center  hover:bg-primary rounded-[3px] px-8 py-2 cursor-pointer'
               onClick={() => setIsComment(!isComment)}
             >
               <GoComment className='text-xl font-bold text-gray-500 mr-1' />
               <p className='text-md text-gray-500 font-semibold'>Comment</p>
             </div>
-            <div className='flex flex-row justify-center flex-nowrap items-center hover:bg-[#E3E3E3] rounded-[3px] px-8 py-2 cursor-pointer'>
+            <div className='flex flex-row justify-center flex-nowrap items-center hover:bg-primary rounded-[3px] px-8 py-2 cursor-pointer'>
               <RiShareForwardLine className='text-2xl font-bold text-gray-500 mr-1' />
               <p className='text-md text-gray-500 font-semibold'>Share</p>
             </div>

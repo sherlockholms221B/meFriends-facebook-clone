@@ -30,7 +30,7 @@ const PostOptions = ({ addOptions }) => {
             },
           ].map((option) => (
             <div
-              className='flex flex-row gap-2 items-center mt-1 mb-1 px-2 py-1 cursor-pointer rounded-md hover:bg-[#E3E3E3]'
+              className='flex flex-row gap-2 items-center mt-1 mb-1 px-2 py-1 cursor-pointer rounded-md hover:bg-primary'
               key={option.title}
             >
               <p className='text-2xl text-gray-600'>{option.icon}</p>
@@ -48,7 +48,7 @@ const PostOptions = ({ addOptions }) => {
       ) : (
         <div className='mr-4 ml-1'>
           <div className=' border-b-[2px]  brder-[#E3E3E3] pt-2 pb-3'>
-            <div className='flex flex-row items-center gap-2 cursor-pointer hover:bg-[#E3E3E3] p-1 rounded-md '>
+            <div className='flex flex-row items-center gap-2 cursor-pointer hover:bg-primary p-1 rounded-md '>
               <MdBookmarkBorder className='text-2xl text-gray-600' />
               <div className='flex flex-col'>
                 <h3 className='text-md font-semibold text-gray-600'>
@@ -71,7 +71,7 @@ const PostOptions = ({ addOptions }) => {
                 icon: <MdOutlineNotifications />,
               },
             ].map((option) => (
-              <div className='flex flex-row items-center gap-2 cursor-pointer hover:bg-[#E3E3E3] p-1 rounded-md '>
+              <div className='flex flex-row items-center gap-2 cursor-pointer hover:bg-primary p-1 rounded-md '>
                 <p className='text-2xl text-gray-600'> {option.icon} </p>
                 <h3 className='text-md font-semibold text-gray-600'>
                   {option.title}
@@ -114,7 +114,7 @@ const PostOptions = ({ addOptions }) => {
             },
           ].map((option) => (
             <div
-              className='flex flex-row gap-2 items-center mt-1 mb-1 px-2 py-1 cursor-pointer rounded-md hover:bg-[#E3E3E3]'
+              className='flex flex-row gap-2 items-center mt-1 mb-1 px-2 py-1 cursor-pointer rounded-md hover:bg-primary'
               key={option.title}
             >
               <p className='text-2xl text-gray-600'>{option.icon}</p>

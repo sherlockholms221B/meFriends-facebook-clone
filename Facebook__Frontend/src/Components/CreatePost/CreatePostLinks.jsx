@@ -10,7 +10,7 @@ import {
 } from 'react-icons/md'
 
 import { useGlobalContext } from '../../Context/UseContext'
-import { forward, iconHandler } from '../../utils/Functions'
+import { forward, iconHandler } from '../../functions/stateHandler'
 import { createPostLinks } from '../../utils/links'
 import ToolTip from '../ToolTip'
 
@@ -107,7 +107,7 @@ const CreatePostLinks = ({ home }) => {
             <p
               data-tip
               data-for='more'
-              className='text-xl text-gray-500b rounded-full p-1.5 hover:bg-gray-200 cursor-pointer'
+              className='text-xl text-gray-500b rounded-full p-1.5 hover:bg-hover cursor-pointer'
               onClick={(e) => {
                 e.stopPropagation()
                 forward(setCreatePostState, setAddToYourState)
@@ -152,7 +152,7 @@ const CreatePostLinks = ({ home }) => {
                   i === 4 ? 'text-blue-400  hover:bg-blue-100' : ''
                 } ${
                   i === 5 ? 'text-red-600  hover:bg-red-100' : ''
-                } flex flex-row items-center  gap-2 pl-2 pr-12 py-2 w-[40%] hover:bg-gray-100 rounded-md cursor-pointer `}
+                } flex flex-row items-center  gap-2 pl-2 pr-12 py-2 w-[40%] hover:bg-hover rounded-md cursor-pointer `}
               >
                 <p
                   className={`${i === 0 ? 'text-green-600 ' : ''} ${

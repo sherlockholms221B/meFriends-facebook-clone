@@ -32,7 +32,7 @@ const AddPicture = () => {
     <div
       className={`relative w-full ${
         firstImg ? 'h-fit' : 'h-48'
-      } p-2 rounded-md border-[1px] home_scroll border-gray-400 mb-2 overflow-auto`}
+      } p-2 rounded-md border-[2px] home_scroll dark:border-borderDark border-gray-400 mb-2 overflow-auto`}
     >
       {firstImg && (
         <img
@@ -85,7 +85,7 @@ const AddPicture = () => {
       {!firstImg && (
         <div
           onClick={(e) => selectPicture(e)}
-          className='relative  h-full w-full hover:bg-gray-200 hover:border-dashed hover:border-2 hover:border-gray-600 flex flex-col transition-all items-center justify-center rounded-md p-2 cursor-pointer'
+          className='relative  h-full w-full hover:bg-hover dark:bg-darkComplementry hover:border-dashed border-2 hover:border-gray-600 dark:border-0 flex flex-col transition-all items-center justify-center rounded-md p-2 cursor-pointer'
         >
           <input
             onChange={({ target }) => {
@@ -100,18 +100,20 @@ const AddPicture = () => {
           <p className='p-2 rounded-full bg-gray-300 flex items-center justify-center'>
             <BiImageAdd className=' text-2xl rotate-6 text-gray-800' />
           </p>
-          <h3 className='text-md font-bold text-gray-800 '>Add photos/Video</h3>
+          <h3 className='text-md font-bold text-gray-800 dark:text-white'>
+            Add photos/Video
+          </h3>
           <p className='text-sm -mt-1 text-gray-400 font-sans'>
             or drag and drop
           </p>
           <p
-            className='absolute top-2 right-2 rounded-full hover:bg-gray-100 bg-white shadow-xl z-40 p-1'
+            className='dark:bg-darkComplementry absolute top-2 right-2 rounded-full hover:bg-hover bg-white shadow-xl z-40 p-1 dark:shadow-black dark:shadow-sm'
             onClick={(e) => {
               e.stopPropagation()
               setAddPictureState(false)
             }}
           >
-            <MdClose className='text-2xl text-gray-700 ' />
+            <MdClose className='text-2xl text-gray-700  dark:text-white ' />
           </p>
         </div>
       )}

@@ -21,7 +21,7 @@ import { BsEmojiWink } from 'react-icons/bs'
 import MegWrapper from '../MegWrapper'
 import { Head, CreatePostLinks } from '../index'
 import { useGlobalContext } from '../../Context/UseContext'
-import { forward, iconHandler, previous } from '../../utils/Functions'
+import { forward, iconHandler, previous } from '../../functions/stateHandler'
 
 const AddToYour = () => {
   const {
@@ -37,7 +37,7 @@ const AddToYour = () => {
     <div
       className={` ${
         addToYourState ? 'translate_x' : ''
-      } bg-white z-20  w-full h-full rounded-lg`}
+      }  z-20  w-full h-full rounded-lg dark:border dark:border-borderDark`}
     >
       <Head
         title={`Add to your post`}

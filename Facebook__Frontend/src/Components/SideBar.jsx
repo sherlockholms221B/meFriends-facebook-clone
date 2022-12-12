@@ -1,4 +1,7 @@
 import React from 'react'
+import { HiLink } from 'react-icons/hi'
+import { MdHome } from 'react-icons/md'
+import { TbGridDots } from 'react-icons/tb'
 import { Link, useLocation } from 'react-router-dom'
 
 import profile from '../Assets/profile.png'
@@ -6,65 +9,81 @@ import { sideLinks } from '../utils/links'
 import Groups from './Groups'
 
 const SideBar = () => {
-  const activeNav =
-    'border-l-4 border-blue-500 mt-1 mb-1  pl-1 w-full pr-2 cursor-pointer'
-  const notActiveNav = 'mt-1 mb-1  pl-1 w-full pr-2 cursor-pointer'
+  const activeNav = ' '
+  const notActiveNav = ''
 
   const search = useLocation().search
   const query = new URLSearchParams(search).get('talling')
+  console.log(query)
 
   return (
-    <div className='flex flex-col justify-start items-start w-full h-fit pb-2 pt-2'>
-      {sideLinks.map((page, i) => (
+    <div className='flex flex-col justify-start items-baseline w-full h-fit pb-2 pl-2'>
+      <Link
+        to={`/`}
+        className='relative pl-2 hover:bg-primary flex flex-row gap-2 items-center w-full py-2 rounded-md'
+      >
+        <p className='text-3xl text-blue-600'>
+          <MdHome />
+        </p>
+        <p className='text-lg text-black font-medium dark:text-white'>Home</p>
         <div
-          key={i + page.title}
           className={`${
-            query === page?.title
-              ? activeNav
-              : `${i === 0 && query === null ? activeNav : notActiveNav}`
-          }`}
+            query === 'home'
+              ? 'animate-pulse transition-all'
+              : `${query === null ? 'animate-pulse transition-all' : 'hidden'}`
+          }  absolute w-1.5 rounded-tr-xl  rounded-br-xl h-full bg-blue-600 -left-2 `}
+        ></div>
+      </Link>
+      <Link
+        to={`/backface/api/profile`}
+        className='pl-2 hover:bg-primary flex flex-row gap-2 items-center w-full py-2 rounded-md'
+      >
+        <img src={profile} alt='profile' className='object-cover w-7 h-7' />
+        <p className='text-lg text-black font-medium dark:text-white'>{`Christsanctus chinedu`}</p>
+      </Link>
+      <Link
+        to={`?talling=${`menu`}`}
+        className='relative pl-1 mt-3 hover:bg-primary flex flex-row gap-2 items-center w-full py-2 rounded-md'
+      >
+        <p className='text-xl dark:bg-darkComplementry dark:text-white text-black rounded-full p-2 bg-primaryWhite'>
+          <TbGridDots />
+        </p>
+        <p className='text-lg text-black font-semibold dark:text-white'>Menu</p>
+        <div
+          className={` ${
+            query === 'menu' ? 'animate-pulse transition-all' : 'hidden'
+          } absolute w-1.5 rounded-tr-xl  rounded-br-xl h-full bg-blue-600 -left-2 `}
+        ></div>
+      </Link>
+      {sideLinks.map((page, i) => (
+        <Link
+          key={i + page.title}
+          to={`?talling=${page.title}`}
+          className='relative pl-3 hover:bg-primary mt-0.5 mb-0.5 flex flex-row gap-2 items-center w-full py-2 rounded-md'
         >
-          {i === sideLinks.length - (sideLinks.length - 1) ? (
-            <Link
-              to={`/backface/api/profile`}
-              className='flex flex-row gap-2 mt-1.5 mb-1.5 px-3 py-2 rounded-md hover:bg-gray-300 items-center '
-            >
-              <img
-                src={profile}
-                alt='profile'
-                className='object-cover w-6 h-6'
-              />
-              <h3
-                className={` hidden xl:block text-md font-semibold text-gray-900`}
-              >
-                {page.title}
-              </h3>
-            </Link>
-          ) : (
-            <Link to={`?talling=${page.title}`}>
-              <div className='flex flex-row gap-2 px-3 py-2 rounded-md hover:bg-gray-300 items-center'>
-                <p
-                  className={`  ${
-                    i === sideLinks.length - (sideLinks.length - 2) ||
-                    i === sideLinks.length - (sideLinks.length - 8) ||
-                    i === sideLinks.length - (sideLinks.length - 9)
-                      ? 'text-gray-700 border-2 border-gray-300 rounded-full bg-gray-300 xl:p-[4px] '
-                      : 'text-blue-600'
-                  }  xl:text-xl `}
-                >
-                  {page.icon}
-                </p>
-                <p
-                  className={` hidden xl:block text-md font-semibold text-gray-900`}
-                >
-                  {page.title}
-                </p>
-              </div>
-            </Link>
-          )}
-        </div>
+          <p className='text-2xl text-blue-600'>{page.icon}</p>
+          <p className='text-lg text-gray-800 font-medium dark:text-white'>
+            {page.title}
+          </p>
+          <div
+            className={` ${
+              query === page.title ? 'animate-pulse transition-all' : 'hidden'
+            } absolute w-1.5 rounded-tr-xl  rounded-br-xl h-full bg-blue-600 -left-2 `}
+          ></div>
+        </Link>
       ))}
       <Groups />
+      <Link
+        to={`/`}
+        className='pl-1 mt-3 hover:bg-primary flex flex-row gap-2 items-center w-full py-2 rounded-md'
+      >
+        <p className='text-xl dark:text-white dark:bg-darkComplementry text-black rounded-full p-2 bg-primaryWhite'>
+          <HiLink />
+        </p>
+        <p className='text-lg text-black font-medium dark:text-white'>
+          Shortcuts
+        </p>
+      </Link>
       <div className='  hidden mt-10 mb-4 p-2 xl:flex flex-col gap-3'>
         <h3 className='text-sm text-gray-500 '>
           This is a facebook clone web3 application designed only for

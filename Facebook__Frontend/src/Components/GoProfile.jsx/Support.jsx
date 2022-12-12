@@ -4,7 +4,7 @@ import { BsExclamationSquareFill } from 'react-icons/bs'
 import { FaQuestionCircle } from 'react-icons/fa'
 import { MdMarkEmailRead } from 'react-icons/md'
 import { useGlobalContext } from '../../Context/UseContext'
-import { iconHandler } from '../../utils/Functions'
+import { iconHandler } from '../../functions/stateHandler'
 import Head from '../CreatePost/Head'
 
 import MegWrapper from '../MegWrapper'
@@ -60,7 +60,7 @@ const Support = () => {
               })
             }
             key={i + title}
-            className={`  ${title} hover:bg-gray-100 p-2 w-full rounded-md cursor-pointer`}
+            className={`  ${title} hover:bg-hover p-2 w-full rounded-md cursor-pointer`}
           >
             <div className='flex flex-row items-center gap-2 w-fit '>
               <p className='text-xl rounded-full bg-gray-200 p-2 w-fit h-fit'>
