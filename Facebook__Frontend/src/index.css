@@ -13,16 +13,9 @@ body {
   font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
     'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
-
-.scroll_hidden::-webkit-scrollbar {
+.scroll-hidden::-webkit-scrollbar {
   display: none;
 }
-
-.scroll_hidden {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
 .scroll_styled::-webkit-scrollbar {
   width: 20px;
 }
@@ -46,43 +39,11 @@ body {
 
 .vertical_scroll::-webkit-scrollbar-track {
   display: none;
-  box-shadow: inset 0 0 5px grey;
-  border-radius: 10px;
-  background: #f1f1f1;
 }
 
 .vertical_scroll::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background: rgb(185, 184, 184);
-}
-
-.home_scroll::-webkit-scrollbar {
-  width: 8px;
-}
-
-.home_scroll::-webkit-scrollbar-track {
-  display: none;
-}
-
-.home_scroll::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background: rgb(185, 184, 184);
-}
-
-.content {
-  mask-size: 100% 20000px;
-  mask-position: left bottom;
-  mask-image: linear-gradient(to top, transparent, black),
-    linear-gradient(to left, transparent 17px, black 17px);
-  -webkit-mask-image: linear-gradient(to top, transparent, black),
-    linear-gradient(to left, transparent 17px, black 17px);
-  -webkit-mask-size: 100% 20000px;
-  -webkit-mask-position: left bottom;
-  transition: mask-position 0.3s, -webkit-mask-position 0.3s;
-}
-
-.content:hover {
-  -webkit-mask-position: left top;
 }
 
 .translate_x {
@@ -119,13 +80,15 @@ body {
   }
 }
 
-.shadow {
-  box-shadow: 1px 1px 10px 5px #e3e3e3;
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-/* .display-none {
-  @apply hidden;
-} */
-/* .black {
-  background-color: #d4d8e8;
-} */
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: rgb(185, 184, 184);
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
