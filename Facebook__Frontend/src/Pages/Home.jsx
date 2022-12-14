@@ -31,14 +31,14 @@ const Home = () => {
         </div>
       ) : (
         <div className=' dark:bg-darkPrimary relative overflow-hidden h-[100vh] w-[100vw] pt-[60px] black bg-primary'>
-          <div className='flex items-strech  justify-between w-[100vw] h-[100%] pt-4'>
-            <div className='overflow-auto home_scroll content w-min xl:w-[300px] xl:bg-inherit  bg-white'>
+          <div className='flex items-strech justify-between w-[100vw] h-[100%]'>
+            <div className='dark:border-r dark:xl:border-0 dark:border-borderDark overflow-hidden hover:overflow-auto w-min xl:w-[300px] xl:bg-inherit  bg-white dark:bg-darkSecondary dark:xl:bg-darkPrimary  pt-4 pl-2 pr-2 xl:pl-0 xl:pr-0'>
               <SideBar />
             </div>
-            <div className=' flex items-center justify-center w-[560px] px-.5 '>
+            <div className=' flex items-center justify-center mx-auto w-[560px] px-.5  pt-4'>
               <Feeds />
             </div>
-            <div className='overflow-auto home_scroll hidden lg:block w-[315px]'>
+            <div className='overflow-hidden hover:overflow-auto hidden lg:block w-[315px] pt-4'>
               <Advertisment />
             </div>
           </div>
