@@ -10,10 +10,12 @@ import {
   MdOutlineOndemandVideo,
   MdGroups,
   MdVideoCameraBack,
+  MdOutlinePhotoLibrary,
 } from 'react-icons/md'
-import { BsBookFill, BsLink45Deg } from 'react-icons/bs'
+import { BsBookFill, BsEmojiWink, BsLink45Deg } from 'react-icons/bs'
 
 import { feed_eight, feed_nine, feed_ten } from '../Assets/exports'
+import { RiVideoAddFill } from 'react-icons/ri'
 
 const repeatStyle = 'text-2xl text-gray-800'
 
@@ -103,5 +105,11 @@ export const postAudienceLinks = [
 export const feedLinks = [
   { name: 'stories', icon: <BsBookFill /> },
   { name: 'reels', icon: <MdOutlineOndemandVideo /> },
-  { name: 'rooms', icon: <MdVideoCameraBack /> },
+  { name: 'rooms', icon: <RiVideoAddFill /> },
+]
+
+export const feedLinksOne = [
+  { title: 'Live video', icon: <MdVideoCameraBack /> },
+  { title: 'Photo/Video', icon: <MdOutlinePhotoLibrary /> },
+  { title: 'Feelings/activity', icon: <BsEmojiWink /> },
 ]

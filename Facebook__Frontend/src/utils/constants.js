@@ -31,7 +31,7 @@ import {
 
 export const storiesbox = [
   {
-    creator: 'chidimma',
+    creator: 'chidimma ezeugwu chibuli ',
     profile: [
       {
         profileImage: person_one,
@@ -41,7 +41,7 @@ export const storiesbox = [
     talling: feed_one,
   },
   {
-    creator: 'samson',
+    creator: 'samson john vanPerson',
     profile: [
       {
         profileImage: person_two,
@@ -51,7 +51,7 @@ export const storiesbox = [
     talling: feed_two,
   },
   {
-    creator: 'chidimma',
+    creator: 'chidimma targeryn snow',
     profile: [
       {
         profileImage: person_one,
@@ -184,7 +184,7 @@ export const storiesbox = [
 
 export const comments = [
   {
-    creator: 'chidimma',
+    creator: 'chidimma ezeugwu chibuli',
     profile: [
       {
         profileImage: person_one,
@@ -195,7 +195,7 @@ export const comments = [
       "Davido's aide, Shehu, has shared photos of his transformation years after meeting his boss, Davido Adeleke.While sharing the photos on Twitter, Shehu gushed over his transformation which he said seemed like 'magic' to him.",
   },
   {
-    creator: 'samson',
+    creator: 'samson john vanPerson',
     profile: [
       {
         profileImage: person_two,
@@ -206,7 +206,7 @@ export const comments = [
       'Labour Party to review presidential campaign council after outcry over inclusion of General who claimed #EndSARS massacre was photoshop and others',
   },
   {
-    creator: 'chidimma',
+    creator: 'chidimma targeryn snow',
     profile: [
       {
         profileImage: person_one,
@@ -351,7 +351,7 @@ export const comments = [
 
 export const posts = [
   {
-    creator: 'chidimma',
+    creator: 'chidimma ezeugwu chibuli',
     profile: [
       {
         profileImage: person_one,
@@ -364,7 +364,7 @@ export const posts = [
     isPrivate: true,
   },
   {
-    creator: 'samson',
+    creator: 'samson john vanPerson',
     profile: [
       {
         profileImage: person_two,
@@ -377,7 +377,7 @@ export const posts = [
     isPrivate: false,
   },
   {
-    creator: 'chidimma',
+    creator: 'chidimma targeryn snow',
     profile: [
       {
         profileImage: person_one,
