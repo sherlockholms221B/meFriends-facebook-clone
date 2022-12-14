@@ -11,9 +11,11 @@ import { MdOutlineSearch, MdVideoCall } from 'react-icons/md'
 
 const Advertisment = () => {
   const [add, setAdd] = useState(false)
+  const addHearder =
+    'text-xl font-bold text-gray-900 dark:text-text_heading_dark_white'
   return (
     <div className='flex flex-col  gap-3 justify-start items-start w-full h-max pt-2 pb-4'>
-      <h3 className='text-lg font-bold text-gray-900'>Sponsored</h3>
+      <h3 className={`${addHearder}`}>Sponsored</h3>
       {[
         {
           img: person_nine,
@@ -37,7 +39,7 @@ const Advertisment = () => {
         />
       ))}
 
-      <h3 className='text-lg font-bold text-gray-900 mt-4 mb-2'>Birthdays</h3>
+      <h3 className={`${addHearder}`}>Birthdays</h3>
       {[
         {
           img: <BsFillGiftFill />,
@@ -47,26 +49,28 @@ const Advertisment = () => {
         },
       ].map(({ img, name, count, description }, i) => (
         <div
-          className='flex flex-row gap-4 items-center p-2 cursor-pointer rounded-md hover:bg-hover '
+          className='flex flex-row gap-4 items-center p-2 w-full cursor-pointer rounded-md dark:hover:bg-darkComplementry hover:bg-hover '
           key={i + name}
         >
           <p className='text-3xl text-blue-400'>{img}</p>
           <div className=''>
-            <h3 className='text-md text-gray-900'>
-              <span className='text-md font-semibold text-gray-900 capitalize'>
+            <h3 className='text-md text-gray-900 dark:text-text_heading_dark_gray'>
+              <span className='text-md font-semibold text-gray-900 capitalize dark:text-text_heading_dark_white'>
                 {name}
               </span>{' '}
               and{' '}
-              <span className='text-md font-semibold text-gray-900 capitalize'>
+              <span className='text-md font-semibold text-gray-900 capitalize dark:text-text_heading_dark_white'>
                 {count}
               </span>
             </h3>
-            <p className='text-md text-gray-900'>{description} </p>
+            <p className='text-md text-gray-900 dark:text-text_heading_dark_gray'>
+              {description}{' '}
+            </p>
           </div>
         </div>
       ))}
-      <div className='flex flex-row w-full justify-between items-center'>
-        <h3 className='text-lg font-bold text-gray-700'>Contacts</h3>
+      <div className='flex flex-row w-full justify-between items-center mr-4'>
+        <h3 className={`${addHearder}`}>Contacts</h3>
         <div className='flex flex-row gap-2 items-center pl-1'>
           {[
             {
@@ -80,10 +84,12 @@ const Advertisment = () => {
             },
           ].map((option, i) => (
             <div
-              className='rounded-full p-2 hover:bg-hover cursor-pointer'
+              className='rounded-full p-2 hover:bg-hover dark:hover:bg-darkComplementry cursor-pointer'
               key={i}
             >
-              <p className='text-gray-500 text-lg'>{option.icon}</p>
+              <p className='text-gray-500 text-2xl dark:text-text_heading_dark_gray'>
+                {option.icon}
+              </p>
             </div>
           ))}
         </div>
@@ -93,13 +99,13 @@ const Advertisment = () => {
           <Link
             to={`/backface/api/profile`}
             key={i + creator}
-            className='flex flex-row gap-2 items-center p-2 hover:bg-hover rounded-md w-full'
+            className='flex flex-row gap-4 items-center p-2 dark:hover:bg-darkComplementry hover:bg-hover rounded-md w-full'
           >
-            <div className='relative border-2 hover:border-gray-300 border-white rounded-full cursor-pointer'>
+            <div className='relative hover:border-gray-300 border-white rounded-full cursor-pointer'>
               <img
                 src={profileImage}
                 alt='profile'
-                className='object-cover w-6 h-6 rounded-full'
+                className='object-cover w-7 h-7 rounded-full'
               />
               <div
                 className={` ${
@@ -107,7 +113,7 @@ const Advertisment = () => {
                 } absolute w-[9px] h-[9px] rounded-full  top-0 right-0 border-2 border-white z-10`}
               ></div>
             </div>
-            <h3 className='text-md font-semibold text-gray-700 capitalize'>
+            <h3 className='text-md font-semibold text-gray-700 capitalize dark:text-text_heading_dark_white'>
               {creator}
             </h3>
           </Link>

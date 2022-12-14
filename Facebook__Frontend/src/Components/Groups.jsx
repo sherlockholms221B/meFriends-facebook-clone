@@ -4,19 +4,19 @@ import { Link, useLocation } from 'react-router-dom'
 
 import { groupsLinks } from '../utils/links'
 
-const Groups = () => {
+const Groups = ({ barHarder, barContainer, roundedIcon }) => {
   const search = useLocation().search
   const query = new URLSearchParams(search).get('talling')
   return (
     <>
       <Link
         to={`?talling=${`groups`}`}
-        className='relative pl-1 mt-3 hover:bg-primary flex flex-row gap-2 items-center w-full py-2 rounded-md'
+        className={` ${barContainer} xl:pl-1 p-0 mt-3  py-2 `}
       >
-        <p className='text-xl dark:bg-darkComplementry dark:text-white text-black rounded-full p-2 bg-primaryWhite'>
+        <p className={`${roundedIcon} text-lg -ml-1 xl:-ml-0 p-2 xl:p-2`}>
           <MdGroups />
         </p>
-        <p className='text-lg text-black font-medium dark:text-white'>Groups</p>
+        <p className={barHarder}>Groups</p>
         <div
           className={` ${
             query === 'groups' ? 'animate-pulse transition-all' : 'hidden'
@@ -27,7 +27,7 @@ const Groups = () => {
         <Link
           to={`/backface/api/profile`}
           key={name}
-          className='w-full flex  flex-row gap-2 mt-0.5 mb-0.5 px-3 py-2.5 rounded-md hover:bg-hover items-center'
+          className='w-full dark:hover:bg-darkComplementry flex  flex-row gap-2 xl:mt-0.5 xl:mb-0.5 xl:px-3 py-2.5 rounded-md hover:bg-hover items-center'
         >
           <img
             src={img}
@@ -35,7 +35,7 @@ const Groups = () => {
             className='object-cover w-6 h-6 rounded-lg'
           />
           <h3
-            className={`dark:text-white hidden xl:block text-md font-semibold text-gray-900`}
+            className={`dark:text-white hidden xl:block text-md font-semibold text-gray-900 `}
           >
             {name}
           </h3>

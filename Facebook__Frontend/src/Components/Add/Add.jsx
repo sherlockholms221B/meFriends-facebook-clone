@@ -7,7 +7,7 @@ const Add = ({ add, setAdd, title, description, img, index }) => {
   const [addOptions, setAddOptions] = useState(false)
   return (
     <>
-      <div className='relative flex flex-row justify-strech gap-4 p-2 w-full rounded-md hover:bg-hover cursor-pointer items-center'>
+      <div className='relative flex flex-row justify-strech gap-4 p-2 w-full rounded-md hover:bg-hover dark:hover:bg-darkComplementry cursor-pointer items-center'>
         <img
           onClick={() => setAdd(!add)}
           src={img}
@@ -17,10 +17,12 @@ const Add = ({ add, setAdd, title, description, img, index }) => {
           } rounded-md object-fit`}
         />
         <div className=''>
-          <h3 className='text-md font-semibold text-gray-900 uppercase'>
+          <h3 className='text-md dark:text-text_heading_dark_white font-semibold text-gray-900 uppercase'>
             {title}
           </h3>
-          <p className=' text-[15px] text-gray-500'>{description} </p>
+          <p className=' text-[15px] text-gray-500 dark:text-text_heading_dark_gray'>
+            {description}{' '}
+          </p>
         </div>
         {add && (
           <button

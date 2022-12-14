@@ -29,15 +29,23 @@ const Navbar = () => {
           facebook
         </h1>
       </Link>
-      <div className='relative  rounded-full'>
+      <div
+        className='relative w-11 h-11 lg:w-fit lg:h-fit flex justify-center items-center dark:bg-darkComplementry rounded-full'
+        onClick={() => {
+          console.log('hello i am here')
+        }}
+      >
         <Input
           type={`text`}
           name={`search`}
           placeholder={`Search Facebook`}
-          handleChange={(e) => setSearchValue(e.target.value)}
+          handleChange={(e) => {
+            e.stopPropagation()
+            setSearchValue(e.target.value)
+          }}
           value={searchValue}
         />
-        <MdOutlineSearch className='absolute md:top-2 md:left-3 top-0 left-0 text-gray-500 text-2xl cursor-pointer ' />
+        <MdOutlineSearch className=' lg:absolute relative lg:top-2 lg:left-3 top-0 left-0 text-gray-500 text-2xl cursor-pointer dark:text-text_heading_dark_gray' />
       </div>
 
       <div className='flex flex-row gap-3 items-center'>

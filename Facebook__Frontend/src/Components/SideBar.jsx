@@ -7,97 +7,73 @@ import { Link, useLocation } from 'react-router-dom'
 import profile from '../Assets/profile.png'
 import { sideLinks } from '../utils/links'
 import Groups from './Groups'
+import { Active, Footer } from './index'
 
 const SideBar = () => {
-  const activeNav = ' '
-  const notActiveNav = ''
-
   const search = useLocation().search
   const query = new URLSearchParams(search).get('talling')
-  console.log(query)
 
+  const barHarder =
+    ' text-black dark:text-text_heading_dark_white  hidden xl:block text-lg font-medium'
+  const barContainer =
+    'relative hover:bg-inherit xl:hover:bg-primary xl:dark:hover:bg-darkComplementry flex flex-row gap-2 items-center w-full  rounded-md'
+  const roundedIcon =
+    ' dark:bg-darkComplementry dark:text-white text-black rounded-full  bg-primaryWhite'
   return (
     <div className='flex flex-col justify-start items-baseline w-full h-fit pb-2 pl-2'>
-      <Link
-        to={`/`}
-        className='relative pl-2 hover:bg-primary flex flex-row gap-2 items-center w-full py-2 rounded-md'
-      >
+      <Link to={`/`} className={` ${barContainer} xl:pl-2 p-0 py-2`}>
         <p className='text-3xl text-blue-600'>
           <MdHome />
         </p>
-        <p className='text-lg text-black font-medium dark:text-white'>Home</p>
-        <div
-          className={`${
-            query === 'home'
-              ? 'animate-pulse transition-all'
-              : `${query === null ? 'animate-pulse transition-all' : 'hidden'}`
-          }  absolute w-1.5 rounded-tr-xl  rounded-br-xl h-full bg-blue-600 -left-2 `}
-        ></div>
+        <p className={`${barHarder} `}>Home</p>
+        <Active queryTerm={`home`} homeTerm={null} />
       </Link>
       <Link
         to={`/backface/api/profile`}
-        className='pl-2 hover:bg-primary flex flex-row gap-2 items-center w-full py-2 rounded-md'
+        className={`xl:pl-2 p-0 py-2 ${barContainer}`}
       >
         <img src={profile} alt='profile' className='object-cover w-7 h-7' />
-        <p className='text-lg text-black font-medium dark:text-white'>{`Christsanctus chinedu`}</p>
+        <p className={` ${barHarder}`}>{`Christsanctus chinedu`}</p>
       </Link>
       <Link
         to={`?talling=${`menu`}`}
-        className='relative pl-1 mt-3 hover:bg-primary flex flex-row gap-2 items-center w-full py-2 rounded-md'
+        className={` ${barContainer} xl:pl-1 p-0 mt-3  py-2 `}
       >
-        <p className='text-xl dark:bg-darkComplementry dark:text-white text-black rounded-full p-2 bg-primaryWhite'>
+        <p className={`${roundedIcon} text-lg -ml-1 xl:-ml-0 p-2 xl:p-2`}>
           <TbGridDots />
         </p>
-        <p className='text-lg text-black font-semibold dark:text-white'>Menu</p>
-        <div
-          className={` ${
-            query === 'menu' ? 'animate-pulse transition-all' : 'hidden'
-          } absolute w-1.5 rounded-tr-xl  rounded-br-xl h-full bg-blue-600 -left-2 `}
-        ></div>
+        <p className={`${barHarder} text-lg font-semibold `}>Menu</p>
+        <Active queryTerm={`menu`} homeTerm={null} />
       </Link>
       {sideLinks.map((page, i) => (
         <Link
           key={i + page.title}
           to={`?talling=${page.title}`}
-          className='relative pl-3 hover:bg-primary mt-0.5 mb-0.5 flex flex-row gap-2 items-center w-full py-2 rounded-md'
+          className='relative xl:pl-3 p-0 xl:dark:hover:bg-darkComplementry xl:hover:bg-primary hover:bg-inherit mt-0.5 mb-0.5 flex flex-row gap-2 items-center w-full py-2 rounded-md'
         >
-          <p className='text-2xl text-blue-600'>{page.icon}</p>
-          <p className='text-lg text-gray-800 font-medium dark:text-white'>
+          <p className='text-xl xl:text-2xl text-blue-600'>{page.icon}</p>
+          <p className='text-lg text-gray-800 font-medium dark:text-text_heading_dark_white hidden xl:block'>
             {page.title}
           </p>
-          <div
-            className={` ${
-              query === page.title ? 'animate-pulse transition-all' : 'hidden'
-            } absolute w-1.5 rounded-tr-xl  rounded-br-xl h-full bg-blue-600 -left-2 `}
-          ></div>
+          <Active queryTerm={page.title} homeTerm={null} />
         </Link>
       ))}
-      <Groups />
+      <Groups
+        barHarder={barHarder}
+        barContainer={barContainer}
+        roundedIcon={roundedIcon}
+      />
       <Link
-        to={`/`}
-        className='pl-1 mt-3 hover:bg-primary flex flex-row gap-2 items-center w-full py-2 rounded-md'
+        to={`?talling=${`shortcuts`}`}
+        className={` ${barContainer} xl:pl-1 p-0 mt-3 py-2`}
       >
-        <p className='text-xl dark:text-white dark:bg-darkComplementry text-black rounded-full p-2 bg-primaryWhite'>
+        <p className={`${roundedIcon} text-lg -ml-1 xl:-ml-0 p-2 xl:p-2`}>
           <HiLink />
         </p>
-        <p className='text-lg text-black font-medium dark:text-white'>
-          Shortcuts
-        </p>
+        <p className={` ${barHarder} `}>Shortcuts</p>
+        <Active queryTerm={`shortcuts`} />
       </Link>
-      <div className='  hidden mt-10 mb-4 p-2 xl:flex flex-col gap-3'>
-        <h3 className='text-sm text-gray-500 '>
-          This is a facebook clone web3 application designed only for
-          educational purposes contact the developer for more.
-        </h3>
-        <p className='text-[12px] text-gray-400'>
-          Privacy. Terms. Advertising. Videos. Streming. Subscriptions. Ad
-          choices Cookies. More. Meta
-        </p>
-        <p className='text-[12px] text-gray-500'>
-          Designed by <span className='text-gray-600 font-bold'>Santus@</span>{' '}
-          christsanctus
-        </p>
-      </div>
+      <Footer />
     </div>
   )
 }

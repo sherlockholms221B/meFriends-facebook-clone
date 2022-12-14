@@ -73,7 +73,7 @@ const Post = ({
           </div>
           <div className=''>
             <div
-              className='text-2xl font-semibold text-gray-500 p-2 rounded-full hover:bg-primary '
+              className='text-2xl font-semibold text-gray-500 p-2 rounded-full dark:hover:bg-darkComplementry hover:bg-primary '
               ref={togleMenu}
               onClick={postLocation}
             >
@@ -106,15 +106,19 @@ const Post = ({
           >
             <Like />
             <div
-              className='flex flex-row justify-center flex-nowrap items-center  hover:bg-primary rounded-[3px] px-8 py-2 cursor-pointer'
+              className='flex flex-row justify-center flex-nowrap items-center  hover:bg-primary rounded-[3px] px-8 py-2 cursor-pointer dark:hover:bg-darkComplementry '
               onClick={() => setIsComment(!isComment)}
             >
-              <GoComment className='text-xl font-bold text-gray-500 mr-1' />
-              <p className='text-md text-gray-500 font-semibold'>Comment</p>
+              <GoComment className='text-xl font-bold text-gray-500 mr-1  dark:text-text_heading_dark_gray' />
+              <p className='text-md text-gray-500 font-semibold  dark:text-text_heading_dark_gray'>
+                Comment
+              </p>
             </div>
-            <div className='flex flex-row justify-center flex-nowrap items-center hover:bg-primary rounded-[3px] px-8 py-2 cursor-pointer'>
-              <RiShareForwardLine className='text-2xl font-bold text-gray-500 mr-1' />
-              <p className='text-md text-gray-500 font-semibold'>Share</p>
+            <div className='flex flex-row justify-center flex-nowrap items-center dark:hover:bg-darkComplementry hover:bg-primary rounded-[3px] px-8 py-2 cursor-pointer'>
+              <RiShareForwardLine className='text-2xl  dark:text-text_heading_dark_gray font-bold text-gray-500 mr-1' />
+              <p className='text-md text-gray-500  dark:text-text_heading_dark_gray font-semibold'>
+                Share
+              </p>
             </div>
           </div>
 

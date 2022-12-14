@@ -23,11 +23,9 @@ const GoPorfile = () => {
     goBack,
   } = useGlobalContext()
   return (
-    <>
+    <div className={`${goBack && 'translate__x'}`}>
       <section
-        className={` ${
-          goBack && 'translate__x'
-        } p-1 shadow-lg rounded-md drop-shadow-2xl shadow-gray-400 dark:shadow-zinc-900`}
+        className={` p-1 shadow-lg rounded-md drop-shadow-md shadow-gray-400 dark:shadow-zinc-900`}
       >
         <Link
           onClick={() => setProfileState(false)}
@@ -122,7 +120,7 @@ const GoPorfile = () => {
           <span className='cursor-pointer'>more</span> · Meta © 2022
         </p>
       </section>
-    </>
+    </div>
   )
 }
 

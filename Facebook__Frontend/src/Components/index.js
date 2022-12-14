@@ -30,6 +30,10 @@ import Support from './GoProfile.jsx/Support'
 import Settings from './GoProfile.jsx/Settings'
 import Feedback from './GoProfile.jsx/Feedback'
 import Display from './GoProfile.jsx/Display'
+import Active from './Active'
+import Reels from './Reels/Reels'
+import Rooms from './Rooms/Rooms'
+import Footer from './Footer'
 
 export {
   Navbar,
@@ -64,4 +68,8 @@ export {
   Settings,
   Feedback,
   Display,
+  Active,
+  Reels,
+  Rooms,
+  Footer,
 }
