@@ -35,6 +35,8 @@ module.exports = {
       },
       colors: {
         darkText: '#3a3b3c',
+        text_heading_dark_white: 'rgb(222, 221, 221)',
+        text_heading_dark_gray: 'rgb(192, 192, 192)',
       },
     },
   },
