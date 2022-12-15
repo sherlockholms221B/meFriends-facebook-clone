@@ -1,5 +1,6 @@
 import React, { useRef } from 'react'
 import { BsEmojiWink } from 'react-icons/bs'
+import { FaUserTag } from 'react-icons/fa'
 import { HiDotsHorizontal } from 'react-icons/hi'
 import {
   MdFlag,
@@ -51,7 +52,7 @@ const CreatePostLinks = ({ home }) => {
                 ref: picture,
                 tip: 'photos/video',
               },
-              { icon: <MdPerson />, ref: tag, tip: 'tag poeple' },
+              { icon: <FaUserTag />, ref: tag, tip: 'tag poeple' },
               {
                 icon: <BsEmojiWink />,
                 ref: feelings,

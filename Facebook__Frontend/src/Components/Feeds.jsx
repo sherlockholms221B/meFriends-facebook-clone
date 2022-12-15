@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { MdVideoCameraBack, MdOutlinePhotoLibrary } from 'react-icons/md'
-import { BsEmojiWink } from 'react-icons/bs'
 
 import { useGlobalContext } from '../Context/UseContext'
 import { feedLinks, feedLinksOne } from '../utils/links'
+import { client } from '../utils/client'
+import { allPostsQuery } from '../utils/querries'
+
 import { Stories, Post, Reels, Rooms } from './index.js'
 import { posts } from '../utils/constants'
 import { profile } from '../Assets/exports'
@@ -22,6 +23,14 @@ const Posts = () => {
     'py-3 px-11 rounded-lg  mt-1 mb-1 text-gray-600 cursor-pointer hover:bg-primary dark:hover:bg-darkComplementry  dark:text-text_heading_dark_gray'
   const vivaIconContainer =
     'flex flex-row flex-nowrap items-center hover:bg-primary dark:hover:bg-darkComplementry rounded-md cursor-pointer'
+
+  useEffect(() => {
+    const allPost = allPostsQuery()
+    client
+      .fetch(allPost)
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err))
+  }, [])
 
   const search = useLocation().search
   const query = new URLSearchParams(search).get('talling')
