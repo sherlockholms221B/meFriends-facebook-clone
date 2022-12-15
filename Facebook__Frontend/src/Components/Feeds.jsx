@@ -24,14 +24,6 @@ const Posts = () => {
   const vivaIconContainer =
     'flex flex-row flex-nowrap items-center hover:bg-primary dark:hover:bg-darkComplementry rounded-md cursor-pointer'
 
-  useEffect(() => {
-    const allPost = allPostsQuery()
-    client
-      .fetch(allPost)
-      .then((data) => console.log(data))
-      .catch((err) => console.log(err))
-  }, [])
-
   const search = useLocation().search
   const query = new URLSearchParams(search).get('talling')
 
