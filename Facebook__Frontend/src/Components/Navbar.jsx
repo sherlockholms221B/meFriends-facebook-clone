@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { MdNotifications } from 'react-icons/md'
+import { MdMenu, MdNotifications } from 'react-icons/md'
 import { MdOutlineExpandMore, MdOutlineSearch } from 'react-icons/md'
 import { FaFacebookMessenger } from 'react-icons/fa'
 
@@ -30,7 +30,7 @@ const Navbar = () => {
         </h1>
       </Link>
       <div
-        className='relative w-11 h-11 lg:w-fit lg:h-fit flex justify-center items-center dark:bg-darkComplementry rounded-full'
+        className='relative w-11 h-11 md:w-fit  md:h-fit flex justify-center items-center dark:bg-darkComplementry rounded-full'
         onClick={() => {
           console.log('hello i am here')
         }}
@@ -45,7 +45,7 @@ const Navbar = () => {
           }}
           value={searchValue}
         />
-        <MdOutlineSearch className=' lg:absolute relative lg:top-2 lg:left-3 top-0 left-0 text-gray-500 text-2xl cursor-pointer dark:text-text_heading_dark_gray' />
+        <MdOutlineSearch className=' md:absolute relative md:top-2 md:left-3 top-0 left-0 text-gray-500 text-2xl cursor-pointer dark:text-text_heading_dark_gray' />
       </div>
 
       <div className='flex flex-row gap-3 items-center'>
@@ -108,7 +108,7 @@ const Navbar = () => {
           <img src={profile} alt='profile' className='object-cover w-11 h-11' />
           <div className='absolute w-[15px] h-[15px] rounded-full bg-red-600 top-0 right-0 border-2 border-white z-10' />
           <div className='absolute bottom-[-3px] dark:ring-slate-800 dark:bg-darkComplementry right-0 rounded-full bg-hover border-white  ring-2 ring-white w-4 h-4 flex justify-center items-center'>
-            <MdOutlineExpandMore className='text-lg dark:text-white text-black font-bold' />
+            <MdOutlineExpandMore className='text-tablet dark:text-white text-black font-bold' />
           </div>
           <ToolTip
             title={`account`}

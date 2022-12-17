@@ -351,6 +351,19 @@ export const comments = [
 
 export const posts = [
   {
+    creator: 'count valdiago',
+    profile: [
+      {
+        profileImage: person_three,
+        createdAt: new Date(),
+      },
+    ],
+    post: [feed_three],
+    postText:
+      'Your condition has made many people run away from you,but listen to me. Before 2 months time they will beg for your attention.',
+    isPrivate: true,
+  },
+  {
     creator: 'chidimma ezeugwu chibuli',
     profile: [
       {
@@ -358,7 +371,7 @@ export const posts = [
         createdAt: new Date(),
       },
     ],
-    post: feed_one,
+    post: [feed_two, feed_eight],
     postText:
       'When i went to become programer what basic language must be i learn?',
     isPrivate: true,
@@ -367,11 +380,11 @@ export const posts = [
     creator: 'samson john vanPerson',
     profile: [
       {
-        profileImage: person_two,
+        profileImage: person_ten,
         createdAt: new Date(),
       },
     ],
-    post: feed_two,
+    post: [feed_one, feed_therteen, feed_nine],
     postText:
       'Want to ensure your writing is out of this world? 🧑‍🚀 💫 With Grammarly for Windows and Mac, you can get instant writing feedback as you move between desktop apps and sites. Install it now!',
     isPrivate: false,
@@ -384,23 +397,11 @@ export const posts = [
         createdAt: new Date(),
       },
     ],
-    post: feed_one,
+    post: [feed_ten, feed_therteen],
     postText: 'Jenna Ortega 😻✨',
     isPrivate: false,
   },
-  {
-    creator: 'count valdiago',
-    profile: [
-      {
-        profileImage: person_three,
-        createdAt: new Date(),
-      },
-    ],
-    post: feed_three,
-    postText:
-      'Your condition has made many people run away from you,but listen to me. Before 2 months time they will beg for your attention.',
-    isPrivate: true,
-  },
+
   {
     creator: 'nuclues nuclis',
     profile: [
@@ -409,136 +410,136 @@ export const posts = [
         createdAt: new Date(),
       },
     ],
-    post: feed_four,
+    post: [feed_five, feed_eight, feed_three, feed_four],
     postText: '#me',
     isPrivate: false,
   },
-  {
-    creator: 'younge module',
-    profile: [
-      {
-        profileImage: person_five,
-        createdAt: new Date(),
-      },
-    ],
-    post: feed_five,
-    postText:
-      'Your condition has made many people run away from you,but listen to me. Before 2 months time they will beg for your attention.',
-    isPrivate: false,
-  },
-  {
-    creator: 'Mr. queen',
-    profile: [
-      {
-        profileImage: person_six,
-        createdAt: new Date(),
-      },
-    ],
-    post: feed_six,
-    postText: 'Your condition has made many people run away from you',
-    isPrivate: true,
-  },
-  {
-    creator: 'john diggle',
-    profile: [
-      {
-        profileImage: person_seven,
-        createdAt: new Date(),
-      },
-    ],
-    post: feed_seven,
-    postText:
-      'Your condition has made many people run away from you,but listen to me. Before 2 months time they will beg for your attention.',
-    isPrivate: false,
-  },
-  {
-    creator: 'walter steel',
-    profile: [
-      {
-        profileImage: person_eight,
-        createdAt: new Date(),
-      },
-    ],
-    post: feed_eight,
-    postText: 'walter steel from arrow',
-    isPrivate: true,
-  },
-  {
-    creator: 'malcom merlyen',
-    profile: [
-      {
-        profileImage: person_nine,
-        createdAt: new Date(),
-      },
-    ],
-    post: feed_nine,
-    postText:
-      'Your condition has made many people run away from you,but listen to me. Before 2 months time they will beg for your attention.',
-    isPrivate: false,
-  },
-  {
-    creator: 'tommy merlyen',
-    profile: [
-      {
-        profileImage: person_ten,
-        createdAt: new Date(),
-      },
-    ],
-    post: feed_ten,
-    postText:
-      'Want to ensure your writing is out of this world? 🧑‍🚀 💫 With Grammarly for Windows and Mac, you can get instant writing feedback as you move between desktop apps and sites. Install it now!',
-    isPrivate: false,
-  },
-  {
-    creator: 'chun li',
-    profile: [
-      {
-        profileImage: person_eleven,
-        createdAt: new Date(),
-      },
-    ],
-    isPrivate: false,
-    postText:
-      'Your condition has made many people run away from you,but listen to me. Before 2 months time they will beg for your attention.',
-    post: feed_eleven,
-  },
-  {
-    creator: 'john snow',
-    profile: [
-      {
-        profileImage: person_tweleve,
-        createdAt: new Date(),
-      },
-    ],
-    post: feed_tweleve,
-    postText:
-      'Want to ensure your writing is out of this world? 🧑‍🚀 💫 With Grammarly for Windows and Mac, you can get instant writing feedback as you move between desktop apps and sites. Install it now!',
-    isPrivate: true,
-  },
-  {
-    creator: 'arya stark',
-    profile: [
-      {
-        profileImage: person_therteen,
-        createdAt: new Date(),
-      },
-    ],
-    post: feed_therteen,
-    postText:
-      'Your condition has made many people run away from you,but listen to me. Before 2 months time they will beg for your attention.',
-    isPrivate: true,
-  },
-  {
-    creator: 'denial chidera',
-    profile: [
-      {
-        profileImage: person_fourteen,
-        createdAt: new Date(),
-      },
-    ],
-    post: feed_fourteen,
-    postText:
-      'When i went to become programer what basic language must be i learn?',
-    isPrivate: true,
-  },
+  // {
+  //   creator: 'younge module',
+  //   profile: [
+  //     {
+  //       profileImage: person_five,
+  //       createdAt: new Date(),
+  //     },
+  //   ],
+  //   post: feed_five,
+  //   postText:
+  //     'Your condition has made many people run away from you,but listen to me. Before 2 months time they will beg for your attention.',
+  //   isPrivate: false,
+  // },
+  // {
+  //   creator: 'Mr. queen',
+  //   profile: [
+  //     {
+  //       profileImage: person_six,
+  //       createdAt: new Date(),
+  //     },
+  //   ],
+  //   post: feed_six,
+  //   postText: 'Your condition has made many people run away from you',
+  //   isPrivate: true,
+  // },
+  // {
+  //   creator: 'john diggle',
+  //   profile: [
+  //     {
+  //       profileImage: person_seven,
+  //       createdAt: new Date(),
+  //     },
+  //   ],
+  //   post: feed_seven,
+  //   postText:
+  //     'Your condition has made many people run away from you,but listen to me. Before 2 months time they will beg for your attention.',
+  //   isPrivate: false,
+  // },
+  // {
+  //   creator: 'walter steel',
+  //   profile: [
+  //     {
+  //       profileImage: person_eight,
+  //       createdAt: new Date(),
+  //     },
+  //   ],
+  //   post: feed_eight,
+  //   postText: 'walter steel from arrow',
+  //   isPrivate: true,
+  // },
+  // {
+  //   creator: 'malcom merlyen',
+  //   profile: [
+  //     {
+  //       profileImage: person_nine,
+  //       createdAt: new Date(),
+  //     },
+  //   ],
+  //   post: feed_nine,
+  //   postText:
+  //     'Your condition has made many people run away from you,but listen to me. Before 2 months time they will beg for your attention.',
+  //   isPrivate: false,
+  // },
+  // {
+  //   creator: 'tommy merlyen',
+  //   profile: [
+  //     {
+  //       profileImage: person_ten,
+  //       createdAt: new Date(),
+  //     },
+  //   ],
+  //   post: feed_ten,
+  //   postText:
+  //     'Want to ensure your writing is out of this world? 🧑‍🚀 💫 With Grammarly for Windows and Mac, you can get instant writing feedback as you move between desktop apps and sites. Install it now!',
+  //   isPrivate: false,
+  // },
+  // {
+  //   creator: 'chun li',
+  //   profile: [
+  //     {
+  //       profileImage: person_eleven,
+  //       createdAt: new Date(),
+  //     },
+  //   ],
+  //   isPrivate: false,
+  //   postText:
+  //     'Your condition has made many people run away from you,but listen to me. Before 2 months time they will beg for your attention.',
+  //   post: feed_eleven,
+  // },
+  // {
+  //   creator: 'john snow',
+  //   profile: [
+  //     {
+  //       profileImage: person_tweleve,
+  //       createdAt: new Date(),
+  //     },
+  //   ],
+  //   post: feed_tweleve,
+  //   postText:
+  //     'Want to ensure your writing is out of this world? 🧑‍🚀 💫 With Grammarly for Windows and Mac, you can get instant writing feedback as you move between desktop apps and sites. Install it now!',
+  //   isPrivate: true,
+  // },
+  // {
+  //   creator: 'arya stark',
+  //   profile: [
+  //     {
+  //       profileImage: person_therteen,
+  //       createdAt: new Date(),
+  //     },
+  //   ],
+  //   post: feed_therteen,
+  //   postText:
+  //     'Your condition has made many people run away from you,but listen to me. Before 2 months time they will beg for your attention.',
+  //   isPrivate: true,
+  // },
+  // {
+  //   creator: 'denial chidera',
+  //   profile: [
+  //     {
+  //       profileImage: person_fourteen,
+  //       createdAt: new Date(),
+  //     },
+  //   ],
+  //   post: feed_fourteen,
+  //   postText:
+  //     'When i went to become programer what basic language must be i learn?',
+  //   isPrivate: true,
+  // },
 ]

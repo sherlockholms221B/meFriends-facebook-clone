@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useReducer } from 'react'
 import { MdOutlineFacebook } from 'react-icons/md'
 
 import { SideBar, Feeds, Advertisment } from '../Components/index'
 import { useGlobalContext } from '../Context/UseContext'
 import { themeCheck } from '../functions/darkTheme'
+import reducer from '../Reducers/GReducer'
 
 const Home = () => {
+  const [state, dispatch] = useReducer(reducer, [])
   const { isLoading, setIsLoading } = useGlobalContext()
 
   useEffect(() => {
@@ -30,15 +32,23 @@ const Home = () => {
           </h3>
         </div>
       ) : (
-        <div className=' dark:bg-darkPrimary relative overflow-hidden h-[100vh] w-[100vw] pt-[60px] black bg-primary'>
+        <div
+          className=' dark:bg-darkPrimary relative overflow-hidden h-[100vh] w-[100vw] pt-[60px] black bg-primary'
+          onClick={() => {
+            dispatch({
+              type: 'come',
+              payload: { name: 'chirstsanctus', level: '100 level' },
+            })
+          }}
+        >
           <div className='flex items-strech justify-between w-[100vw] h-[100%]'>
-            <div className='dark:border-r dark:xl:border-0 dark:border-borderDark overflow-hidden hover:overflow-auto w-min xl:w-[300px] xl:bg-inherit  bg-white dark:bg-darkSecondary dark:xl:bg-darkPrimary  pt-4 pl-2 pr-2 xl:pl-0 xl:pr-0'>
+            <div className='hidden md:flex dark:border-r dark:xl:border-0 dark:border-borderDark overflow-hidden hover:overflow-auto w-max xl:w-[300px] xl:bg-inherit  bg-white dark:bg-darkSecondary dark:xl:bg-darkPrimary  pt-4 pl-2 pr-2 xl:pl-0 xl:pr-0'>
               <SideBar />
             </div>
-            <div className=' flex items-center justify-center mx-auto w-[560px] px-.5  pt-4'>
+            <div className=' flex items-center justify-center mx-auto w-[560px] px-.5 pt-4'>
               <Feeds />
             </div>
-            <div className='overflow-hidden hover:overflow-auto hidden lg:block w-[315px] pt-4'>
+            <div className='overflow-hidden hover:overflow-auto hidden md:block w-[315px] pt-4'>
               <Advertisment />
             </div>
           </div>

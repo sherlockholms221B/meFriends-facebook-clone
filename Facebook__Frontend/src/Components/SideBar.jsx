@@ -2,7 +2,7 @@ import React from 'react'
 import { HiLink } from 'react-icons/hi'
 import { MdHome } from 'react-icons/md'
 import { TbGridDots } from 'react-icons/tb'
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import profile from '../Assets/profile.png'
 import { sideLinks } from '../utils/links'
@@ -10,11 +10,8 @@ import Groups from './Groups'
 import { Active, Footer } from './index'
 
 const SideBar = () => {
-  const search = useLocation().search
-  const query = new URLSearchParams(search).get('talling')
-
   const barHarder =
-    ' text-black dark:text-text_heading_dark_white  hidden xl:block text-lg font-medium'
+    ' text-black dark:text-text_heading_dark_white  xl:block text-lg font-medium'
   const barContainer =
     'relative hover:bg-inherit xl:hover:bg-primary xl:dark:hover:bg-darkComplementry flex flex-row gap-2 items-center w-full  rounded-md'
   const roundedIcon =

@@ -1,10 +1,8 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 import { useGlobalContext } from '../Context/UseContext'
 import { feedLinks, feedLinksOne } from '../utils/links'
-import { client } from '../utils/client'
-import { allPostsQuery } from '../utils/querries'
 
 import { Stories, Post, Reels, Rooms } from './index.js'
 import { posts } from '../utils/constants'

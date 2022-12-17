@@ -15,6 +15,7 @@ import { RiShareForwardLine } from 'react-icons/ri'
 
 import { Comments, PostOptions, Like } from '../index'
 import { useGlobalContext } from '../../Context/UseContext'
+import IMG from './IMG'
 
 const Post = ({
   isPrivate,
@@ -85,9 +86,7 @@ const Post = ({
         <div className='flex items-start-center justify-start px-3 py-2'>
           <h5 className='text-lg dark:text-white text-gray-700'>{postText}</h5>
         </div>
-        <div className='h-full w-[100%] border-b-2 border-t-2 border-gray-300 dark:border-[#3a3b3c]'>
-          <img src={post} alt='post' className='h-full w-[100%] object-cover' />
-        </div>
+        <IMG post={post} />
         <div className='flex flex-col '>
           <div className='flex flex-row flex-nowrap justify-between items-center mx-2 p-2 border-b-2 border-gray-300 dark:border-[#3a3b3c]'>
             <div className='flex items-center justify-center'>

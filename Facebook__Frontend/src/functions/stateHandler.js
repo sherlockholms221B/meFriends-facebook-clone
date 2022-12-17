@@ -72,3 +72,7 @@ export const iconHandler = (value) => {
     setProfileState(false)
   }
 }
+
+export const toggleAudience = (e) => {
+  console.log(e.target)
+}

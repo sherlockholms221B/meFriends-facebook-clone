@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import { useGlobalContext } from '../../Context/UseContext'
-import { previous, forward } from '../../functions/stateHandler'
+import { previous, forward, toggleAudience } from '../../functions/stateHandler'
 import { postAudienceLinks } from '../../utils/links'
 import { Head } from '../index'
 import MegWrapper from '../MegWrapper'
@@ -49,25 +49,25 @@ const PostAudience = () => {
 
         <div className=''>
           {postAudienceLinks.map(({ icon, title, description, id }, i) => (
-            <div key={i + title}>
-              <input type='radio' className='hidden' id={id} />
-              <label
-                htmlFor={id}
-                className={`flex ${id} justify-between items-center mt-2 mb-2 p-2 rounded-md`}
-              >
-                <div className='flex items-center gap-2 '>
-                  <p className='rounded-full bg-gray-300 p-4'> {icon} </p>
-                  <div className='flex flex-col gap-0 '>
-                    <h3 className='text-lg font-semibold text-gray-800'>
-                      {title}
-                    </h3>
-                    <p className='text-md text-gray-500 mt-[-5px]'>
-                      {description}
-                    </p>
-                  </div>
+            <div
+              key={i + title}
+              className={`flex ${id} justify-between items-center cursor-pointer mt-2 mb-2 p-2 rounded-md`}
+              onClick={(e) => {
+                toggleAudience(e)
+              }}
+            >
+              <div className='flex items-center gap-2 '>
+                <p className='rounded-full bg-gray-300 p-4'> {icon} </p>
+                <div className='flex flex-col gap-0 '>
+                  <h3 className='text-lg font-semibold text-gray-800'>
+                    {title}
+                  </h3>
+                  <p className='text-md text-gray-500 mt-[-5px]'>
+                    {description}
+                  </p>
                 </div>
-                <div className='border-2 border-gray-500 h-6 w-6 rounded-full ' />
-              </label>
+              </div>
+              <div className='border-2 border-gray-500 h-6 w-6 rounded-full ' />
             </div>
           ))}
         </div>
