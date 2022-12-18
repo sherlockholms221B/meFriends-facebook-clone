@@ -22,13 +22,14 @@ export const AppProvider = ({ children }) => {
   const [selectedFriends, setSelectedFriends] = useState([])
 
   const [location, setLocation] = useState({
-    top: 0,
-    center: 0,
+    height: 0,
   })
 
   const dynamicLocation = (cordinate) => {
-    const { top, center } = cordinate
-    setLocation({ top: top, center: center })
+    const { height } = cordinate
+    console.log(height)
+    setLocation({ height: height })
+    return
   }
 
   const stateAcceptor = (states) => {}

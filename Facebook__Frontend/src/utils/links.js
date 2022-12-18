@@ -1,5 +1,5 @@
 import { AiFillHome, AiOutlineFieldTime } from 'react-icons/ai'
-import { FaUserFriends, FaBookmark } from 'react-icons/fa'
+import { FaUserFriends, FaBookmark, FaFacebookMessenger } from 'react-icons/fa'
 import { HiLockClosed } from 'react-icons/hi'
 import { TbGridDots } from 'react-icons/tb'
 import { GiBackwardTime, GiEarthAmerica } from 'react-icons/gi'
@@ -11,6 +11,8 @@ import {
   MdGroups,
   MdVideoCameraBack,
   MdOutlinePhotoLibrary,
+  MdNotifications,
+  MdHome,
 } from 'react-icons/md'
 import { BsBookFill, BsEmojiWink, BsLink45Deg } from 'react-icons/bs'
 
@@ -91,16 +93,36 @@ export const postAudienceLinks = [
 
 // export const navLinks = [
 //   {
-//     icon: <FaFacebookMessenger />,
-//     alarts: '3',
-//     tip: 'messenger',
-//   },
-//   {
-//     icon: <MdNotifications />,
-//     alarts: '1',
-//     tip: 'notification',
-//   },
+//   icon: <FaFacebookMessenger />,
+//   alarts: '3',
+//   tip: 'messenger',
+// },
+// {
+//   icon: <MdNotifications />,
+//   alarts: '1',
+//   tip: 'notification',
+// },
 // ]
+
+export const mNavLink = [
+  {
+    icon: <MdHome />,
+    alert: '+10',
+    tip: 'home',
+  },
+  { icon: <FaUserFriends />, tip: 'Friends', alert: '4' },
+  { icon: <FaFacebookMessenger />, alarts: '3', tip: 'messenger' },
+  {
+    icon: <MdNotifications />,
+    alarts: '1',
+    tip: 'notification',
+  },
+  {
+    icon: <MdGroups />,
+    alarts: '1',
+    tip: 'groups',
+  },
+]
 
 export const feedLinks = [
   { name: 'stories', icon: <BsBookFill /> },
@@ -109,7 +131,7 @@ export const feedLinks = [
 ]
 
 export const feedLinksOne = [
-  { title: 'Live video', icon: <MdVideoCameraBack /> },
-  { title: 'Photo/Video', icon: <MdOutlinePhotoLibrary /> },
-  { title: 'Feelings/activity', icon: <BsEmojiWink /> },
+  { title: 'Live video', mtitle: 'live', icon: <MdVideoCameraBack /> },
+  { title: 'Photo/Video', mtitle: 'video', icon: <MdOutlinePhotoLibrary /> },
+  { title: 'Feelings/activity', mtitle: 'feeling', icon: <BsEmojiWink /> },
 ]
