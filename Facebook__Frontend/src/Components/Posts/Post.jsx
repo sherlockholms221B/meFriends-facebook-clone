@@ -46,7 +46,7 @@ const Post = ({
 
   return (
     <>
-      <section className='dark:border dark:border-borderDark dark:bg-darkSecondary flex flex-col rounded-md bg-white shadow-xl mt-4 '>
+      <section className='dark:border dark:border-borderDark dark:bg-darkSecondary medium:order-3 flex flex-col rounded-md bg-white shadow-xl mt-4 '>
         <div className=' relative flex flex-row flex-nowrap justify-between items-center px-3 py-2'>
           <div className='flex gap-2 items-center'>
             <Link to={`/backface/api/profile`}>
@@ -84,7 +84,9 @@ const Post = ({
           </div>
         </div>
         <div className='flex items-start-center justify-start px-3 py-2'>
-          <h5 className='text-lg dark:text-white text-gray-700'>{postText}</h5>
+          <h5 className='text-sm small:text-lg dark:text-white text-gray-700'>
+            {postText}
+          </h5>
         </div>
         <IMG post={post} />
         <div className='flex flex-col '>
@@ -109,13 +111,13 @@ const Post = ({
               onClick={() => setIsComment(!isComment)}
             >
               <GoComment className='text-xl font-bold text-gray-500 mr-1  dark:text-text_heading_dark_gray' />
-              <p className='text-md text-gray-500 font-semibold  dark:text-text_heading_dark_gray'>
+              <p className='hidden xtra_small:block text-sm xtra_small:text-md text-gray-500 font-semibold  dark:text-text_heading_dark_gray'>
                 Comment
               </p>
             </div>
             <div className='flex flex-row justify-center flex-nowrap items-center dark:hover:bg-darkComplementry hover:bg-primary rounded-[3px] px-8 py-2 cursor-pointer'>
               <RiShareForwardLine className='text-2xl  dark:text-text_heading_dark_gray font-bold text-gray-500 mr-1' />
-              <p className='text-md text-gray-500  dark:text-text_heading_dark_gray font-semibold'>
+              <p className='hidden xtra_small:block text-sm xtra_small:text-md text-gray-500  dark:text-text_heading_dark_gray font-semibold'>
                 Share
               </p>
             </div>
