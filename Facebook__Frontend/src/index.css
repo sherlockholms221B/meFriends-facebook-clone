@@ -92,3 +92,15 @@ body {
 ::-webkit-scrollbar-track {
   background-color: transparent;
 }
+
+.p {
+  @apply text-blue-700;
+}
+
+.flex_row {
+  @apply flex flex-row items-center w-full;
+}
+
+.dark_white {
+  @apply dark:text-text_heading_dark_white;
+}

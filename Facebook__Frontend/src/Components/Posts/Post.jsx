@@ -63,7 +63,7 @@ const Post = ({
                 {creator}
               </h2>
               <div className='flex flex-row flex-nowrap items-center gap-2'>
-                <p className='text-sm text-gray-500 '>
+                <p className='text-xs small:text-sm text-gray-500 '>
                   {moment(createdAt).fromNow()}
                 </p>
                 <span className='text-gray-500 text-md font-medium'>

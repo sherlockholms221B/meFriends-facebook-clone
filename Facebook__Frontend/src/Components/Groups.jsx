@@ -3,6 +3,7 @@ import { MdGroups } from 'react-icons/md'
 import { Link, useLocation } from 'react-router-dom'
 
 import { groupsLinks } from '../utils/links'
+import Active from './Active'
 
 const Groups = ({ barHarder, barContainer, roundedIcon }) => {
   const search = useLocation().search
@@ -17,11 +18,7 @@ const Groups = ({ barHarder, barContainer, roundedIcon }) => {
           <MdGroups />
         </p>
         <p className={barHarder}>Groups</p>
-        <div
-          className={` ${
-            query === 'groups' ? 'animate-pulse transition-all' : 'hidden'
-          } absolute w-1.5 rounded-tr-xl  rounded-br-xl h-full bg-blue-600 -left-2 `}
-        ></div>
+        <Active queryTerm={`groups`} homeTerm={null} />
       </Link>
       {groupsLinks.map(({ img, name }) => (
         <Link
@@ -35,7 +32,7 @@ const Groups = ({ barHarder, barContainer, roundedIcon }) => {
             className='object-cover w-6 h-6 rounded-lg'
           />
           <h3
-            className={`dark:text-white hidden xl:block text-md font-semibold text-gray-900 `}
+            className={`dark:text-white hidden larg:block text-md font-semibold text-gray-900 `}
           >
             {name}
           </h3>

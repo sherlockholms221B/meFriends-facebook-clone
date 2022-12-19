@@ -12,7 +12,7 @@ import { MdOutlineSearch, MdVideoCall } from 'react-icons/md'
 const Advertisment = () => {
   const [add, setAdd] = useState(false)
   const addHearder =
-    'text-xl font-bold text-gray-900 dark:text-text_heading_dark_white'
+    'larg:text-xl text-md font-bold text-gray-900 dark:text-text_heading_dark_white'
   return (
     <div className='flex flex-col  gap-3 justify-start items-start w-full h-max pt-2 pb-4'>
       <h3 className={`${addHearder}`}>Sponsored</h3>

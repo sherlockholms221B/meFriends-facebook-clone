@@ -43,7 +43,7 @@ const Navbar = () => {
           </h1>
         </button>
         <div
-          className='hidden small:flex relative w-11 h-11 medium:w-fmedium: medium:h-fit justify-center items-center dark:bg-darkComplementry rounded-full'
+          className='hidden small:flex relative w-11 h-11 medium:w-fit medium: medium:h-fit justify-center items-center dark:bg-darkComplementry rounded-full'
           onClick={() => {
             console.log('hello i am here')
           }}
@@ -58,7 +58,7 @@ const Navbar = () => {
             }}
             value={searchValue}
           />
-          <MdOutlineSearch className=' medium:absolute relative medium:top-2 medium:ium:left-3 top-0 left-0 text-gray-500 text-2xl cursor-pointer dark:text-text_heading_dark_gray' />
+          <MdOutlineSearch className=' medium:absolute relative medium:top-2.5 medium:left-3 top-0 left-0 text-gray-500 text-2xl cursor-pointer dark:text-text_heading_dark_gray' />
         </div>
 
         <div className='flex flex-row gap-2 small:gap-3 items-center'>
@@ -110,7 +110,7 @@ const Navbar = () => {
           ))}
           <button
             onClick={() => {}}
-            className={`relative small:hidden p-0.5 xtra_small:p-1.5 dark:bg-darkComplementry rounded-full bg-hover  tablet:hover:bg-primaryWhite
+            className={`relative small:hidden p-0.5 xtra_small:p-1.5 dark:bg-darkComplementry rounded-full bg-hover  hover:bg-primaryWhite
             cursor-pointer`}
           >
             <MdOutlineSearch className='text-xl xtra_small:text-2xl font-semibold dark:text-white' />

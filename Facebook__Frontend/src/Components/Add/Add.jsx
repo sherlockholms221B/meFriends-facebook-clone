@@ -13,14 +13,16 @@ const Add = ({ add, setAdd, title, description, img, index }) => {
           src={img}
           alt='add'
           className={`${
-            index === 1 ? 'h-24 w-[110px]' : 'h-24 w-[110px]'
+            index === 1
+              ? 'larg:h-24 h-20 larg:w-[110px] w-[94px]'
+              : 'larg:h-24 h-20 larg:w-[110px] w-[94px]'
           } rounded-md object-fit`}
         />
         <div className=''>
-          <h3 className='text-md dark:text-text_heading_dark_white font-semibold text-gray-900 uppercase'>
+          <h3 className='text-sm larg:text-md  dark:text-text_heading_dark_white font-semibold text-gray-900 uppercase'>
             {title}
           </h3>
-          <p className=' text-[15px] text-gray-500 dark:text-text_heading_dark_gray'>
+          <p className=' larg:text-[15px] text-xs text-gray-500 dark:text-text_heading_dark_gray'>
             {description}{' '}
           </p>
         </div>

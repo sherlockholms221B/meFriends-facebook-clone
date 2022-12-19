@@ -80,7 +80,7 @@ const Posts = () => {
           ))}
         </div>
       </div>
-      <div className='dark:bg-darkSecondary bg-white rounded-md shadow-lg mt-4 medium:order-1'>
+      <div className='dark:bg-darkSecondary bg-white rounded-md shadow-lg mt-4 medium:order-1 medium:mb-4'>
         <div className='flex_row justify-around  capitalize border-b-2 px-1  dark:border-borderDark  border-[#D8D5D5]'>
           {feedLinks.map(({ name, icon }, i) => (
             <Link
@@ -105,7 +105,7 @@ const Posts = () => {
             </Link>
           ))}
         </div>
-        <div className='flex gap-2.5 flex-nowrap overflow-x-scroll mb-4 p-4 scroll_styled '>
+        <div className='flex gap-2.5 flex-nowrap overflow-x-scroll mb-1 small:mb-4 p-2 small:p-4 scroll_styled '>
           {(query === 'stories' || query === null) && <Stories />}
           {query === 'reels' && <Reels />}
           {query === 'rooms' && <Rooms />}

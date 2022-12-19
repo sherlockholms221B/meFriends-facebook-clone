@@ -131,7 +131,7 @@ export const feedLinks = [
 ]
 
 export const feedLinksOne = [
-  { title: 'Live video', mtitle: 'live', icon: <MdVideoCameraBack /> },
-  { title: 'Photo/Video', mtitle: 'video', icon: <MdOutlinePhotoLibrary /> },
-  { title: 'Feelings/activity', mtitle: 'feeling', icon: <BsEmojiWink /> },
+  { title: 'Live video', mtitle: 'Live', icon: <MdVideoCameraBack /> },
+  { title: 'Photo/Video', mtitle: 'Video', icon: <MdOutlinePhotoLibrary /> },
+  { title: 'Feelings/activity', mtitle: 'Feeling', icon: <BsEmojiWink /> },
 ]
