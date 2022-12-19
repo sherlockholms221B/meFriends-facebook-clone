@@ -1,18 +1,13 @@
-import React, { useState, useEffect, useReducer } from 'react'
+import React, { useEffect, useReducer } from 'react'
 import { MdOutlineFacebook } from 'react-icons/md'
 
 import { SideBar, Feeds, Advertisment } from '../Components/index'
 import { useGlobalContext } from '../Context/UseContext'
-import { themeCheck } from '../functions/darkTheme'
 import reducer from '../Reducers/GReducer'
 
 const Home = () => {
   const [state, dispatch] = useReducer(reducer, [])
   const { isLoading, setIsLoading, location } = useGlobalContext()
-
-  useEffect(() => {
-    themeCheck()
-  }, [])
 
   useEffect(() => {
     setTimeout(() => {
@@ -46,12 +41,8 @@ const Home = () => {
             <div className=' hidden small:flex dark:border-r dark:xl:border-0 dark:border-borderDark  dark:bg-darkSecondary overflow-hidden hover:overflow-auto w-max  bg-white pt-4 pl-2 pr-2  larg:w-[300px] larg:bg-inherit dark:larg:bg-darkPrimary '>
               <SideBar />
             </div>
-            <div className=' flex items-center justify-center mx-auto min-w-[260px] mid_small:w-[560px] px-0.5 pt-0.5 small:pt-4'>
-              <Feeds />
-            </div>
-            <div className='overflow-hidden hover:overflow-auto hidden laptop:block w-260 larg:w-[315px] pt-4'>
-              <Advertisment />
-            </div>
+            <Feeds isNot={true} />
+            <Advertisment />
           </div>
         </div>
       )}
