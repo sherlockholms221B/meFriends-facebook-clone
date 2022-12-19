@@ -88,7 +88,7 @@ const TagPeople = () => {
                   console.log(selectedFriends)
                 }}
                 key={i + creator}
-                className='flex flex-row gap-2 items-center px-2 py-0.5 hover:bg-hover rounded-md w-full mt-1 mb-1'
+                className='flex flex-row gap-2 items-center px-2 py-0.5 hover:bg-secondaryWhite rounded-md w-full mt-1 mb-1'
               >
                 <div className='rounded-full cursor-pointer'>
                   <img

@@ -7,7 +7,7 @@ const Add = ({ add, setAdd, title, description, img, index }) => {
   const [addOptions, setAddOptions] = useState(false)
   return (
     <>
-      <div className='relative flex flex-row justify-strech gap-4 p-2 w-full rounded-md hover:bg-hover dark:hover:bg-darkComplementry cursor-pointer items-center'>
+      <div className='relative flex flex-row justify-strech gap-4 p-2 w-full rounded-md hover:bg-secondaryWhite dark:hover:bg-darkComplementry cursor-pointer items-center'>
         <img
           onClick={() => setAdd(!add)}
           src={img}
@@ -35,7 +35,6 @@ const Add = ({ add, setAdd, title, description, img, index }) => {
             <HiDotsHorizontal className='text-md' />
           </button>
         )}
-        {addOptions && <PostOptions addOptions={addOptions} />}
       </div>
     </>
   )

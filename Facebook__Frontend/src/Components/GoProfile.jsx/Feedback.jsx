@@ -44,7 +44,7 @@ const Feedback = () => {
         ].map(({ icon, title, description }, i) => (
           <div
             key={i + title}
-            className={`  ${title} hover:bg-hover p-2 w-full rounded-md cursor-pointer`}
+            className={`  ${title} hover:bg-secondaryWhite p-2 w-full rounded-md cursor-pointer`}
           >
             <div className='flex flex-row items-center gap-2 w-fit '>
               <p className='text-2xl rounded-full bg-gray-200 p-4 w-fit h-fit'>

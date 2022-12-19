@@ -12,7 +12,7 @@ const Head = (prop) => {
         {title}
       </h3>
       <p
-        className='absolute  dark:shadow-black dark:shadow-sm dark:bg-darkComplementry top-2 left-2 rounded-full hover:bg-hover bg-gray-300 p-2 cursor-pointer'
+        className='absolute  dark:shadow-black dark:shadow-sm dark:bg-darkComplementry top-2 left-2 rounded-full hover:bg-secondaryWhite bg-gray-300 p-2 cursor-pointer'
         onClick={() => {
           previous(setFirstState, setSecondState, setThirdState)
         }}

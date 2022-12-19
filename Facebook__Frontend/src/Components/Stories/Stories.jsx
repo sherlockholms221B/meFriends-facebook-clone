@@ -21,7 +21,7 @@ const Stories = () => {
           </h1>
           <div className='absolute top-0 bottom-0 right-0 left-0 cursor-pointer z-10 hover:backdrop-blur-sm rounded-lg' />
           <Link to={`/backface/api/profile`}>
-            <div className=' border-4 border-white-700 rounded-full cursor-pointer absolute top-[55%] right-[30%] bg-blue-700 p-1 z-10'>
+            <div className='animate-pulse border-4 border-white-700 rounded-full cursor-pointer absolute top-[55%] right-[30%] bg-blue-700 p-1 z-10'>
               <RiAddLine className='text-white text-2xl font-bold' />
             </div>
           </Link>

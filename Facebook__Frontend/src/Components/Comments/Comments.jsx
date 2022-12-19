@@ -76,14 +76,12 @@ const Comments = ({
         {isComment && (
           <>
             {!viewMore && (
-              <motion.button
-                whileHover={{ scale: [1, 1.1] }}
-                transition={{ duration: 0.5, ease: 'easeInOut' }}
+              <button
                 onClick={() => setViewMore(!viewMore)}
-                className='text-sm text-gray-500 font-medium self-start ml-14 mt-2'
+                className='text-sm text-gray-500 dark:text-text_heading_dark_gray font-medium self-start ml-14 mt-2 animate-pulse'
               >
                 see more
-              </motion.button>
+              </button>
             )}
           </>
         )}

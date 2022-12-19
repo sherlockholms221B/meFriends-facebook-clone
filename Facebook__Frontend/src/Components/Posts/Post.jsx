@@ -72,7 +72,7 @@ const Post = ({
               </div>
             </div>
           </div>
-          <div className=''>
+          <div className='bg-inherit'>
             <div
               className='text-2xl font-semibold text-gray-500 p-2 rounded-full dark:hover:bg-darkComplementry hover:bg-primary '
               ref={togleMenu}

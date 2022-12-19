@@ -92,7 +92,7 @@ const PostAudience = () => {
             onClick={() =>
               previous(setCreatePostState, setPostAudienceState, setGoBack)
             }
-            className='text-blue-600 font-semibold hover:bg-hover py-2 px-4 rounded-sm  '
+            className='text-blue-600 font-semibold hover:bg-secondaryWhite py-2 px-4 rounded-sm  '
             type='button'
           >
             Cancle

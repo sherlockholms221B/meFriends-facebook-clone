@@ -1,5 +1,5 @@
 import Navbar from './Navbar'
-import SideBar from './SideBar'
+import SideBar from './SideBars/SideBar'
 import Feeds from './Feeds'
 import Post from './Posts/Post'
 import Comments from './Comments/Comments'
@@ -34,6 +34,7 @@ import Active from './Active'
 import Reels from './Reels/Reels'
 import Rooms from './Rooms/Rooms'
 import Footer from './Footer'
+import CMPFooter from './CMPFooter'
 
 export {
   Navbar,
@@ -72,4 +73,5 @@ export {
   Reels,
   Rooms,
   Footer,
+  CMPFooter,
 }

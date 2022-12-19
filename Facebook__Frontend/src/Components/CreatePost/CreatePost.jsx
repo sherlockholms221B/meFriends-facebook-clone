@@ -60,7 +60,7 @@ const CreatePost = () => {
           Create post
         </h3>
         <p
-          className='absolute dark:bg-darkComplementry top-2 right-2 rounded-full hover:bg-hover bg-gray-300 p-2 cursor-pointer  dark:shadow-black dark:shadow-sm'
+          className='absolute dark:bg-darkComplementry top-2 right-2 rounded-full hover:bg-secondaryWhite bg-gray-300 p-2 cursor-pointer  dark:shadow-black dark:shadow-sm'
           onClick={() => {
             setCreatePostState(false)
             setGoBack(false)

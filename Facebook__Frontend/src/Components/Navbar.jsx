@@ -91,7 +91,7 @@ const Navbar = () => {
                   notificationState,
                 })
               }
-              className={`relative hidden small:block p-2.5 dark:bg-darkComplementry  ${tip} rounded-full bg-hover  hover:bg-primaryWhite
+              className={`relative hidden small:block p-2.5 dark:bg-darkComplementry  ${tip} rounded-full bg-secondaryWhite  hover:bg-primaryWhite
             cursor-pointer`}
               key={i + alarts}
             >
@@ -110,7 +110,7 @@ const Navbar = () => {
           ))}
           <button
             onClick={() => {}}
-            className={`relative small:hidden p-0.5 xtra_small:p-1.5 dark:bg-darkComplementry rounded-full bg-hover  hover:bg-primaryWhite
+            className={`relative small:hidden p-0.5 xtra_small:p-1.5 dark:bg-darkComplementry rounded-full bg-secondaryWhite  hover:bg-primaryWhite
             cursor-pointer`}
           >
             <MdOutlineSearch className='text-xl xtra_small:text-2xl font-semibold dark:text-white' />
@@ -131,7 +131,7 @@ const Navbar = () => {
               className='object-contain w-5 xtra_small:w-8 h-5 xtra_small:h-8 small:w-11 small:h-11'
             />
             <div className='hidden small:flex absolute w-[15px] h-[15px] rounded-full bg-red-600 top-0 right-0 border-2 border-white z-10' />
-            <div className='hidden small:flex absolute bottom-[-3px] dark:ring-slate-800 dark:bg-darkComplementry right-0 rounded-full bg-hover border-white  ring-2 ring-white w-4 h-4  justify-center items-center'>
+            <div className='hidden small:flex absolute bottom-[-3px] dark:ring-slate-800 dark:bg-darkComplementry right-0 rounded-full bg-secondaryWhite border-white  ring-2 ring-white w-4 h-4  justify-center items-center'>
               <MdOutlineExpandMore className='text-tablet dark:text-white text-black font-bold' />
             </div>
             <ToolTip
@@ -144,7 +144,7 @@ const Navbar = () => {
           </button>
           <button
             onClick={() => {}}
-            className={`relative small:hidden p-0.5 xtra_small:p-1.5 dark:bg-darkComplementry rounded-full bg-hover  tablet:hover:bg-primaryWhite
+            className={`relative small:hidden p-0.5 xtra_small:p-1.5 dark:bg-darkComplementry rounded-full bg-secondaryWhite  tablet:hover:bg-primaryWhite
             cursor-pointer`}
           >
             <MdMenu className='text-xl xtra_small:text-2xl font-semibold dark:text-white' />

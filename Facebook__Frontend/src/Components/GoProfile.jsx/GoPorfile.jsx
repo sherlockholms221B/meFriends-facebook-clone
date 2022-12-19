@@ -5,7 +5,7 @@ import { RiFeedbackFill, RiLogoutBoxRFill } from 'react-icons/ri'
 import { MdOutlineArrowForwardIos, MdSettingsSuggest } from 'react-icons/md'
 
 import MegWrapper from '../MegWrapper'
-import { ProfilePicture } from '../index'
+import { ProfilePicture, CMPFooter } from '../index'
 import { useGlobalContext } from '../../Context/UseContext'
 import { iconHandler } from '../../functions/stateHandler'
 const GoPorfile = () => {
@@ -30,7 +30,7 @@ const GoPorfile = () => {
         <Link
           onClick={() => setProfileState(false)}
           to={`/backface/api/profile`}
-          className='hover:bg-hover dark:hover:bg-darkComplementry h-fit flex flex-row items-center gap-3 px-2 py-1 rounded-md cursor-pointer'
+          className='hover:bg-secondaryWhite dark:hover:bg-darkComplementry h-fit flex flex-row items-center gap-3 px-2 py-1 rounded-md cursor-pointer'
         >
           <ProfilePicture />
           <h5 className='text-lg font-semibold text-gray-900'>
@@ -38,7 +38,7 @@ const GoPorfile = () => {
           </h5>
         </Link>
         <div className='border mt-1 mb-1 dark:border-borderDark' />
-        <div className='dark:hover:bg-darkComplementry hover:bg-hover h-fit flex flex-row justify-between items-center gap-3 p-2 rounded-md'>
+        <div className='dark:hover:bg-darkComplementry hover:bg-secondaryWhite h-fit flex flex-row justify-between items-center gap-3 p-2 rounded-md'>
           <h5 className='text-blue-600 cursor-pointer font-medium'>
             See all profiles
           </h5>
@@ -96,7 +96,7 @@ const GoPorfile = () => {
             key={i + title}
             className={` ${
               isMove && 'justify-between flex flex-row items-center'
-            } ${title} dark:hover:bg-darkComplementry hover:bg-hover p-2 w-full rounded-md cursor-pointer`}
+            } ${title} dark:hover:bg-darkComplementry hover:bg-secondaryWhite p-2 w-full rounded-md cursor-pointer`}
           >
             <div className='flex flex-row items-center gap-2 w-fit '>
               <p className='text-xl rounded-full  dark:shadow-black dark:shadow-sm dark:bg-darkComplementry bg-gray-200 p-2 w-fit h-fit'>
@@ -114,12 +114,7 @@ const GoPorfile = () => {
           </div>
         ))}
       </section>
-      <section className='mt-2'>
-        <p className='text-sm'>
-          Privacy · Terms · Advertising · Ad choices · Cookies ·{' '}
-          <span className='cursor-pointer'>more</span> · Meta © 2022
-        </p>
-      </section>
+      <CMPFooter />
     </div>
   )
 }

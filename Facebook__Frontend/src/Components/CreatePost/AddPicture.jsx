@@ -85,7 +85,7 @@ const AddPicture = () => {
       {!firstImg && (
         <div
           onClick={(e) => selectPicture(e)}
-          className='relative  h-full w-full hover:bg-hover dark:bg-darkComplementry hover:border-dashed border-2 hover:border-gray-600 dark:border-0 flex flex-col transition-all items-center justify-center rounded-md p-2 cursor-pointer'
+          className='relative  h-full w-full hover:bg-secondaryWhite dark:bg-darkComplementry hover:border-dashed border-2 hover:border-gray-600 dark:border-0 flex flex-col transition-all items-center justify-center rounded-md p-2 cursor-pointer'
         >
           <input
             onChange={({ target }) => {
@@ -107,7 +107,7 @@ const AddPicture = () => {
             or drag and drop
           </p>
           <p
-            className='dark:bg-darkComplementry absolute top-2 right-2 rounded-full hover:bg-hover bg-white shadow-xl z-40 p-1 dark:shadow-black dark:shadow-sm'
+            className='dark:bg-darkComplementry absolute top-2 right-2 rounded-full hover:bg-secondaryWhite bg-white shadow-xl z-40 p-1 dark:shadow-black dark:shadow-sm'
             onClick={(e) => {
               e.stopPropagation()
               setAddPictureState(false)
