@@ -1,7 +1,23 @@
 import Home from './Home'
 import Login from './Login'
 import Protector from './Protector'
-import Profile from './Profile'
-import PostDetails from './PostDetails'
+import Profile from './Profile/Profile'
+import PostDetails from './Posts/PostDetails'
+import STPage from './STPage'
+import EDIOP from './Profile/EDIOP'
+import Friends from './Profile/Friends'
+import Photos from './Profile/Photos'
+import HED from './Profile/HED'
 
-export { Home, Login, Profile, Protector, PostDetails }
+export {
+  Home,
+  Login,
+  Profile,
+  Protector,
+  PostDetails,
+  STPage,
+  EDIOP,
+  Friends,
+  Photos,
+  HED,
+}
