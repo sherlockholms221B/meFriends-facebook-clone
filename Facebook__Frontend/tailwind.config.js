@@ -3,6 +3,16 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   darkMode: 'class',
   theme: {
+    screens: {
+      xtra_small: '320px',
+      mid_small: '560px',
+      small: '640px',
+      medium: '768px',
+      tablet: '858px',
+      laptop: '900px',
+      larg: '1160px',
+      xtra_larg: '1280px',
+    },
     extend: {
       width: {
         1600: '1600px',
@@ -23,7 +33,7 @@ module.exports = {
       backgroundColor: {
         primary: '#dcdcf85b',
         primaryWhite: '#D4D8E8',
-        hover: '#e3e3e3e3',
+        secondaryWhite: '#e3e3e3e3',
         darkPrimary: '#18191a',
         darkSecondary: '#242526',
         darkComplementry: '#3a3b3c',
@@ -34,9 +44,8 @@ module.exports = {
         borderDark: '#3a3b3c',
       },
       colors: {
-        darkText: '#3a3b3c',
-        text_heading_dark_white: 'rgb(222, 221, 221)',
-        text_heading_dark_gray: 'rgb(192, 192, 192)',
+        heading_dark_white: 'rgb(222, 221, 221)',
+        heading_dark_gray: 'rgb(192, 192, 192)',
       },
     },
   },
