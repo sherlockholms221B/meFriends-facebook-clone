@@ -19,8 +19,6 @@ import { BsBookFill, BsEmojiWink, BsLink45Deg } from 'react-icons/bs'
 import { feed_eight, feed_nine, feed_ten } from '../Assets/exports'
 import { RiVideoAddFill } from 'react-icons/ri'
 
-const repeatStyle = 'text-2xl text-gray-800'
-
 export const sideLinks = [
   {
     title: 'Friends',
@@ -58,51 +56,6 @@ export const groupsLinks = [
     img: feed_ten,
   },
 ]
-
-export const postAudienceLinks = [
-  {
-    icon: <GiEarthAmerica className={`${repeatStyle}`} />,
-    title: 'Public',
-    id: 'public',
-    description: 'Anyone on or off Facebook',
-  },
-  {
-    icon: <FaUserFriends className={`${repeatStyle}`} />,
-    title: 'Friends',
-    id: 'friends',
-    description: 'Your friends on Facebook',
-  },
-  {
-    icon: <HiLockClosed className={`${repeatStyle}`} />,
-    title: 'Only me',
-    id: 'me',
-  },
-  {
-    icon: <MdPerson className={`${repeatStyle}`} />,
-    title: 'Specific friends',
-    description: 'Only show to some friends',
-    id: 'specific',
-  },
-  {
-    icon: <MdSettings className={`${repeatStyle}`} />,
-    title: 'Custom',
-    id: 'custom',
-    description: 'Include and exclude friends and lists',
-  },
-]
-
-// export const navLinks = [
-//   {
-//   icon: <FaFacebookMessenger />,
-//   alarts: '3',
-//   tip: 'messenger',
-// },
-// {
-//   icon: <MdNotifications />,
-//   alarts: '1',
-//   tip: 'notification',
-// },
-// ]
 
 export const mNavLink = [
   {

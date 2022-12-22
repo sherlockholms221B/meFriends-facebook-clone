@@ -31,7 +31,7 @@ import {
 
 export const storiesbox = [
   {
-    creator: 'chidimma ezeugwu chibuli ',
+    creator: 'chidimma ezeugwu',
     profile: [
       {
         profileImage: person_one,
@@ -414,19 +414,27 @@ export const posts = [
     postText: '#me',
     isPrivate: false,
   },
-  // {
-  //   creator: 'younge module',
-  //   profile: [
-  //     {
-  //       profileImage: person_five,
-  //       createdAt: new Date(),
-  //     },
-  //   ],
-  //   post: feed_five,
-  //   postText:
-  //     'Your condition has made many people run away from you,but listen to me. Before 2 months time they will beg for your attention.',
-  //   isPrivate: false,
-  // },
+  {
+    creator: 'younge module',
+    profile: [
+      {
+        profileImage: person_five,
+        createdAt: new Date(),
+      },
+    ],
+    post: [
+      feed_five,
+      person_fourteen,
+      person_seven,
+      feed_seven,
+      person_nine,
+      person_two,
+      person_therteen,
+    ],
+    postText:
+      'Your condition has made many people run away from you,but listen to me. Before 2 months time they will beg for your attention.',
+    isPrivate: false,
+  },
   // {
   //   creator: 'Mr. queen',
   //   profile: [

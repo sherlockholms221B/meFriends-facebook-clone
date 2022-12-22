@@ -93,14 +93,28 @@ body {
   background-color: transparent;
 }
 
-.p {
-  @apply text-blue-700;
-}
-
 .flex_row {
   @apply flex flex-row items-center w-full;
 }
 
 .dark_white {
-  @apply dark:text-text_heading_dark_white;
+  @apply dark:text-heading_dark_white;
+}
+
+.light_text_gray {
+  @apply text-gray-500;
+}
+
+.shade_blue {
+  @apply text-blue-400;
+}
+.blue_text {
+  @apply text-blue-500;
+}
+.deep_blue {
+  @apply text-blue-600;
+}
+
+.linear_dark {
+  background-image: linear-gradient(to bottom, #242526, #3a3b3c);
 }

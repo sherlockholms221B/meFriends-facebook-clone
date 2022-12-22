@@ -1,41 +1,29 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 
-import { Home, Login, Profile, Protector } from './Pages/exports'
 import {
-  Navbar,
-  CreatePost,
-  PostAudience,
-  AddToYour,
-  TagPeople,
-  Notifications,
-  Messages,
-  GoPorfile,
-  Support,
-  Settings,
-  Feedback,
-  Display,
-} from './Components/index'
+  Home,
+  Login,
+  PostDetails,
+  Profile,
+  Protector,
+  STPage,
+} from './Pages/exports'
+import { Navbar } from './Components/index'
 import { useGlobalContext } from './Context/UseContext'
+import { themeCheck } from './functions/darkTheme'
+import ABS from './ABS'
 
 const App = () => {
-  const {
-    addToYourState,
-    postAudienceState,
-    createPostState,
-    tagPeopleState,
-    messageState,
-    notificationState,
-    profileState,
-    settingsState,
-    displayState,
-    feedbackState,
-    supportState,
-    isLoading,
-  } = useGlobalContext()
+  const { isLoading } = useGlobalContext()
+  useEffect(() => {
+    themeCheck()
+  }, [])
+
+  const WTR = window.location.pathname
+
   return (
     <>
-      {!isLoading && <Navbar />}
       <Routes>
         <Route
           path='/'
@@ -46,19 +34,11 @@ const App = () => {
           }
         />
         <Route path='/backface/api/profile' element={<Profile />} />
+        <Route path={`/post/details/photo`} element={<PostDetails />} />
+        <Route path={`api/search/random`} element={<STPage />} />
         <Route path='/dashbord/api/login' element={<Login />} />
       </Routes>
-      {createPostState && <CreatePost />}
-      {postAudienceState && <PostAudience />}
-      {tagPeopleState && <TagPeople />}
-      {addToYourState && <AddToYour />}
-      {messageState && <Messages />}
-      {notificationState && <Notifications />}
-      {profileState && <GoPorfile />}
-      {settingsState && <Settings />}
-      {displayState && <Display />}
-      {supportState && <Support />}
-      {feedbackState && <Feedback />}
+      <ABS />
     </>
   )
 }
