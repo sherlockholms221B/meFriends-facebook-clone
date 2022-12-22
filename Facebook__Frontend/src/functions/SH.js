@@ -13,7 +13,7 @@ export const previous = (setFirstState, setSecondState, setThirdState) => {
   setThirdState(true)
 }
 
-export const iconHandler = (value) => {
+export const IconHandler = (value) => {
   const {
     e,
     ref,
@@ -32,7 +32,8 @@ export const iconHandler = (value) => {
     setGoBack,
   } = value
   e.stopPropagation()
-  const classNames = Object.values(ref.current.classList)
+  const _ = ref.current.classList
+  const classNames = Object.values(_)
   if (classNames.includes('text-green-600')) {
     setAddPictureState(true)
   }
@@ -71,8 +72,17 @@ export const iconHandler = (value) => {
     setFeedbackState(true)
     setProfileState(false)
   }
+  if (
+    classNames.includes('me') ||
+    classNames.includes('public') ||
+    classNames.includes('friends') ||
+    classNames.includes('specific') ||
+    classNames.includes('custom')
+  ) {
+    console.log(ref)
+    // console.log(ref.current.innerText.split(' '))
+    console.log(ref.current.lastChild)
+    _.add('bg-blue-500')
+  }
 }
-
-export const toggleAudience = (e) => {
-  console.log(e.target)
-}
+export const toggleAudience = () => {}
