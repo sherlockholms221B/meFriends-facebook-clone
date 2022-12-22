@@ -34,7 +34,7 @@ const Display = () => {
         setSecondState={setDisplayState}
         setThirdState={setGoBack}
       />
-      <section className='p-3 w-full'>
+      <section className='p-3 w-full overflow-auto'>
         {[
           {
             icon: <FaMoon />,
@@ -73,46 +73,57 @@ const Display = () => {
           <div
             className={` ${
               options.length === 0 ? 'items-center' : 'items-start'
-            } flex flex-row gap-2 `}
+            }  ${i === 1 ? 'hidden mid_small:flex' : 'flex'} flex-row gap-2 `}
             key={i}
           >
-            <i className='text-xl rounded-full bg-gray-200 p-3 w-fit h-fit'>
+            <i className='text-xl rounded-full  dark:bg-darkComplementry dark:text-heading_dark_white bg-gray-200 p-3 w-fit h-fit'>
               {icon}
             </i>
             <div className=''>
-              <h4 className='text-xl font-medium text-gray-900'>{title} </h4>
+              <h4 className='text-xl font-medium text-gray-900 dark:text-heading_dark_white'>
+                {title}{' '}
+              </h4>
               <p className='text-md text-gray-500 font-normal'> {desc} </p>
               {options.map((items, i) => (
                 <button
-                  className={` ${items.class} mt-2.5 mb-2.5 w-full cursor-pointer hover:bg-primary p-2 rounded-md`}
+                  className={` ${items.class} mt-2.5 mb-2.5 w-full cursor-pointer dark:hover:bg-darkComplementry hover:bg-primary p-2 rounded-md`}
                   key={i}
                   ref={items.ref}
                   onClick={() => {
                     themeSwitcher(items.ref)
                   }}
                 >
-                  <div type='button' className='flex flex-row justify-between '>
-                    <h4 className='text-lg capitalize font-medium text-gray-900'>
-                      {items.switch}
-                    </h4>
-                    <div className='border-2 border-gray-500 h-6 w-6 rounded-full ' />
+                  <div
+                    type='button'
+                    className='flex flex-row justify-between items-center'
+                  >
+                    <div className='flex flex-col items-start text-start w-fit'>
+                      <h4 className='text-lg capitalize font-medium text-gray-900 dark:text-heading_dark_white'>
+                        {items.switch}
+                      </h4>
+                      {items.isDesc && (
+                        <p className='text-xs font-thin text-gray-500'>
+                          {desc}
+                        </p>
+                      )}
+                    </div>
+                    <div className='ring-2 ring-gray-500  h-5 w-5 rounded-full ' />
                   </div>
-                  {items.isDesc && (
-                    <p className='text-sm font-thin text-gray-500'>{desc}</p>
-                  )}
                 </button>
               ))}
             </div>
           </div>
         ))}
-        <div className='items-center flex flex-row justify-between cursor-pointer  hover:bg-primary p-2 rounded-md'>
+        <div className='hidden items-center mid_small:flex flex-row justify-between cursor-pointer  hover:bg-primary p-2 rounded-md'>
           <div className='flex flex-row gap-2 items-center'>
-            <p className='text-xl rounded-full bg-gray-200 p-3 w-fit h-fit'>
+            <p className='text-xl  dark:bg-darkComplementry dark:text-heading_dark_white rounded-full bg-gray-200 p-3 w-fit h-fit'>
               <BsFillKeyboardFill />
             </p>
-            <h4 className='text-xl font-medium text-gray-900'>keyboard </h4>
+            <h4 className='text-xl font-medium text-gray-900 dark:text-heading_dark_white'>
+              keyboard{' '}
+            </h4>
           </div>
-          <p className='font-medium text-2xl'>
+          <p className='font-medium text-2xl dark:text-heading_dark_white'>
             <MdOutlineArrowForwardIos />
           </p>
         </div>

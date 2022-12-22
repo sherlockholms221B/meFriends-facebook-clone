@@ -16,7 +16,7 @@ const Messages = () => {
     <>
       <section className='flex flex-col gap-2 p-3 rounded-t-lg'>
         <div className='flex flex-row w-full justify-between items-center'>
-          <h3 className='text-2xl font-bold text-gray-900 dark:text-text_heading_dark_white'>
+          <h3 className='text-2xl font-bold text-gray-900 dark:text-heading_dark_white'>
             Chats
           </h3>
           <div className='flex flex-row gap-2 items-center pl-1'>
@@ -39,7 +39,7 @@ const Messages = () => {
                 <i
                   className={`  ${i === 1 ? 'text-sm' : 'text-2xl'} ${
                     i === 3 && 'text-md -ml-1'
-                  }  text-gray-600 dark:text-text_heading_dark_gray`}
+                  }  text-gray-600 dark:text-heading_dark_gray`}
                 >
                   {option.icon}
                 </i>
@@ -55,7 +55,7 @@ const Messages = () => {
             handleChange={(e) => setSearchChats(e.target.value)}
             value={searchChats}
           />
-          <MdOutlineSearch className='absolute top-2 left-6 text-gray-600 dark:text-text_heading_dark_gray text-2xl cursor-pointer ' />
+          <MdOutlineSearch className='absolute top-2 left-6 text-gray-600 dark:text-heading_dark_gray text-2xl cursor-pointer ' />
         </div>
       </section>
       <section className='max-h-[470px] gap-3 mt-1 pt-3  w-full overflow-auto home_scroll pr-1 p-3 '>
@@ -71,10 +71,10 @@ const Messages = () => {
                 className='w-14 h-14 rounded-full'
               />
               <div className=''>
-                <h3 className='capitalize text-black dark:text-text_heading_dark_white hidden larg:block text-lg font-medium'>
+                <h3 className='capitalize text-black dark:text-heading_dark_white hidden larg:block text-lg font-medium'>
                   {creator}
                 </h3>
-                <div className='flex_row gap-2 dark:text-text_heading_dark_gray'>
+                <div className='flex_row gap-2 dark:text-heading_dark_gray'>
                   <h3 className='text-sm'>
                     {`${comment.substring(0, randomNumberGenerator(9, 21))}...`}
                   </h3>
@@ -88,7 +88,7 @@ const Messages = () => {
         )}
       </section>
       <section className='flex justify-center items-center border-t-[1px] dark:border-borderDark border-t-slate-300 p-3 rounded-b-lg '>
-        <h4 className='text-blue-600 cursor-pointer hover:underline'>
+        <h4 className='deep_blue cursor-pointer hover:underline'>
           See all in Messenger
         </h4>
       </section>

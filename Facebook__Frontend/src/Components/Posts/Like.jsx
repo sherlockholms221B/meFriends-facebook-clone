@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import { AiOutlineLike } from 'react-icons/ai'
 import { like } from '../../Audio'
 
-const Like = () => {
+const Like = ({ PostBtn1, PostBtnI, PostBtnT }) => {
   const likeRef = useRef(null)
   const likePost = (e) => {
     // e.preventDefault()
@@ -18,12 +18,10 @@ const Like = () => {
       onClick={() => {
         likePost()
       }}
-      className='flex flex-row flex-nowrap justify-center dark:hover:bg-darkComplementry items-center hover:bg-primary rounded-[3px] px-8 py-2 cursor-pointer '
+      className={PostBtn1}
     >
-      <AiOutlineLike className='text-xl font-bold text-gray-500 mr-1  dark:text-text_heading_dark_gray' />
-      <p className='hidden xtra_small:block text-sm xtra_small:text-md text-gray-500 font-semibold dark:text-text_heading_dark_gray'>
-        Like
-      </p>
+      <AiOutlineLike className={PostBtnI} />
+      <p className={PostBtnT}>Like</p>
       <audio src={like} ref={likeRef} />
     </div>
   )

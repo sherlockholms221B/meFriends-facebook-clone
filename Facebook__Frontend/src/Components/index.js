@@ -1,4 +1,5 @@
-import Navbar from './Navbar'
+import Navbar from './Navigation Bar/Navbar'
+import THRDot from './Navigation Bar/THR Dot'
 import SideBar from './SideBars/SideBar'
 import Feeds from './Feeds'
 import Post from './Posts/Post'
@@ -35,9 +36,12 @@ import Reels from './Reels/Reels'
 import Rooms from './Rooms/Rooms'
 import Footer from './Footer'
 import CMPFooter from './CMPFooter'
+import Share from './Posts/Share'
+import COMBTN from './Comments/COMBTN'
 
 export {
   Navbar,
+  THRDot,
   SideBar,
   Feeds,
   Advertisment,
@@ -74,4 +78,6 @@ export {
   Rooms,
   Footer,
   CMPFooter,
+  Share,
+  COMBTN,
 }

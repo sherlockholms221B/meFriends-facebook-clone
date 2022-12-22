@@ -1,20 +1,17 @@
 import React, { useState } from 'react'
+import { IconContext } from 'react-icons/lib'
 
 import { useGlobalContext } from '../../Context/UseContext'
-import { previous, forward, toggleAudience } from '../../functions/stateHandler'
+import { IconHandler, previous, toggleAudience } from '../../functions/SH'
 import { postAudienceLinks } from '../../utils/links'
+import { PostAudienceLinks } from '../../utils/LWRef'
 import { Head } from '../index'
 import MegWrapper from '../MegWrapper'
 
 const PostAudience = () => {
-  const notActive =
-    'flex justify-between items-center mt-2 mb-2 p-2  rounded-md'
   const [value, setValue] = useState(true)
   const {
-    createPostState,
     setCreatePostState,
-    addToYourState,
-    setAddToYourState,
     postAudienceState,
     setPostAudienceState,
     setGoBack,
@@ -33,14 +30,14 @@ const PostAudience = () => {
       />
       <div className='max-h-[350px] overflow-auto home_scroll p-2 '>
         <div className=''>
-          <h4 className='text-lg font-semibold text-gray-800'>
+          <h4 className='text-lg font-semibold text-gray-800 dark:text-heading_dark_white'>
             Who can see your post?
           </h4>
-          <p className='text-md text-gray-500 '>
+          <p className='text-md text-gray-500 dark:text-heading_dark_gray'>
             Your post will appear in Feed, on your profile and in search
             results.
           </p>
-          <p className='text-md text-gray-500  mt-5'>
+          <p className='text-md text-gray-500  mt-5  dark:text-heading_dark_gray'>
             Your default audience is set to{' '}
             <span className='font-bold'>Public</span>, but you can change the
             audience of this specific post.
@@ -48,28 +45,36 @@ const PostAudience = () => {
         </div>
 
         <div className=''>
-          {postAudienceLinks.map(({ icon, title, description, id }, i) => (
-            <div
-              key={i + title}
-              className={`flex ${id} justify-between items-center cursor-pointer mt-2 mb-2 p-2 rounded-md`}
-              onClick={(e) => {
-                toggleAudience(e)
-              }}
-            >
-              <div className='flex items-center gap-2 '>
-                <p className='rounded-full bg-gray-300 p-4'> {icon} </p>
-                <div className='flex flex-col gap-0 '>
-                  <h3 className='text-lg font-semibold text-gray-800'>
-                    {title}
-                  </h3>
-                  <p className='text-md text-gray-500 mt-[-5px]'>
-                    {description}
+          {PostAudienceLinks().map(
+            ({ icon, title, description, id, ref }, i) => (
+              <div
+                key={i + title}
+                ref={ref}
+                className={`flex ${id} justify-between items-center cursor-pointer mt-2 mb-2 p-2 rounded-md`}
+                onClick={(e) => {
+                  IconHandler({ ref })
+                }}
+              >
+                <div className='flex items-center gap-2 '>
+                  <p className='rounded-full bg-gray-300 dark:bg-darkComplementry dark:text-heading_dark_white text-lg mid_small:p-4 p-2 '>
+                    {icon}
                   </p>
+                  <div className='flex flex-col gap-0 '>
+                    <h3 className='xtra_small:text-lg text-md font-semibold text-gray-800 dark:text-heading_dark_white '>
+                      {title}
+                    </h3>
+                    <p className='mid_small:text-md text-xs text-gray-500 dark:text-heading_dark_gray mt-[-5px]'>
+                      {description}
+                    </p>
+                  </div>
                 </div>
+                <div
+                  ref={ref}
+                  className='ring-2 dark:ring-white ring-gray-500 mid_small:h-5 h-3 mid_small:w-5 w-3 rounded-full '
+                />
               </div>
-              <div className='border-2 border-gray-500 h-6 w-6 rounded-full ' />
-            </div>
-          ))}
+            )
+          )}
         </div>
       </div>
       <div className='relative flex flex-col gap-2 border-t-2 dark:border-borderDark border-gray-300 p-3'>
@@ -83,7 +88,10 @@ const PostAudience = () => {
               setValue(!value)
             }}
           />
-          <label htmlFor='default' className='text-gray-600 font-semibold'>
+          <label
+            htmlFor='default'
+            className='dark:text-heading_dark_white text-gray-600 font-semibold'
+          >
             Set as default audience
           </label>
         </div>
@@ -92,7 +100,7 @@ const PostAudience = () => {
             onClick={() =>
               previous(setCreatePostState, setPostAudienceState, setGoBack)
             }
-            className='text-blue-600 font-semibold hover:bg-secondaryWhite py-2 px-4 rounded-sm  '
+            className='deep_blue font-semibold hover:bg-secondaryWhite py-2 px-4 rounded-sm  '
             type='button'
           >
             Cancle

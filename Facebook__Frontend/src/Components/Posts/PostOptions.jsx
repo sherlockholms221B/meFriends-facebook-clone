@@ -10,7 +10,6 @@ import {
   MdBookmarkBorder,
   MdOutlineHistory,
 } from 'react-icons/md'
-import { motion } from 'framer-motion'
 
 const PostOptions = () => {
   return (
@@ -18,12 +17,12 @@ const PostOptions = () => {
       <div className='mr-4 ml-1'>
         <div className=' border-b-[2px]  dark:border-borderDark pt-2 pb-3'>
           <div className='flex flex-row items-center gap-2 cursor-pointer dark:hover:bg-darkComplementry hover:bg-primary p-1 rounded-md '>
-            <MdBookmarkBorder className='text-2xl text-gray-600 dark:text-text_heading_dark_white' />
+            <MdBookmarkBorder className='text-2xl text-gray-600 dark:text-heading_dark_white' />
             <div className='flex flex-col'>
-              <h3 className='text-md font-semibold text-gray-600 dark:text-text_heading_dark_white'>
+              <h3 className='text-md font-semibold text-gray-600 dark:text-heading_dark_white'>
                 Save Post
               </h3>
-              <p className='text-[12px] text-gray-400 dark:text-text_heading_dark_gray'>
+              <p className='text-[12px] text-gray-400 dark:text-heading_dark_gray'>
                 Add this to your saved items
               </p>
             </div>
@@ -45,11 +44,11 @@ const PostOptions = () => {
             },
           ].map((option) => (
             <div className='flex flex-row items-center gap-2 cursor-pointer dark:hover:bg-darkComplementry hover:bg-primary px-1 py-2 rounded-md '>
-              <p className='text-2xl text-gray-600 dark:text-text_heading_dark_white'>
+              <p className='text-2xl text-gray-600 dark:text-heading_dark_white'>
                 {' '}
                 {option.icon}{' '}
               </p>
-              <h3 className='text-md font-semibold text-gray-600 dark:text-text_heading_dark_white'>
+              <h3 className='text-md font-semibold text-gray-600 dark:text-heading_dark_white'>
                 {option.title}
               </h3>
             </div>
@@ -93,14 +92,14 @@ const PostOptions = () => {
             className='flex flex-row gap-2 items-center mt-1 mb-1 px-2 py-2 cursor-pointer rounded-md dark:hover:bg-darkComplementry hover:bg-primary'
             key={option.title}
           >
-            <p className='text-2xl text-gray-600 dark:text-text_heading_dark_white'>
+            <p className='text-2xl text-gray-600 dark:text-heading_dark_white'>
               {option.icon}
             </p>
             <div className='flex flex-col'>
-              <h3 className='text-md font-semibold text-gray-600 dark:text-text_heading_dark_white'>
+              <h3 className='text-md font-semibold text-gray-600 dark:text-heading_dark_white'>
                 {option.title}
               </h3>
-              <p className='text-[12px] text-gray-400 dark:text-text_heading_dark_gray'>
+              <p className='text-[12px] text-gray-400 dark:text-heading_dark_gray'>
                 {option?.explanation}
               </p>
             </div>

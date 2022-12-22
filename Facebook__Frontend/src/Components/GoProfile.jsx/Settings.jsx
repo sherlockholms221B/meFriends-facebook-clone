@@ -11,7 +11,7 @@ import {
   MdTune,
 } from 'react-icons/md'
 import { BsGlobe } from 'react-icons/bs'
-import { iconHandler } from '../../functions/stateHandler'
+import { IconHandler } from '../../functions/SH'
 import { RiSettings2Fill } from 'react-icons/ri'
 import { AiOutlineBug } from 'react-icons/ai'
 const Settings = () => {
@@ -25,7 +25,7 @@ const Settings = () => {
     setSettingsState,
   } = useGlobalContext()
   return (
-    <div className={` ${settingsState ? 'pb-4 translate_x' : 'pb-4'} `}>
+    <div className={` ${settingsState ? 'pb-4 translate_x' : 'pb-4 '} `}>
       <Head
         title={`Settings & privacy`}
         setFirstState={setProfileState}
@@ -68,7 +68,7 @@ const Settings = () => {
           <div
             ref={ref}
             onClick={(e) =>
-              iconHandler({
+              IconHandler({
                 e,
                 ref,
                 setSettingsState,
@@ -79,13 +79,15 @@ const Settings = () => {
               })
             }
             key={i + title}
-            className={`  ${title} hover:bg-secondaryWhite p-2 w-full rounded-md cursor-pointer`}
+            className={`  ${title} hover:bg-darkComplementry hover:bg-secondaryWhite p-2 w-full rounded-md cursor-pointer`}
           >
             <div className='flex flex-row items-center gap-2 w-fit '>
-              <p className='text-xl rounded-full bg-gray-200 p-2 w-fit h-fit'>
+              <p className='text-xl rounded-full  dark:bg-darkComplementry dark:text-heading_dark_white bg-gray-200 p-2 w-fit h-fit'>
                 {icon}
               </p>
-              <h4 className='text-gray-900 font-medium '>{title}</h4>
+              <h4 className='text-gray-900 font-medium dark:text-white'>
+                {title}
+              </h4>
             </div>
           </div>
         ))}

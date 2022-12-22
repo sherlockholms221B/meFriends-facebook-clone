@@ -21,16 +21,16 @@ const Comment = ({
               className='object-cover w-8 h-8 rounded-full'
             />
           </Link>
-          <div className='flex flex-col items-start gap-2  w-3/4 rounded-lg dark:bg-darkComplementry bg-primary pt-2 pl-2 pr-5 shadow-lg'>
+          <div className='flex flex-col items-start gap-2  mid_small:w-3/4 w-[85%] rounded-lg dark:bg-darkComplementry bg-primary pt-2 pl-2 mid_small:pr-5 pr-3 shadow-lg'>
             <div className='flex flex-col items-start  w-full rounded-lg dark:bg-darkSecondary bg-primary py-2 pl-2 pr-5 shadow-lg'>
-              <h2 className='capitalize text-md text-black-200 font-medium mb-1 cursor-pointer dark:text-text_heading_dark_white'>
+              <h2 className='capitalize text-md text-black-200 font-medium mb-1 cursor-pointer dark:text-heading_dark_white'>
                 {creator}
               </h2>
-              <p className='text-sm text-gray-600 dark:text-text_heading_dark_gray'>
+              <p className='text-sm text-gray-600 dark:text-heading_dark_gray'>
                 {comment}
               </p>
             </div>
-            <p className='text-sm text-gray-500 ml-2 dark:text-text_heading_dark_white'>
+            <p className='text-sm text-gray-500 ml-2 dark:text-heading_dark_white'>
               {moment(createdAt).fromNow()}
             </p>
           </div>

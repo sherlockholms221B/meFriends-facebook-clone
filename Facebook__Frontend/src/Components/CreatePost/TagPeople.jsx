@@ -4,7 +4,7 @@ import { MdClose, MdOutlineSearch } from 'react-icons/md'
 import { useGlobalContext } from '../../Context/UseContext'
 import MegWrapper from '../MegWrapper'
 import { Head, Input, NoPost } from '../index'
-import { previous } from '../../functions/stateHandler'
+import { previous } from '../../functions/SH'
 import { posts } from '../../utils/constants'
 
 const TagPeople = () => {
@@ -30,7 +30,7 @@ const TagPeople = () => {
         setSecondState={setTagPeopleState}
         setThirdState={setGoBack}
       />
-      <div className='relative w-full h-fit flex flex-row items-center justify-around mt-2 mb-2'>
+      <div className='relative w-full h-fit flex flex-row items-center justify-between mid_small:justify-around mt-2 mb-2  px-2 mid_small:px-0'>
         <div className='relative rounded-full'>
           <Input
             type={`text`}
@@ -42,7 +42,7 @@ const TagPeople = () => {
           <MdOutlineSearch className='absolute top-2 left-3 text-gray-400 text-2xl cursor-pointer ' />
         </div>
         <button
-          className='capitalize font-medium text-blue-700'
+          className='capitalize font-medium deep_blue'
           type='button'
           onClick={() => {
             previous(setCreatePostState, setTagPeopleState, setGoBack)
@@ -63,11 +63,11 @@ const TagPeople = () => {
                   key={i + friend}
                   className='flex flex-row items-center gap-0.5 px-2 py-0.5 rounded-md bg-blue-100'
                 >
-                  <h3 className='text-md font-semibold text-blue-600 capitalize'>
+                  <h3 className='text-md font-semibold deep_blue capitalize'>
                     {friend}
                   </h3>
                   <i className='rounded-full p-1 hover:bg-slate-300 cursor-pointer'>
-                    <MdClose className='text-lg text-blue-600' />
+                    <MdClose className='text-lg deep_blue' />
                   </i>
                 </div>
               ))}

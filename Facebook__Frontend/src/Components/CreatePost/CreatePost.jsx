@@ -1,45 +1,26 @@
 import React, { useState, useRef } from 'react'
-import {
-  MdClose,
-  MdArrowBack,
-  MdArrowForward,
-  MdPerson,
-  MdOutlineDone,
-  MdDoneAll,
-  MdDownloadDone,
-  MdOutlineLocationOn,
-  MdFlag,
-  MdOutlinePhotoLibrary,
-} from 'react-icons/md'
+import { MdClose } from 'react-icons/md'
 import { GiEarthAmerica } from 'react-icons/gi'
-import { HiDotsHorizontal } from 'react-icons/hi'
 import { GoTriangleDown } from 'react-icons/go'
 import { BsEmojiWink } from 'react-icons/bs'
 
 import MegWrapper from '../MegWrapper'
 import { useGlobalContext } from '../../Context/UseContext'
 import { ProfilePicture, AddPicture, CreatePostLinks } from '../index'
-import { previous, forward, iconHandler } from '../../functions/stateHandler'
+import { forward } from '../../functions/SH'
 
 const CreatePost = () => {
   const [postvalue, setPostvalue] = useState('')
   const textRef = useRef(null)
   const {
-    createPostState,
     setCreatePostState,
-    addToYourState,
     setAddToYourState,
-    postAudienceState,
     setPostAudienceState,
     addPictureState,
-    setAddPictureState,
-    tagPeopleState,
     firstImg,
-    setFirstImg,
     goBack,
     setGoBack,
     selectedFriends,
-    setSelectedFriends,
   } = useGlobalContext()
 
   const createPostHeadings = (e) => {
@@ -98,8 +79,7 @@ const CreatePost = () => {
             >
               <GiEarthAmerica />
               <h4 className='text-sm text-gray-900   dark:text-white'>
-                {' '}
-                {'Public'}{' '}
+                {'Public'}
               </h4>
               <GoTriangleDown />
             </div>
@@ -130,10 +110,10 @@ const CreatePost = () => {
         </div>
 
         <div
-          className='w-full border-2 cursor-pointer dark:border-borderDark flex flex-row justify-between items-center p-3 mt-4 rounded-md'
+          className='w-full border-2 cursor-pointer dark:border-borderDark flex flex-row justify-between items-center mid_small:p-3 mt-4 rounded-md'
           onClick={() => forward(setCreatePostState, setAddToYourState)}
         >
-          <h5 className='text-md font-semibold text-gray-800  dark:text-white'>
+          <h5 className='hidden small:block text-md font-semibold text-gray-800  dark:text-white'>
             Add to your post
           </h5>
           <CreatePostLinks home={true} />

@@ -1,7 +1,7 @@
 import React from 'react'
 import { MdArrowBack } from 'react-icons/md'
 
-import { previous } from '../../functions/stateHandler'
+import { previous } from '../../functions/SH'
 
 const Head = (prop) => {
   const { title, setFirstState, setSecondState, setThirdState } = prop

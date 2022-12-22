@@ -4,7 +4,7 @@ import { BsExclamationSquareFill } from 'react-icons/bs'
 import { FaQuestionCircle } from 'react-icons/fa'
 import { MdMarkEmailRead } from 'react-icons/md'
 import { useGlobalContext } from '../../Context/UseContext'
-import { iconHandler } from '../../functions/stateHandler'
+import { IconHandler } from '../../functions/SH'
 import Head from '../CreatePost/Head'
 
 import MegWrapper from '../MegWrapper'
@@ -49,7 +49,7 @@ const Support = () => {
           <div
             ref={ref}
             onClick={(e) =>
-              iconHandler({
+              IconHandler({
                 e,
                 ref,
                 setSettingsState,
@@ -60,13 +60,15 @@ const Support = () => {
               })
             }
             key={i + title}
-            className={`  ${title} hover:bg-secondaryWhite p-2 w-full rounded-md cursor-pointer`}
+            className={`  ${title} hover:bg-darkComplementry hover:bg-secondaryWhite p-2 w-full rounded-md cursor-pointer`}
           >
             <div className='flex flex-row items-center gap-2 w-fit '>
-              <p className='text-xl rounded-full bg-gray-200 p-2 w-fit h-fit'>
+              <p className='text-xl rounded-full  dark:bg-darkComplementry dark:text-heading_dark_white bg-gray-200 p-2 w-fit h-fit'>
                 {icon}
               </p>
-              <h4 className='text-gray-900 font-medium '>{title}</h4>
+              <h4 className='text-gray-900 font-medium dark:text-white'>
+                {title}
+              </h4>
             </div>
           </div>
         ))}

@@ -19,10 +19,10 @@ const Add = ({ add, setAdd, title, description, img, index }) => {
           } rounded-md object-fit`}
         />
         <div className=''>
-          <h3 className='text-sm larg:text-md  dark:text-text_heading_dark_white font-semibold text-gray-900 uppercase'>
+          <h3 className='text-sm larg:text-md  dark:text-heading_dark_white font-semibold text-gray-900 uppercase'>
             {title}
           </h3>
-          <p className=' larg:text-[15px] text-xs text-gray-500 dark:text-text_heading_dark_gray'>
+          <p className=' larg:text-[15px] text-xs text-gray-500 dark:text-heading_dark_gray'>
             {description}{' '}
           </p>
         </div>

@@ -12,7 +12,7 @@ import { MdOutlineSearch, MdVideoCall } from 'react-icons/md'
 const Advertisment = () => {
   const [add, setAdd] = useState(false)
   const addHearder =
-    'larg:text-xl text-md font-bold text-gray-900 dark:text-text_heading_dark_white'
+    'larg:text-xl text-md font-bold text-gray-900 dark:text-heading_dark_white'
   return (
     <div className='overflow-hidden hover:overflow-auto hidden laptop:block w-260 larg:w-[315px] pt-4'>
       {' '}
@@ -54,18 +54,18 @@ const Advertisment = () => {
             className='flex flex-row gap-4 items-center p-2 w-full cursor-pointer rounded-md dark:hover:bg-darkComplementry hover:bg-secondaryWhite '
             key={i + name}
           >
-            <p className='text-3xl text-blue-400'>{img}</p>
+            <p className='text-3xl shade_blue'>{img}</p>
             <div className=''>
-              <h3 className='text-md text-gray-900 dark:text-text_heading_dark_gray'>
-                <span className='text-md font-semibold text-gray-900 capitalize dark:text-text_heading_dark_white'>
+              <h3 className='text-md text-gray-900 dark:text-heading_dark_gray'>
+                <span className='text-md font-semibold text-gray-900 capitalize dark:text-heading_dark_white'>
                   {name}
                 </span>{' '}
                 and{' '}
-                <span className='text-md font-semibold text-gray-900 capitalize dark:text-text_heading_dark_white'>
+                <span className='text-md font-semibold text-gray-900 capitalize dark:text-heading_dark_white'>
                   {count}
                 </span>
               </h3>
-              <p className='text-md text-gray-900 dark:text-text_heading_dark_gray'>
+              <p className='text-md text-gray-900 dark:text-heading_dark_gray'>
                 {description}{' '}
               </p>
             </div>
@@ -89,7 +89,7 @@ const Advertisment = () => {
                 className='rounded-full p-2 hover:bg-secondaryWhite dark:hover:bg-darkComplementry cursor-pointer'
                 key={i}
               >
-                <p className='text-gray-500 text-2xl dark:text-text_heading_dark_gray'>
+                <p className='text-gray-500 text-2xl dark:text-heading_dark_gray'>
                   {option.icon}
                 </p>
               </div>
@@ -116,7 +116,7 @@ const Advertisment = () => {
                     } absolute w-[9px] h-[9px] rounded-full  top-0 right-0 border-2 border-white z-10`}
                   ></div>
                 </div>
-                <h3 className='text-md font-semibold text-gray-700 capitalize dark:text-text_heading_dark_white'>
+                <h3 className='text-md font-semibold text-gray-700 capitalize dark:text-heading_dark_white'>
                   {creator}
                 </h3>
               </Link>

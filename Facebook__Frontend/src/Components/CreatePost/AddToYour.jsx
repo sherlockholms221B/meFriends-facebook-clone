@@ -21,7 +21,7 @@ import { BsEmojiWink } from 'react-icons/bs'
 import MegWrapper from '../MegWrapper'
 import { Head, CreatePostLinks } from '../index'
 import { useGlobalContext } from '../../Context/UseContext'
-import { forward, iconHandler, previous } from '../../functions/stateHandler'
+import { forward, IconHandler, previous } from '../../functions/SH'
 
 const AddToYour = () => {
   const {

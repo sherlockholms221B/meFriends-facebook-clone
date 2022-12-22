@@ -1,4 +1,4 @@
-import { useContext, createContext, useState } from 'react'
+import { useContext, createContext, useState, useRef } from 'react'
 
 const AppContext = createContext()
 
@@ -20,15 +20,18 @@ export const AppProvider = ({ children }) => {
   const [firstImg, setFirstImg] = useState(false)
   const [result, setResult] = useState('')
   const [selectedFriends, setSelectedFriends] = useState([])
+  const [hed, setHed] = useState('')
 
   const [location, setLocation] = useState({
     height: 0,
   })
+  const likeRef = useRef(null)
 
   const dynamicLocation = (cordinate) => {
-    const { height } = cordinate
-    console.log(height)
+    const { height, HEDheight } = cordinate
+    setHed(HEDheight)
     setLocation({ height: height })
+
     return
   }
 
@@ -74,6 +77,9 @@ export const AppProvider = ({ children }) => {
         setIsLoading,
         goBack,
         setGoBack,
+        hed,
+        setHed,
+        likeRef,
       }}
     >
       {children}

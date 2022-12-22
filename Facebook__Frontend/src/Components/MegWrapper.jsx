@@ -1,8 +1,6 @@
 import React from 'react'
-import { motion } from 'framer-motion'
 
 import { useGlobalContext } from '../Context/UseContext'
-import NoPost from './NoPost'
 
 const MegWrapper = (Component) =>
   function HOC() {
@@ -42,12 +40,12 @@ const MegWrapper = (Component) =>
         settingsState ||
         displayState ||
         supportState ? (
-          <div className='flex justify-center items-center absolute top-10  bg-white  right-10 z-10 rounded-lg dark:bg-darkSecondary shadow-lg'>
+          <div className='absolute bottom-0 mid_small:bottom-auto mid_small:top-10 mid_small:right-10 z-10 mid_small:rounded-lg rounded-b-lg w-full mid_small:w-[380px] bg-white dark:bg-darkSecondary shadow-lg border-2 dark:border-borderDark mid_small:border-0'>
             <div
               className={`${
                 profileState
-                  ? 'w-[380px] h-fit rounded-lg p-4 overflow-hidden'
-                  : 'w-[380px] h-fit rounded-lg overflow-hidden '
+                  ? 'min-w-210 w-full mid_small:w-[380px] h-fit rounded-lg p-4 overflow-hidden'
+                  : 'min-w-210 w-full mid_small:w-[380px] h-fit rounded-lg overflow-hidden'
               }`}
             >
               <Component />

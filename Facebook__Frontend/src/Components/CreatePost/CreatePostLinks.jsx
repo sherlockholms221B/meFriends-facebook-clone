@@ -11,64 +11,34 @@ import {
 } from 'react-icons/md'
 
 import { useGlobalContext } from '../../Context/UseContext'
-import { forward, iconHandler } from '../../functions/stateHandler'
-import { createPostLinks } from '../../utils/links'
+import { forward, IconHandler } from '../../functions/SH'
+import { MakePostLinkOne, MakePostLinkTwo } from '../../utils/LWRef'
 import ToolTip from '../ToolTip'
 
 const CreatePostLinks = ({ home }) => {
-  const picture = useRef(null)
-  const tag = useRef(null)
-  const feelings = useRef(null)
-  const location = useRef(null)
-  const flag = useRef(null)
-
   const {
     createPostState,
     setCreatePostState,
     addToYourState,
     setAddToYourState,
-    postAudienceState,
-    setPostAudienceState,
-    addPictureState,
     setAddPictureState,
     tagPeopleState,
     setTagPeopleState,
-    goBack,
     setGoBack,
   } = useGlobalContext()
 
   return (
-    <div className='flex flex-row gap-2 items-center'>
+    <div className='flex flex-row gap-2 items-center w-full mid_small:w-fit'>
       <div
         className={`flex flex-row items-center ${
-          home ? 'gap-1' : 'flex-wrap  justify-around  gap-4  pt-2 pb-2'
+          home
+            ? 'w-full justify-around mid_small:gap-2 mid_small:w-fit mid_small:justify-start'
+            : 'flex-wrap  justify-around  gap-4  py-2'
         } cursor-pointer`}
       >
         {createPostState && (
           <>
-            {[
-              {
-                icon: <MdOutlinePhotoLibrary />,
-                ref: picture,
-                tip: 'photos/video',
-              },
-              { icon: <FaUserTag />, ref: tag, tip: 'tag poeple' },
-              {
-                icon: <BsEmojiWink />,
-                ref: feelings,
-                tip: 'feelings/activity',
-              },
-              {
-                icon: <MdOutlineLocationOn />,
-                ref: location,
-                tip: 'check in',
-              },
-              {
-                icon: <MdFlag />,
-                ref: flag,
-                tip: 'life event',
-              },
-            ].map(({ icon, ref, tip }, i) => (
+            {MakePostLinkOne().map(({ icon, ref, tip }, i) => (
               <button
                 data-tip
                 data-for={tip}
@@ -76,13 +46,13 @@ const CreatePostLinks = ({ home }) => {
                 ref={ref}
                 className={`${
                   i === 0 ? 'text-green-600  hover:bg-green-100' : ''
-                } ${i === 1 ? 'text-blue-600  hover:bg-blue-100' : ''} ${
+                } ${i === 1 ? 'deep_blue  hover:bg-blue-100' : ''} ${
                   i === 2 ? 'text-yellow-600  hover:bg-yellow-100' : ''
                 } ${i === 3 ? 'text-red-600  hover:bg-red-100' : ''} ${
-                  i === 4 ? 'text-blue-400  hover:bg-blue-100' : ''
+                  i === 4 ? 'shade_blue  hover:bg-blue-100' : ''
                 }  text-2xl p-2 rounded-full`}
                 onClick={(e) =>
-                  iconHandler({
+                  IconHandler({
                     e,
                     ref,
                     setAddPictureState,
@@ -108,7 +78,7 @@ const CreatePostLinks = ({ home }) => {
             <p
               data-tip
               data-for='more'
-              className='text-xl text-gray-500b rounded-full p-1.5 hover:bg-secondaryWhite cursor-pointer'
+              className='text-2xl text-gray-500b rounded-full p-1.5 hover:bg-secondaryWhite  cursor-pointer dark:hover:bg-darkComplementry dark:text-heading_dark_white'
               onClick={(e) => {
                 e.stopPropagation()
                 forward(setCreatePostState, setAddToYourState)
@@ -126,48 +96,34 @@ const CreatePostLinks = ({ home }) => {
         )}
         {addToYourState && (
           <>
-            {[
-              { icon: <MdOutlinePhotoLibrary />, title: 'Photo/Video' },
-              { icon: <MdPerson />, title: 'Tag people' },
-              { icon: <BsEmojiWink />, title: 'Feeelings/activity' },
-              {
-                icon: <MdOutlineLocationOn />,
-                title: 'Check in',
-              },
-              {
-                icon: <MdFlag />,
-                title: 'Life event',
-              },
-              {
-                icon: <MdVideoCall />,
-                title: 'Live Video',
-              },
-            ].map(({ icon, title }, i) => (
+            {MakePostLinkTwo().map(({ icon, title }, i) => (
               <div
                 key={i}
                 className={`${
                   i === 0 ? 'text-green-600  hover:bg-green-100' : ''
-                } ${i === 1 ? 'text-blue-600  hover:bg-blue-100' : ''} ${
+                } ${i === 1 ? 'deep_blue  hover:bg-blue-100' : ''} ${
                   i === 2 ? 'text-yellow-600  hover:bg-yellow-100' : ''
                 } ${i === 3 ? 'text-red-600  hover:bg-red-100' : ''} ${
-                  i === 4 ? 'text-blue-400  hover:bg-blue-100' : ''
+                  i === 4 ? 'shade_blue  hover:bg-blue-100' : ''
                 } ${
                   i === 5 ? 'text-red-600  hover:bg-red-100' : ''
-                } flex flex-row items-center  gap-2 pl-2 pr-12 py-2 w-[40%] hover:bg-secondaryWhite rounded-md cursor-pointer `}
+                } flex flex-row items-center  gap-2 pl-2 mid_small:pr-12 py-2 w-[40%] hover:bg-secondaryWhite rounded-md cursor-pointer `}
               >
                 <p
                   className={`${i === 0 ? 'text-green-600 ' : ''} ${
-                    i === 1 ? 'text-blue-600' : ''
+                    i === 1 ? 'deep_blue' : ''
                   } ${i === 2 ? 'text-yellow-600' : ''} ${
                     i === 3 ? 'text-red-600' : ''
-                  } ${i === 4 ? 'text-blue-400' : ''} ${
+                  } ${i === 4 ? 'shade_blue' : ''} ${
                     i === 5 ? 'text-red-600' : ''
                   } text-3xl `}
-                  onClick={(e) => iconHandler(e)}
+                  onClick={(e) => IconHandler(e)}
                 >
                   {icon}
                 </p>
-                <h5 className='font -medium'>{title}</h5>
+                <h5 className='font-medium text-xs xtra_small:text-md small:text-lg '>
+                  {title}
+                </h5>
               </div>
             ))}
           </>

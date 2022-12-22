@@ -16,7 +16,7 @@ const Rooms = () => {
           <h1 className='text-white text-md font-medium capitalize'>
             Dons room
           </h1>
-          <button className=' dark:ring-slate-700 text-blue-500 text-md font-medium capitalize ring-2 py-2 rounded-md w-11/12  '>
+          <button className=' dark:ring-slate-700 blue_text text-md font-medium capitalize ring-2 py-2 rounded-md w-11/12  '>
             create
           </button>
         </div>
@@ -36,7 +36,7 @@ const Rooms = () => {
               <h1 className='text-white text-md font-medium capitalize'>
                 {creator}
               </h1>
-              <button className=' dark:ring-slate-700 text-blue-500 text-md font-medium capitalize ring-2 py-2 rounded-md w-11/12  '>
+              <button className=' dark:ring-slate-700 blue_text text-md font-medium capitalize ring-2 py-2 rounded-md w-11/12  '>
                 say hi
               </button>
             </div>

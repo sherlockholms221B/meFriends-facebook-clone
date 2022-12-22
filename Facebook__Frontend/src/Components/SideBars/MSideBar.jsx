@@ -18,7 +18,7 @@ const MSideBar = () => {
     <div className=' hidden small:flex dark:border-r dark:xl:border-0 dark:border-borderDark  dark:bg-darkSecondary overflow-hidden hover:overflow-auto w-max  bg-white pt-4 pl-2 pr-2 '>
       <div className='flex flex-col justify-start items-baseline larg:w-full h-fit pb-2 pl-2 pr-2'>
         <Link to={`/`} className={` ${barContainer} xl:pl-2 p-0 py-2`}>
-          <p className='text-3xl text-blue-600'>
+          <p className='text-3xl deep_blue'>
             <MdHome />
           </p>
           <Active queryTerm={`home`} homeTerm={null} />
@@ -37,7 +37,7 @@ const MSideBar = () => {
             to={`?talling=${page.title}`}
             className='relative xl:pl-3 p-0 xl:dark:hover:bg-darkComplementry xl:hover:bg-primary hover:bg-inherit mt-0.5 mb-0.5 flex flex-row gap-2 items-center w-full py-2 rounded-md'
           >
-            <p className='text-xl larg:text-2xl text-blue-600'>{page.icon}</p>
+            <p className='text-xl larg:text-2xl deep_blue'>{page.icon}</p>
 
             <Active queryTerm={page.title} homeTerm={null} />
           </Link>
