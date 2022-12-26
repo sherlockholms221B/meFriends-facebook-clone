@@ -19,29 +19,6 @@ import { BsBookFill, BsEmojiWink, BsLink45Deg } from 'react-icons/bs'
 import { feed_eight, feed_nine, feed_ten } from '../Assets/exports'
 import { RiVideoAddFill } from 'react-icons/ri'
 
-export const sideLinks = [
-  {
-    title: 'Friends',
-    icon: <FaUserFriends />,
-  },
-  {
-    title: 'Saved',
-    icon: <FaBookmark />,
-  },
-  {
-    title: 'Market place',
-    icon: <MdMapsHomeWork />,
-  },
-  {
-    title: 'Watch',
-    icon: <MdOutlineOndemandVideo />,
-  },
-  {
-    title: 'Memories',
-    icon: <AiOutlineFieldTime />,
-  },
-]
-
 export const groupsLinks = [
   {
     name: 'The house of dragons',

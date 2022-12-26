@@ -1,6 +1,8 @@
 import { useRef } from 'react'
+import { AiOutlineFieldTime } from 'react-icons/ai'
 import { BsEmojiWink } from 'react-icons/bs'
 import {
+  FaBookmark,
   FaFacebookMessenger,
   FaMoon,
   FaQuestionCircle,
@@ -11,8 +13,10 @@ import { GiEarthAmerica } from 'react-icons/gi'
 import { HiLockClosed } from 'react-icons/hi'
 import {
   MdFlag,
+  MdMapsHomeWork,
   MdNotifications,
   MdOutlineLocationOn,
+  MdOutlineOndemandVideo,
   MdOutlinePhotoLibrary,
   MdPerson,
   MdSettings,
@@ -180,6 +184,33 @@ export const NavDot1 = () => {
       alarts: '1',
       tip: 'notification',
       ref: notificationRef,
+    },
+  ]
+
+  return links
+}
+
+export const SideLinks = () => {
+  const links = [
+    {
+      title: 'Friends',
+      icon: <FaUserFriends />,
+    },
+    {
+      title: 'Saved',
+      icon: <FaBookmark />,
+    },
+    {
+      title: 'Market place',
+      icon: <MdMapsHomeWork />,
+    },
+    {
+      title: 'Watch',
+      icon: <MdOutlineOndemandVideo />,
+    },
+    {
+      title: 'Memories',
+      icon: <AiOutlineFieldTime />,
     },
   ]
 
