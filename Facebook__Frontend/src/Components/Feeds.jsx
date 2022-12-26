@@ -7,8 +7,7 @@ import { feedLinks, feedLinksOne } from '../utils/links'
 import { Stories, Post, Reels, Rooms } from './index.js'
 import { posts } from '../utils/constants'
 import { profile } from '../Assets/exports'
-import { MdOutlineCompareArrows, MdSettings } from 'react-icons/md'
-
+import { Icon } from '../utils/Icon'
 const Posts = ({ isNot }) => {
   const {
     setCreatePostState,
@@ -95,13 +94,13 @@ const Posts = ({ isNot }) => {
                   {
                     title: 'Filters',
                     icon: (
-                      <MdOutlineCompareArrows className='text-2xl dark:text-heading_dark_white' />
+                      <Icon.MdOutlineCompareArrows className='text-2xl dark:text-heading_dark_white' />
                     ),
                   },
                   {
                     title: 'Manage posts',
                     icon: (
-                      <MdSettings className='text-2xl dark:text-heading_dark_white' />
+                      <Icon.MdSettings className='text-2xl dark:text-heading_dark_white' />
                     ),
                   },
                 ].map(({ title, icon }, i) => (
