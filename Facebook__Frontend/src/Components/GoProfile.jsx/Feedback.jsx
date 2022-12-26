@@ -1,22 +1,12 @@
 import React from 'react'
-import { BsFillExclamationTriangleFill } from 'react-icons/bs'
-import { MdOutlineFacebook } from 'react-icons/md'
 import { useGlobalContext } from '../../Context/UseContext'
 import Head from '../CreatePost/Head'
 
 import MegWrapper from '../MegWrapper'
+import { Icon } from '../../utils/Icon'
 const Feedback = () => {
-  const {
-    settingsState,
-    setDisplayState,
-    setFeedbackState,
-    setSupportState,
-    setProfileState,
-    setGoBack,
-    displayState,
-    setSettingsState,
-    feedbackState,
-  } = useGlobalContext()
+  const { setFeedbackState, setProfileState, setGoBack, feedbackState } =
+    useGlobalContext()
   return (
     <div
       className={` ${
@@ -32,12 +22,12 @@ const Feedback = () => {
       <section className='w-full flex flex-col p-2'>
         {[
           {
-            icon: <MdOutlineFacebook />,
+            icon: <Icon.MdOutlineFacebook />,
             title: 'Help us improve Facebook',
             description: 'Give feedback about your Facebook expirence',
           },
           {
-            icon: <BsFillExclamationTriangleFill />,
+            icon: <Icon.BsFillExclamationTriangleFill />,
             title: 'Something went wrong',
             description: 'Let us know about a broken feature',
           },

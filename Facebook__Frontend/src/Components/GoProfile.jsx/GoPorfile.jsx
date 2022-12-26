@@ -1,14 +1,12 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
-import { FaMoon, FaQuestionCircle } from 'react-icons/fa'
-import { RiFeedbackFill, RiLogoutBoxRFill } from 'react-icons/ri'
-import { MdOutlineArrowForwardIos, MdSettingsSuggest } from 'react-icons/md'
 
 import MegWrapper from '../MegWrapper'
 import { ProfilePicture, CMPFooter } from '../index'
 import { useGlobalContext } from '../../Context/UseContext'
 import { IconHandler } from '../../functions/SH'
 import { GoPLink } from '../../utils/LWRef'
+import { Icon } from '../../utils/Icon'
 const GoPorfile = () => {
   const {
     setSettingsState,
@@ -73,7 +71,7 @@ const GoPorfile = () => {
             </div>
             {isMove && (
               <p className='font-medium text-2xl dark:text-white'>
-                <MdOutlineArrowForwardIos />
+                <Icon.MdOutlineArrowForwardIos />
               </p>
             )}
           </div>

@@ -1,31 +1,18 @@
 import React, { useRef } from 'react'
-import { BsFillKeyboardFill, BsSun } from 'react-icons/bs'
-import { FaMoon } from 'react-icons/fa'
 
 import { useGlobalContext } from '../../Context/UseContext'
 import Head from '../CreatePost/Head'
 import MegWrapper from '../MegWrapper'
 import { themeSwitcher } from '../../functions/darkTheme'
-import {
-  MdOutlineArrowForwardIos,
-  MdOutlineCompareArrows,
-} from 'react-icons/md'
+import { Icon } from '../../utils/Icon'
 const Display = () => {
   const lightMode = useRef(null)
   const darkMode = useRef(null)
   const automatic = useRef(null)
   const compactOn = useRef(null)
   const compactOff = useRef(null)
-  const {
-    settingsState,
-    setDisplayState,
-    setFeedbackState,
-    setSupportState,
-    setProfileState,
-    setGoBack,
-    displayState,
-    setSettingsState,
-  } = useGlobalContext()
+  const { setDisplayState, setProfileState, setGoBack, displayState } =
+    useGlobalContext()
   return (
     <div className={` ${displayState ? 'pb-4 translate_x' : 'pb-4'} `}>
       <Head
@@ -37,7 +24,7 @@ const Display = () => {
       <section className='p-3 w-full overflow-auto'>
         {[
           {
-            icon: <FaMoon />,
+            icon: <Icon.FaMoon />,
             title: 'Dark mode',
             desc: 'Adjust the appearance of Facebook to reduce glare and give your eyes a break.',
             options: [
@@ -61,7 +48,7 @@ const Display = () => {
             ],
           },
           {
-            icon: <MdOutlineCompareArrows />,
+            icon: <Icon.MdOutlineCompareArrows />,
             title: 'Compact mode',
             desc: 'Make your font size smaller so that more content can fit on the screen.',
             options: [
@@ -117,14 +104,14 @@ const Display = () => {
         <div className='hidden items-center mid_small:flex flex-row justify-between cursor-pointer  hover:bg-primary p-2 rounded-md'>
           <div className='flex flex-row gap-2 items-center'>
             <p className='text-xl  dark:bg-darkComplementry dark:text-heading_dark_white rounded-full bg-gray-200 p-3 w-fit h-fit'>
-              <BsFillKeyboardFill />
+              <Icon.BsFillKeyboardFill />
             </p>
             <h4 className='text-xl font-medium text-gray-900 dark:text-heading_dark_white'>
               keyboard{' '}
             </h4>
           </div>
           <p className='font-medium text-2xl dark:text-heading_dark_white'>
-            <MdOutlineArrowForwardIos />
+            <Icon.MdOutlineArrowForwardIos />
           </p>
         </div>
       </section>

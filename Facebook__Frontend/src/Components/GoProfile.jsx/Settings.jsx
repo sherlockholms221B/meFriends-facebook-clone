@@ -3,17 +3,9 @@ import React from 'react'
 import MegWrapper from '../MegWrapper'
 import { useGlobalContext } from '../../Context/UseContext'
 import { Head } from '../index'
-import {
-  MdHttps,
-  MdOutlineArrowForwardIos,
-  MdOutlineFormatListBulleted,
-  MdSettingsSuggest,
-  MdTune,
-} from 'react-icons/md'
-import { BsGlobe } from 'react-icons/bs'
 import { IconHandler } from '../../functions/SH'
-import { RiSettings2Fill } from 'react-icons/ri'
-import { AiOutlineBug } from 'react-icons/ai'
+import { Icon } from '../../utils/Icon'
+
 const Settings = () => {
   const {
     settingsState,
@@ -35,32 +27,32 @@ const Settings = () => {
       <section className='w-full flex flex-col gap-1 mt-4 pl-2 pr-2'>
         {[
           {
-            icon: <RiSettings2Fill />,
+            icon: <Icon.RiSettings2Fill />,
             title: 'Settings ',
             isMove: true,
           },
           {
-            icon: <MdHttps />,
+            icon: <Icon.MdHttps />,
             title: 'Privecy Checkup',
             isMove: true,
           },
           {
-            icon: <AiOutlineBug />,
+            icon: <Icon.AiOutlineBug />,
             title: 'Privecy Center ',
             isMove: true,
           },
           {
-            icon: <MdOutlineFormatListBulleted />,
+            icon: <Icon.MdOutlineFormatListBulleted />,
             title: 'Activity log',
             isMove: true,
           },
           {
-            icon: <MdTune />,
+            icon: <Icon.MdTune />,
             title: 'Feeds',
             isMove: false,
           },
           {
-            icon: <BsGlobe />,
+            icon: <Icon.BsGlobe />,
             title: 'Language',
             isMove: false,
           },

@@ -1,16 +1,13 @@
 import React from 'react'
-import { BiWifi } from 'react-icons/bi'
-import { BsExclamationSquareFill } from 'react-icons/bs'
-import { FaQuestionCircle } from 'react-icons/fa'
-import { MdMarkEmailRead } from 'react-icons/md'
+
 import { useGlobalContext } from '../../Context/UseContext'
 import { IconHandler } from '../../functions/SH'
 import Head from '../CreatePost/Head'
 
 import MegWrapper from '../MegWrapper'
+import { Icon } from '../../utils/Icon'
 const Support = () => {
   const {
-    settingsState,
     setDisplayState,
     setFeedbackState,
     setSupportState,
@@ -30,19 +27,19 @@ const Support = () => {
       <section className='w-full flex flex-col gap-1 mt-4 pl-2 pr-2'>
         {[
           {
-            icon: <FaQuestionCircle />,
+            icon: <Icon.FaQuestionCircle />,
             title: 'Settings ',
           },
           {
-            icon: <MdMarkEmailRead />,
+            icon: <Icon.MdMarkEmailRead />,
             title: 'Privecy Checkup',
           },
           {
-            icon: <BsExclamationSquareFill />,
+            icon: <Icon.BsExclamationSquareFill />,
             title: 'Privecy Center ',
           },
           {
-            icon: <BiWifi />,
+            icon: <Icon.BiWifi />,
             title: 'Language',
           },
         ].map(({ icon, title, isMove, ref }, i) => (
