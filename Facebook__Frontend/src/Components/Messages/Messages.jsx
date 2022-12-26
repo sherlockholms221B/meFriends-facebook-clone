@@ -36,13 +36,13 @@ const Messages = () => {
                 className='rounded-full p-2 dark:hover:bg-darkComplementry hover:bg-secondaryWhite cursor-pointer'
                 key={i}
               >
-                <i
+                <p
                   className={`  ${i === 1 ? 'text-sm' : 'text-2xl'} ${
                     i === 3 && 'text-md -ml-1'
                   }  text-gray-600 dark:text-heading_dark_gray`}
                 >
                   {option.icon}
-                </i>
+                </p>
               </div>
             ))}
           </div>
