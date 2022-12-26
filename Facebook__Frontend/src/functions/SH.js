@@ -39,6 +39,7 @@ export const IconHandler = (value) => {
   }
 
   if (classNames.includes('text-blue-600')) {
+    console.log('comeing back')
     setTagPeopleState(true)
     setCreatePostState(false)
     setGoBack(false)
