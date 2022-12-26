@@ -46,7 +46,7 @@ const CreatePostLinks = ({ home }) => {
                 ref={ref}
                 className={`${
                   i === 0 ? 'text-green-600  hover:bg-green-100' : ''
-                } ${i === 1 ? 'deep_blue  hover:bg-blue-100' : ''} ${
+                } ${i === 1 ? 'text-blue-600  hover:bg-blue-100' : ''} ${
                   i === 2 ? 'text-yellow-600  hover:bg-yellow-100' : ''
                 } ${i === 3 ? 'text-red-600  hover:bg-red-100' : ''} ${
                   i === 4 ? 'shade_blue  hover:bg-blue-100' : ''

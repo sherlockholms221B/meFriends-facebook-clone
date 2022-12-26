@@ -1,8 +1,7 @@
-import React, { useRef, useState } from 'react'
-import { BiImageAdd } from 'react-icons/bi'
-import { MdClose, MdModeEditOutline } from 'react-icons/md'
+import React, { useRef } from 'react'
 
 import { useGlobalContext } from '../../Context/UseContext'
+import { Icon } from '../../utils/Icon'
 
 const AddPicture = () => {
   const pictureRef = useRef(null)
@@ -47,7 +46,7 @@ const AddPicture = () => {
         <div className='absolute top-0 right-0 left-0 flex justify-between p-5'>
           <div className='flex flex-row gap-3 items-center'>
             <div className='cursor-pointer flex flex-row gap-2 items-center bg-white w-fit  p-2 rounded-md'>
-              <MdModeEditOutline />
+              <Icon.MdModeEditOutline />
               <h3 className='text-md font-medium text-gray-800 '>Edit</h3>
             </div>
             <div
@@ -65,7 +64,7 @@ const AddPicture = () => {
                 hidden
                 multiple
               />
-              <BiImageAdd className=' text-2xl rotate-6 text-gray-800' />
+              <Icon.BiImageAdd className=' text-2xl rotate-6 text-gray-800' />
               <h3 className='text-md font-medium text-gray-800 '>
                 Add photos/Video
               </h3>
@@ -78,7 +77,7 @@ const AddPicture = () => {
               setAddPictureState(false)
             }}
           >
-            <MdClose className='text-2xl ' />
+            <Icon.MdClose className='text-2xl ' />
           </p>
         </div>
       )}
@@ -98,7 +97,7 @@ const AddPicture = () => {
             multiple
           />
           <p className='p-2 rounded-full bg-gray-300 flex items-center justify-center'>
-            <BiImageAdd className=' text-2xl rotate-6 text-gray-800' />
+            <Icon.BiImageAdd className=' text-2xl rotate-6 text-gray-800' />
           </p>
           <h3 className='text-md font-bold text-gray-800 dark:text-white'>
             Add photos/Video
@@ -113,7 +112,7 @@ const AddPicture = () => {
               setAddPictureState(false)
             }}
           >
-            <MdClose className='text-2xl text-gray-700  dark:text-white ' />
+            <Icon.MdClose className='text-2xl text-gray-700  dark:text-white ' />
           </p>
         </div>
       )}

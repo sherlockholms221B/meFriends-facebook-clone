@@ -1,7 +1,7 @@
 import React from 'react'
-import { MdArrowBack } from 'react-icons/md'
 
 import { previous } from '../../functions/SH'
+import { Icon } from '../../utils/Icon'
 
 const Head = (prop) => {
   const { title, setFirstState, setSecondState, setThirdState } = prop
@@ -17,7 +17,7 @@ const Head = (prop) => {
           previous(setFirstState, setSecondState, setThirdState)
         }}
       >
-        <MdArrowBack className='text-2xl  dark:text-white' />
+        <Icon.MdArrowBack className='text-2xl  dark:text-white' />
       </p>
     </div>
   )

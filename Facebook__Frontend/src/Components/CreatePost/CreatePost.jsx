@@ -1,13 +1,10 @@
 import React, { useState, useRef } from 'react'
-import { MdClose } from 'react-icons/md'
-import { GiEarthAmerica } from 'react-icons/gi'
-import { GoTriangleDown } from 'react-icons/go'
-import { BsEmojiWink } from 'react-icons/bs'
 
 import MegWrapper from '../MegWrapper'
 import { useGlobalContext } from '../../Context/UseContext'
 import { ProfilePicture, AddPicture, CreatePostLinks } from '../index'
 import { forward } from '../../functions/SH'
+import { Icon } from '../../utils/Icon'
 
 const CreatePost = () => {
   const [postvalue, setPostvalue] = useState('')
@@ -47,7 +44,7 @@ const CreatePost = () => {
             setGoBack(false)
           }}
         >
-          <MdClose className='text-2xl dark:text-white' />
+          <Icon.MdClose className='text-2xl dark:text-white' />
         </p>
       </div>
       <div className='w-full h-full p-4'>
@@ -77,11 +74,11 @@ const CreatePost = () => {
               className='flex dark:bg-darkComplementry flex-row gap-2 items-center rounded-sm bg-gray-200 w-min py-0.5 px-1 cursor-pointer  dark:text-white'
               onClick={() => forward(setCreatePostState, setPostAudienceState)}
             >
-              <GiEarthAmerica />
+              <Icon.GiEarthAmerica />
               <h4 className='text-sm text-gray-900   dark:text-white'>
                 {'Public'}
               </h4>
-              <GoTriangleDown />
+              <Icon.GoTriangleDown />
             </div>
           </div>
         </div>
@@ -104,7 +101,7 @@ const CreatePost = () => {
               <div className='cursor-pointer flex items-center justify-center py-1 px-1.5 rounded-md bg-gradient-to-r from-purple-500 to-pink-500'>
                 <p className='text-white text-xl '>Aa</p>
               </div>
-              <BsEmojiWink className='cursor-pointer text-xl text-gray-500' />
+              <Icon.BsEmojiWink className='cursor-pointer text-xl text-gray-500' />
             </>
           )}
         </div>

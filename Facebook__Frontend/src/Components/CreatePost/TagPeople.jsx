@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { MdClose, MdOutlineSearch } from 'react-icons/md'
 
 import { useGlobalContext } from '../../Context/UseContext'
 import MegWrapper from '../MegWrapper'
 import { Head, Input, NoPost } from '../index'
 import { previous } from '../../functions/SH'
 import { posts } from '../../utils/constants'
+import { Icon } from '../../utils/Icon'
 
 const TagPeople = () => {
   const [searchFriends, setSearchFriends] = useState('')
@@ -39,7 +39,7 @@ const TagPeople = () => {
             handleChange={(e) => setSearchFriends(e.target.value)}
             value={searchFriends}
           />
-          <MdOutlineSearch className='absolute top-2 left-3 text-gray-400 text-2xl cursor-pointer ' />
+          <Icon.MdOutlineSearch className='absolute top-2 left-3 text-gray-400 text-2xl cursor-pointer ' />
         </div>
         <button
           className='capitalize font-medium deep_blue'
@@ -67,7 +67,7 @@ const TagPeople = () => {
                     {friend}
                   </h3>
                   <i className='rounded-full p-1 hover:bg-slate-300 cursor-pointer'>
-                    <MdClose className='text-lg deep_blue' />
+                    <Icon.MdClose className='text-lg deep_blue' />
                   </i>
                 </div>
               ))}
