@@ -127,6 +127,7 @@ const Post = ({
           </div>
 
           <Comments
+            postDetail={true}
             isComment={isComment}
             setIsComment={setIsComment}
             viewMore={viewMore}
