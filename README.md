@@ -4,7 +4,7 @@
 <a href="https://vshare-pi.vercel.app/">Live site</a>
 
 ## Introduction
-Vshare is a video sharing social media application similar to Tik Tok. This application is a complex web application with tons of functionality such as like, comment and edit post, profile and suggested account with full auth functionality. Vshare is built with the most advanced content manegment system (sanity) which enhanced it fetching capabilities.
+MeFriends as i will aprantly name it is a video & photo sharing social media application similar to facebook. This application is a complex web application with tons of functionality such as like, comment and edit post, profile and suggested account with full auth functionality. MeFriends is built with the most advanced content manegment system (sanity) which enhanced it fetching capabilities.
 
 
 Setup:
