@@ -5,9 +5,9 @@ import { TbGridDots } from 'react-icons/tb'
 import { Link } from 'react-router-dom'
 
 import { profile } from '../../Assets/exports'
-import { sideLinks } from '../../utils/links'
 import Groups from '../Groups'
 import { Active } from '../index'
+import { SideLinks } from '../../utils/LWRef'
 
 const MSideBar = () => {
   const barContainer =
@@ -17,7 +17,7 @@ const MSideBar = () => {
   return (
     <div className=' hidden small:flex dark:border-r dark:xl:border-0 dark:border-borderDark  dark:bg-darkSecondary overflow-hidden hover:overflow-auto w-max  bg-white pt-4 pl-2 pr-2 '>
       <div className='flex flex-col justify-start items-baseline larg:w-full h-fit pb-2 pl-2 pr-2'>
-        <Link to={`/`} className={` ${barContainer} xl:pl-2 p-0 py-2`}>
+        <Link to={`/`} className={` ${barContainer} p-0 py-2`}>
           <p className='text-3xl deep_blue'>
             <MdHome />
           </p>
@@ -31,7 +31,7 @@ const MSideBar = () => {
         </Link>
         <div className='border-[1px] w-full mt-3 mb-3 border-gray-300 dark:border-borderDark' />
 
-        {sideLinks.map((page, i) => (
+        {SideLinks().map((page, i) => (
           <Link
             key={i + page.title}
             to={`?talling=${page.title}`}

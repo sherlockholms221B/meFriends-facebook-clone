@@ -40,6 +40,7 @@ import Share from './Posts/Share'
 import COMBTN from './Comments/COMBTN'
 import MenuPage from './MenuPage'
 import Friends from './Controllers/Friends'
+import PostAIR from './CreatePost/PostAIR'
 
 export {
   Navbar,
@@ -84,4 +85,5 @@ export {
   COMBTN,
   MenuPage,
   Friends,
+  PostAIR,
 }

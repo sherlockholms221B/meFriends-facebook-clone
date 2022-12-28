@@ -21,6 +21,7 @@ export const AppProvider = ({ children }) => {
   const [result, setResult] = useState('')
   const [selectedFriends, setSelectedFriends] = useState([])
   const [hed, setHed] = useState('')
+  const [audState, setAudState] = useState('Public')
 
   const [location, setLocation] = useState({
     height: 0,
@@ -80,6 +81,8 @@ export const AppProvider = ({ children }) => {
         hed,
         setHed,
         likeRef,
+        audState,
+        setAudState,
       }}
     >
       {children}

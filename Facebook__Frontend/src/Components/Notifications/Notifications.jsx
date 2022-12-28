@@ -50,6 +50,7 @@ const Notifications = () => {
       <div className='flex items-center justify-between'>
         {[{ title: 'New' }, { title: 'See all' }].map(({ title }, i) => (
           <p
+            key={i}
             className={`${
               i === 1 ? 'text-blue-500' : 'text-black'
             } dark:text-heading_dark_white text-md font-medium`}

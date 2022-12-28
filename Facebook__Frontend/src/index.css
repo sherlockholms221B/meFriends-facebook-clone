@@ -118,3 +118,16 @@ body {
 .linear_dark {
   background-image: linear-gradient(to bottom, #242526, #3a3b3c);
 }
+
+.activeSlide {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.lastSlide {
+  transform: translateX(-100%);
+}
+
+.nextSlide {
+  transform: translateX(100%);
+}

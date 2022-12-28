@@ -8,6 +8,7 @@ import EDIOP from './Profile/EDIOP'
 import Friends from './Profile/Friends'
 import Photos from './Profile/Photos'
 import HED from './Profile/HED'
+import PSTIMG from './Posts/PSTIMG'
 
 export {
   Home,
@@ -20,4 +21,5 @@ export {
   Friends,
   Photos,
   HED,
+  PSTIMG,
 }

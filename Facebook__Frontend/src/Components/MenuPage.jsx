@@ -4,9 +4,12 @@ import { motion } from 'framer-motion'
 import Navbar from './Navigation Bar/Navbar'
 import MSideBar from './SideBars/MSideBar'
 import { useGlobalContext } from '../Context/UseContext'
+import { useLocation } from 'react-router-dom'
 
 const MenuPage = (Component) =>
   function HOC() {
+    const search = useLocation().search
+    const query = new URLSearchParams(search).get('talling')
     const { location } = useGlobalContext()
 
     return (
@@ -32,7 +35,10 @@ const MenuPage = (Component) =>
                   transition={{ duration: 0.5, easing: 'easeInOut' }}
                   className='w-full bg-black h-full text-white relative flex justify-center'
                 >
-                  <Component />
+                  {(query === 'Friends' ||
+                    query === 'Saved' ||
+                    query === 'Watch' ||
+                    query === 'Memories') && <Component />}
                 </motion.div>
               </div>
             </div>

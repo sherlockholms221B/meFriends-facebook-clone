@@ -1,3 +1,5 @@
+import { useGlobalContext } from '../Context/UseContext'
+
 export const refresh = async () => {
   window.location.reload()
 }
@@ -14,6 +16,7 @@ export const previous = (setFirstState, setSecondState, setThirdState) => {
 }
 
 export const IconHandler = (value) => {
+  // const { setAddPictureState } = useGlobalContext()
   const {
     e,
     ref,
@@ -30,12 +33,14 @@ export const IconHandler = (value) => {
     messageState,
     notificationState,
     setGoBack,
+    setAudState,
   } = value
   e.stopPropagation()
   const _ = ref.current.classList
   const classNames = Object.values(_)
   if (classNames.includes('text-green-600')) {
     setAddPictureState(true)
+    return
   }
 
   if (classNames.includes('text-blue-600')) {
@@ -43,35 +48,42 @@ export const IconHandler = (value) => {
     setTagPeopleState(true)
     setCreatePostState(false)
     setGoBack(false)
+    return
   }
 
   if (classNames.includes('messenger')) {
     setMessageState(!messageState)
     setNotificationState(false)
     setProfileState(false)
+    return
   }
 
   if (classNames.includes('notification')) {
     setMessageState(false)
     setProfileState(false)
     setNotificationState(!notificationState)
+    return
   }
 
   if (classNames.includes('Settings')) {
     setSettingsState(true)
     setProfileState(false)
+    return
   }
   if (classNames.includes('support')) {
     setSupportState(true)
     setProfileState(false)
+    return
   }
   if (classNames.includes('accessibility')) {
     setDisplayState(true)
     setProfileState(false)
+    return
   }
   if (classNames.includes('feedback')) {
     setFeedbackState(true)
     setProfileState(false)
+    return
   }
   if (
     classNames.includes('me') ||
@@ -81,9 +93,10 @@ export const IconHandler = (value) => {
     classNames.includes('custom')
   ) {
     console.log(ref)
-    // console.log(ref.current.innerText.split(' '))
-    console.log(ref.current.lastChild)
-    _.add('bg-blue-500')
+    const audience = ref.current.innerText.split('\n')[0]
+    setAudState(audience)
+    _.add('bg-blue-300')
+    return
   }
 }
 export const toggleAudience = () => {}

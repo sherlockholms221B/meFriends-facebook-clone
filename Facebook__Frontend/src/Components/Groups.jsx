@@ -12,7 +12,9 @@ const Groups = ({ isMbar, barHarder, barContainer, roundedIcon }) => {
         <Link
           to={`/backface/api/profile`}
           key={name}
-          className='w-full dark:hover:bg-darkComplementry flex  flex-row gap-2 xl:mt-0.5 xl:mb-0.5 xl:px-3 py-2.5 rounded-md hover:bg-secondaryWhite items-center'
+          className={` ${
+            !isMbar ? '' : 'pl-2'
+          } relative  larg:dark:hover:bg-darkComplementry larg:hover:bg-primary hover:bg-inherit  mb-0.5 flex flex-row gap-2 items-center w-full py-2 rounded-md`}
         >
           <img
             src={img}
@@ -30,9 +32,13 @@ const Groups = ({ isMbar, barHarder, barContainer, roundedIcon }) => {
       ))}
       <Link
         to={`?talling=${`groups`}`}
-        className={` ${barContainer} xl:pl-1 p-0 py-2 `}
+        className={` ${barContainer} ${!isMbar ? '' : 'larg:pl-1'}  p-0 py-2 `}
       >
-        <p className={`${roundedIcon} text-lg -ml-1 xl:-ml-0 p-2 xl:p-2`}>
+        <p
+          className={`${roundedIcon} ${
+            !isMbar ? '' : 'larg:-ml-0 larg:p-2'
+          } text-lg -ml-1 p-2 `}
+        >
           <MdGroups />
         </p>
         {isMbar && <p className={barHarder}>Groups</p>}

@@ -62,7 +62,7 @@ const Posts = ({ isNot }) => {
                   i === 0 && ' px-4 small:px-6 '
                 } ${i === 1 && ' px-4 '} ${
                   i === 2 && ' px-3 '
-                } py-1 small:py-3  `}
+                } py-1 small:py-2  `}
               >
                 <p
                   className={` ${i === 0 && ' text-red-500 '} ${

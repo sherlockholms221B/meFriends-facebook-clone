@@ -13,6 +13,8 @@ const PostAudience = () => {
     postAudienceState,
     setPostAudienceState,
     setGoBack,
+    audState,
+    setAudState,
   } = useGlobalContext()
   return (
     <div
@@ -50,7 +52,7 @@ const PostAudience = () => {
                 ref={ref}
                 className={`flex ${id} justify-between items-center cursor-pointer mt-2 mb-2 p-2 rounded-md`}
                 onClick={(e) => {
-                  IconHandler({ ref })
+                  IconHandler({ e, ref, setAudState })
                 }}
               >
                 <div className='flex items-center gap-2 '>

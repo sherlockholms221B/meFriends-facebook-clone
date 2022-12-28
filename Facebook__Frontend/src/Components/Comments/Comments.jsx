@@ -7,6 +7,7 @@ import { comments } from '../../utils/constants'
 import { profile } from '../../Assets/exports'
 
 const Comments = ({
+  postDetail,
   isComment,
   setIsComment,
   setViewMore,
@@ -17,7 +18,7 @@ const Comments = ({
   return (
     <>
       <div className={`flex flex-col ${isComment && 'p-2'} justify-between `}>
-        {isComment && (
+        {isComment && postDetail && (
           <div className='flex flex-row flex-nowrap gap-2 items-center mb-4'>
             <Link to={`/backface/api/profile`}>
               <div className=' rounded-full cursor-pointer'>

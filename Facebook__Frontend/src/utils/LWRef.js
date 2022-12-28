@@ -195,22 +195,27 @@ export const SideLinks = () => {
     {
       title: 'Friends',
       icon: <FaUserFriends />,
+      url: 'menu/friends/fbid',
     },
     {
       title: 'Saved',
       icon: <FaBookmark />,
+      url: 'menu/saved/fbid',
     },
     {
       title: 'Market place',
       icon: <MdMapsHomeWork />,
+      url: 'menu/marketplace/fbid',
     },
     {
       title: 'Watch',
       icon: <MdOutlineOndemandVideo />,
+      url: 'menu/watch/fbid',
     },
     {
       title: 'Memories',
       icon: <AiOutlineFieldTime />,
+      url: 'menu/memories/fbid',
     },
   ]
 

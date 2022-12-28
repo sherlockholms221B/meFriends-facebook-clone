@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react'
 
 import MegWrapper from '../MegWrapper'
 import { useGlobalContext } from '../../Context/UseContext'
-import { ProfilePicture, AddPicture, CreatePostLinks } from '../index'
+import { ProfilePicture, AddPicture, CreatePostLinks, PostAIR } from '../index'
 import { forward } from '../../functions/SH'
 import { Icon } from '../../utils/Icon'
 
@@ -17,6 +17,8 @@ const CreatePost = () => {
     firstImg,
     goBack,
     setGoBack,
+    audState,
+    setAudState,
     selectedFriends,
   } = useGlobalContext()
 
@@ -74,10 +76,12 @@ const CreatePost = () => {
               className='flex dark:bg-darkComplementry flex-row gap-2 items-center rounded-sm bg-gray-200 w-min py-0.5 px-1 cursor-pointer  dark:text-white'
               onClick={() => forward(setCreatePostState, setPostAudienceState)}
             >
-              <Icon.GiEarthAmerica />
-              <h4 className='text-sm text-gray-900   dark:text-white'>
-                {'Public'}
-              </h4>
+              <div className='text-sm text-gray-900   dark:text-white'>
+                <PostAIR />
+              </div>
+              <h3 className='text-sm text-gray-900   dark:text-white'>
+                {audState}
+              </h3>
               <Icon.GoTriangleDown />
             </div>
           </div>
