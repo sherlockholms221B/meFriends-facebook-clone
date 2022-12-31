@@ -7,13 +7,16 @@ import IMG from '../Posts/IMG'
 
 const AddPicture = () => {
   const [state, dispatch] = useReducer(reducer, [])
-  console.log(state)
   const pictureRef = useRef(null)
-  const imgRef = useRef(null)
+  const pictureRefTwo = useRef(null)
   const { setAddPictureState } = useGlobalContext()
 
   const selectPicture = (e) => {
     pictureRef.current.click()
+  }
+
+  const selectPictureTwo = (e) => {
+    pictureRefTwo.current.click()
   }
 
   function readURL(input) {
@@ -47,16 +50,14 @@ const AddPicture = () => {
             </div>
             <div
               className='cursor-pointer flex flex-row gap-2 items-center bg-white w-fit p-2 rounded-md'
-              onClick={(e) => selectPicture(e)}
+              onClick={(e) => selectPictureTwo(e)}
             >
               <input
                 onChange={({ target }) => {
                   readURL(target)
                 }}
-                ref={pictureRef}
+                ref={pictureRefTwo}
                 type='file'
-                name=''
-                id=''
                 hidden
                 multiple
               />
