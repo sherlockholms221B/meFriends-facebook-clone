@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 import { BsCodeSlash } from 'react-icons/bs'
 import {
   MdOutlineNotifications,
@@ -13,7 +14,11 @@ import {
 
 const PostOptions = () => {
   return (
-    <div className='vertical_scroll rounded-tl-lg rounded-b-lg  shadow-lg z-10 h-[400px] overflow-auto absolute top-10 right-10 bg-white p-2 dark:bg-darkSecondary dark:shadow-black dark:shadow-sm'>
+    <motion.div
+      whileInView={{ opacity: [0, 1], scale: [0, 1] }}
+      transition={{ duration: 0.4, ease: 'linear' }}
+      className=' opacity-0 vertical_scroll rounded-tl-lg rounded-b-lg  shadow-lg z-10 h-[400px] overflow-auto absolute top-10 right-10 bg-white p-2 dark:bg-darkSecondary dark:shadow-black dark:shadow-sm'
+    >
       <div className='mr-4 ml-1'>
         <div className=' border-b-[2px]  dark:border-borderDark pt-2 pb-3'>
           <div className='flex flex-row items-center gap-2 cursor-pointer dark:hover:bg-darkComplementry hover:bg-primary p-1 rounded-md '>
@@ -106,7 +111,7 @@ const PostOptions = () => {
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   )
 }
 
