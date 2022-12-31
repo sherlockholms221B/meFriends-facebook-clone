@@ -1,48 +1,44 @@
-import React, { useRef } from 'react'
+import React, { useReducer, useRef } from 'react'
 
 import { useGlobalContext } from '../../Context/UseContext'
 import { Icon } from '../../utils/Icon'
+import reducer from '../../Reducers/GReducer'
+import IMG from '../Posts/IMG'
 
 const AddPicture = () => {
+  const [state, dispatch] = useReducer(reducer, [])
+  console.log(state)
   const pictureRef = useRef(null)
   const imgRef = useRef(null)
-  const { setAddPictureState, firstImg, setFirstImg, result, setResult } =
-    useGlobalContext()
+  const { setAddPictureState } = useGlobalContext()
 
   const selectPicture = (e) => {
     pictureRef.current.click()
   }
 
   function readURL(input) {
-    if (input.files && input.files[0]) {
-      setFirstImg(true)
-      var reader = new FileReader()
-
-      reader.onload = function (e) {
-        // imgRef.current.setAttribute('src', e.target.result)
-        setResult(e.target.result)
+    if (window.File && window.FileReader && window.FileList && window.Blob) {
+      for (let index = 0; index < input.files.length; index++) {
+        if (!input.files[index].type.match('image')) continue
+        var reader = new FileReader()
+        reader.onload = function (e) {
+          dispatch({ type: 'add', payload: e.target.result })
+        }
+        reader.readAsDataURL(input.files[index])
       }
-
-      reader.readAsDataURL(input.files[0])
+    } else {
+      alert('Your broswer does not support the specified function')
     }
   }
 
   return (
     <div
       className={`relative w-full ${
-        firstImg ? 'h-fit' : 'h-48'
+        state.length !== 0 ? 'h-fit' : 'h-48'
       } p-2 rounded-md border-[2px] home_scroll dark:border-borderDark border-gray-400 mb-2 overflow-auto`}
     >
-      {firstImg && (
-        <img
-          ref={imgRef}
-          id='blah'
-          src={result}
-          className='w-full h-fit rounded-md object-fit'
-          alt='img'
-        />
-      )}
-      {firstImg && (
+      {state.length !== 0 && <IMG postlength={state?.length} post={state} />}
+      {state.length !== 0 && (
         <div className='absolute top-0 right-0 left-0 flex justify-between p-5'>
           <div className='flex flex-row gap-3 items-center'>
             <div className='cursor-pointer flex flex-row gap-2 items-center bg-white w-fit  p-2 rounded-md'>
@@ -81,14 +77,13 @@ const AddPicture = () => {
           </p>
         </div>
       )}
-      {!firstImg && (
+      {state.length === 0 && (
         <div
           onClick={(e) => selectPicture(e)}
           className='relative  h-full w-full hover:bg-secondaryWhite dark:bg-darkComplementry hover:border-dashed border-2 hover:border-gray-600 dark:border-0 flex flex-col transition-all items-center justify-center rounded-md p-2 cursor-pointer'
         >
           <input
             onChange={({ target }) => {
-              console.log(target.files.length)
               readURL(target)
             }}
             ref={pictureRef}

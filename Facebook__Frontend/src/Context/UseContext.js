@@ -17,8 +17,6 @@ export const AppProvider = ({ children }) => {
   const [supportState, setSupportState] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [goBack, setGoBack] = useState(false)
-  const [firstImg, setFirstImg] = useState(false)
-  const [result, setResult] = useState('')
   const [selectedFriends, setSelectedFriends] = useState([])
   const [hed, setHed] = useState('')
   const [audState, setAudState] = useState('Public')
@@ -68,10 +66,6 @@ export const AppProvider = ({ children }) => {
         setFeedbackState,
         supportState,
         setSupportState,
-        firstImg,
-        setFirstImg,
-        result,
-        setResult,
         selectedFriends,
         setSelectedFriends,
         isLoading,

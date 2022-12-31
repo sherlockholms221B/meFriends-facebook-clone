@@ -14,11 +14,9 @@ const CreatePost = () => {
     setAddToYourState,
     setPostAudienceState,
     addPictureState,
-    firstImg,
     goBack,
     setGoBack,
     audState,
-    setAudState,
     selectedFriends,
   } = useGlobalContext()
 
@@ -97,7 +95,7 @@ const CreatePost = () => {
             placeholder={`What's on your mind, ${'Don'}`}
             className=' outline-none w-full cursor-pointer resize-none  mt-2 mb-2 placeholder:text-2xl dark:bg-darkSecondary pt-2 pl-2 dark:text-white placeholder:text-gray-500 font-meduim overflow-hidden'
           />
-          {(addPictureState || firstImg) && <AddPicture />}
+          {addPictureState && <AddPicture />}
         </div>
         <div className='w-full flex flex-row justify-between items-center'>
           {!addPictureState && (

@@ -92,7 +92,7 @@ const Post = ({
             {postText}
           </h5>
         </div>
-        <IMG post={post} />
+        <IMG post={post} postlength={post.length} />
         <div className='flex flex-col '>
           <div className='flex flex-row flex-nowrap justify-between items-center mx-2 p-2 border-b-2 border-gray-300 dark:border-[#3a3b3c]'>
             <div className='flex items-center justify-center'>
