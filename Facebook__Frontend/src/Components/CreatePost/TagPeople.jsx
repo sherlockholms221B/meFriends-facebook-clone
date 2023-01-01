@@ -17,7 +17,6 @@ const TagPeople = () => {
     selectedFriends,
     setSelectedFriends,
   } = useGlobalContext()
-
   return (
     <div
       className={` ${
@@ -66,9 +65,12 @@ const TagPeople = () => {
                   <h3 className='text-md font-semibold deep_blue capitalize'>
                     {friend}
                   </h3>
-                  <i className='rounded-full p-1 hover:bg-slate-300 cursor-pointer'>
+                  <button
+                    type='button'
+                    className='rounded-full p-1 hover:bg-slate-300  cursor-pointer'
+                  >
                     <Icon.MdClose className='text-lg deep_blue' />
-                  </i>
+                  </button>
                 </div>
               ))}
             </div>

@@ -21,7 +21,7 @@ const Navbar = () => {
   return (
     <nav
       ref={navBarRef}
-      className='dark:bg-darkSecondary flex flex-col medium:flex-row justify-between fixed top-0 right-0 w-full z-10 items-center bg-white shadow-inner border-b dark:border-b-4 dark:pb-1 dark:border-borderDark'
+      className='dark:bg-darkSecondary flex flex-col medium:flex-row justify-between fixed top-0 right-0 w-full z-10 items-center bg-white shadow-inner border-b dark:border-b-2 dark:pb-1 dark:border-borderDark'
     >
       <div className=' dark:bg-darkSecondary flex_row justify-between bg-white shadow-inner  dark:pb-1 dark:border-borderDark px-2 xtra_small:px-4 py-2 '>
         <button onClick={refresh}>
