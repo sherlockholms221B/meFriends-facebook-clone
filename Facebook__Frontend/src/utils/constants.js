@@ -551,3 +551,55 @@ export const posts = [
   //   isPrivate: true,
   // },
 ]
+
+export const chat = [
+  {
+    id: 1,
+    createdAt: new Date(),
+    sender: ['hi', 'wetin de sup'],
+    respond: ['hello', 'are maramme, meriment everywhere'],
+  },
+  {
+    id: 1,
+    createdAt: new Date(),
+    sender: [
+      "So the Grammarly lady that makes the interview for Grammarly, doesn't know what Grammarly is?",
+    ],
+    respond: ['Masquerade dey com out on Sunday'],
+  },
+  {
+    id: 1,
+    createdAt: new Date(),
+    sender: ['No na only tomorrow'],
+    respond: ['Kk na on Sunday I go show'],
+  },
+  {
+    id: 1,
+    createdAt: new Date(),
+    sender: ['National chairman'],
+    respond: ['Blood', 'Wetin dey sub'],
+  },
+  {
+    id: 1,
+    createdAt: new Date(),
+    sender: ['National chairman'],
+  },
+  {
+    id: 1,
+    createdAt: new Date(),
+    sender: ['Normal oo chairman', 'U don forget me laa'],
+    respond: [
+      'Forget u kwa',
+      'Me won reason ur area on Sunday sef',
+      'I de dial ur no ad en no de go',
+    ],
+  },
+  // {
+  //   createdAt: new Date(),
+  //   sender: [
+  //     "So the Grammarly lady that makes the interview for Grammarly, doesn't know what Grammarly is?",
+  //     "Davido's aide, Shehu, has shared photos of his transformation years after meeting his boss, Davido Adeleke.While sharing the photos on Twitter, Shehu gushed over his transformation which he said seemed like 'magic' to him",
+  //   ],
+  //   respond: ['The main man! You don start yahoo! bah'],
+  // },
+]

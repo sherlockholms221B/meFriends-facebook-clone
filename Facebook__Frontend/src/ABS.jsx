@@ -12,6 +12,7 @@ import {
   Settings,
   Feedback,
   Display,
+  Chat,
 } from './Components/index'
 const ABS = () => {
   const {
@@ -26,6 +27,7 @@ const ABS = () => {
     displayState,
     feedbackState,
     supportState,
+    chatState,
   } = useGlobalContext()
   return (
     <>
@@ -40,6 +42,7 @@ const ABS = () => {
       {displayState && <Display />}
       {supportState && <Support />}
       {feedbackState && <Feedback />}
+      {chatState && <Chat />}
     </>
   )
 }

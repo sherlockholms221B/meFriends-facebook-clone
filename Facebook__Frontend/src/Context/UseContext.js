@@ -16,6 +16,7 @@ export const AppProvider = ({ children }) => {
   const [feedbackState, setFeedbackState] = useState(false)
   const [supportState, setSupportState] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
+  const [chatState, setChatState] = useState(false)
   const [goBack, setGoBack] = useState(false)
   const [selectedFriends, setSelectedFriends] = useState([])
   const [hed, setHed] = useState('')
@@ -77,6 +78,8 @@ export const AppProvider = ({ children }) => {
         likeRef,
         audState,
         setAudState,
+        chatState,
+        setChatState,
       }}
     >
       {children}

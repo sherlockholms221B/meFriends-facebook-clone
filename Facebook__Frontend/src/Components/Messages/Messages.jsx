@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import moment from 'moment'
-import { FaRegEdit } from 'react-icons/fa'
 import { HiDotsHorizontal } from 'react-icons/hi'
 import { ImEnlarge } from 'react-icons/im'
 import { MdOutlineSearch, MdVideoCall } from 'react-icons/md'
@@ -10,7 +9,9 @@ import Input from '../Input'
 import MegWrapper from '../MegWrapper'
 import { comments } from '../../utils/constants'
 import { randomNumberGenerator } from '../../functions/random.'
+import { useGlobalContext } from '../../Context/UseContext'
 const Messages = () => {
+  const { setChatState } = useGlobalContext()
   const [searchChats, setSearchChats] = useState('')
   return (
     <>
@@ -64,6 +65,7 @@ const Messages = () => {
             <div
               className='w-full flex flex-row gap-3 cursor-pointer dark:hover:bg-darkComplementry  hover:bg-slate-200 px-2 py-2 mt-0.5 mb-0.5 rounded-md'
               key={i + creator}
+              onClick={() => setChatState(true)}
             >
               <img
                 src={profileImage}
@@ -79,7 +81,7 @@ const Messages = () => {
                     {`${comment.substring(0, randomNumberGenerator(9, 21))}...`}
                   </h3>
                   <p className='text-sm'>
-                    {`${moment(createdAt).fromNow().substring(0, 6)}.`}
+                    {`${moment(createdAt).fromNow().substring(0, 5)}.`}
                   </p>
                 </div>
               </div>
