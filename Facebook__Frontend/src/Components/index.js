@@ -31,7 +31,7 @@ import Support from './GoProfile.jsx/Support'
 import Settings from './GoProfile.jsx/Settings'
 import Feedback from './GoProfile.jsx/Feedback'
 import Display from './GoProfile.jsx/Display'
-import Active from './Active'
+import { Active, FriendStack } from './RDOMC'
 import Reels from './Reels/Reels'
 import Rooms from './Rooms/Rooms'
 import Footer from './Footer'
@@ -42,6 +42,7 @@ import MenuPage from './MenuPage'
 import Friends from './Controllers/Friends'
 import PostAIR from './CreatePost/PostAIR'
 import Chat from './Messages/Chat'
+import GPDT from './GPDT'
 
 export {
   Navbar,
@@ -79,6 +80,7 @@ export {
   Feedback,
   Display,
   Active,
+  FriendStack,
   Reels,
   Rooms,
   Footer,
@@ -88,4 +90,5 @@ export {
   MenuPage,
   Friends,
   PostAIR,
+  GPDT,
 }

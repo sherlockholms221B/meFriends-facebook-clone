@@ -1,20 +1,29 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useLayoutEffect, useRef } from 'react'
+import { motion } from 'framer-motion'
+import { useGlobalContext } from '../../Context/UseContext'
 
 const DynamicMenu = (Component) =>
   function HOC() {
-    const boxWidthRef = useRef()
+    const { location } = useGlobalContext()
+    const DNM = useRef(null)
+    useLayoutEffect(() => {
+      DNM.current.style.left = `${location.left}px`
+      DNM.current.style.top = `${location.center}px`
+    }, [location])
 
     return (
-      <div
-        whileInView={{
-          opacity: [0, 1],
-          scale: [0, 1],
-        }}
-        className='  '
-        ref={boxWidthRef}
+      <motion.div
+        whileInView={{ opacity: [0, 1], scale: [0, 1] }}
+        transition={{ duration: 0.4, ease: 'linear' }}
+        className={`${
+          location.left === 0 || location.left === 'undefined'
+            ? 'hidden'
+            : 'block'
+        } hidden absolute z-10 bg-blue-500 opacity-0 transition-all`}
+        ref={DNM}
       >
         <Component />
-      </div>
+      </motion.div>
     )
   }
 
