@@ -12,12 +12,14 @@ import {
   MdOutlineHistory,
 } from 'react-icons/md'
 
-const PostOptions = () => {
+const PostOptions = ({ isChat }) => {
   return (
     <motion.div
       whileInView={{ opacity: [0, 1], scale: [0, 1] }}
       transition={{ duration: 0.4, ease: 'linear' }}
-      className=' opacity-0 vertical_scroll rounded-tl-lg rounded-b-lg  shadow-lg z-10 h-[400px] overflow-auto absolute top-10 right-10 bg-white p-2 dark:bg-darkSecondary dark:shadow-black dark:shadow-sm'
+      className={` ${
+        isChat ? ' -left-full top-5' : 'top-10 right-10'
+      } opacity-0 vertical_scroll rounded-tl-lg rounded-b-lg  shadow-lg z-10 h-[400px] overflow-auto absolute bg-white p-2 dark:bg-darkSecondary dark:shadow-black dark:shadow-sm`}
     >
       <div className='mr-4 ml-1'>
         <div className=' border-b-[2px]  dark:border-borderDark pt-2 pb-3'>

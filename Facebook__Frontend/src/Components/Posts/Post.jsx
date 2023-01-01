@@ -2,11 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 
-import {
-  MdPublic,
-  MdOutlinePrivateConnectivity,
-  MdVerified,
-} from 'react-icons/md'
+import { MdPublic, MdOutlinePrivateConnectivity } from 'react-icons/md'
 import { HiDotsHorizontal } from 'react-icons/hi'
 import { AiOutlineLike } from 'react-icons/ai'
 import { Comments, PostOptions, Like, Share, COMBTN } from '../index'
