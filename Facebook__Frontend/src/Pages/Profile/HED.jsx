@@ -3,6 +3,7 @@ import { MdMoreHoriz } from 'react-icons/md'
 import { person_eleven, person_nine } from '../../Assets/exports'
 import { useGlobalContext } from '../../Context/UseContext'
 import { comments } from '../../utils/constants'
+import { FriendStack } from '../exports'
 
 const HED = () => {
   const { dynamicLocation } = useGlobalContext()
@@ -39,29 +40,7 @@ const HED = () => {
             4.1k friends
           </p>
           <div className='full h-9'>
-            {comments.map(
-              (
-                { creator, profile: [{ profileImage, createdAt }], comment },
-                i
-              ) => (
-                <div className='relative' key={i}>
-                  <img
-                    src={profileImage}
-                    alt='friends'
-                    className={`absolute rounded-full w-9 h-9 ${
-                      i === 0 && 'left-0 '
-                    } ${i === 1 && 'left-8'} ${i === 2 && 'left-16'} ${
-                      i === 3 && 'left-24'
-                    } ${i === 4 && 'left-32'} ${i === 5 && 'left-40'} ${
-                      i === 6 && 'left-48'
-                    } ${i === 7 && 'left-56'} ${i === 8 && 'left-64'} ${
-                      i > 8 && 'hidden'
-                    } ring-2 ring-white
-                           `}
-                  />
-                </div>
-              )
-            )}
+            <FriendStack comments={comments} />
           </div>
         </div>
       </div>

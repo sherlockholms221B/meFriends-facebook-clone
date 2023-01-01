@@ -6,7 +6,7 @@ import { HED, EDIOP, Friends, Photos } from '../exports'
 import { MdMoreHoriz } from 'react-icons/md'
 
 const Profile = () => {
-  const { location, hed, setHed } = useGlobalContext()
+  const { location } = useGlobalContext()
   const PRF = useRef(null)
   return (
     <>

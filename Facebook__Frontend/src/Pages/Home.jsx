@@ -1,12 +1,10 @@
-import React, { useEffect, useReducer } from 'react'
+import React, { useEffect } from 'react'
 import { MdOutlineFacebook } from 'react-icons/md'
 
 import { SideBar, Feeds, Advertisment, Navbar } from '../Components/index'
 import { useGlobalContext } from '../Context/UseContext'
-import reducer from '../Reducers/GReducer'
 
 const Home = () => {
-  const [state, dispatch] = useReducer(reducer, [])
   const { isLoading, setIsLoading, location } = useGlobalContext()
 
   useEffect(() => {

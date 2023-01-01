@@ -19,18 +19,19 @@ export const AppProvider = ({ children }) => {
   const [chatState, setChatState] = useState(false)
   const [goBack, setGoBack] = useState(false)
   const [selectedFriends, setSelectedFriends] = useState([])
-  const [hed, setHed] = useState('')
   const [audState, setAudState] = useState('Public')
 
   const [location, setLocation] = useState({
     height: 0,
+    left: 0,
+    center: 0,
   })
   const likeRef = useRef(null)
 
   const dynamicLocation = (cordinate) => {
-    const { height, HEDheight } = cordinate
-    setHed(HEDheight)
-    setLocation({ height: height })
+    const { height, left, center } = cordinate
+    setLocation({ height: height, center: center, left: left })
+    console.log(location)
 
     return
   }
@@ -73,8 +74,6 @@ export const AppProvider = ({ children }) => {
         setIsLoading,
         goBack,
         setGoBack,
-        hed,
-        setHed,
         likeRef,
         audState,
         setAudState,

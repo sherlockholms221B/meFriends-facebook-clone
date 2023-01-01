@@ -9,6 +9,7 @@ import Friends from './Profile/Friends'
 import Photos from './Profile/Photos'
 import HED from './Profile/HED'
 import PSTIMG from './Posts/PSTIMG'
+import { FriendStack } from '../Components/RDOMC'
 
 export {
   Home,
@@ -22,4 +23,5 @@ export {
   Photos,
   HED,
   PSTIMG,
+  FriendStack
 }

@@ -13,6 +13,7 @@ import {
   Feedback,
   Display,
   Chat,
+  GPDT,
 } from './Components/index'
 const ABS = () => {
   const {
@@ -43,6 +44,7 @@ const ABS = () => {
       {supportState && <Support />}
       {feedbackState && <Feedback />}
       {chatState && <Chat />}
+      <GPDT />
     </>
   )
 }
