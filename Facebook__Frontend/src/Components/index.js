@@ -41,6 +41,7 @@ import COMBTN from './Comments/COMBTN'
 import MenuPage from './MenuPage'
 import Friends from './Controllers/Friends'
 import PostAIR from './CreatePost/PostAIR'
+import Chat from './Messages/Chat'
 
 export {
   Navbar,
@@ -70,6 +71,7 @@ export {
   NoPost,
   Notifications,
   Messages,
+  Chat,
   Groups,
   GoPorfile,
   Support,
