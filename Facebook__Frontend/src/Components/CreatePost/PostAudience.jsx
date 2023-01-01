@@ -13,7 +13,6 @@ const PostAudience = () => {
     postAudienceState,
     setPostAudienceState,
     setGoBack,
-    audState,
     setAudState,
   } = useGlobalContext()
   return (

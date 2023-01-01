@@ -23,7 +23,7 @@ const Groups = ({ isMbar, barHarder, barContainer, roundedIcon }) => {
           key={name}
           className={` ${
             !isMbar ? '' : 'pl-2'
-          } relative  larg:dark:hover:bg-darkComplementry larg:hover:bg-primary hover:bg-inherit  mb-0.5 flex flex-row gap-2 items-center w-full py-2 rounded-md`}
+          } relative  larg:dark:hover:bg-darkComplementry larg:hover:bg-primary hover:bg-inherit  mb-0.5 flex flex-row gap-4 items-center w-full py-2 rounded-md`}
         >
           <img
             onMouseOver={(e) => e.stopPropagation()}
@@ -52,7 +52,7 @@ const Groups = ({ isMbar, barHarder, barContainer, roundedIcon }) => {
         >
           <MdGroups />
         </p>
-        {isMbar && <p className={barHarder}>Groups</p>}
+        {isMbar && <p className={barHarder}>See all groups</p>}
         <Active queryTerm={`groups`} homeTerm={null} />
       </Link>
     </>

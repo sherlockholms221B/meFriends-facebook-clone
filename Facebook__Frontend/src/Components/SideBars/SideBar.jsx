@@ -13,13 +13,13 @@ const SideBar = () => {
   const barHarder =
     ' text-black dark:text-heading_dark_white hidden larg:block text-md font-medium'
   const barContainer =
-    'relative hover:bg-inherit larg:hover:bg-primary larg:dark:hover:bg-darkComplementry flex flex-row gap-2 items-center w-full  pl-2 rounded-md'
+    'relative hover:bg-inherit larg:hover:bg-primary larg:dark:hover:bg-darkComplementry flex flex-row gap-4 items-center w-full  pl-2 rounded-md'
   const roundedIcon =
     ' dark:bg-darkComplementry dark:text-white text-black rounded-full  bg-primaryWhite'
   return (
     <div className=' hidden small:flex dark:border-r dark:larg:border-0 dark:border-borderDark  dark:bg-darkSecondary overflow-hidden hover:overflow-auto w-min bg-white larg:pr-2  larg:w-[300px] larg:bg-inherit dark:larg:bg-darkPrimary '>
       <div className='flex flex-col justify-start items-baseline w-fit larg:w-full h-fit pb-2 pl-2 pr-4 larg:pr-0'>
-        <Link to={`/`} className={` ${barContainer} larg:pl-2 p-0 py-2`}>
+        <Link to={`/`} className={` ${barContainer} larg:pl-2 p-0 py-2 mt-2`}>
           <p className='text-3xl deep_blue'>
             <MdHome />
           </p>
@@ -38,7 +38,7 @@ const SideBar = () => {
           <Link
             key={i + page.title}
             to={`${page.url}?talling=${page.title}`}
-            className='relative pl-2 larg:dark:hover:bg-darkComplementry larg:hover:bg-primary hover:bg-inherit  mb-0.5 flex flex-row gap-2 items-center w-full py-2 rounded-md'
+            className='relative pl-2 larg:dark:hover:bg-darkComplementry larg:hover:bg-primary hover:bg-inherit  mb-0.5 flex flex-row gap-4 items-center w-full py-2 rounded-md'
           >
             <p className='text-xl larg:text-2xl deep_blue'>{page.icon}</p>
             <p className='text-md text-gray-800 font-medium dark:text-heading_dark_white hidden larg:block'>
@@ -72,7 +72,7 @@ const SideBar = () => {
           <p className={`${roundedIcon} text-lg -ml-1 larg:-ml-0 p-2 larg:p-2`}>
             <HiLink />
           </p>
-          <p className={` ${barHarder} `}>Shortcuts</p>
+          <p className={` ${barHarder} `}>See all shortcuts</p>
           <Active queryTerm={`shortcuts`} />
         </Link>
         <Footer />

@@ -27,7 +27,7 @@ export const Active = ({ queryTerm, homeTerm }) => {
   )
 }
 
-export const FriendStack = ({ comments }) => {
+export const FriendStack = ({ comments, isDetails }) => {
   return (
     <>
       {comments.map(
@@ -36,15 +36,15 @@ export const FriendStack = ({ comments }) => {
             <img
               src={profileImage}
               alt='friends'
-              className={`absolute rounded-full w-9 h-9 ${
-                i === 0 && 'left-0 '
-              } ${i === 1 && 'left-8'} ${i === 2 && 'left-16'} ${
-                i === 3 && 'left-24'
-              } ${i === 4 && 'left-32'} ${i === 5 && 'left-40'} ${
-                i === 6 && 'left-48'
-              } ${i === 7 && 'left-56'} ${i === 8 && 'left-64'} ${
-                i > 8 && 'hidden'
-              } ring-2 ring-white
+              className={`${
+                !isDetails ? 'absolute w-9 h-9' : 'w-7 h-7'
+              } rounded-full  ${i === 0 && 'left-0 '} ${i === 1 && 'left-8'} ${
+                i === 2 && 'left-16'
+              } ${i === 3 && 'left-24'} ${i === 4 && 'left-32'} ${
+                i === 5 && 'left-40'
+              } ${i === 6 && 'left-48'} ${i === 7 && 'left-56'} ${
+                i === 8 && 'left-64'
+              } ${i > 8 && 'hidden'} ring-2 ring-white
                            `}
             />
           </div>

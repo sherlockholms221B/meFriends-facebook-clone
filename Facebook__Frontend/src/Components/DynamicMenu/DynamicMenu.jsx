@@ -19,7 +19,7 @@ const DynamicMenu = (Component) =>
           location.left === 0 || location.left === 'undefined'
             ? 'hidden'
             : 'block'
-        } hidden absolute z-10 bg-blue-500 opacity-0 transition-all`}
+        } absolute z-10 opacity-0 transition-all before:absolute before:w-5 before:h-5    before:-translate-x-[95%] before: before:bg-inherit rounded-b-xl rounded-tr-xl triangle dark:bg-darkSecondary`}
         ref={DNM}
       >
         <Component />
