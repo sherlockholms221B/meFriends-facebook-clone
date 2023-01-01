@@ -2,11 +2,12 @@ import React, { useState } from 'react'
 
 import { COMBTN, Comments, Input, Like, THRDot } from '../../Components'
 import { profile } from '../../Assets/exports'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Icon } from '../../utils/Icon'
 import PSTIMG from './PSTIMG'
 
 const PostDetails = () => {
+  const navigate = useNavigate()
   const [isComment, setIsComment] = useState(true)
   const [viewMore, setViewMore] = useState(true)
   const [value, setValue] = useState('')
@@ -23,7 +24,10 @@ const PostDetails = () => {
       <div className='w-full bg-black h-full text-white relative flex justify-center'>
         <section className='absolute flex justify-between items-center top-0 right-0 w-full'>
           <div className='flex items-center justify-start w-fit gap-3 ml-4 py-1'>
-            <Icon.MdClose className='text-3xl dark:text-heading_dark_white' />
+            <Icon.MdClose
+              className='text-3xl dark:text-heading_dark_white'
+              onClick={() => navigate(-1)}
+            />
             <Icon.MdOutlineFacebook className='text-5xl shade_blue' />
           </div>
           <div className='flex items-center justify-end w-fit gap-8 mr-4 py-1'>
