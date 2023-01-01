@@ -15,7 +15,7 @@ const Input = ({ type, value, name, placeholder, handleChange }) => {
         onChange={handleChange}
         className={` ${
           name === 'search' &&
-          ' hidden medium:block medium:w-400 larg:w-560 font-normal pl-10 py-2.5  placeholder:text-lg '
+          ' hidden medium:block medium:w-400 larg:w-[600px] font-normal pl-10 py-2.5  placeholder:text-lg '
         } ${
           name === 'friends' &&
           'pl-10 py-1.5 pr-4 mid_small:w-[410px] xtra_small:w-260 w-210 placeholder:text-md'
