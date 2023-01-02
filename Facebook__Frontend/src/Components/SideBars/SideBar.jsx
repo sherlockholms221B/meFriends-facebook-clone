@@ -13,9 +13,9 @@ const SideBar = () => {
   const barHarder =
     ' text-black dark:text-heading_dark_white hidden larg:block text-md font-medium'
   const barContainer =
-    'relative hover:bg-inherit larg:hover:bg-primary larg:dark:hover:bg-darkComplementry flex flex-row gap-4 items-center w-full  pl-2 rounded-md'
+    'group relative hover:bg-inherit larg:hover:bg-primary larg:dark:hover:bg-darkComplementry flex flex-row gap-4 items-center w-full  pl-2 rounded-md'
   const roundedIcon =
-    ' dark:bg-darkComplementry dark:text-white text-black rounded-full  bg-primaryWhite'
+    'group-hover:brightness-150  dark:bg-darkComplementry dark:text-white text-black rounded-full  bg-primaryWhite'
   return (
     <div className=' hidden small:flex dark:border-r dark:larg:border-0 dark:border-borderDark  dark:bg-darkSecondary overflow-hidden hover:overflow-auto w-min bg-white larg:pr-2  larg:w-[300px] larg:bg-inherit dark:larg:bg-darkPrimary '>
       <div className='flex flex-col justify-start items-baseline w-fit larg:w-full h-fit pb-2 pl-2 pr-4 larg:pr-0'>

@@ -11,7 +11,7 @@ import { comments } from '../../utils/constants'
 import { randomNumberGenerator } from '../../functions/random.'
 import { useGlobalContext } from '../../Context/UseContext'
 const Messages = () => {
-  const { setChatState } = useGlobalContext()
+  const { setChatState, setMessageState } = useGlobalContext()
   const [searchChats, setSearchChats] = useState('')
   return (
     <>
@@ -58,14 +58,34 @@ const Messages = () => {
           />
           <MdOutlineSearch className='absolute top-2 left-6 text-gray-600 dark:text-heading_dark_gray text-2xl cursor-pointer ' />
         </div>
+        <div className='w-full flex flex-row flex-nowrap justify-start items-center gap-4 pl-2 mt-2'>
+          {[
+            {
+              title: 'Inbox',
+            },
+            {
+              title: 'Communities',
+            },
+          ].map(({ title, i }) => (
+            <p
+              key={i}
+              className='text-md dark:text-heading_dark_white capitalize rounded-full py-1 px-2 font-medium bg-blue-600 brightness-125'
+            >
+              {title}
+            </p>
+          ))}
+        </div>
       </section>
-      <section className='max-h-[470px] gap-3 mt-1 pt-3  w-full overflow-auto home_scroll pr-1 p-3 '>
+      <section className='max-h-[470px] gap-3 pt-3  w-full overflow-auto home_scroll pr-1 p-3 '>
         {comments.map(
           ({ creator, profile: [{ profileImage, createdAt }], comment }, i) => (
             <div
               className='w-full flex flex-row gap-3 cursor-pointer dark:hover:bg-darkComplementry  hover:bg-slate-200 px-2 py-2 mt-0.5 mb-0.5 rounded-md'
               key={i + creator}
-              onClick={() => setChatState(true)}
+              onClick={() => {
+                setMessageState(false)
+                setChatState(true)
+              }}
             >
               <img
                 src={profileImage}

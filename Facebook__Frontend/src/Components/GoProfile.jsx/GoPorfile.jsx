@@ -58,11 +58,11 @@ const GoPorfile = () => {
             }
             key={i + title}
             className={` ${
-              isMove && 'justify-between flex flex-row items-center'
+              isMove && 'group justify-between flex flex-row items-center'
             } ${title} group dark:hover:bg-darkComplementry hover:bg-secondaryWhite p-2 w-full rounded-md cursor-pointer`}
           >
             <div className='flex flex-row items-center gap-2 w-fit '>
-              <p className=' text-xl rounded-full  dark:bg-darkComplementry dark:text-heading_dark_white bg-gray-200 p-2 w-fit h-fit'>
+              <p className='group-hover:brightness-150 text-xl rounded-full  dark:bg-darkComplementry dark:text-heading_dark_white bg-gray-200 p-2 w-fit h-fit'>
                 {icon}
               </p>
               <h4 className='text-gray-900 font-medium dark:text-white'>
