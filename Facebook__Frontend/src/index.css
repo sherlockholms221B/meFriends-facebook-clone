@@ -131,3 +131,35 @@ body {
 .nextSlide {
   transform: translateX(100%);
 }
+
+.triangle::before {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+}
+
+.skills-tooltip {
+  max-width: 300px !important;
+  background: #242526 !important;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 5px !important;
+  padding: 0.5rem 1rem !important;
+  color: whitesmoke !important;
+  text-align: center !important;
+  line-height: 1.5 !important;
+  opacity: 1 !important;
+
+  @media screen and (min-width: 2000px) {
+    font-size: 1.75rem !important;
+    max-width: 500px !important;
+    line-height: 2 !important;
+  }
+}
+/* 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  @apply brightness-125;
+} */
