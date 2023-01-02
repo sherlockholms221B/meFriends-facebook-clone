@@ -5,7 +5,8 @@ import { SideBar, Feeds, Advertisment, Navbar } from '../Components/index'
 import { useGlobalContext } from '../Context/UseContext'
 
 const Home = () => {
-  const { isLoading, setIsLoading, location } = useGlobalContext()
+  const { isLoading, setIsLoading, location, setIsSubMenuOpen } =
+    useGlobalContext()
 
   useEffect(() => {
     setTimeout(() => {
@@ -31,6 +32,9 @@ const Home = () => {
           <div
             style={{ paddingTop: `${location.height}px` }}
             className=' dark:bg-darkPrimary relative overflow-hidden h-[100vh] w-[100vw] black bg-primary'
+            // onMouseOver={() => {
+            //   setIsSubMenuOpen(false)
+            // }}
           >
             <div className='flex items-strech justify-center mid_small:justify-between w-[100vw] h-[100%]'>
               <SideBar />

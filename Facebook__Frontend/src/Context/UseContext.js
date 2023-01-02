@@ -18,6 +18,8 @@ export const AppProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true)
   const [chatState, setChatState] = useState(false)
   const [goBack, setGoBack] = useState(false)
+  const [chatSettings, setChatSettings] = useState(false)
+  const [isSubMenuOpen, setIsSubMenuOpen] = useState(false)
   const [selectedFriends, setSelectedFriends] = useState([])
   const [audState, setAudState] = useState('Public')
 
@@ -30,8 +32,11 @@ export const AppProvider = ({ children }) => {
 
   const dynamicLocation = (cordinate) => {
     const { height, left, center } = cordinate
+    // if (left || center) {
+    // }
+    setIsSubMenuOpen(true)
     setLocation({ height: height, center: center, left: left })
-    console.log(location)
+    console.log(isSubMenuOpen)
 
     return
   }
@@ -40,6 +45,8 @@ export const AppProvider = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
+        isSubMenuOpen,
+        setIsSubMenuOpen,
         stateAcceptor,
         location,
         setLocation,
@@ -79,6 +86,8 @@ export const AppProvider = ({ children }) => {
         setAudState,
         chatState,
         setChatState,
+        chatSettings,
+        setChatSettings,
       }}
     >
       {children}
