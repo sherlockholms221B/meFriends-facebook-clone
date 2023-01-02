@@ -12,6 +12,7 @@ import {
   MdTune,
   MdPerson,
   MdMarkEmailRead,
+  MdGroups,
 } from 'react-icons/md'
 import { GiEarthAmerica } from 'react-icons/gi'
 import { HiLockClosed } from 'react-icons/hi'
@@ -47,6 +48,7 @@ export const Icon = {
   MdOutlineSearch,
   MdMarkEmailRead,
   MdPerson,
+  MdGroups,
   MdOutlineFacebook,
   MdOutlineArrowForwardIos,
   MdHttps,
