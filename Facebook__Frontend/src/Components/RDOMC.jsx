@@ -1,6 +1,6 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
-
+//Random mini component
 export const Active = ({ queryTerm, homeTerm }) => {
   const search = useLocation().search
   const query = new URLSearchParams(search).get('talling')
