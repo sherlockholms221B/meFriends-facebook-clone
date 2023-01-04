@@ -20,7 +20,7 @@ const Stories = ({
           alt='str'
           className='w-full h-full object-fit transition-all group-hover:scale-105 group-hover:brightness-75'
         />
-        <Link
+        <button
           to={`/backface/api/profile`}
           className=' border-4 border-blue-700 rounded-full cursor-pointer absolute top-4 left-4 group-hover:z-20'
         >
@@ -29,7 +29,7 @@ const Stories = ({
             alt='profile'
             className='object-fit w-8 h-8 rounded-full '
           />
-        </Link>
+        </button>
         <h1 className='absolute bottom-2 left-1 text-white text-md font-medium capitalize'>
           {creator}
         </h1>

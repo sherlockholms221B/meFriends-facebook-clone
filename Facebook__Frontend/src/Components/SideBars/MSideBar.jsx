@@ -8,8 +8,11 @@ import { profile } from '../../Assets/exports'
 import Groups from '../Groups'
 import { Active } from '../index'
 import { SideLinks } from '../../utils/LWRef'
+import { useGlobalContext } from '../../Context/UseContext'
 
 const MSideBar = () => {
+  const { menuSl, setMenuSl, shortCutSl, setShortCutSl, groupSl, setGroupSl } =
+    useGlobalContext()
   const barContainer =
     'relative hover:bg-inherit xl:hover:bg-primary xl:dark:hover:bg-darkComplementry flex flex-row gap-2 items-center w-full  rounded-md'
   const roundedIcon =
@@ -34,7 +37,7 @@ const MSideBar = () => {
         {SideLinks().map((page, i) => (
           <Link
             key={i + page.title}
-            to={`?talling=${page.title}`}
+            to={`/${page.url}?talling=${page.title}`}
             className='relative xl:pl-3 p-0 xl:dark:hover:bg-darkComplementry xl:hover:bg-primary hover:bg-inherit mt-0.5 mb-0.5 flex flex-row gap-2 items-center w-full py-2 rounded-md'
           >
             <p className='text-xl larg:text-2xl deep_blue'>{page.icon}</p>
@@ -42,7 +45,12 @@ const MSideBar = () => {
             <Active queryTerm={page.title} homeTerm={null} />
           </Link>
         ))}
-        <Link
+        <button
+          onClick={() => {
+            setMenuSl(!menuSl)
+            setGroupSl(false)
+            setShortCutSl(false)
+          }}
           to={`?talling=${`menu`}`}
           className={` ${barContainer} xl:pl-1 p-0   py-2 `}
         >
@@ -50,7 +58,7 @@ const MSideBar = () => {
             <TbGridDots />
           </p>
           <Active queryTerm={`menu`} homeTerm={null} />
-        </Link>
+        </button>
         <div className='border-[1px] w-full mt-3 mb-3 border-gray-300 dark:border-borderDark' />
 
         <Groups

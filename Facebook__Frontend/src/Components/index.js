@@ -38,8 +38,6 @@ import Footer from './Footer'
 import CMPFooter from './CMPFooter'
 import Share from './Posts/Share'
 import COMBTN from './Comments/COMBTN'
-import MenuPage from './MenuPage'
-import Friends from './Controllers/Friends'
 import PostAIR from './CreatePost/PostAIR'
 import Chat from './Messages/Chat'
 import GPDT from './GPDT'
@@ -87,8 +85,6 @@ export {
   CMPFooter,
   Share,
   COMBTN,
-  MenuPage,
-  Friends,
   PostAIR,
   GPDT,
 }
