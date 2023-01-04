@@ -3,7 +3,7 @@ import { MdMoreHoriz } from 'react-icons/md'
 import { person_eleven, person_nine } from '../../Assets/exports'
 import { useGlobalContext } from '../../Context/UseContext'
 import { comments } from '../../utils/constants'
-import { FriendStack } from '../exports'
+import { FriendStack } from '..'
 
 const HED = () => {
   const { dynamicLocation } = useGlobalContext()

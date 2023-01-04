@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import { useGlobalContext } from '../../Context/UseContext'
 import MSideBar from '../../Components/SideBars/MSideBar'
 import { CMPFooter, Feeds, Navbar, ProfilePicture } from '../../Components'
-import { HED, EDIOP, Friends, Photos } from '../exports'
+import { HED, EDIOP, Friends, Photos } from '..'
 import { MdMoreHoriz } from 'react-icons/md'
 
 const Profile = () => {
@@ -18,13 +18,7 @@ const Profile = () => {
         <div className=' flex items-strech mid_small:justify-between w-[100vw] h-[100%]'>
           <MSideBar />
           <div className=' min-w-[260px] w-full  overflow-auto h-full'>
-            <div
-              onScroll={() => {
-                console.log(PRF.current.scrollHeight)
-              }}
-              ref={PRF}
-              className='h-fit '
-            >
+            <div ref={PRF} className='h-fit '>
               <HED />
               <section className='relative flex flex-row gap-4 h-screen overflow-hidden justify-center  w-full'>
                 <div className='flex flex-col gap-4 overflow-auto scroll-hidden min-w-[260px] mid_small:w-[420px] px-0.5 pt-0.5 small:pt-4'>

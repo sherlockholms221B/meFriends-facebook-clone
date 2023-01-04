@@ -4,7 +4,7 @@ import { COMBTN, Comments, Input, Like, THRDot } from '../Components'
 import { profile } from '../Assets/exports'
 import { Link, useNavigate } from 'react-router-dom'
 import { Icon } from '../utils/Icon'
-import { PSTIMG } from './exports'
+import { PSTIMG } from '.'
 
 const StoryDetails = () => {
   const navigate = useNavigate()
