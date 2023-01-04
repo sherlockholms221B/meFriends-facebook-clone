@@ -3,7 +3,7 @@ import { MdMenu, MdOutlineExpandMore, MdOutlineSearch } from 'react-icons/md'
 import { Link } from 'react-router-dom'
 import { profile } from '../../Assets/exports'
 import { useGlobalContext } from '../../Context/UseContext'
-import { IconHandler } from '../../functions/SH'
+import { IconHandler } from '../../Functions/SH'
 import { NavDot1 } from '../../utils/LWRef'
 import { ToolTip } from '../index'
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import { useGlobalContext } from '../../Context/UseContext'
-import { IconHandler, previous } from '../../functions/SH'
+import { IconHandler, previous } from '../../Functions/SH'
 import { PostAudienceLinks } from '../../utils/LWRef'
 import { Head } from '../index'
 import MegWrapper from '../MegWrapper'
@@ -14,6 +14,7 @@ const PostAudience = () => {
     setPostAudienceState,
     setGoBack,
     setAudState,
+    audState,
   } = useGlobalContext()
   return (
     <div
@@ -43,36 +44,44 @@ const PostAudience = () => {
           </p>
         </div>
 
-        <div className=''>
+        <div className='group/edit '>
           {PostAudienceLinks().map(
-            ({ icon, title, description, id, ref }, i) => (
-              <div
-                key={i + title}
-                ref={ref}
-                className={`flex ${id} justify-between items-center cursor-pointer mt-2 mb-2 p-2 rounded-md`}
-                onClick={(e) => {
-                  IconHandler({ e, ref, setAudState })
-                }}
-              >
-                <div className='flex items-center gap-2 '>
-                  <p className='rounded-full bg-gray-300 dark:bg-darkComplementry dark:text-heading_dark_white text-lg mid_small:p-4 p-2 '>
-                    {icon}
-                  </p>
-                  <div className='flex flex-col gap-0 '>
-                    <h3 className='xtra_small:text-lg text-md font-semibold text-gray-800 dark:text-heading_dark_white '>
-                      {title}
-                    </h3>
-                    <p className='mid_small:text-md text-xs text-gray-500 dark:text-heading_dark_gray mt-[-5px]'>
-                      {description}
-                    </p>
-                  </div>
-                </div>
+            ({ icon, title, description, id, ref }, i) => {
+              return (
                 <div
+                  key={i + title}
                   ref={ref}
-                  className='ring-2 dark:ring-white ring-gray-500 mid_small:h-5 h-3 mid_small:w-5 w-3 rounded-full '
-                />
-              </div>
-            )
+                  className={`flex ${id} ${
+                    audState === title && 'bg-blue-00'
+                  } justify-between items-center cursor-pointer mt-2 mb-2 p-2 rounded-md dark:hover:bg-darkComplementry group first:border first:dark:hover:bg-darkComplementry first:dark:bg-darkComplementry`}
+                  onClick={(e) => {
+                    IconHandler({ e, ref, setAudState })
+                  }}
+                >
+                  <div className='flex items-center gap-2 '>
+                    <p className='rounded-full bg-gray-300 dark:bg-darkComplementry dark:text-heading_dark_white text-lg mid_small:p-4 p-2 group-hover:brightness-150'>
+                      {icon}
+                    </p>
+                    <div className='flex flex-col gap-0 '>
+                      <h3 className='xtra_small:text-lg text-md font-semibold text-gray-800 dark:text-heading_dark_white '>
+                        {title}
+                      </h3>
+                      <p className='mid_small:text-md text-xs text-gray-500 dark:text-heading_dark_gray mt-[-5px]'>
+                        {description}
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    ref={ref}
+                    className={` ${
+                      audState === title
+                        ? 'relative bg-inherit before:w-2 before:h-2 before:bg-blue-500 eb before:absolute before:rounded-full before:translate-y-1/2 before:translate-x-1/2 ring-blue-500 before:top-auto before:right-auto ring-2'
+                        : 'ring-2 dark:ring-white ring-gray-500'
+                    }  mid_small:h-4 h-3 mid_small:w-4 w-3 rounded-full transition-colors `}
+                  />
+                </div>
+              )
+            }
           )}
         </div>
       </div>

@@ -3,7 +3,7 @@ import React, { useState, useRef } from 'react'
 import MegWrapper from '../MegWrapper'
 import { useGlobalContext } from '../../Context/UseContext'
 import { ProfilePicture, AddPicture, CreatePostLinks, PostAIR } from '../index'
-import { forward } from '../../functions/SH'
+import { forward } from '../../Functions/SH'
 import { Icon } from '../../utils/Icon'
 
 const CreatePost = () => {

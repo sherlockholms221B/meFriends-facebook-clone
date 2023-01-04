@@ -11,7 +11,7 @@ import {
 } from 'react-icons/md'
 
 import { useGlobalContext } from '../../Context/UseContext'
-import { forward, IconHandler } from '../../functions/SH'
+import { forward, IconHandler } from '../../Functions/SH'
 import { MakePostLinkOne, MakePostLinkTwo } from '../../utils/LWRef'
 import ToolTip from '../ToolTip'
 

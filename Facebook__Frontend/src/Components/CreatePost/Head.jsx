@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { previous } from '../../functions/SH'
+import { previous } from '../../Functions/SH'
 import { Icon } from '../../utils/Icon'
 
 const Head = (prop) => {

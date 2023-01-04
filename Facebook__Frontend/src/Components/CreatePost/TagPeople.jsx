@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { useGlobalContext } from '../../Context/UseContext'
 import MegWrapper from '../MegWrapper'
 import { Head, Input, NoPost } from '../index'
-import { previous } from '../../functions/SH'
+import { previous } from '../../Functions/SH'
 import { posts } from '../../utils/constants'
 import { Icon } from '../../utils/Icon'
 
@@ -87,7 +87,6 @@ const TagPeople = () => {
                   const friendName = e.target.textContent
                   setSelectedFriends([...selectedFriends, friendName])
                   setSearchFriends('')
-                  console.log(selectedFriends)
                 }}
                 key={i + creator}
                 className='flex flex-row gap-2 items-center px-2 py-0.5 hover:bg-secondaryWhite rounded-md w-full mt-1 mb-1'

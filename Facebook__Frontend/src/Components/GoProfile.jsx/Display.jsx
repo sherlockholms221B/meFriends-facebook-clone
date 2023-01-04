@@ -3,7 +3,7 @@ import React, { useRef } from 'react'
 import { useGlobalContext } from '../../Context/UseContext'
 import Head from '../CreatePost/Head'
 import MegWrapper from '../MegWrapper'
-import { themeSwitcher } from '../../functions/darkTheme'
+import { themeSwitcher } from '../../Functions/darkTheme'
 import { Icon } from '../../utils/Icon'
 const Display = () => {
   const lightMode = useRef(null)
@@ -13,6 +13,7 @@ const Display = () => {
   const compactOff = useRef(null)
   const { setDisplayState, setProfileState, setGoBack, displayState } =
     useGlobalContext()
+  const theme = localStorage.getItem('theme')
   return (
     <div className={` ${displayState ? 'pb-4 translate_x' : 'pb-4'} `}>
       <Head
@@ -29,17 +30,17 @@ const Display = () => {
             desc: 'Adjust the appearance of Facebook to reduce glare and give your eyes a break.',
             options: [
               {
-                switch: 'off',
+                switch: 'Off',
                 ref: lightMode,
                 class: 'light',
               },
               {
-                switch: 'on',
+                switch: 'On',
                 ref: darkMode,
-                class: 'dark',
+                class: 'darkmode',
               },
               {
-                switch: 'automatic',
+                switch: 'Automatic',
                 ref: automatic,
                 isDesc: true,
                 class: 'auto',
@@ -94,7 +95,13 @@ const Display = () => {
                         </p>
                       )}
                     </div>
-                    <div className='ring-2 ring-gray-500  h-5 w-5 rounded-full ' />
+                    <div
+                      className={` ${
+                        theme === items.class
+                          ? 'relative bg-inherit before:w-2 before:h-2 before:bg-blue-500 before:absolute before:rounded-full before:translate-y-1/2 before:-translate-x-1/2 ring-blue-500 before:top-auto before:right-auto ring-2'
+                          : 'ring-2 dark:ring-white ring-gray-500'
+                      }  mid_small:h-4 h-3 mid_small:w-4 w-3 rounded-full transition-colors `}
+                    />
                   </div>
                 </button>
               ))}

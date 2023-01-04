@@ -2,7 +2,7 @@ import React, { useState, useRef, useLayoutEffect } from 'react'
 import { MdOutlineSearch } from 'react-icons/md'
 
 import { Input, THRDot } from '../index'
-import { refresh } from '../../functions/SH'
+import { refresh } from '../../Functions/SH'
 import { useGlobalContext } from '../../Context/UseContext'
 import { mNavLink } from '../../utils/links'
 
@@ -29,12 +29,7 @@ const Navbar = () => {
             facebook
           </h1>
         </button>
-        <div
-          className='hidden small:flex relative w-11 h-11 medium:w-fit medium: medium:h-fit justify-center items-center dark:bg-darkComplementry rounded-full'
-          onClick={() => {
-            console.log('hello i am here')
-          }}
-        >
+        <div className='hidden small:flex relative w-11 h-11 medium:w-fit medium: medium:h-fit justify-center items-center dark:bg-darkComplementry rounded-full'>
           <Input
             type={`text`}
             name={`search`}

@@ -79,7 +79,6 @@ const Chat = () => {
         </div>
         <div className='flex flex-col gap-4 max-h-[350px] overflow-auto home_scroll pt-2 pl-2 pb-2 pr-5 '>
           {chat.map((chat, i) => {
-            console.log(typeof chat)
             return (
               <div className='flex flex-col gap-4'>
                 <div className='flex flex-row gap-2 items-start'>

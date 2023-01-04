@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom'
 import MegWrapper from '../MegWrapper'
 import { ProfilePicture, CMPFooter } from '../index'
 import { useGlobalContext } from '../../Context/UseContext'
-import { IconHandler } from '../../functions/SH'
 import { GoPLink } from '../../utils/LWRef'
 import { Icon } from '../../utils/Icon'
+import { IconHandler } from '../../Functions/SH'
 const GoPorfile = () => {
   const {
     setSettingsState,

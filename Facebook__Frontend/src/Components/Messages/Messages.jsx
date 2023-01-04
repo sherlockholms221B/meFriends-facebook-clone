@@ -8,7 +8,7 @@ import { BiMessageAltEdit } from 'react-icons/bi'
 import Input from '../Input'
 import MegWrapper from '../MegWrapper'
 import { comments } from '../../utils/constants'
-import { randomNumberGenerator } from '../../functions/random.'
+import { randomNumberGenerator } from '../../Functions/random.'
 import { useGlobalContext } from '../../Context/UseContext'
 const Messages = () => {
   const { setChatState, setMessageState } = useGlobalContext()
