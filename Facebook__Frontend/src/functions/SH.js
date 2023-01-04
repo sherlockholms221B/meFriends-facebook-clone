@@ -44,7 +44,6 @@ export const IconHandler = (value) => {
   }
 
   if (classNames.includes('text-blue-600')) {
-    console.log('comeing back')
     setTagPeopleState(true)
     setCreatePostState(false)
     setGoBack(false)
@@ -92,10 +91,8 @@ export const IconHandler = (value) => {
     classNames.includes('specific') ||
     classNames.includes('custom')
   ) {
-    console.log(ref)
     const audience = ref.current.innerText.split('\n')[0]
     setAudState(audience)
-    _.add('bg-blue-300')
     return
   }
 }
