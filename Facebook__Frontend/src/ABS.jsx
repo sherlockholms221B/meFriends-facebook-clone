@@ -15,6 +15,7 @@ import {
   Chat,
   GPDT,
 } from './Components/index'
+import { MenuSl, GroupSl, ShortCutsSl } from './Controllers'
 const ABS = () => {
   const {
     addToYourState,
@@ -29,6 +30,9 @@ const ABS = () => {
     feedbackState,
     supportState,
     chatState,
+    menuSl,
+    shortCutSl,
+    groupSl,
   } = useGlobalContext()
   return (
     <>
@@ -44,6 +48,9 @@ const ABS = () => {
       {supportState && <Support />}
       {feedbackState && <Feedback />}
       {chatState && <Chat />}
+      {menuSl && <MenuSl />}
+      {shortCutSl && <ShortCutsSl />}
+      {groupSl && <GroupSl />}
       <GPDT />
     </>
   )

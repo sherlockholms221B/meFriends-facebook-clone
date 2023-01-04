@@ -9,12 +9,15 @@ import {
   Protector,
   STPage,
   StoryDetails,
-} from './Pages/exports'
-import { Friends } from './Components/index'
-import { themeCheck } from './functions/darkTheme'
+} from './Pages'
+import { Friends, Saved, Memories, MarketPlace, Watch } from './Controllers'
+import { themeCheck } from './Functions/darkTheme'
 import ABS from './ABS'
 
 const App = () => {
+  // const autoTheme = localStorage.getItem('theme')
+  // const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+
   useEffect(() => {
     themeCheck()
   }, [])
@@ -36,6 +39,10 @@ const App = () => {
         <Route path={`/story/details/photo`} element={<StoryDetails />} />
         <Route path={`api/search/random`} element={<STPage />} />
         <Route path={`menu/friends/fbid`} element={<Friends />} />
+        <Route path={`menu/saved/fbid`} element={<Saved />} />
+        <Route path={`menu/marketplace/fbid`} element={<MarketPlace />} />
+        <Route path={`menu/memories/fbid`} element={<Memories />} />
+        <Route path={`menu/watch/fbid`} element={<Watch />} />
       </Routes>
       <ABS />
     </>
