@@ -29,7 +29,7 @@ const Navbar = () => {
             facebook
           </h1>
         </button>
-        <div className='hidden small:flex relative w-11 h-11 medium:w-fit medium: medium:h-fit justify-center items-center dark:bg-darkComplementry rounded-full ml-5'>
+        <div className='hidden small:flex relative w-11 h-11 medium:w-fit medium: medium:h-fit justify-center items-center dark:bg-darkComplementry rounded-full ml-10'>
           <Input
             type={`text`}
             name={`search`}
