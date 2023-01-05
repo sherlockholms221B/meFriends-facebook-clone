@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import { HiDotsHorizontal } from 'react-icons/hi'
 
-import { PostOptions } from '../index'
-
 const Add = ({ add, setAdd, title, description, img, index }) => {
   const [addOptions, setAddOptions] = useState(false)
   return (
@@ -23,7 +21,7 @@ const Add = ({ add, setAdd, title, description, img, index }) => {
             {title}
           </h3>
           <p className=' larg:text-[15px] text-xs text-gray-500 dark:text-heading_dark_gray'>
-            {description}{' '}
+            {description}
           </p>
         </div>
         {add && (

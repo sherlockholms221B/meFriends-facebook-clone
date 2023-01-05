@@ -184,7 +184,7 @@ export const storiesbox = [
 
 export const comments = [
   {
-    creator: 'chidimma ezeugwu chibuli',
+    creator: 'chidimma ezeugwu',
     profile: [
       {
         profileImage: person_one,
@@ -195,7 +195,7 @@ export const comments = [
       "Davido's aide, Shehu, has shared photos of his transformation years after meeting his boss, Davido Adeleke.While sharing the photos on Twitter, Shehu gushed over his transformation which he said seemed like 'magic' to him.",
   },
   {
-    creator: 'samson john vanPerson',
+    creator: 'samson john',
     profile: [
       {
         profileImage: person_two,
@@ -206,7 +206,7 @@ export const comments = [
       'Labour Party to review presidential campaign council after outcry over inclusion of General who claimed #EndSARS massacre was photoshop and others',
   },
   {
-    creator: 'chidimma targeryn snow',
+    creator: 'targeryn snow',
     profile: [
       {
         profileImage: person_one,

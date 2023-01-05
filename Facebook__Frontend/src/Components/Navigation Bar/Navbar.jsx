@@ -21,15 +21,15 @@ const Navbar = () => {
   return (
     <nav
       ref={navBarRef}
-      className='dark:bg-darkSecondary flex flex-col medium:flex-row justify-between fixed top-0 right-0 w-full z-10 items-center bg-white shadow-inner border-b dark:border-b-2 dark:pb-1 dark:border-borderDark'
+      className='dark:bg-darkSecondary flex flex-col medium:flex-row justify-between fixed top-0 right-0 w-full z-10 items-center bg-white shadow-inner border-b dark:border-b-2 dark:border-borderDark'
     >
-      <div className=' dark:bg-darkSecondary flex_row justify-between bg-white shadow-inner  dark:pb-1 dark:border-borderDark px-2 xtra_small:px-4 py-2 '>
+      <div className=' dark:bg-darkSecondary flex_row justify-between bg-white shadow-inner  dark:pb-1 dark:border-borderDark px-2 xtra_small:px-4 py-1.5 '>
         <button onClick={refresh}>
-          <h1 className='text-2xl font-semibold xtra_small:text-[28px] small:font-bold small:text-[32px] dark:text-white deep_blue'>
+          <h1 className='text-2xl font-semibold xtra_small:text-[28px] small:font-bold small:text-3xl dark:text-white deep_blue'>
             facebook
           </h1>
         </button>
-        <div className='hidden small:flex relative w-11 h-11 medium:w-fit medium: medium:h-fit justify-center items-center dark:bg-darkComplementry rounded-full'>
+        <div className='hidden small:flex relative w-11 h-11 medium:w-fit medium: medium:h-fit justify-center items-center dark:bg-darkComplementry rounded-full ml-5'>
           <Input
             type={`text`}
             name={`search`}

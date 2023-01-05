@@ -6,21 +6,21 @@ import { comments } from '../utils/constants'
 
 const Friends = () => {
   return (
-    <div className='dark:bg-darkPrimary flex flex-col gap-4 w-full h-full p-4'>
+    <div className='dark:bg-darkPrimary flex flex-col gap-4 w-full h-full p-4 overflow-auto'>
       <div className='flex flex-row justify-between items-center p-2 pt-4 pb-0 '>
-        <h5 className='text-2xl text-gray-800 dark:text-heading_dark_white font-bold'>
+        <h5 className='text-xl text-gray-800 dark:text-heading_dark_white font-bold'>
           People you may know
         </h5>
         <p className=' text-xl rounded-full  dark:bg-darkComplementry dark:text-heading_dark_white bg-gray-200 p-2 w-fit h-fit'>
           <Icon.MdSettings />
         </p>
       </div>
-      <section className='flex flex-row flex-wrap w-full gap-3 pl-2 pr-2 group'>
+      <section className='flex flex-row flex-wrap w-full gap-2 pl-2 pr-2 group'>
         {comments.map(
           ({ creator, profile: [{ profileImage }], isPrivate }, i) => (
             <div
               key={i + creator}
-              className='w-[180px] h-[320px] flex-grow dark:bg-darkSecondary rounded-xl'
+              className='w-[180px] h-[360px] flex-grow dark:bg-darkSecondary rounded-xl border dark:border-borderDark'
             >
               <img
                 src={profileImage}
@@ -29,7 +29,7 @@ const Friends = () => {
               />
               <div className='h-1/2 w-full flex flex-col items-center justify-evenly text-left'>
                 <div className='w-[90%] flex flex-col gap-1 items-start justify-evenly '>
-                  <h4 className='text-gray-900 font-medium dark:text-white capitalize'>
+                  <h4 className='text-base text-gray-900 font-medium dark:text-white capitalize'>
                     {creator}
                   </h4>
                   <div className='flex flex-row gap-2 items-center justify-start'>
@@ -51,10 +51,10 @@ const Friends = () => {
                     <p className='text-xs dark:text-heading_dark_gray'>{`20 mutual friends`}</p>
                   </div>
                 </div>
-                <button className='bg-secondaryWhite hover:bg-primaryWhite dark:bg-blue-600 dark:text-heading_dark_white py-2 text-lg rounded-lg font-semibold w-[90%]'>
+                <button className='bg-secondaryWhite hover:bg-primaryWhite dark:bg-blue-600 dark:text-heading_dark_white py-1.5 text-base rounded-lg font-semibold w-[90%]'>
                   Add friend
                 </button>
-                <button className='bg-secondaryWhite hover:bg-primaryWhite dark:bg-darkComplementry dark:text-heading_dark_white py-2 text-lg rounded-lg font-semibold w-[90%]'>
+                <button className='bg-secondaryWhite hover:bg-primaryWhite dark:bg-darkComplementry dark:text-heading_dark_white py-1.5 text-base rounded-lg font-semibold w-[90%]'>
                   Remove
                 </button>
               </div>

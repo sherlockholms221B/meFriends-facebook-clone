@@ -31,12 +31,12 @@ const Home = () => {
           <Navbar />
           <div
             style={{ paddingTop: `${location.height}px` }}
-            className=' dark:bg-darkPrimary relative overflow-hidden h-[100vh] w-[100vw] black bg-primary'
+            className=' dark:bg-darkPrimary relative overflow-hidden h-screen w-screen black bg-primary'
             // onMouseOver={() => {
             //   setIsSubMenuOpen(false)
             // }}
           >
-            <div className='flex items-strech justify-center mid_small:justify-between w-[100vw] h-[100%]'>
+            <div className='flex items-strech justify-center mid_small:justify-between w-screen h-full'>
               <SideBar />
               <Feeds isNot={true} />
               <Advertisment />

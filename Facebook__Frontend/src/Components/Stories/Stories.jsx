@@ -10,7 +10,7 @@ const Stories = () => {
   return (
     <>
       <div className='inline-block w-fit h-fit ring-2 dark:ring-slate-700 ring-white rounded-lg shadow-md shadow-slate-700'>
-        <div className='group dark:bg-darkSecondary flex flex-col w-32 h-52 rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out relative text-center'>
+        <div className='group dark:bg-darkSecondary flex flex-col w-28 h-52 rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out relative text-center'>
           <img
             src={person_fourteen}
             alt='str'

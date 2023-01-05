@@ -27,7 +27,7 @@ const Chat = () => {
   return (
     <motion.div
       drag
-      className='absolute bottom-0 right-40 w-[350px] dark:bg-darkSecondary z-10  h-fit rounded-lg dark:border dark:border-borderDark'
+      className='absolute bottom-0 right-40 w-[320px] dark:bg-darkSecondary z-10  h-fit rounded-lg dark:border dark:border-borderDark'
     >
       <div className='relative w-full h-full'>
         <div className='relative flex flex-row items-center justify-between border-b p-0.5 border-gray-300 dark:border-borderDark '>
