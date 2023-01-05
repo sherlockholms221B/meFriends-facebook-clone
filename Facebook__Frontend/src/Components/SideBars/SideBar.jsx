@@ -11,8 +11,7 @@ import { SideLinks } from '../../utils/LWRef'
 import { barHarder, barContainer, roundedIcon } from '../../utils/useStyles'
 import { useGlobalContext } from '../../Context/UseContext'
 const SideBar = () => {
-  const { menuSl, setMenuSl, shortCutSl, setShortCutSl, groupSl, setGroupSl } =
-    useGlobalContext()
+  const { menuSl, setMenuSl, setShortCutSl, setGroupSl } = useGlobalContext()
   return (
     <div className=' hidden small:flex dark:border-r dark:larg:border-0 dark:border-borderDark  dark:bg-darkSecondary overflow-hidden hover:overflow-auto w-min bg-white larg:pr-2  larg:w-[300px] larg:bg-inherit dark:larg:bg-darkPrimary '>
       <div className='flex flex-col justify-start items-baseline w-fit larg:w-full h-fit pb-2 pl-2 pr-4 larg:pr-0'>
