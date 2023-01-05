@@ -56,7 +56,7 @@ const SideBar = () => {
           <p className={`${roundedIcon} text-lg -ml-1 larg:-ml-0 p-2 larg:p-2`}>
             <TbGridDots />
           </p>
-          <p className={`${barHarder} text-lg font-semibold `}>see all</p>
+          <p className={`${barHarder} text-lg font-semibold `}>See all</p>
           <Active queryTerm={`menu`} homeTerm={null} />
         </button>
         <div className='border-[0.1px] w-full mt-4 mb-2 border-gray-300 dark:border-borderDark' />
