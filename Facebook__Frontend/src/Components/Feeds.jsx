@@ -26,7 +26,7 @@ const Posts = ({ isNot }) => {
   const query = new URLSearchParams(search).get('talling')
 
   return (
-    <div className=' flex items-center justify-center mx-auto w-520 px-0.5 pt-0.5 small:pt-4'>
+    <div className=' flex items-center justify-center mx-auto w-520 px-0.5 pt-0.5 small:pt-2'>
       <div className='flex flex-col w-full h-full overflow-auto scroll-hidden pb-20'>
         <div className='dark:bg-darkSecondary bg-white rounded-md shadow-lg medium:order-2 '>
           <div className='flex_row gap-2 justify-between px-1 xtra_small:p-2 border-b-2 border-gray-300 dark:border-[#3a3b3c] py-2 small:py-4'>

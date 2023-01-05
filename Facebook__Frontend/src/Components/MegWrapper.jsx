@@ -26,7 +26,7 @@ const MegWrapper = (Component) =>
           tagPeopleState) && (
           <div className='flex justify-center items-center absolute top-0 backdrop-blur-sm right-0  z-30 h-screen w-screen'>
             <div
-              className={`w-[560px] h-max bg-white dark:bg-darkSecondary rounded-lg shadow-black `}
+              className={`w-520 ml-6 h-max bg-white dark:bg-darkSecondary rounded-lg shadow-black `}
             >
               <Component />
             </div>
