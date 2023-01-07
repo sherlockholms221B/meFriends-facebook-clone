@@ -36,7 +36,7 @@ const SideBar = () => {
             to={`${page.url}?talling=${page.title}`}
             className='relative pl-2 larg:dark:hover:bg-darkComplementry larg:hover:bg-primary hover:bg-inherit  mb-0.5 flex flex-row gap-4 items-center w-full py-2 rounded-md'
           >
-            <p className='text-xl larg:text-xl deep_blue'>{page.icon}</p>
+            {page.icon}
             <p className='text-md text-gray-800 font-medium dark:text-heading_dark_white hidden larg:block'>
               {page.title}
             </p>

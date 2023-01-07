@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { FaBookmark } from 'react-icons/fa'
 import { useGlobalContext } from '../../Context/UseContext'
 import { IconHandler } from '../../Functions/SH'
 import Head from '../CreatePost/Head'
@@ -24,7 +25,7 @@ const Support = () => {
         setSecondState={setSupportState}
         setThirdState={setGoBack}
       />
-      <section className='w-full flex flex-col gap-1 mt-4 pl-2 pr-2'>
+      <section>
         {[
           {
             icon: <Icon.FaQuestionCircle />,

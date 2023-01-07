@@ -18,7 +18,7 @@ const MSideBar = () => {
   const roundedIcon =
     ' dark:bg-darkComplementry dark:text-white text-black rounded-full  bg-primaryWhite'
   return (
-    <div className=' hidden small:flex dark:border-r dark:xl:border-0 dark:border-borderDark  dark:bg-darkSecondary overflow-hidden w-max  bg-white pt-4 pl-2 pr-2 '>
+    <div className=' hidden small:flex dark:border-r dark:xl:border-0 dark:border-borderDark  dark:bg-darkSecondary overflow-hidden hover:overflow-auto w-max  bg-white pt-4 pl-2 pr-2 '>
       <div className='flex flex-col justify-start items-baseline larg:w-full h-fit pb-2 pl-2 pr-2'>
         <Link to={`/`} className={` ${barContainer} p-0 py-2`}>
           <p className='text-3xl deep_blue'>

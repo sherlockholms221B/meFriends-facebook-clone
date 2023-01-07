@@ -11,12 +11,12 @@ const Navbar = () => {
 
   const navBarRef = useRef(null)
   const { dynamicLocation } = useGlobalContext()
-  const pathname = window.location.pathname
+
   useLayoutEffect(() => {
     const element = navBarRef.current.getBoundingClientRect()
     const elementHeight = element.height
     dynamicLocation({ height: elementHeight })
-  }, [pathname])
+  }, [])
 
   return (
     <nav

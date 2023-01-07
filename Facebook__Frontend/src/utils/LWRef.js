@@ -24,7 +24,13 @@ import {
   MdVideoCall,
 } from 'react-icons/md'
 import { RiFeedbackFill, RiLogoutBoxRFill } from 'react-icons/ri'
-
+import {
+  Saved,
+  Friends,
+  MarketPlace,
+  WatchReels,
+  MemoriesBtnIcon,
+} from '../Components/IWGradients/IWGradients'
 export const MakePostLinkOne = () => {
   const picture = useRef(null)
   const tag = useRef(null)
@@ -180,7 +186,7 @@ export const NavDot1 = () => {
       ref: messengerRef,
     },
     {
-      icon: <MdNotifications />,
+      icon: <MdNotifications className='-rotate-12' />,
       alarts: '1',
       tip: 'notification',
       ref: notificationRef,
@@ -194,27 +200,27 @@ export const SideLinks = () => {
   const links = [
     {
       title: 'Friends',
-      icon: <FaUserFriends />,
+      icon: <Friends />,
       url: 'menu/friends/fbid',
     },
     {
       title: 'Saved',
-      icon: <FaBookmark />,
+      icon: <Saved />,
       url: 'menu/saved/fbid',
     },
     {
       title: 'Market place',
-      icon: <MdMapsHomeWork />,
+      icon: <MarketPlace />,
       url: 'menu/marketplace/fbid',
     },
     {
       title: 'Watch',
-      icon: <MdOutlineOndemandVideo />,
+      icon: <WatchReels />,
       url: 'menu/watch/fbid',
     },
     {
       title: 'Memories',
-      icon: <AiOutlineFieldTime />,
+      icon: <MemoriesBtnIcon />,
       url: 'menu/memories/fbid',
     },
   ]

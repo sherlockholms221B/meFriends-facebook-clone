@@ -117,6 +117,7 @@ body {
 
 .linear_dark {
   background-image: linear-gradient(to bottom, #242526, #3a3b3c);
+  /* background: rgba(61, 90, 235, 0.885); */
 }
 
 .activeSlide {

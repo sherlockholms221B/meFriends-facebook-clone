@@ -7,7 +7,7 @@ import { MdMoreHoriz } from 'react-icons/md'
 
 const Profile = () => {
   const { location } = useGlobalContext()
-  const PRF = useRef(null)
+  console.log(location)
   return (
     <>
       <Navbar />
@@ -15,10 +15,10 @@ const Profile = () => {
         style={{ paddingTop: `${location.height}px` }}
         className='flex items-center justify-center dark:bg-darkPrimary relative overflow-auto h-[100vh] w-[100vw] bg-primary'
       >
-        <div className=' flex items-strech mid_small:justify-between w-[100vw] h-[100%]'>
+        <div className=' flex items-strech mid_small:justify-between w-screen h-full'>
           <MSideBar />
           <div className=' min-w-[260px] w-full  overflow-auto h-full'>
-            <div ref={PRF} className='h-fit '>
+            <div className='h-fit '>
               <HED />
               <section className='relative flex flex-row gap-4 h-screen overflow-hidden justify-center  w-full'>
                 <div className='flex flex-col gap-4 overflow-auto scroll-hidden min-w-[260px] mid_small:w-[420px] px-0.5 pt-0.5 small:pt-4'>
