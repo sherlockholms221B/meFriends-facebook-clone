@@ -25,7 +25,6 @@ export const Friends = () => {
     <div>
       <svg width='0' height='0'>
         <linearGradient
-          gradientUnits=''
           id='friends-gradient'
           x1='100%'
           y1='100%'
@@ -70,17 +69,8 @@ export const WatchReels = () => {
   return (
     <div>
       <svg width='0' height='0'>
-        <linearGradient
-          id='watch-gradient'
-          x1='100%'
-          y1='100%'
-          x2='0%'
-          y2='0%'
-          x3='0%'
-          y3='0%'
-        >
-          <stop stopColor='blue' offset='40%' />
-          <stop stopColor='white' offset='70%' />
+        <linearGradient id='watch-gradient' x1='100%' y1='100%' x2='0%' y2='0%'>
+          <stop stopColor='blue' offset='0%' />
           <stop stopColor='blue' offset='100%' />
         </linearGradient>
       </svg>

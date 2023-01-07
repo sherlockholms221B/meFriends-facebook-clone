@@ -9,6 +9,8 @@ import Groups from '../Groups'
 import { Active } from '../index'
 import { SideLinks } from '../../utils/LWRef'
 import { useGlobalContext } from '../../Context/UseContext'
+import { groupsLinks } from '../../utils/links'
+import { BorderLine } from '../RDOMC'
 
 const MSideBar = () => {
   const { menuSl, setMenuSl, shortCutSl, setShortCutSl, groupSl, setGroupSl } =
@@ -21,26 +23,26 @@ const MSideBar = () => {
     <div className=' hidden small:flex dark:border-r dark:xl:border-0 dark:border-borderDark  dark:bg-darkSecondary overflow-hidden hover:overflow-auto w-max  bg-white pt-4 pl-2 pr-2 '>
       <div className='flex flex-col justify-start items-baseline larg:w-full h-fit pb-2 pl-2 pr-2'>
         <Link to={`/`} className={` ${barContainer} p-0 py-2`}>
-          <p className='text-3xl deep_blue'>
+          <p className='text-3xl text-heading_dark_white'>
             <MdHome />
           </p>
           <Active queryTerm={`home`} homeTerm={null} />
         </Link>
+        {/* refactor the profile cmp when ready*/}
         <Link
           to={`/backface/api/profile`}
           className={`xl:pl-2 p-0 py-2 ${barContainer}`}
         >
           <img src={profile} alt='profile' className='object-cover w-7 h-7' />
         </Link>
-        <div className='border-[1px] w-full mt-3 mb-3 border-gray-300 dark:border-borderDark' />
-
+        <BorderLine />
         {SideLinks().map((page, i) => (
           <Link
             key={i + page.title}
             to={`/${page.url}?talling=${page.title}`}
             className='relative xl:pl-3 p-0 xl:dark:hover:bg-darkComplementry xl:hover:bg-primary hover:bg-inherit mt-0.5 mb-0.5 flex flex-row gap-2 items-center w-full py-2 rounded-md'
           >
-            <p className='text-xl larg:text-2xl deep_blue'>{page.icon}</p>
+            <p className='text-xl larg:text-2xl pl-1.5'>{page.icon}</p>
 
             <Active queryTerm={page.title} homeTerm={null} />
           </Link>
@@ -59,15 +61,14 @@ const MSideBar = () => {
           </p>
           <Active queryTerm={`menu`} homeTerm={null} />
         </button>
-        <div className='border-[1px] w-full mt-3 mb-3 border-gray-300 dark:border-borderDark' />
-
+        <BorderLine />
         <Groups
           barContainer={barContainer}
           roundedIcon={roundedIcon}
           isMbar={false}
+          groupsLinks={groupsLinks}
         />
-        <div className='border-[1px] w-full mt-3 mb-3 border-gray-300 dark:border-borderDark' />
-
+        <BorderLine />
         <Link
           to={`?talling=${`shortcuts`}`}
           className={` ${barContainer} xl:pl-1 p-0 mt-3 py-2`}

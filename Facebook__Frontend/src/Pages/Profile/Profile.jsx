@@ -7,7 +7,6 @@ import { MdMoreHoriz } from 'react-icons/md'
 
 const Profile = () => {
   const { location } = useGlobalContext()
-  console.log(location)
   return (
     <>
       <Navbar />

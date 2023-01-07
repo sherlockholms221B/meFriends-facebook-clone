@@ -209,7 +209,7 @@ export const SideLinks = () => {
       url: 'menu/saved/fbid',
     },
     {
-      title: 'Market place',
+      title: 'Marketplace',
       icon: <MarketPlace />,
       url: 'menu/marketplace/fbid',
     },

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 //Random mini component
-export const Active = ({ queryTerm, homeTerm }) => {
+export const Active = ({ queryTerm, term }) => {
   const search = useLocation().search
   const query = new URLSearchParams(search).get('talling')
   return (
@@ -11,16 +11,14 @@ export const Active = ({ queryTerm, homeTerm }) => {
           className={`${
             query === queryTerm
               ? 'animate-pulse transition-all'
-              : `${
-                  query === homeTerm ? 'animate-pulse transition-all' : 'hidden'
-                }`
-          }  absolute w-1.5 rounded-tr-xl  rounded-br-xl h-full bg-blue-600 -left-4 larg:-left-2 `}
+              : `${query === term ? 'animate-pulse transition-all' : 'hidden'}`
+          }  absolute w-1.5 rounded-tr-xl  rounded-br-xl h-full bg-blue-600 -left-4 larg:-left-3 `}
         ></div>
       ) : (
         <div
           className={` ${
             query === queryTerm ? 'animate-pulse transition-all' : 'hidden'
-          } absolute w-1.5 rounded-tr-xl  rounded-br-xl h-full bg-blue-600 -left-4 larg:-left-2 `}
+          } absolute w-1.5 rounded-tr-xl  rounded-br-xl h-full bg-blue-600 -left-4 larg:-left-4 `}
         ></div>
       )}
     </>
@@ -51,5 +49,11 @@ export const FriendStack = ({ comments, isDetails }) => {
         )
       )}
     </>
+  )
+}
+
+export const BorderLine = () => {
+  return (
+    <div className='border-[0.1px] w-full mt-2 mb-2 border-gray-300 dark:border-borderDark' />
   )
 }

@@ -2,11 +2,16 @@ import React from 'react'
 import { MdGroups } from 'react-icons/md'
 import { Link } from 'react-router-dom'
 
-import { groupsLinks } from '../utils/links'
 import { Active } from './index'
 import { useGlobalContext } from '../Context/UseContext'
 
-const Groups = ({ isMbar, barHarder, barContainer, roundedIcon }) => {
+const Groups = ({
+  isMbar,
+  barHarder,
+  barContainer,
+  roundedIcon,
+  groupsLinks,
+}) => {
   const { dynamicLocation } = useGlobalContext()
   return (
     <>
@@ -22,8 +27,10 @@ const Groups = ({ isMbar, barHarder, barContainer, roundedIcon }) => {
           to={`/backface/api/profile`}
           key={name}
           className={` ${
-            !isMbar ? '' : 'pl-2'
-          } relative  larg:dark:hover:bg-darkComplementry larg:hover:bg-primary hover:bg-inherit  mb-0.5 flex flex-row gap-4 items-center w-full py-2 rounded-md`}
+            !isMbar
+              ? ''
+              : 'pl-2 larg:hover:bg-primary  larg:dark:hover:bg-darkComplementry hover:bg-inherit'
+          } relative mb-0.5 flex flex-row gap-4 items-center w-full py-2 rounded-md`}
         >
           <img
             onMouseOver={(e) => e.stopPropagation()}
@@ -43,7 +50,7 @@ const Groups = ({ isMbar, barHarder, barContainer, roundedIcon }) => {
       ))}
       <Link
         to={`?talling=${`groups`}`}
-        className={` ${barContainer} ${!isMbar ? '' : 'larg:pl-1'}  p-0 py-2 `}
+        className={` ${barContainer} ${!isMbar ? '' : 'larg:pl-1'} py-1 `}
       >
         <p
           className={`${roundedIcon} ${
