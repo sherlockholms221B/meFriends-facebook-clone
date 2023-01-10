@@ -28,14 +28,18 @@ const MenuPage = (Component, ComponentBtn, idName) =>
                   transition={{ duration: 1, ease: 'easeInOut' }}
                   className='w-550 dark:bg-darkSecondary h-full overflow-hidden flex items-start justify-center border-r-2 dark:border-borderDark'
                 >
-                  {<ComponentBtn />}
+                  {idName && <ComponentBtn />}
                 </motion.div>
                 <motion.div
                   whileInView={{ opacity: [0, 1], x: [200, 0] }}
                   transition={{ duration: 0.5, easing: 'easeInOut' }}
                   className='w-full bg-black h-full text-white relative flex justify-center overflow-auto'
                 >
-                  {<Component />}
+                  {(query === 'Friends' ||
+                    query === 'Saved' ||
+                    query === 'Watch' ||
+                    query === 'Memories' ||
+                    query.includes('Market')) && <Component />}
                 </motion.div>
               </div>
             </div>
