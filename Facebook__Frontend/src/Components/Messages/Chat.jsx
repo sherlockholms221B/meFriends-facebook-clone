@@ -80,7 +80,7 @@ const Chat = () => {
         <div className='flex flex-col gap-4 max-h-[350px] overflow-auto home_scroll pt-2 pl-2 pb-2 pr-5 '>
           {chat.map((chat, i) => {
             return (
-              <div className='flex flex-col gap-4'>
+              <div key={i} className='flex flex-col gap-4'>
                 <div className='flex flex-row gap-2 items-start'>
                   <div className='relative border-2 dark:border-borderDark border-white rounded-full cursor-pointer'>
                     <img
@@ -91,7 +91,10 @@ const Chat = () => {
                   </div>
                   <div className='group flex flex-col w-fit gap-1'>
                     {chat?.sender?.map((message, i) => (
-                      <p className='px-2 py-1 rounded-lg text-left dark:bg-darkComplementry dark:text-heading_dark_white max-w-[70%] w-fit  first:rounded-tl-2xl first:rounded-bl-none last:rounded-bl-2xl last:rounded-tl-none brightness-110'>
+                      <p
+                        key={i}
+                        className='px-2 py-1 rounded-lg text-left dark:bg-darkComplementry dark:text-heading_dark_white max-w-[70%] w-fit  first:rounded-tl-2xl first:rounded-bl-none last:rounded-bl-2xl last:rounded-tl-none brightness-110'
+                      >
                         {message}
                       </p>
                     ))}
@@ -103,7 +106,10 @@ const Chat = () => {
                 )}
                 <div className='flex flex-col items-end gap-1'>
                   {chat?.respond?.map((message, i) => (
-                    <p className='px-2 py-1 rounded-lg text-left bg-blue-500 max-w-[70%] w-fit first:rounded-tr-2xl first:rounded-br-none last:rounded-br-2xl last:rounded-tr-none dark:text-heading_dark_white brightness-125'>
+                    <p
+                      key={i}
+                      className='px-2 py-1 rounded-lg text-left bg-blue-500 max-w-[70%] w-fit first:rounded-tr-2xl first:rounded-br-none last:rounded-br-2xl last:rounded-tr-none dark:text-heading_dark_white brightness-125'
+                    >
                       {message}
                     </p>
                   ))}
