@@ -13,6 +13,14 @@ import {
   MdPerson,
   MdMarkEmailRead,
   MdGroups,
+  MdFlag,
+  MdMapsHomeWork,
+  MdNotifications,
+  MdOutlineLocationOn,
+  MdOutlineOndemandVideo,
+  MdOutlinePhotoLibrary,
+  MdSettingsSuggest,
+  MdVideoCall,
 } from 'react-icons/md'
 import { GiEarthAmerica } from 'react-icons/gi'
 import { HiLockClosed } from 'react-icons/hi'
@@ -33,13 +41,19 @@ import {
   FaChevronRight,
   FaChevronLeft,
   FaUserFriends,
+  FaBookmark,
+  FaFacebookMessenger,
+  FaUserTag,
 } from 'react-icons/fa'
 import { RiSettings2Fill } from 'react-icons/ri'
 import { AiOutlineBug, AiOutlineLike } from 'react-icons/ai'
+import { AiOutlineFieldTime } from 'react-icons/ai'
+import { RiFeedbackFill, RiLogoutBoxRFill } from 'react-icons/ri'
 
 export const Icon = {
   AiOutlineBug,
   AiOutlineLike,
+  AiOutlineFieldTime,
   MdOutlineCompareArrows,
   MdSettings,
   MdClose,
@@ -52,6 +66,14 @@ export const Icon = {
   MdOutlineFacebook,
   MdOutlineArrowForwardIos,
   MdHttps,
+  MdFlag,
+  MdMapsHomeWork,
+  MdNotifications,
+  MdOutlineLocationOn,
+  MdOutlineOndemandVideo,
+  MdOutlinePhotoLibrary,
+  MdSettingsSuggest,
+  MdVideoCall,
   MdOutlineFormatListBulleted,
   MdTune,
   GiEarthAmerica,
@@ -72,6 +94,11 @@ export const Icon = {
   FaChevronLeft,
   FaQuestionCircle,
   FaUserFriends,
+  FaBookmark,
+  FaFacebookMessenger,
+  FaUserTag,
   RiSettings2Fill,
+  RiFeedbackFill,
+  RiLogoutBoxRFill,
   HiLockClosed,
 }
