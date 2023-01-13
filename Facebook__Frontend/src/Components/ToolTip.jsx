@@ -10,7 +10,7 @@ const ToolTip = ({ id, effect, type, title, place }) => {
       place={place}
       className='skills-tooltip'
     >
-      <div className='text-lg'>{title}</div>
+      <article className='text-lg'>{title}</article>
     </ReactTooltip>
   )
 }

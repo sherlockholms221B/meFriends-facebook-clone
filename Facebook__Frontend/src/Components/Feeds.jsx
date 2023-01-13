@@ -26,10 +26,11 @@ const Posts = ({ isNot }) => {
   const query = new URLSearchParams(search).get('talling')
 
   return (
-    <div className=' flex items-center justify-center mx-auto w-520 px-0.5 pt-0.5 small:pt-2'>
-      <div className='flex flex-col w-full h-full overflow-auto scroll-hidden pb-20'>
-        <div className='dark:bg-darkSecondary bg-white rounded-md shadow-lg medium:order-2 '>
-          <div className='flex_row gap-2 justify-between px-1 xtra_small:p-2 border-b-2 border-gray-300 dark:border-[#3a3b3c] py-2 small:py-4'>
+    <section className=' flex items-center justify-center mx-auto w-520 px-0.5 pt-0.5 small:pt-2'>
+      <section className='flex flex-col w-full h-full overflow-auto scroll-hidden pb-20'>
+        <section className='dark:bg-darkSecondary bg-white rounded-md shadow-lg medium:order-2 '>
+          <section className='flex_row gap-2 justify-between px-1 xtra_small:p-2 border-b-2 border-gray-300 dark:border-[#3a3b3c] py-2 small:py-4'>
+            {/* Refactor the profile components when ready */}
             <Link
               to={`/backface/api/profile`}
               className=' rounded-full cursor-pointer'
@@ -40,7 +41,8 @@ const Posts = ({ isNot }) => {
                 className='object-contain w-7 xtra_small:w-8 h-7 xtra_small:h-8 small:w-11 small:h-11'
               />
             </Link>
-            <div
+            {/* Refactor the profile components when ready */}
+            <article
               className='rounded-full bg-primary dark:bg-darkComplementry hover:bg-secondaryWhite px-3 py-1.5 w-full cursor-pointer  justify-start'
               onClick={() => {
                 setMessageState(false)
@@ -52,9 +54,9 @@ const Posts = ({ isNot }) => {
               <h1 className='text-sm  font-normal  dark:text-heading_dark_gray text-gray-500 p-1'>
                 Whats on your mind, User ?
               </h1>
-            </div>
-          </div>
-          <div className='flex_row flex-nowrap justify-around px-1 small:px-2 py-1 small:py-2'>
+            </article>
+          </section>
+          <section className='flex_row flex-nowrap justify-around px-1 small:px-2 py-1 small:py-2'>
             {feedLinksOne.map(({ icon, title, mtitle }, i) => (
               <div
                 key={i}
@@ -81,8 +83,8 @@ const Posts = ({ isNot }) => {
                 </p>
               </div>
             ))}
-          </div>
-        </div>
+          </section>
+        </section>
         {!isNot && (
           <div className='dark:bg-darkSecondary bg-white rounded-md shadow-lg medium:order-2  mt-4'>
             <div className='flex_row justify-between px-4 border-b-2 border-gray-300 dark:border-[#3a3b3c] py-1'>
@@ -133,12 +135,12 @@ const Posts = ({ isNot }) => {
               `}
                   key={i + name}
                 >
-                  <div className='flex flex-row gap-2 items-center '>
+                  <article className='flex flex-row gap-2 items-center '>
                     <p className='font-bold text-md small:text-2xl '>{icon} </p>
                     <h1 className='font-medium text-sm small:text-lg'>
                       {name}
                     </h1>
-                  </div>
+                  </article>
                 </Link>
               ))}
             </div>
@@ -163,12 +165,12 @@ const Posts = ({ isNot }) => {
               `}
                   key={i + name}
                 >
-                  <div className='flex flex-row gap-2 items-center '>
+                  <article className='flex flex-row gap-2 items-center '>
                     <p className='font-bold text-md small:text-2xl '>{icon} </p>
                     <h1 className='font-medium text-sm small:text-lg'>
                       {name}
                     </h1>
-                  </div>
+                  </article>
                 </Link>
               ))}
             </div>
@@ -202,8 +204,8 @@ const Posts = ({ isNot }) => {
             />
           )
         )}
-      </div>
-    </div>
+      </section>
+    </section>
   )
 }
 

@@ -8,14 +8,14 @@ import { Icon } from '../utils/Icon'
 const GPDT = () => {
   return (
     // Create Group,Shortcut and friends details box
-    <div className='flex flex-col gap-3 p-4'>
-      <div className='w-full flex items-center gap-4'>
+    <section className='flex flex-col gap-3 p-4'>
+      <section className='w-full flex items-center gap-4'>
         <img
           src={person_nine}
           alt='add'
           className='larg:h-24 h-20 larg:w-[110px] w-[94px] rounded-md object-cover'
         />
-        <div className='flex flex-col gap-3'>
+        <article className='flex flex-col gap-3'>
           <h3 className='text-xl dark:text-heading_dark_white font-semibold brightness-125'>
             Programmers
           </h3>
@@ -36,12 +36,12 @@ const GPDT = () => {
               </h2>
             </div>
           ))}
-        </div>
-      </div>
-      <div className='flex justify-end items-center w-full'>
+        </article>
+      </section>
+      <section className='flex justify-end items-center w-full'>
         <FriendStack comments={comments} isDetails />
-      </div>
-    </div>
+      </section>
+    </section>
   )
 }
 
