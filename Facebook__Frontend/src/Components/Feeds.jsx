@@ -58,7 +58,7 @@ const Posts = ({ isNot }) => {
           </section>
           <section className='flex_row flex-nowrap justify-around px-1 small:px-2 py-1 small:py-2'>
             {feedLinksOne.map(({ icon, title, mtitle }, i) => (
-              <div
+              <article
                 key={i}
                 className={` ${vivaIconContainer} ${
                   i === 0 && ' px-4 small:px-6 '
@@ -81,7 +81,7 @@ const Posts = ({ isNot }) => {
                 <p className='text-sm small:hidden text-gray-500 font-semibold dark:text-heading_dark_gray'>
                   {mtitle}
                 </p>
-              </div>
+              </article>
             ))}
           </section>
         </section>
@@ -106,7 +106,7 @@ const Posts = ({ isNot }) => {
                     ),
                   },
                 ].map(({ title, icon }, i) => (
-                  <div
+                  <article
                     className='flex items-center flex-nowrap gap-2 rounded-md px-3 py-2 dark:bg-darkComplementry'
                     key={i}
                   >
@@ -114,7 +114,7 @@ const Posts = ({ isNot }) => {
                     <p className='dark:text-heading_dark_white text-lg  font-semibold'>
                       {title}
                     </p>
-                  </div>
+                  </article>
                 ))}
               </div>
             </div>
