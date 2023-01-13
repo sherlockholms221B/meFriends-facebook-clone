@@ -23,7 +23,7 @@ import {
   MdVideoCall,
 } from 'react-icons/md'
 import { GiEarthAmerica } from 'react-icons/gi'
-import { HiLockClosed } from 'react-icons/hi'
+import { HiLockClosed, HiDotsHorizontal } from 'react-icons/hi'
 import { GoTriangleDown } from 'react-icons/go'
 import { BiImageAdd, BiWifi, BiZoomIn, BiZoomOut } from 'react-icons/bi'
 import {
@@ -101,4 +101,5 @@ export const Icon = {
   RiFeedbackFill,
   RiLogoutBoxRFill,
   HiLockClosed,
+  HiDotsHorizontal,
 }

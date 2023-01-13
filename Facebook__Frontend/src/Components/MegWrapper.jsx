@@ -24,13 +24,13 @@ const MegWrapper = (Component) =>
           postAudienceState ||
           feedbackState ||
           tagPeopleState) && (
-          <div className='flex justify-center items-center absolute top-0 backdrop-blur-sm right-0  z-30 h-screen w-screen'>
-            <div
+          <section className='flex justify-center items-center absolute top-0 backdrop-blur-sm right-0  z-30 h-screen w-screen'>
+            <section
               className={`w-520 ml-6 h-max bg-white dark:bg-darkSecondary rounded-lg shadow-black `}
             >
               <Component />
-            </div>
-          </div>
+            </section>
+          </section>
         )}
         {(messageState ||
           notificationState ||
@@ -38,8 +38,8 @@ const MegWrapper = (Component) =>
           settingsState ||
           displayState ||
           supportState) && (
-          <div className='absolute bottom-0 mid_small:bottom-auto mid_small:top-10 mid_small:right-10 z-20 mid_small:rounded-lg rounded-b-lg w-full mid_small:w-[380px] bg-white dark:bg-darkSecondary shadow-lg border-2 dark:border-borderDark mid_small:border-0'>
-            <div
+          <section className='absolute bottom-0 mid_small:bottom-auto mid_small:top-10 mid_small:right-10 z-20 mid_small:rounded-lg rounded-b-lg w-full mid_small:w-[380px] bg-white dark:bg-darkSecondary shadow-lg border-2 dark:border-borderDark mid_small:border-0'>
+            <section
               className={`${
                 profileState
                   ? 'min-w-210 w-full mid_small:w-[380px] h-fit rounded-lg p-4 overflow-hidden'
@@ -47,8 +47,8 @@ const MegWrapper = (Component) =>
               }`}
             >
               <Component />
-            </div>
-          </div>
+            </section>
+          </section>
         )}
       </>
     )

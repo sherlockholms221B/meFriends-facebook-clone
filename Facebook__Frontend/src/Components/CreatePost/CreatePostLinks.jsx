@@ -1,19 +1,9 @@
-import React, { useRef } from 'react'
-import { BsEmojiWink } from 'react-icons/bs'
-import { FaUserTag } from 'react-icons/fa'
-import { HiDotsHorizontal } from 'react-icons/hi'
-import {
-  MdFlag,
-  MdOutlineLocationOn,
-  MdOutlinePhotoLibrary,
-  MdPerson,
-  MdVideoCall,
-} from 'react-icons/md'
-
+import React from 'react'
 import { useGlobalContext } from '../../Context/UseContext'
 import { forward, IconHandler } from '../../Functions/SH'
 import { MakePostLinkOne, MakePostLinkTwo } from '../../utils/LWRef'
 import ToolTip from '../ToolTip'
+import { Icon } from '../../utils/Icon'
 
 const CreatePostLinks = ({ home }) => {
   const {
@@ -84,7 +74,7 @@ const CreatePostLinks = ({ home }) => {
                 forward(setCreatePostState, setAddToYourState)
               }}
             >
-              <HiDotsHorizontal />
+              <Icon.HiDotsHorizontal />
             </p>
             <ToolTip
               title={`more`}

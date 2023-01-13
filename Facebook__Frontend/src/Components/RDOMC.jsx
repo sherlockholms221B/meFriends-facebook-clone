@@ -54,6 +54,6 @@ export const FriendStack = ({ comments, isDetails }) => {
 
 export const BorderLine = () => {
   return (
-    <div className='border-[0.1px] w-full mt-2 mb-2 border-gray-300 dark:border-borderDark' />
+    <section className='border-[0.1px] w-full mt-2 mb-2 border-gray-300 dark:border-borderDark' />
   )
 }
