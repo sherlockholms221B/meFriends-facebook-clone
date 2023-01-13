@@ -1,29 +1,4 @@
 import { useRef } from 'react'
-import { AiOutlineFieldTime } from 'react-icons/ai'
-import { BsEmojiWink } from 'react-icons/bs'
-import {
-  FaBookmark,
-  FaFacebookMessenger,
-  FaMoon,
-  FaQuestionCircle,
-  FaUserFriends,
-  FaUserTag,
-} from 'react-icons/fa'
-import { GiEarthAmerica } from 'react-icons/gi'
-import { HiLockClosed } from 'react-icons/hi'
-import {
-  MdFlag,
-  MdMapsHomeWork,
-  MdNotifications,
-  MdOutlineLocationOn,
-  MdOutlineOndemandVideo,
-  MdOutlinePhotoLibrary,
-  MdPerson,
-  MdSettings,
-  MdSettingsSuggest,
-  MdVideoCall,
-} from 'react-icons/md'
-import { RiFeedbackFill, RiLogoutBoxRFill } from 'react-icons/ri'
 import {
   Saved,
   Friends,
@@ -31,6 +6,8 @@ import {
   WatchReels,
   MemoriesBtnIcon,
 } from '../Components/IWGradients/IWGradients'
+
+import { Icon } from './Icon'
 export const MakePostLinkOne = () => {
   const picture = useRef(null)
   const tag = useRef(null)
@@ -40,23 +17,23 @@ export const MakePostLinkOne = () => {
 
   const link = [
     {
-      icon: <MdOutlinePhotoLibrary />,
+      icon: <Icon.MdOutlinePhotoLibrary />,
       ref: picture,
       tip: 'photos/video',
     },
-    { icon: <FaUserTag />, ref: tag, tip: 'tag poeple' },
+    { icon: <Icon.FaUserTag />, ref: tag, tip: 'tag poeple' },
     {
-      icon: <BsEmojiWink />,
+      icon: <Icon.BsEmojiWink />,
       ref: feelings,
       tip: 'feelings/activity',
     },
     {
-      icon: <MdOutlineLocationOn />,
+      icon: <Icon.MdOutlineLocationOn />,
       ref: location,
       tip: 'check in',
     },
     {
-      icon: <MdFlag />,
+      icon: <Icon.MdFlag />,
       ref: flag,
       tip: 'life event',
     },
@@ -66,19 +43,19 @@ export const MakePostLinkOne = () => {
 
 export const MakePostLinkTwo = () => {
   const links = [
-    { icon: <MdOutlinePhotoLibrary />, title: 'Photo/Video' },
-    { icon: <MdPerson />, title: 'Tag people' },
-    { icon: <BsEmojiWink />, title: 'Feeelings/activity' },
+    { icon: <Icon.MdOutlinePhotoLibrary />, title: 'Photo/Video' },
+    { icon: <Icon.MdPerson />, title: 'Tag people' },
+    { icon: <Icon.BsEmojiWink />, title: 'Feeelings/activity' },
     {
-      icon: <MdOutlineLocationOn />,
+      icon: <Icon.MdOutlineLocationOn />,
       title: 'Check in',
     },
     {
-      icon: <MdFlag />,
+      icon: <Icon.MdFlag />,
       title: 'Life event',
     },
     {
-      icon: <MdVideoCall />,
+      icon: <Icon.MdVideoCall />,
       title: 'Live Video',
     },
   ]
@@ -94,31 +71,31 @@ export const GoPLink = () => {
 
   const link = [
     {
-      icon: <MdSettingsSuggest />,
+      icon: <Icon.MdSettingsSuggest />,
       title: 'Settings & privacy',
       isMove: true,
       ref: settings,
     },
     {
-      icon: <FaQuestionCircle />,
+      icon: <Icon.FaQuestionCircle />,
       title: 'Help & support',
       isMove: true,
       ref: support,
     },
     {
-      icon: <FaMoon />,
+      icon: <Icon.FaMoon />,
       title: 'Display & accessibility',
       isMove: true,
       ref: display,
     },
     {
-      icon: <RiFeedbackFill />,
+      icon: <Icon.RiFeedbackFill />,
       title: 'Give feedback',
       isMove: false,
       ref: feedback,
     },
     {
-      icon: <RiLogoutBoxRFill />,
+      icon: <Icon.RiLogoutBoxRFill />,
       title: 'Log Out',
       isMove: false,
       ref: logOut,
@@ -137,34 +114,34 @@ export const PostAudienceLinks = () => {
 
   const links = [
     {
-      icon: <GiEarthAmerica />,
+      icon: <Icon.GiEarthAmerica />,
       title: 'Public',
       id: 'public',
       description: 'Anyone on or off Facebook',
       ref: pub,
     },
     {
-      icon: <FaUserFriends />,
+      icon: <Icon.FaUserFriends />,
       title: 'Friends',
       id: 'friends',
       description: 'Your friends on Facebook',
       ref: friends,
     },
     {
-      icon: <HiLockClosed />,
+      icon: <Icon.HiLockClosed />,
       title: 'Only me',
       id: 'me',
       ref: me,
     },
     {
-      icon: <MdPerson />,
+      icon: <Icon.MdPerson />,
       title: 'Specific friends',
       id: 'specific',
       description: 'Only show to some friends',
       ref: specific,
     },
     {
-      icon: <MdSettings />,
+      icon: <Icon.MdSettings />,
       title: 'Custom',
       id: 'custom',
       description: 'Include and exclude friends and lists',
@@ -180,13 +157,13 @@ export const NavDot1 = () => {
   const notificationRef = useRef(null)
   const links = [
     {
-      icon: <FaFacebookMessenger />,
+      icon: <Icon.FaFacebookMessenger />,
       alarts: '3',
       tip: 'messenger',
       ref: messengerRef,
     },
     {
-      icon: <MdNotifications className='-rotate-12' />,
+      icon: <Icon.MdNotifications className='-rotate-12' />,
       alarts: '1',
       tip: 'notification',
       ref: notificationRef,
