@@ -7,7 +7,7 @@ const Head = (prop) => {
   const { title, setFirstState, setSecondState, setThirdState } = prop
 
   return (
-    <div className='relative flex flex-row py-4 items-center justify-center border-b border-gray-300 dark:border-borderDark'>
+    <section className='relative flex flex-row py-4 items-center justify-center border-b border-gray-300 dark:border-borderDark'>
       <h3 className='text-xl font-bold text-gray-900  dark:text-white'>
         {title}
       </h3>
@@ -19,7 +19,7 @@ const Head = (prop) => {
       >
         <Icon.MdArrowBack className='text-2xl  dark:text-white' />
       </p>
-    </div>
+    </section>
   )
 }
 

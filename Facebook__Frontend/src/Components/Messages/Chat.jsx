@@ -34,11 +34,11 @@ const Chat = () => {
           <section
             data-tip
             data-for='chat'
-            className='flex flex-row gap-2 items-center p-1 rounded-md hover:bg-darkComplementry'
+            className='flex flex-row gap-2 items-center p-1 rounded-md hover:bg-darkComplementry cursor-pointer'
             onClick={() => setChatSettings(!chatSettings)}
           >
             <ProfilePicture />
-            <div className='w-fit flex flex-wrap flex-col items-start'>
+            <article className='w-fit flex flex-wrap flex-col items-start'>
               <h3 className='flex items-center gap-1 text-md dark:text-white font-semibold pr-1 text-gray-800 capitalize brightness-125'>
                 Eta Scanner{' '}
                 <span className='deep_blue text-xl'>
@@ -48,7 +48,7 @@ const Chat = () => {
               <p className='text-xs brightness-75 text-heading_dark_white'>{`Active ${moment(
                 new Date()
               ).fromNow()}`}</p>
-            </div>
+            </article>
           </section>
           <ToolTip
             title={`chat setttings`}

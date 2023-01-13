@@ -5,17 +5,18 @@ import Head from '../CreatePost/Head'
 import MegWrapper from '../MegWrapper'
 import { themeSwitcher } from '../../Functions/darkTheme'
 import { Icon } from '../../utils/Icon'
+
 const Display = () => {
   const lightMode = useRef(null)
   const darkMode = useRef(null)
   const automatic = useRef(null)
   const compactOn = useRef(null)
   const compactOff = useRef(null)
+  const theme = localStorage.getItem('theme')
   const { setDisplayState, setProfileState, setGoBack, displayState } =
     useGlobalContext()
-  const theme = localStorage.getItem('theme')
   return (
-    <div className={` ${displayState ? 'pb-4 translate_x' : 'pb-4'} `}>
+    <section className={` ${displayState ? 'pb-4 translate_x' : 'pb-4'} `}>
       <Head
         title={`Display & accessibility`}
         setFirstState={setProfileState}
@@ -109,20 +110,20 @@ const Display = () => {
           </div>
         ))}
         <div className='hidden items-center mid_small:flex flex-row justify-between cursor-pointer  hover:bg-primary p-2 rounded-md'>
-          <div className='flex flex-row gap-2 items-center'>
+          <article className='flex flex-row gap-2 items-center'>
             <p className='text-xl  dark:bg-darkComplementry dark:text-heading_dark_white rounded-full bg-gray-200 p-3 w-fit h-fit'>
               <Icon.BsFillKeyboardFill />
             </p>
             <h4 className='text-xl font-medium text-gray-900 dark:text-heading_dark_white'>
               keyboard{' '}
             </h4>
-          </div>
+          </article>
           <p className='font-medium text-2xl dark:text-heading_dark_white'>
             <Icon.MdOutlineArrowForwardIos />
           </p>
         </div>
       </section>
-    </div>
+    </section>
   )
 }
 
