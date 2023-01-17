@@ -57,7 +57,7 @@ const IMG = ({ post, postlength }) => {
               .filter((post, i) => i !== 0)
               .map((post, i) => {
                 return (
-                  <div className='h-1/2 w-full'>
+                  <div key={i} className='h-1/2 w-full'>
                     <img
                       src={post}
                       alt='post'
@@ -89,7 +89,7 @@ const IMG = ({ post, postlength }) => {
               .filter((post, i) => i !== 0)
               .map((post, i) => {
                 return (
-                  <div className='h-[33%] w-full'>
+                  <div key={i} className='h-[33%] w-full'>
                     <img
                       src={post}
                       alt='post'
@@ -121,7 +121,7 @@ const IMG = ({ post, postlength }) => {
               .filter((post, i) => i >= 4)
               .map((post, i) => {
                 return (
-                  <div className='h-[33%] w-full relative'>
+                  <div key={i} className='h-[33%] w-full relative'>
                     <img
                       src={post}
                       alt='post'
