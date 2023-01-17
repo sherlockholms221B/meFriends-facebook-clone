@@ -1,7 +1,4 @@
 import React from 'react'
-import { HiLink } from 'react-icons/hi'
-import { MdHome } from 'react-icons/md'
-import { TbGridDots } from 'react-icons/tb'
 import { Link } from 'react-router-dom'
 
 import { profile } from '../../Assets/exports'
@@ -11,6 +8,7 @@ import { SideLinks } from '../../utils/LWRef'
 import { useGlobalContext } from '../../Context/UseContext'
 import { groupsLinks } from '../../utils/links'
 import { BorderLine } from '../RDOMC'
+import { Icon } from '../../utils/Icon'
 
 const MSideBar = () => {
   const { menuSl, setMenuSl, shortCutSl, setShortCutSl, groupSl, setGroupSl } =
@@ -24,7 +22,7 @@ const MSideBar = () => {
       <div className='flex flex-col justify-start items-baseline larg:w-full h-fit pb-2 pl-2 pr-2'>
         <Link to={`/`} className={` ${barContainer} p-0 py-2`}>
           <p className='text-3xl text-heading_dark_white'>
-            <MdHome />
+            <Icon.MdHome />
           </p>
           <Active queryTerm={`home`} homeTerm={null} />
         </Link>
@@ -57,7 +55,7 @@ const MSideBar = () => {
           className={` ${barContainer} xl:pl-1 p-0   py-2 `}
         >
           <p className={`${roundedIcon} text-lg -ml-1 xl:-ml-0 p-2 xl:p-2`}>
-            <TbGridDots />
+            <Icon.TbGridDots />
           </p>
           <Active queryTerm={`menu`} homeTerm={null} />
         </button>
@@ -74,7 +72,7 @@ const MSideBar = () => {
           className={` ${barContainer} xl:pl-1 p-0 mt-3 py-2`}
         >
           <p className={`${roundedIcon} text-lg -ml-1 xl:-ml-0 p-2 xl:p-2`}>
-            <HiLink />
+            <Icon.HiLink />
           </p>
           <Active queryTerm={`shortcuts`} />
         </Link>

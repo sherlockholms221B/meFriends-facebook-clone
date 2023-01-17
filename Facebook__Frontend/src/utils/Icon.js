@@ -21,9 +21,10 @@ import {
   MdOutlinePhotoLibrary,
   MdSettingsSuggest,
   MdVideoCall,
+  MdHome,
 } from 'react-icons/md'
 import { GiEarthAmerica } from 'react-icons/gi'
-import { HiLockClosed, HiDotsHorizontal } from 'react-icons/hi'
+import { HiLockClosed, HiDotsHorizontal, HiLink } from 'react-icons/hi'
 import { GoTriangleDown } from 'react-icons/go'
 import { BiImageAdd, BiWifi, BiZoomIn, BiZoomOut } from 'react-icons/bi'
 import {
@@ -49,6 +50,7 @@ import { RiSettings2Fill } from 'react-icons/ri'
 import { AiOutlineBug, AiOutlineLike } from 'react-icons/ai'
 import { AiOutlineFieldTime } from 'react-icons/ai'
 import { RiFeedbackFill, RiLogoutBoxRFill } from 'react-icons/ri'
+import { TbGridDots } from 'react-icons/tb'
 
 export const Icon = {
   AiOutlineBug,
@@ -67,6 +69,7 @@ export const Icon = {
   MdOutlineArrowForwardIos,
   MdHttps,
   MdFlag,
+  MdHome,
   MdMapsHomeWork,
   MdNotifications,
   MdOutlineLocationOn,
@@ -102,4 +105,6 @@ export const Icon = {
   RiLogoutBoxRFill,
   HiLockClosed,
   HiDotsHorizontal,
+  HiLink,
+  TbGridDots,
 }
