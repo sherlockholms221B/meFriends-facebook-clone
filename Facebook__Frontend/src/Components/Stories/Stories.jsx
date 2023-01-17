@@ -17,12 +17,12 @@ const Stories = () => {
             className='w-full h-[70%] rounded-t-lg object-cover group-hover:brightness-75'
           />
           <h1 className='text-gray-600 text-md font-semibold rounded-b-lg pt-4 px-1'>
-            create talling
+            Create Story
           </h1>
           <Link to={`/backface/api/profile`}>
-            <div className='animate-pulse border-4 border-white-700 rounded-full cursor-pointer absolute top-[55%] right-[30%] bg-blue-700 p-1 z-10'>
+            <article className='animate-pulse ring-4 ring-white dark:ring-[#242526] rounded-full cursor-pointer absolute top-[55%] right-[35%] bg-blue-700 p-1 z-10'>
               <RiAddLine className='text-white text-2xl font-bold' />
-            </div>
+            </article>
           </Link>
         </div>
       </div>

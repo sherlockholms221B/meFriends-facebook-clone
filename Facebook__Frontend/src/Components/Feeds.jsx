@@ -174,11 +174,11 @@ const Posts = ({ isNot }) => {
                 </Link>
               ))}
             </div>
-            <div className='flex gap-2.5 flex-nowrap overflow-x-scroll mb-1 small:mb-2 p-2 small:p-4 scroll_styled '>
+            <section className=' border-2 border-dotted border-borderDark rounded-md flex gap-2.5 flex-nowrap overflow-x-scroll mb-1 small:mb-2 p-2 small:p-4 scroll_styled '>
               {(query === 'stories' || query === null) && <Stories />}
               {query === 'reels' && <Reels />}
               {query === 'rooms' && <Rooms />}
-            </div>
+            </section>
           </div>
         )}
 

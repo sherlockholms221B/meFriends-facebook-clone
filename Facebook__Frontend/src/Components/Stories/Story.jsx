@@ -14,7 +14,7 @@ const Stories = ({
       to={`/story/details/photo?fbid=${`544657569769743763856776056734384697367458468744835`}`}
       className='inline-block w-fit h-fit ring-2 dark:ring-slate-700 ring-white shadow-md shadow-slate-700 rounded-lg '
     >
-      <div className='group w-28 h-52 overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out relative text-center'>
+      <article className='group w-28 h-52 overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out relative text-center'>
         <motion.img
           src={talling}
           alt='str'
@@ -33,7 +33,7 @@ const Stories = ({
         <h1 className='absolute bottom-2 left-1 text-white text-md font-medium capitalize'>
           {creator}
         </h1>
-      </div>
+      </article>
     </Link>
   )
 }
