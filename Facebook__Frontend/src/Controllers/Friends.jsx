@@ -7,14 +7,14 @@ import { comments } from '../utils/constants'
 const Friends = () => {
   return (
     <div className='dark:bg-darkPrimary flex flex-col gap-4 w-full h-full p-4 overflow-auto'>
-      <div className='flex flex-row justify-between items-center p-2 pt-4 pb-0 '>
+      <article className='flex flex-row justify-between items-center p-2 pt-4 pb-0 '>
         <h5 className='text-xl text-gray-800 dark:text-heading_dark_white font-bold'>
           People you may know
         </h5>
         <p className=' text-xl rounded-full  dark:bg-darkComplementry dark:text-heading_dark_white bg-gray-200 p-2 w-fit h-fit'>
           <Icon.MdSettings />
         </p>
-      </div>
+      </article>
       <section className='flex flex-row flex-wrap w-full gap-2 pl-2 pr-2 group'>
         {comments.map(
           ({ creator, profile: [{ profileImage }], isPrivate }, i) => (
