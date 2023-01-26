@@ -30,7 +30,7 @@ const MenuPageUrl = (Component) =>
                     animate={{ x: [200, 0] }}
                     whileInView={{ opacity: [0, 1] }}
                     transition={{ duration: 0.3, ease: 'easeInOut' }}
-                    className='w-[620px] dark:bg-darkComplementry h-full opacity-0 overflow-hidden flex items-center justify-center border-r-2 dark:border-borderDark'
+                    className='w-[620px] dark:bg-darkComplementry h-full opacity-0 overflow-hidden flex items-center justify-center border-r'
                   >
                     {(menuSl || groupSl || shortCutSl) && <Component />}
                   </motion.div>
