@@ -8,6 +8,8 @@ import { Stories, Post, Reels, Rooms } from './index.js'
 import { posts } from '../utils/constants'
 import { profile } from '../Assets/exports'
 import { Icon } from '../utils/Icon'
+import { BsList } from 'react-icons/bs'
+import { IoGrid } from 'react-icons/io5'
 const Posts = ({ isNot }) => {
   const {
     setCreatePostState,
@@ -85,8 +87,8 @@ const Posts = ({ isNot }) => {
             ))}
           </section>
         </section>
-        {!isNot && (
-          <div className='dark:bg-darkSecondary bg-white rounded-md shadow-lg medium:order-2  mt-4'>
+        {/* {!isNot && (
+          <section className='dark:bg-darkSecondary bg-white rounded-md shadow-lg medium:order-2  mt-4'>
             <div className='flex_row justify-between px-4 border-b-2 border-gray-300 dark:border-[#3a3b3c] py-1'>
               <h2 className='text-xl font-bold dark:text-heading_dark_white'>
                 Post
@@ -119,7 +121,16 @@ const Posts = ({ isNot }) => {
               </div>
             </div>
             <div className='flex_row justify-around  capitalize border-b-2 px-1  dark:border-borderDark  border-[#D8D5D5]'>
-              {feedLinks.map(({ name, icon }, i) => (
+              {[
+                {
+                  name: 'list view',
+                  icon: <BsList />,
+                },
+                {
+                  name: 'grid view',
+                  icon: <IoGrid />,
+                },
+              ].map(({ name, icon }, i) => (
                 <Link
                   to={`?talling=${name}`}
                   className={`
@@ -144,8 +155,8 @@ const Posts = ({ isNot }) => {
                 </Link>
               ))}
             </div>
-          </div>
-        )}
+          </section>
+        )} */}
         {isNot && (
           <div className='dark:bg-darkSecondary bg-white rounded-md shadow-lg mt-4 medium:order-1 medium:mb-4'>
             <div className='flex_row justify-around  capitalize border-b-2 px-1  dark:border-borderDark  border-[#D8D5D5]'>

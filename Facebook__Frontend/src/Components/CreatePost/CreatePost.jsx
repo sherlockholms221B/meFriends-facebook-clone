@@ -28,12 +28,12 @@ const CreatePost = () => {
   }
 
   return (
-    <div
+    <section
       className={` ${
         goBack ? 'translate__x' : ''
       }  z-20  w-full h-full rounded-lg dark:border dark:border-borderDark`}
     >
-      <div className='relative flex flex-row py-4 items-center justify-center border-b border-gray-300 dark:border-borderDark '>
+      <article className='relative flex flex-row py-4 items-center justify-center border-b border-gray-300 dark:border-borderDark '>
         <h3 className='text-xl font-bold dark:text-white text-gray-900'>
           Create post
         </h3>
@@ -46,12 +46,12 @@ const CreatePost = () => {
         >
           <Icon.MdClose className='text-2xl dark:text-white' />
         </p>
-      </div>
+      </article>
       <div className='w-full h-full p-4'>
         <div className='flex flex-row gap-2 items-center mb-2'>
           <ProfilePicture />
           <div className=' w-fit'>
-            <div className='w-full flex flex-wrap items-center'>
+            <article className='w-full flex flex-wrap items-center'>
               <h3 className='text-md dark:text-white font-semibold pr-1 text-gray-800 capitalize'>
                 Don christsanctus chinedu
               </h3>
@@ -69,19 +69,19 @@ const CreatePost = () => {
                     {`${friend},`}
                   </h3>
                 ))}
-            </div>
-            <div
+            </article>
+            <article
               className='flex dark:bg-darkComplementry flex-row gap-2 items-center rounded-sm bg-gray-200 w-min py-0.5 px-1 cursor-pointer  dark:text-white'
               onClick={() => forward(setCreatePostState, setPostAudienceState)}
             >
-              <div className='text-sm text-gray-900   dark:text-white'>
+              <article className='text-sm text-gray-900   dark:text-white'>
                 <PostAIR />
-              </div>
+              </article>
               <h3 className='text-sm text-gray-900   dark:text-white'>
                 {audState}
               </h3>
               <Icon.GoTriangleDown />
-            </div>
+            </article>
           </div>
         </div>
         <div className='w-full max-h-[280px] overflow-auto vertical_scroll '>
@@ -136,7 +136,7 @@ const CreatePost = () => {
           </button>
         )}
       </div>
-    </div>
+    </section>
   )
 }
 

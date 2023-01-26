@@ -3,6 +3,8 @@ import { MdOutlineFacebook } from 'react-icons/md'
 
 import { SideBar, Feeds, Advertisment, Navbar } from '../Components/index'
 import { useGlobalContext } from '../Context/UseContext'
+import { AiFillEdit } from 'react-icons/ai'
+import { FaEdit } from 'react-icons/fa'
 
 const Home = () => {
   const { isLoading, setIsLoading, location, setIsSubMenuOpen } =
@@ -42,6 +44,9 @@ const Home = () => {
               <Advertisment />
             </div>
           </div>
+          <section className='absolute bottom-5 dark:bg-darkComplementry p-3 right-5 rounded-full flex items-center justify-center cursor-pointer hover:brightness-125 border border-slate-800'>
+            <FaEdit className='text-white text-xl' />
+          </section>
         </>
       )}
     </>
