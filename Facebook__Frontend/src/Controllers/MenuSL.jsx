@@ -76,7 +76,6 @@ const MenuSL = () => {
                 },
               ].map(({ icon, title, isMove, ref }, i) => (
                 <>
-                  {' '}
                   <div
                     key={i + title}
                     className={`  ${title} flex justify-between items-center dark:hover:bg-darkComplementry hover:bg-secondaryWhite p-2 w-full rounded-md cursor-pointer`}
@@ -90,7 +89,7 @@ const MenuSL = () => {
                       </h4>
                     </div>
                   </div>
-                  {i == 2 && <BorderLine />}
+                  {i === 2 && <BorderLine />}
                 </>
               ))}
             </section>

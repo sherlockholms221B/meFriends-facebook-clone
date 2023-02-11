@@ -28,7 +28,7 @@ const Posts = ({ isNot }) => {
   const query = new URLSearchParams(search).get('talling')
 
   return (
-    <section className=' flex items-center justify-center mx-auto w-520 px-0.5 pt-0.5 small:pt-2'>
+    <section className=' flex items-center justify-center mx-auto w-full mid_small:w-520 md_lg:w-[700px] laptop:mx-0 px-0.5 pt-0.5 small:pt-2'>
       <section className='flex flex-col w-full h-full overflow-auto scroll-hidden pb-20'>
         <section className='dark:bg-darkSecondary bg-white rounded-md shadow-lg medium:order-2 '>
           <section className='flex_row gap-2 justify-between px-1 xtra_small:p-2 border-b-2 border-gray-300 dark:border-[#3a3b3c] py-2 small:py-4'>
@@ -87,11 +87,11 @@ const Posts = ({ isNot }) => {
             ))}
           </section>
         </section>
-        {/* {!isNot && (
+        {!isNot && (
           <section className='dark:bg-darkSecondary bg-white rounded-md shadow-lg medium:order-2  mt-4'>
-            <div className='flex_row justify-between px-4 border-b-2 border-gray-300 dark:border-[#3a3b3c] py-1'>
+            <section className='flex_row justify-between px-4 border-b-2 border-gray-300 dark:border-[#3a3b3c] py-1'>
               <h2 className='text-xl font-bold dark:text-heading_dark_white'>
-                Post
+                Posts
               </h2>
               <div className=' flex flex-row items-center justify-end gap-2 py-1.5 cursor-pointer '>
                 {[
@@ -119,8 +119,8 @@ const Posts = ({ isNot }) => {
                   </article>
                 ))}
               </div>
-            </div>
-            <div className='flex_row justify-around  capitalize border-b-2 px-1  dark:border-borderDark  border-[#D8D5D5]'>
+            </section>
+            <div className='flex_row justify-around capitalize px-1  '>
               {[
                 {
                   name: 'list view',
@@ -156,7 +156,7 @@ const Posts = ({ isNot }) => {
               ))}
             </div>
           </section>
-        )} */}
+        )}
         {isNot && (
           <div className='dark:bg-darkSecondary bg-white rounded-md shadow-lg mt-4 medium:order-1 medium:mb-4'>
             <div className='flex_row justify-around  capitalize border-b-2 px-1  dark:border-borderDark  border-[#D8D5D5]'>

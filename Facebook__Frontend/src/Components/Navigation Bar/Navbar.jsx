@@ -26,21 +26,21 @@ const Navbar = () => {
       <div className=' dark:bg-darkSecondary flex_row justify-between bg-white shadow-inner  dark:pb-1 dark:border-borderDark px-2 xtra_small:px-4 py-1.5 '>
         <button onClick={refresh}>
           <h1 className='text-2xl font-semibold xtra_small:text-[28px] small:font-bold small:text-3xl dark:text-white deep_blue'>
-            facebook
+            MeFriend
           </h1>
         </button>
         <div className='hidden small:flex relative w-11 h-11 medium:w-fit medium: medium:h-fit justify-center items-center dark:bg-darkComplementry rounded-full ml-10'>
           <Input
             type={`text`}
             name={`search`}
-            placeholder={`Search Facebook`}
+            placeholder={`Search Mefriend`}
             handleChange={(e) => {
               e.stopPropagation()
               setSearchValue(e.target.value)
             }}
             value={searchValue}
           />
-          <MdOutlineSearch className=' medium:absolute relative medium:top-2.5 medium:left-3 top-0 left-0 text-gray-500 text-2xl cursor-pointer dark:text-heading_dark_gray' />
+          <MdOutlineSearch className=' medium:absolute relative medium:top-2.5 medium:left-3 top-0 left-0 text-gray-500 text-2xl cursor-pointer dark:text-heading_dark_gray md_lg:-left-6' />
         </div>
 
         <THRDot />

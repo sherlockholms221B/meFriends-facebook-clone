@@ -29,7 +29,7 @@ const PSTIMG = () => {
   return (
     /* POST DETAILS IMAGE COMPONENT */
     <>
-      <section className=' w-[600px] h-full flex flex-row relative overflow-hidden'>
+      <section className=' max-w-[600px] w-full mx-auto h-full flex flex-row relative overflow-hidden'>
         {comments.map(({ profile: [{ profileImage }] }, i) => {
           let position = 'nextSlide'
           if (index === i) {
