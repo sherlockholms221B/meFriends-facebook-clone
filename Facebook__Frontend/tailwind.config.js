@@ -5,6 +5,7 @@ module.exports = {
   theme: {
     screens: {
       xtra_small: '320px',
+      p_sm: '450px',
       mid_small: '560px',
       small: '640px',
       medium: '768px',
@@ -12,6 +13,7 @@ module.exports = {
       laptop: '900px',
       larg: '1160px',
       xtra_larg: '1280px',
+      md_lg: '1366px',
     },
     extend: {
       width: {
