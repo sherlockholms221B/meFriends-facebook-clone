@@ -75,9 +75,9 @@ const PostAudience = () => {
                     ref={ref}
                     className={` ${
                       audState === title
-                        ? 'relative bg-inherit before:w-2 before:h-2 before:bg-blue-500 eb before:absolute before:rounded-full before:translate-y-1/2 before:translate-x-1/2 ring-blue-500 before:top-auto before:right-auto ring-2'
+                        ? 'relative bg-inherit before:w-2 before:h-2 before:bg-blue-500 eb before:absolute before:rounded-full before:translate-y-1/2 before:translate-x-1/2 ring-blue-500 ring-2'
                         : 'ring-2 dark:ring-white ring-gray-500'
-                    }  mid_small:h-4 h-3 mid_small:w-4 w-3 rounded-full transition-colors `}
+                    }  h-4 w-4  rounded-full transition-colors `}
                   />
                 </div>
               )

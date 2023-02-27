@@ -1,23 +1,20 @@
-import { AiFillHome, AiOutlineFieldTime } from 'react-icons/ai'
-import { FaUserFriends, FaBookmark, FaFacebookMessenger } from 'react-icons/fa'
-import { HiLockClosed } from 'react-icons/hi'
-import { TbGridDots } from 'react-icons/tb'
-import { GiBackwardTime, GiEarthAmerica } from 'react-icons/gi'
+import { HiOutlineUserGroup, HiUserGroup } from 'react-icons/hi'
 import {
-  MdSettings,
-  MdPerson,
-  MdMapsHomeWork,
   MdOutlineOndemandVideo,
-  MdGroups,
   MdVideoCameraBack,
   MdOutlinePhotoLibrary,
-  MdNotifications,
   MdHome,
+  MdOutlineHome,
 } from 'react-icons/md'
-import { BsBookFill, BsEmojiWink, BsLink45Deg } from 'react-icons/bs'
+import { BsBookFill, BsEmojiWink, BsHouse, BsHouseFill } from 'react-icons/bs'
 
 import { feed_eight, feed_nine, feed_ten } from '../Assets/exports'
-import { RiVideoAddFill } from 'react-icons/ri'
+import {
+  RiMessengerFill,
+  RiMessengerLine,
+  RiVideoAddFill,
+} from 'react-icons/ri'
+import { IoNotifications, IoNotificationsOutline } from 'react-icons/io5'
 
 export const groupsLinks = [
   {
@@ -37,18 +34,31 @@ export const groupsLinks = [
 export const mNavLink = [
   {
     icon: <MdHome />,
+    outlined: <MdOutlineHome />,
     alert: '+10',
     tip: 'home',
   },
-  { icon: <FaUserFriends />, tip: 'Friends', alert: '4' },
-  { icon: <FaFacebookMessenger />, alarts: '3', tip: 'messenger' },
   {
-    icon: <MdNotifications />,
+    icon: <HiUserGroup />,
+    outlined: <HiOutlineUserGroup />,
+    tip: 'Friends',
+    alert: '4',
+  },
+  {
+    icon: <RiMessengerFill />,
+    outlined: <RiMessengerLine />,
+    alarts: '3',
+    tip: 'messenger',
+  },
+  {
+    icon: <IoNotifications />,
+    outlined: <IoNotificationsOutline />,
     alarts: '1',
     tip: 'notification',
   },
   {
-    icon: <MdGroups />,
+    icon: <BsHouseFill />,
+    outlined: <BsHouse />,
     alarts: '1',
     tip: 'groups',
   },

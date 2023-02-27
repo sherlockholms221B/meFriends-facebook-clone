@@ -66,21 +66,21 @@ const Posts = ({ isNot }) => {
                   i === 0 && ' px-4 small:px-6 '
                 } ${i === 1 && ' px-4 '} ${
                   i === 2 && ' px-3 '
-                } py-1 small:py-2  `}
+                } py-0.5 small:py-2  flex flex-row items-center justify-center`}
               >
                 <p
-                  className={` ${i === 0 && ' text-red-500 '} ${
-                    i === 1 && '  text-green-500 '
+                  className={` ${i === 0 && ' text-red-500 text-xl'} ${
+                    i === 1 && '  text-green-500 text-lg'
                   } ${
-                    i === 2 && ' text-yellow-500'
-                  } text-md small:text-3xl font-bold mr-1`}
+                    i === 2 && ' text-yellow-500 text-lg'
+                  } small:text-3xl font-bold mr-1`}
                 >
                   {icon}
                 </p>
                 <p className='hidden small:block text-gray-500 font-semibold dark:text-heading_dark_gray'>
                   {title}
                 </p>
-                <p className='text-sm small:hidden text-gray-500 font-semibold dark:text-heading_dark_gray'>
+                <p className='text-md small:hidden text-gray-500 font-semibold dark:text-heading_dark_gray'>
                   {mtitle}
                 </p>
               </article>
@@ -185,7 +185,7 @@ const Posts = ({ isNot }) => {
                 </Link>
               ))}
             </div>
-            <section className=' border-2 border-dotted border-borderDark rounded-md flex gap-2.5 flex-nowrap overflow-x-scroll mb-1 small:mb-2 p-2 small:p-4 scroll_styled '>
+            <section className='rounded-md flex gap-2.5 flex-nowrap mb-0 small:mb-2 p-1 small:p-4 scroll_styled mid_small:overflow-x-scroll overflow-x-hidden'>
               {(query === 'stories' || query === null) && <Stories />}
               {query === 'reels' && <Reels />}
               {query === 'rooms' && <Rooms />}

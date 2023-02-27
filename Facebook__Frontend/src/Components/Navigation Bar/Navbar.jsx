@@ -8,6 +8,7 @@ import { mNavLink } from '../../utils/links'
 
 const Navbar = () => {
   const [searchValue, setSearchValue] = useState('')
+  const [mbar, setMbar] = useState('home')
 
   const navBarRef = useRef(null)
   const { dynamicLocation } = useGlobalContext()
@@ -46,14 +47,48 @@ const Navbar = () => {
         <THRDot />
       </div>
 
-      <div className='flex_row justify-between px-4 py-2 small:hidden '>
-        {mNavLink.map(({ icon, alarts }, i) => (
-          <div className='relative' key={i}>
-            <p className='text-xl xtra_small:text-2xl dark_white'>{icon}</p>
-            <div className='dark:border-0 flex items-center justify-center absolute w-[10px] h-[10px] rounded-full bg-red-600 top-0 right-0 border-2 border-white z-10' />
-          </div>
+      <section className='flex_row justify-between px-4 py-0.5 mt-1 small:hidden'>
+        {mNavLink.map(({ icon, outlined, alarts, tip }, i) => (
+          <section className=''>
+            {mbar === tip ? (
+              <button className='relative transition-all' key={i} type='button'>
+                <p className='text-xl xtra_small:text-2xl text-blue-500'>
+                  {icon}
+                </p>
+                {alarts >= 0 && (
+                  <article
+                    className='dark:border-0 flex items-center justify-center
+                  absolute w-5 h-4 rounded-full bg-red-600 -top-1
+                  -right-1 border-2 border-white z-10'
+                  >
+                    <h3 className='text-xs text-white'>{alarts}</h3>
+                  </article>
+                )}
+              </button>
+            ) : (
+              <button
+                type='button'
+                className='relative transition-all'
+                key={i}
+                onClick={() => setMbar(tip)}
+              >
+                <p className='text-xl xtra_small:text-2xl dark_white'>
+                  {outlined}
+                </p>
+                {alarts >= 0 && (
+                  <article
+                    className='dark:border-0 flex items-center justify-center
+                  absolute w-5 h-4 rounded-full bg-red-600 -top-1
+                  -right-1 border-2 border-white z-10'
+                  >
+                    <h3 className='text-xs text-white'>{alarts}</h3>
+                  </article>
+                )}
+              </button>
+            )}
+          </section>
         ))}
-      </div>
+      </section>
     </nav>
   )
 }
