@@ -28,6 +28,7 @@ export const darkTheme = () => {
 
 export const themeSwitcher = (ref) => {
   const name = Object.values(ref.current.classList)
+  console.log(name)
   if (name.includes('darkmode')) {
     darkTheme()
   } else if (name.includes('light')) {
