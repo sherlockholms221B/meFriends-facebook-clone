@@ -38,7 +38,7 @@ const Home = () => {
             //   setIsSubMenuOpen(false)
             // }}
           >
-            <div className='flex items-strech justify-center mid_small:justify-between w-screen h-full'>
+            <div className='flex items-strech justify-center mid_small:justify-between '>
               <SideBar />
               <Feeds isNot={true} />
               <Advertisment />
