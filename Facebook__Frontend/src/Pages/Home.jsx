@@ -3,7 +3,7 @@ import { MdOutlineFacebook } from 'react-icons/md'
 
 import { SideBar, Feeds, Advertisment, Navbar } from '../Components/index'
 import { useGlobalContext } from '../Context/UseContext'
-import { AiFillEdit } from 'react-icons/ai'
+// import { AiFillEdit } from 'react-icons/ai'
 import { FaEdit } from 'react-icons/fa'
 
 const Home = () => {
@@ -33,7 +33,7 @@ const Home = () => {
           <Navbar />
           <div
             style={{ paddingTop: `${location.height}px` }}
-            className=' dark:bg-darkPrimary relative overflow-hidden h-screen w-screen black bg-primary'
+            className='  dark:bg-darkPrimary relative overflow-hidden h-screen w-screen bg-primary'
             // onMouseOver={() => {
             //   setIsSubMenuOpen(false)
             // }}

@@ -41,6 +41,7 @@ import COMBTN from './Comments/COMBTN'
 import PostAIR from './CreatePost/PostAIR'
 import Chat from './Messages/Chat'
 import GPDT from './GPDT'
+import Profile from './Profile'
 
 export {
   Navbar,
@@ -87,4 +88,5 @@ export {
   COMBTN,
   PostAIR,
   GPDT,
+  Profile,
 }

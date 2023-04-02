@@ -4,13 +4,14 @@ import { Link, useLocation } from 'react-router-dom'
 import { useGlobalContext } from '../Context/UseContext'
 import { feedLinks, feedLinksOne } from '../utils/links'
 
-import { Stories, Post, Reels, Rooms } from './index.js'
+import { Stories, Post, Reels, Rooms, Profile } from './index.js'
 import { posts } from '../utils/constants'
-import { profile } from '../Assets/exports'
 import { Icon } from '../utils/Icon'
 import { BsList } from 'react-icons/bs'
 import { IoGrid } from 'react-icons/io5'
+import useAuthStore from '../Store/AuthStore'
 const Posts = ({ isNot }) => {
+  const { userProfile } = useAuthStore()
   const {
     setCreatePostState,
     setMessageState,
@@ -32,18 +33,7 @@ const Posts = ({ isNot }) => {
       <section className='flex flex-col w-full h-full overflow-auto scroll-hidden pb-20'>
         <section className='dark:bg-darkSecondary bg-white rounded-md shadow-lg medium:order-2 '>
           <section className='flex_row gap-2 justify-between px-1 xtra_small:p-2 border-b-2 border-gray-300 dark:border-[#3a3b3c] py-2 small:py-4'>
-            {/* Refactor the profile components when ready */}
-            <Link
-              to={`/backface/api/profile`}
-              className=' rounded-full cursor-pointer'
-            >
-              <img
-                src={profile}
-                alt='profile'
-                className='object-contain w-7 xtra_small:w-8 h-7 xtra_small:h-8 small:w-11 small:h-11'
-              />
-            </Link>
-            {/* Refactor the profile components when ready */}
+            <Profile link={'`/backface/api/profile`'} />
             <article
               className='rounded-full bg-primary dark:bg-darkComplementry hover:bg-secondaryWhite px-3 py-1.5 w-full cursor-pointer  justify-start'
               onClick={() => {
@@ -53,8 +43,11 @@ const Posts = ({ isNot }) => {
                 setCreatePostState(true)
               }}
             >
-              <h1 className='text-sm  font-normal  dark:text-heading_dark_gray text-gray-500 p-1'>
-                Whats on your mind, User ?
+              <h1 className='text-sm font-normal dark:text-heading_dark_gray text-gray-500 p-1'>
+                Whats on your mind,{' '}
+                <span className='text-md brightness-110 tracking-wide font-medium'>
+                  {userProfile.userName}
+                </span>
               </h1>
             </article>
           </section>

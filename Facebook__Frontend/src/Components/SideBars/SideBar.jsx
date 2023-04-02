@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 import { profile } from '../../Assets/exports'
 import Groups from '../Groups'
-import { Active, Footer } from '../index'
+import { Active, Footer, Profile } from '../index'
 import { SideLinks } from '../../utils/LWRef'
 import { barHarder, barContainer, roundedIcon } from '../../utils/useStyles'
 import { useGlobalContext } from '../../Context/UseContext'
@@ -22,15 +22,14 @@ const SideBar = () => {
           <p className={`${barHarder} `}>Home</p>
           <Active queryTerm={`home`} term={null} />
         </Link>
-        {/* refactor the profile cmp when ready*/}
-        <Link to={`/backface/api/profile`} className={` py-2 ${barContainer}`}>
-          <img
-            src={profile}
-            alt='profile'
-            className='object-cover w-6 h-6 -ml-1'
-          />
-          <p className={` ${barHarder}`}>{`Christsanctus chinedu`}</p>
-        </Link>
+
+        <Profile
+          link={`/backface/api/profile`}
+          hidden
+          size
+          style={` py-2 ${barContainer}`}
+        />
+
         <BorderLine />
         {SideLinks().map((page, i) => (
           <Link

@@ -33,7 +33,7 @@ const App = () => {
             </Protector>
           }
         />
-        <Route path='/dashbord/api/login' element={<Login />} />
+        <Route path='/dashbord/api-me-friends/login' element={<Login />} />
         <Route path='/backface/api/profile' element={<Profile />} />
         <Route path={`/post/details/photo`} element={<PostDetails />} />
         <Route path={`/story/details/photo`} element={<StoryDetails />} />

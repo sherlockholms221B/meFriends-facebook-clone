@@ -1,9 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { profile } from '../../Assets/exports'
 import Groups from '../Groups'
-import { Active } from '../index'
+import { Active, Profile } from '../index'
 import { SideLinks } from '../../utils/LWRef'
 import { useGlobalContext } from '../../Context/UseContext'
 import { groupsLinks } from '../../utils/links'
@@ -11,8 +10,7 @@ import { BorderLine } from '../RDOMC'
 import { Icon } from '../../utils/Icon'
 
 const MSideBar = () => {
-  const { menuSl, setMenuSl, shortCutSl, setShortCutSl, groupSl, setGroupSl } =
-    useGlobalContext()
+  const { menuSl, setMenuSl, setShortCutSl, setGroupSl } = useGlobalContext()
   const barContainer =
     'relative hover:bg-inherit xl:hover:bg-primary xl:dark:hover:bg-darkComplementry flex flex-row gap-2 items-center w-full  rounded-md'
   const roundedIcon =
@@ -26,13 +24,7 @@ const MSideBar = () => {
           </p>
           <Active queryTerm={`home`} homeTerm={null} />
         </Link>
-        {/* refactor the profile cmp when ready*/}
-        <Link
-          to={`/backface/api/profile`}
-          className={`xl:pl-2 p-0 py-2 ${barContainer}`}
-        >
-          <img src={profile} alt='profile' className='object-cover w-7 h-7' />
-        </Link>
+        <Profile link={`/backface/api/profile`} size />
         <BorderLine />
         {SideLinks().map((page, i) => (
           <Link

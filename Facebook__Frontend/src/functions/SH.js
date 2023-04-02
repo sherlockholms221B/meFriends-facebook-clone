@@ -84,6 +84,11 @@ export const IconHandler = (value) => {
     setProfileState(false)
     return
   }
+  if (classNames.includes('Log')) {
+    localStorage.removeItem('user')
+    window.location.reload()
+    return
+  }
   if (
     classNames.includes('me') ||
     classNames.includes('public') ||

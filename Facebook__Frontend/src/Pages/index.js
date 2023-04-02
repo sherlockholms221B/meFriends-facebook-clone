@@ -1,5 +1,5 @@
 import Home from './Home'
-import Login from './Login'
+import Login from './Login/Login.jsx'
 import Protector from './Protector'
 import Profile from './Profile/Profile'
 import PostDetails from './Posts/PostDetails'
@@ -26,5 +26,4 @@ export {
   PSTIMG,
   FriendStack,
   StoryDetails,
- 
 }

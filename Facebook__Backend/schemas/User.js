@@ -19,6 +19,41 @@ export default {
       type: 'string',
     },
     {
+      name: 'country',
+      title: 'Country',
+      type: 'string',
+    },
+    {
+      name: 'state',
+      title: 'State',
+      type: 'string',
+    },
+    {
+      name: 'city',
+      title: 'City',
+      type: 'string',
+    },
+    {
+      name: 'zipCode',
+      title: 'ZipCode',
+      type: 'string',
+    },
+    {
+      name: 'age',
+      title: 'Age',
+      type: 'number',
+    },
+    {
+      name: 'gender',
+      title: 'Gender',
+      type: 'string',
+    },
+    {
+      name: 'birthDate',
+      title: 'Birth Date',
+      type: 'string',
+    },
+    {
       name: 'profileImage',
       title: 'ProfileImage',
       type: 'image',

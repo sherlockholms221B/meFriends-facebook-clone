@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import MegWrapper from '../MegWrapper'
-import { ProfilePicture, CMPFooter } from '../index'
+import { CMPFooter, Profile } from '../index'
 import { useGlobalContext } from '../../Context/UseContext'
 import { GoPLink } from '../../utils/LWRef'
 import { Icon } from '../../utils/Icon'
@@ -26,10 +26,11 @@ const GoPorfile = () => {
           to={`/backface/api/profile`}
           className='hover:bg-secondaryWhite dark:hover:bg-darkComplementry h-fit flex flex-row items-center gap-3 px-2 py-1 rounded-md cursor-pointer'
         >
-          <ProfilePicture />
-          <h5 className='text-lg font-semibold dark:text-heading_dark_white text-gray-900'>
-            Don Christsantus Outis
-          </h5>
+          <Profile
+            link={`/backface/api/profile`}
+            hidden
+            style={'flex flex row gap-4 items-center'}
+          />
         </Link>
         <div className='border mt-1 mb-1 dark:border-borderDark' />
         <div className='dark:hover:bg-darkComplementry hover:bg-secondaryWhite h-fit flex flex-row justify-between items-center gap-3 p-2 rounded-md'>

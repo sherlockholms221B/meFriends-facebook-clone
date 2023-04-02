@@ -1,11 +1,10 @@
 import React from 'react'
 import { MdMenu, MdOutlineExpandMore, MdOutlineSearch } from 'react-icons/md'
 import { Link } from 'react-router-dom'
-import { profile } from '../../Assets/exports'
 import { useGlobalContext } from '../../Context/UseContext'
 import { IconHandler } from '../../Functions/SH'
 import { NavDot1 } from '../../utils/LWRef'
-import { ToolTip } from '../index'
+import { Profile, ToolTip } from '../index'
 
 const THRDot = () => {
   const {
@@ -69,11 +68,7 @@ const THRDot = () => {
           setNotificationState(false)
         }}
       >
-        <img
-          src={profile}
-          alt='profile'
-          className='object-contain w-5 xtra_small:w-8 h-5 xtra_small:h-8 small:w-11 small:h-11'
-        />
+        <Profile link={'/'} />
         <div className='hidden small:flex absolute w-[15px] h-[15px] rounded-full bg-red-600 top-0 right-0 border-2 border-white z-10' />
         <div className='hidden small:flex absolute bottom-[-3px] dark:ring-slate-800 dark:bg-darkComplementry right-0 rounded-full bg-secondaryWhite border-white  ring-2 ring-white w-4 h-4  justify-center items-center'>
           <MdOutlineExpandMore className='text-tablet dark:text-white text-black font-bold' />
