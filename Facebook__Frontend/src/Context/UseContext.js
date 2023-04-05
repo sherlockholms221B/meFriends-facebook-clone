@@ -23,6 +23,7 @@ export const AppProvider = ({ children }) => {
   const [menuSl, setMenuSl] = useState(false)
   const [groupSl, setGroupSl] = useState(false)
   const [shortCutSl, setShortCutSl] = useState(false)
+  const [mobileMenu, setMobileMenu] = useState(false)
   const [selectedFriends, setSelectedFriends] = useState([])
   const [audState, setAudState] = useState('Public')
 
@@ -94,6 +95,8 @@ export const AppProvider = ({ children }) => {
         setChatState,
         chatSettings,
         setChatSettings,
+        mobileMenu,
+        setMobileMenu,
       }}
     >
       {children}

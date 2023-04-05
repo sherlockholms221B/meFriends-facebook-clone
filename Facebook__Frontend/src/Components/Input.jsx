@@ -38,6 +38,8 @@ const Input = ({
           name === 'chats' &&
           'w-11/12 pl-10 py-1.5 pr-4 placeholder:text-md placeholder:font-normal'
         } 
+
+        ${name === 'searchpage' && 'px-2 w-full h-full p-2'}
         
         ${name === 'login' ? 'w-full rounded-md p-2' : 'rounded-full'}
         outline-none  bg-primary dark:bg-darkComplementry hover:bg-secondaryWhite  placeholder:text-gray-600 dark:placeholder:text-heading_dark_gray dark:text-white`}

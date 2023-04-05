@@ -5,6 +5,7 @@ import { useGlobalContext } from '../../Context/UseContext'
 import { IconHandler } from '../../Functions/SH'
 import { NavDot1 } from '../../utils/LWRef'
 import { Profile, ToolTip } from '../index'
+import { Icon } from '../../utils/Icon'
 
 const THRDot = () => {
   const {
@@ -14,9 +15,10 @@ const THRDot = () => {
     notificationState,
     profileState,
     setProfileState,
+    setMobileMenu,
   } = useGlobalContext()
   return (
-    <div className='flex flex-row gap-2 small:gap-3 items-center'>
+    <section className='flex flex-row gap-2 small:gap-3 items-center'>
       {NavDot1().map(({ icon, alarts, tip, ref }, i) => (
         <ul
           ref={ref}
@@ -38,9 +40,9 @@ const THRDot = () => {
           key={i + alarts}
         >
           <li className='text-2xl font-semibold dark:text-white'>{icon}</li>
-          <div className='dark:border-0 flex items-center justify-center absolute w-[20px] h-[20px] rounded-full bg-red-600 top-0 right-0 border-2 border-white z-10'>
+          <fieldset className='dark:border-0 flex items-center justify-center absolute w-[20px] h-[20px] rounded-full bg-red-600 top-0 right-0 border-2 border-white z-10'>
             <p className='text-white text-[12px] font-bold'>{alarts}</p>
-          </div>
+          </fieldset>
           <ToolTip
             title={tip}
             id={tip}
@@ -56,7 +58,7 @@ const THRDot = () => {
         className={`relative small:hidden p-0.5 xtra_small:p-1.5 dark:bg-darkComplementry rounded-full bg-secondaryWhite  hover:bg-primaryWhite
             cursor-pointer`}
       >
-        <MdOutlineSearch className='text-xl xtra_small:text-2xl font-semibold dark:text-white' />
+        <Icon.MdOutlineSearch className='text-xl xtra_small:text-2xl font-semibold dark:text-white' />
       </Link>
       <button
         data-tip
@@ -82,13 +84,15 @@ const THRDot = () => {
         />
       </button>
       <button
-        onClick={() => {}}
+        onClick={() => {
+          setMobileMenu(true)
+        }}
         className={`relative small:hidden p-0.5 xtra_small:p-1.5 dark:bg-darkComplementry rounded-full bg-secondaryWhite  tablet:hover:bg-primaryWhite
             cursor-pointer`}
       >
         <MdMenu className='text-xl xtra_small:text-2xl font-semibold dark:text-white' />
       </button>
-    </div>
+    </section>
   )
 }
 

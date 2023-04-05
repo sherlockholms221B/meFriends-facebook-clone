@@ -16,6 +16,7 @@ import {
   GPDT,
 } from './Components/index'
 import { MenuSl, GroupSl, ShortCutsSl } from './Controllers'
+import MOverlay from './Components/SideBars/components/MOverlay'
 const ABS = () => {
   const {
     addToYourState,
@@ -33,6 +34,7 @@ const ABS = () => {
     menuSl,
     shortCutSl,
     groupSl,
+    mobileMenu,
   } = useGlobalContext()
   return (
     <>
@@ -51,6 +53,7 @@ const ABS = () => {
       {menuSl && <MenuSl />}
       {shortCutSl && <ShortCutsSl />}
       {groupSl && <GroupSl />}
+      {mobileMenu && <MOverlay />}
       <GPDT />
     </>
   )
