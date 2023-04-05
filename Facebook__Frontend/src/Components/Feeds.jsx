@@ -29,7 +29,7 @@ const Posts = ({ isNot }) => {
   const query = new URLSearchParams(search).get('talling')
 
   return (
-    <section className=' flex items-center justify-center mx-auto w-full mid_small:w-520 md_lg:w-[700px] laptop:mx-0 px-0.5 pt-0.5 small:pt-2'>
+    <section className='overflow-hidden flex items-center justify-center h-screen mx-auto w-full mid_small:w-520 md_lg:w-[700px] laptop:mx-0 px-0.5 pt-0.5 small:pt-2'>
       <section className='flex flex-col w-full h-full overflow-auto scroll-hidden pb-20'>
         <section className='dark:bg-darkSecondary bg-white rounded-md shadow-lg medium:order-2 '>
           <section className='flex_row gap-2 justify-between px-1 xtra_small:p-2 border-b-2 border-gray-300 dark:border-[#3a3b3c] py-2 small:py-4'>

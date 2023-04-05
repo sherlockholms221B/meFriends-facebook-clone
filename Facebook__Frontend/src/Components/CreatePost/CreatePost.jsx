@@ -57,7 +57,7 @@ const CreatePost = () => {
               </h3>
               {selectedFriends.length > 0 && (
                 <h3 className='text-md pr-1 font-semibold text-gray-800 '>
-                  is with{' '}
+                  is with
                 </h3>
               )}
               {selectedFriends.length > 0 &&

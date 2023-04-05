@@ -14,9 +14,8 @@ const Advertisment = () => {
   const addHearder =
     'larg:text-xl text-md font-bold text-gray-900 dark:text-heading_dark_white'
   return (
-    <div className='overflow-hidden hover:overflow-auto hidden laptop:block w-260 larg:w-[280px] md_lg:w-[320px] pt-4'>
-      {' '}
-      <div className='flex flex-col  gap-3 justify-start items-start w-full h-max pt-2 pb-4'>
+    <div className='overflow-hidden h-screen hover:overflow-auto hidden laptop:block w-260 larg:w-[280px] md_lg:w-[320px] pt-4'>
+      <div className='flex flex-col gap-3 justify-start items-start w-full h-max pt-2 pb-4'>
         <h3 className={`${addHearder}`}>Sponsored</h3>
         {[
           {

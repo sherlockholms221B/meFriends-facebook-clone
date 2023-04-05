@@ -6,12 +6,12 @@ import { urlFor } from '../utils/client'
 
 const Profile = ({ size, link, hidden, style }) => {
   const { userProfile } = useAuthStore()
-  console.log(userProfile)
+  // console.log(navigator.onLine)
 
   return (
     <Link to={link} className={`${style}`}>
       <img
-        src={urlFor(userProfile.profileImage.asset)}
+        src={urlFor(userProfile.profileImage.asset).url()}
         alt='profile'
         className={`object-contain  ${
           size
