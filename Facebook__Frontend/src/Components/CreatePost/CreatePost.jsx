@@ -93,7 +93,7 @@ const CreatePost = () => {
             name=''
             id=''
             placeholder={`What's on your mind, ${'Don'}`}
-            className=' outline-none w-full cursor-pointer   mt-2 mb-2 placeholder:text-2xl dark:bg-darkSecondary pt-2 pl-2 dark:text-white placeholder:text-gray-500 font-meduim overflow-hidden'
+            className=' outline-none w-full cursor-pointer   mt-2 mb-2 placeholder:text-2xl dark:bg-darkSecondary pt-2 pl-2 dark:text-white placeholder:text-gray-500 font-meduim overflow-hidden resize-none'
           />
           {addPictureState && <AddPicture />}
         </div>

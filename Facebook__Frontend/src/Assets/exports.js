@@ -1,4 +1,4 @@
-import logo from './backface_logo.png'
+import logo from './logo.png'
 import profile from './profile.png'
 import person_one from './avatar1.jpg'
 import person_two from './avatar2.jpg'

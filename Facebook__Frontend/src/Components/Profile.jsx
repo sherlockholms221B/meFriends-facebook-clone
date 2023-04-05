@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { barHarder } from '../utils/useStyles'
 import { Link } from 'react-router-dom'
 import useAuthStore from '../Store/AuthStore'
@@ -6,10 +6,23 @@ import { urlFor } from '../utils/client'
 
 const Profile = ({ size, link, hidden, style }) => {
   const { userProfile } = useAuthStore()
-  console.log(navigator)
+  // const [media, setMedia] = useState({})
+
+  // navigator.mediaDevices
+  //   .getUserMedia({
+  //     video: true,
+  //     audio: true,
+  //   })
+  //   .then((media) => {
+  //     setMedia({ ...media })
+  //     console.log(media)
+  //   })
 
   return (
     <Link to={link} className={`${style}`}>
+      {/* <video src=''>
+        <source src={media} />
+      </video> */}
       <img
         src={urlFor(userProfile.profileImage.asset).url()}
         alt='profile'
