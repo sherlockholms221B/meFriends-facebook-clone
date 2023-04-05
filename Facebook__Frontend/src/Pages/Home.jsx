@@ -29,25 +29,22 @@ const Home = () => {
           </h3>
         </div>
       ) : (
-        <>
+        <React.Fragment>
           <Navbar />
-          <div
+          <section
             style={{ paddingTop: `${location.height}px` }}
-            className='  dark:bg-darkPrimary relative overflow-hidden h-screen w-screen bg-primary'
-            // onMouseOver={() => {
-            //   setIsSubMenuOpen(false)
-            // }}
+            className='  dark:bg-darkPrimary relative overflow-hidde h-screen w-screen bg-primary'
           >
             <div className='flex items-strech justify-center mid_small:justify-between '>
               <SideBar />
               <Feeds isNot={true} />
               <Advertisment />
             </div>
-          </div>
+          </section>
           <section className='absolute bottom-5 dark:bg-darkComplementry p-3 right-5 rounded-full flex items-center justify-center cursor-pointer hover:brightness-125 border border-slate-800'>
             <FaEdit className='text-white text-xl' />
           </section>
-        </>
+        </React.Fragment>
       )}
     </>
   )

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
-    <footer className='hidden larg:block mt-10 mb-4 py-2 xl:flex flex-col gap-3 text-center pb-6'>
+    <footer className='hidden larg:block mt-10 mb-4 py-2 xl:flex flex-col gap-3 text-center pb-16'>
       <h3 className='text-sm text-gray-500 '>
         This is a facebook clone web3 application designed only for educational
         purposes contact the developer for more.

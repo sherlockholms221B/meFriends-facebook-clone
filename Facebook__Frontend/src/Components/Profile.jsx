@@ -6,7 +6,7 @@ import { urlFor } from '../utils/client'
 
 const Profile = ({ size, link, hidden, style }) => {
   const { userProfile } = useAuthStore()
-  // console.log(navigator.onLine)
+  console.log(navigator)
 
   return (
     <Link to={link} className={`${style}`}>

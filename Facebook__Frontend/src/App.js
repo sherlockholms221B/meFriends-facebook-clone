@@ -1,24 +1,22 @@
-import React, { useEffect } from 'react'
+import * as React from 'react'
+
+//import router from react-router-dom
 import { Routes, Route } from 'react-router-dom'
 
-import {
-  Home,
-  Login,
-  PostDetails,
-  Profile,
-  Protector,
-  STPage,
-  StoryDetails,
-} from './Pages'
-import { Friends, Saved, Memories, MarketPlace, Watch } from './Controllers'
+//import pages from copoonents
+import { Home, Protector } from './Pages'
+
+//import theme checker from function & run check when app renders
 import { themeCheck } from './Functions/darkTheme'
+
+//import absolute components
 import ABS from './ABS'
 
-const App = () => {
-  // const autoTheme = localStorage.getItem('theme')
-  // const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+//import routes from './Routes'
+import layoutRoute from './routes'
 
-  useEffect(() => {
+const App = () => {
+  React.useEffect(() => {
     themeCheck()
   }, [])
 
@@ -33,16 +31,15 @@ const App = () => {
             </Protector>
           }
         />
-        <Route path='/dashbord/api-me-friends/login' element={<Login />} />
-        <Route path='/backface/api/profile' element={<Profile />} />
-        <Route path={`/post/details/photo`} element={<PostDetails />} />
-        <Route path={`/story/details/photo`} element={<StoryDetails />} />
-        <Route path={`api/search/random`} element={<STPage />} />
-        <Route path={`menu/friends/fbid`} element={<Friends />} />
-        <Route path={`menu/saved/fbid`} element={<Saved />} />
-        <Route path={`menu/marketplace/fbid`} element={<MarketPlace />} />
-        <Route path={`menu/memories/fbid`} element={<Memories />} />
-        <Route path={`menu/watch/fbid`} element={<Watch />} />
+        {layoutRoute.map((route, index) => {
+          return (
+            <Route
+              path={`${route.route}`}
+              key={index + route.route}
+              element={route.component}
+            />
+          )
+        })}
       </Routes>
       <ABS />
     </>

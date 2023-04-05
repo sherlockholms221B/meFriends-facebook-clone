@@ -20,7 +20,7 @@ const Friends = () => {
           ({ creator, profile: [{ profileImage }], isPrivate }, i) => (
             <div
               key={i + creator}
-              className='w-[180px] h-[360px] flex-grow dark:bg-darkSecondary rounded-xl border dark:border-borderDark'
+              className='max-w-[180px] h-[360px] flex-grow dark:bg-darkSecondary rounded-xl border dark:border-borderDark'
             >
               <img
                 src={profileImage}

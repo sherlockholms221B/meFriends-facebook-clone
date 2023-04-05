@@ -11,7 +11,7 @@ const Input = ({
   autoFocus,
 }) => {
   return (
-    <>
+    <React.Fragment>
       <input
         onClick={(e) => {
           e.stopPropagation()
@@ -42,7 +42,7 @@ const Input = ({
         ${name === 'login' ? 'w-full rounded-md p-2' : 'rounded-full'}
         outline-none  bg-primary dark:bg-darkComplementry hover:bg-secondaryWhite  placeholder:text-gray-600 dark:placeholder:text-heading_dark_gray dark:text-white`}
       />
-    </>
+    </React.Fragment>
   )
 }
 
