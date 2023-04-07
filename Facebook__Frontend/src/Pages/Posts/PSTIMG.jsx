@@ -1,12 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import * as React from 'react'
+
+//import data
 import { comments } from '../../utils/constants'
+
+//import motion animation module
 import { motion } from 'framer-motion'
+
+//import icons
 import { Icon } from '../../utils/Icon'
 
 const PSTIMG = () => {
-  const [index, setIndex] = useState(0)
+  const [index, setIndex] = React.useState(0)
 
-  useEffect(() => {
+  React.useEffect(() => {
     const lastindex = comments.length - 1
     if (index < 0) {
       setIndex(lastindex)
@@ -16,7 +22,7 @@ const PSTIMG = () => {
     }
   }, [index])
 
-  useEffect(() => {
+  React.useEffect(() => {
     let slider = setInterval(() => {
       setIndex(index + 1)
     }, 5000)
@@ -28,7 +34,7 @@ const PSTIMG = () => {
 
   return (
     /* POST DETAILS IMAGE COMPONENT */
-    <>
+    <React.Fragment>
       <section className=' max-w-[600px] w-full mx-auto h-full flex flex-row relative overflow-hidden'>
         {comments.map(({ profile: [{ profileImage }] }, i) => {
           let position = 'nextSlide'
@@ -66,7 +72,7 @@ const PSTIMG = () => {
       >
         <Icon.FaChevronRight />
       </motion.button>
-    </>
+    </React.Fragment>
   )
 }
 

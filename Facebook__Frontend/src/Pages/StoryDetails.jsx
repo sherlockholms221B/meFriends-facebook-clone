@@ -1,19 +1,29 @@
-import React, { useState } from 'react'
+import * as React from 'react'
 
-import { COMBTN, Comments, Input, Like, THRDot } from '../Components'
-import { profile } from '../Assets/exports'
-import { Link, useNavigate } from 'react-router-dom'
-import { Icon } from '../utils/Icon'
-import { PSTIMG } from '.'
+//import react-router-dom module from 'react-router';
+import { useNavigate } from 'react-router-dom'
+
+//import moment for time framing
 import moment from 'moment'
+
+//import component
+import { THRDot } from '../Components'
+import PSTIMG from '../Pages/Posts/PSTIMG'
+
+//import custom icons
+import { Icon } from '../utils/Icon'
+
+//import data from utils
 import { comments } from '../utils/constants'
+
+//import utils functions
 import { randomNumberGenerator } from '../Functions/random.'
 
 const StoryDetails = () => {
   const navigate = useNavigate()
 
   return (
-    <>
+    <React.Fragment>
       <section className='flex justify-between items-center py-1 pr-2 border-b-2 dark:border-borderDark dark:bg-darkSecondary '>
         <div className='flex items-center justify-start w-fit gap-3 ml-4 '>
           <Icon.MdClose
@@ -30,11 +40,11 @@ const StoryDetails = () => {
             {comments.map(
               (
                 { creator, profile: [{ profileImage, createdAt }], comment },
-                i
+                index
               ) => (
                 <div
                   className='w-full flex flex-row gap-3 cursor-pointer dark:hover:bg-darkComplementry  hover:bg-slate-200 px-2 py-1.5 mt-0.5 mb-0.5 rounded-md'
-                  key={i + creator}
+                  key={index + creator}
                 >
                   <img
                     src={profileImage}
@@ -74,7 +84,7 @@ const StoryDetails = () => {
           <PSTIMG />
         </section>
       </section>
-    </>
+    </React.Fragment>
   )
 }
 

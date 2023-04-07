@@ -1,6 +1,7 @@
 import React from 'react'
-import { FaUserGraduate } from 'react-icons/fa'
-import { MdCardTravel } from 'react-icons/md'
+
+//import icons
+import { Icon } from '../../utils/Icon'
 
 const EDIOP = () => {
   return (
@@ -16,11 +17,11 @@ const EDIOP = () => {
       {[
         {
           title: 'Full Stack developer',
-          icon: <MdCardTravel />,
+          icon: <Icon.MdCardTravel />,
         },
         {
           title: 'Studied at University of Nigeria, Nsukka',
-          icon: <FaUserGraduate />,
+          icon: <Icon.FaUserGraduate />,
         },
       ].map(({ title, icon }, i) => (
         <div className='flex_row gap-2' key={i}>

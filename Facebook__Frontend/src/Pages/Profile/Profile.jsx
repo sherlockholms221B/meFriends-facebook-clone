@@ -1,14 +1,19 @@
-import React, { useRef } from 'react'
+import React from 'react'
+
+//import context
 import { useGlobalContext } from '../../Context/UseContext'
+
+//import components
+import { CMPFooter, Feeds, Navbar } from '../../Components'
+import { HED, EDIOP, Friends, Photos } from '../index'
+
+//import layout
 import MSideBar from '../../Components/SideBars/MSideBar'
-import { CMPFooter, Feeds, Navbar, ProfilePicture } from '../../Components'
-import { HED, EDIOP, Friends, Photos } from '..'
-import { MdMoreHoriz } from 'react-icons/md'
 
 const Profile = () => {
   const { location } = useGlobalContext()
   return (
-    <>
+    <React.Fragment>
       <Navbar />
       <div
         style={{ paddingTop: `${location.height}px` }}
@@ -29,24 +34,12 @@ const Profile = () => {
                 <section className='overflow-auto scroll-hidden'>
                   <Feeds isNot={false} />
                 </section>
-                {/* <section
-                  style={{ top: `${location.height}`, position: 'absolute' }}
-                  className='py-2 dark:bg-darkSecondary hidden xtra_larg:flex_row justify-around'
-                >
-                  <div className='flex items-center gap-3'>
-                    <ProfilePicture />
-                    <p className=' text-black dark:text-heading_dark_white hidden larg:block text-lg font-medium'>{`Christsanctus chinedu`}</p>
-                  </div>
-                  <div className='w-fit rounded-md bg-secondaryWhite dark:bg-darkComplementry dark:text-heading_dark_white hover:bg-primaryWhite px-4 py-3'>
-                    <MdMoreHoriz className='text-2xl' />
-                  </div>
-                </section> */}
               </section>
             </div>
           </div>
         </div>
       </div>
-    </>
+    </React.Fragment>
   )
 }
 

@@ -1,13 +1,16 @@
-import React, { useState } from 'react'
+import * as React from 'react'
+
+//import react-router-dom module
 import { Navigate } from 'react-router-dom'
-// import useAuthStore from '../Store/AuthStore'
+
+//import user objects from zustand
+import useAuthStore from '../Store/AuthStore'
 
 const Protector = ({ children }) => {
-  // const { userProfile } = useAuthStore()
-  // console.log(userProfile)
+  const { userProfile } = useAuthStore()
 
   const userItem = localStorage.getItem('user')
-  const [user, setUser] = useState(userItem)
+  const [user, setUser] = React.useState(true)
 
   return user ? children : <Navigate to={`/dashbord/api-me-friends/login`} />
 }

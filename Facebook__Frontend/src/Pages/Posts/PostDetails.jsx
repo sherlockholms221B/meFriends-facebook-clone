@@ -1,16 +1,27 @@
-import React, { useState } from 'react'
+import * as React from 'react'
 
-import { COMBTN, Comments, Input, Like, THRDot } from '../../Components'
-import { profile } from '../../Assets/exports'
-import { Link, useNavigate } from 'react-router-dom'
-import { Icon } from '../../utils/Icon'
+//import react-router-dom module
+import { useNavigate } from 'react-router-dom'
+
+//import components
+import {
+  COMBTN,
+  Comments,
+  Input,
+  Like,
+  Profile,
+  THRDot,
+} from '../../Components'
 import PSTIMG from './PSTIMG'
+
+//import icons from utils
+import { Icon } from '../../utils/Icon'
 
 const PostDetails = () => {
   const navigate = useNavigate()
-  const [isComment, setIsComment] = useState(true)
-  const [viewMore, setViewMore] = useState(true)
-  const [value, setValue] = useState('')
+  const [isComment, setIsComment] = React.useState(true)
+  const [viewMore, setViewMore] = React.useState(true)
+  const [value, setValue] = React.useState('')
   const PostBtn1 =
     'flex flex-row flex-nowrap justify-center  items-center mid_small:dark:hover:bg-darkComplementry mid_small:hover:bg-primary bg-primary dark:bg-darkComplementry mid_small:dark:bg-inherit mid_small:rounded-[3px] rounded-full px-6 xtra_small:px-8 py-2 cursor-pointer '
   const PostBtnI =
@@ -20,7 +31,7 @@ const PostDetails = () => {
     'hidden mid_small:block text-sm xtra_small:text-md text-gray-500 font-semibold dark:text-heading_dark_gray'
 
   return (
-    <>
+    <React.Fragment>
       <section className='flex justify-between items-center py-1 pr-2 border-b-2 dark:border-borderDark dark:bg-darkSecondary '>
         <div className='flex items-center justify-start w-fit gap-3 ml-4 '>
           <Icon.MdClose
@@ -53,7 +64,7 @@ const PostDetails = () => {
               <p className='mr-1 text-sm text-gray-500 '>22 comments</p>
             </div>
           </div>
-          <div
+          <section
             className={`flex flex-row flex-nowrap justify-around px-2 py-1 items-center mx-2 border-b-2 border-gray-300 dark:border-borderDark`}
           >
             <Like PostBtn1={PostBtn1} PostBtnI={PostBtnI} PostBtnT={PostBtnT} />
@@ -64,8 +75,8 @@ const PostDetails = () => {
               PostBtnI={PostBtnI}
               PostBtnT={PostBtnT}
             />
-          </div>
-          <div className='tablet:max-h-[73%] max-h-[53%] overflow-auto home_scroll'>
+          </section>
+          <section className='tablet:max-h-[73%] max-h-[53%] overflow-auto home_scroll'>
             <Comments
               postDetail={false}
               isComment={isComment}
@@ -75,18 +86,12 @@ const PostDetails = () => {
               value={value}
               setValue={setValue}
             />
-          </div>
+          </section>
           <div className='flex flex-row flex-nowrap gap-2 items-center px-3 pt-2 pb-3 border-t-2 dark:border-borderDark'>
-            <Link
-              to={`/backface/api/profile`}
-              className=' rounded-full cursor-pointer'
-            >
-              <img
-                src={profile}
-                alt='profile'
-                className='object-cover w-8 h-8 rounded-full'
-              />
-            </Link>
+            <Profile
+              link='/backface/api/profile'
+              style='object-cover w-8 h-8 rounded-full'
+            />
             <Input
               handleChange={(e) => setValue(e.target.value)}
               value={value}
@@ -97,7 +102,7 @@ const PostDetails = () => {
           </div>
         </div>
       </section>
-    </>
+    </React.Fragment>
   )
 }
 

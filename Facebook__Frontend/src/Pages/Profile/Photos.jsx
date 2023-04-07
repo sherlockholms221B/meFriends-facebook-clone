@@ -1,4 +1,6 @@
 import React from 'react'
+
+//import data
 import { storiesbox } from '../../utils/constants'
 
 const Photos = () => {
@@ -22,7 +24,7 @@ const Photos = () => {
             <img
               src={talling}
               alt='photos'
-              className={`p_sm:w-28 p_sm:h-28 w-20 h-20  ${
+              className={`p_sm:w-28 p_sm:h-28 w-32 h-20  ${
                 i > 8 && 'hidden'
               }  ${i === 6 ? 'rounded-bl-xl' : i === 8 && 'rounded-br-xl'} ${
                 i === 0 ? 'rounded-tl-xl' : i === 2 && 'rounded-tr-xl'

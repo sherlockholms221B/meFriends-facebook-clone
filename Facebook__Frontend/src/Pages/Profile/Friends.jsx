@@ -1,18 +1,20 @@
 import React from 'react'
+
+//import data
 import { storiesbox } from '../../utils/constants'
 
 const Friends = () => {
   return (
     <section className='bg-white dark:bg-darkSecondary rounded-lg p-3 flex flex-col gap-5  '>
       <div className='flex items-start justify-between'>
-        <div className=''>
+        <article>
           <h2 className='text-xl font-bold dark:text-heading_dark_white'>
             Friends
           </h2>
           <p className='text-md text-gray-500 dark:text-heading_dark_gray'>
             4,108 friends
           </p>
-        </div>
+        </article>
         <button className='capitalize font-normal text-lg text-center ring-2 dark:ring-blue-500 rounded-md px-2 py-1 blue_text'>
           See all friends
         </button>
@@ -32,7 +34,6 @@ const Friends = () => {
               }  rounded-xl flex-1 `}
             />
             <figcaption>
-              {' '}
               <h3
                 className={`${
                   i > 8 && 'hidden'
