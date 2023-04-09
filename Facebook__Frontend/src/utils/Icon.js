@@ -21,10 +21,28 @@ import {
   MdOutlinePhotoLibrary,
   MdSettingsSuggest,
   MdVideoCall,
+  MdCardTravel,
+  MdOutlinePrivateConnectivity,
   MdHome,
+  MdPublic,
+  MdMoreHoriz,
+  MdOutlineNotifications,
+  MdOutlineCancelPresentation,
+  MdSchedule,
+  MdSecurity,
+  MdOutlineAutoAwesomeMotion,
+  MdOutlineFolderShared,
+  MdBookmarkBorder,
+  MdOutlineHistory,
 } from 'react-icons/md'
 import { GiEarthAmerica } from 'react-icons/gi'
-import { HiLockClosed, HiDotsHorizontal, HiLink } from 'react-icons/hi'
+import {
+  HiLockClosed,
+  HiDotsHorizontal,
+  HiLink,
+  HiOutlineSwitchHorizontal,
+  HiPlusSm,
+} from 'react-icons/hi'
 import { GoTriangleDown } from 'react-icons/go'
 import { BiImageAdd, BiWifi, BiZoomIn, BiZoomOut } from 'react-icons/bi'
 import {
@@ -34,6 +52,8 @@ import {
   BsGlobe,
   BsExclamationSquareFill,
   BsTagsFill,
+  BsCodeSlash,
+  BsList,
 } from 'react-icons/bs'
 import {
   FaMoon,
@@ -44,22 +64,35 @@ import {
   FaUserFriends,
   FaBookmark,
   FaFacebookMessenger,
+  FaUserGraduate,
   FaUserTag,
 } from 'react-icons/fa'
-import { RiSettings2Fill } from 'react-icons/ri'
-import { AiOutlineBug, AiOutlineLike } from 'react-icons/ai'
-import { AiOutlineFieldTime } from 'react-icons/ai'
-import { RiFeedbackFill, RiLogoutBoxRFill } from 'react-icons/ri'
+import {
+  AiOutlineBug,
+  AiOutlineLike,
+  AiOutlineFieldTime,
+  AiOutlineSwitcher,
+} from 'react-icons/ai'
+import {
+  RiFeedbackFill,
+  RiLogoutBoxRFill,
+  RiSettings2Fill,
+} from 'react-icons/ri'
 import { TbGridDots } from 'react-icons/tb'
+import { IoGrid } from 'react-icons/io5'
 
 export const Icon = {
   AiOutlineBug,
   AiOutlineLike,
+  AiOutlineSwitcher,
   AiOutlineFieldTime,
   MdOutlineCompareArrows,
   MdSettings,
   MdClose,
   MdModeEditOutline,
+  MdCardTravel,
+  MdOutlinePrivateConnectivity,
+  MdPublic,
   MdArrowBack,
   MdOutlineSearch,
   MdMarkEmailRead,
@@ -67,9 +100,18 @@ export const Icon = {
   MdGroups,
   MdOutlineFacebook,
   MdOutlineArrowForwardIos,
+  MdOutlineNotifications,
+  MdOutlineCancelPresentation,
+  MdSchedule,
+  MdSecurity,
+  MdOutlineAutoAwesomeMotion,
+  MdOutlineFolderShared,
+  MdBookmarkBorder,
+  MdOutlineHistory,
   MdHttps,
   MdFlag,
   MdHome,
+  MdMoreHoriz,
   MdMapsHomeWork,
   MdNotifications,
   MdOutlineLocationOn,
@@ -85,16 +127,19 @@ export const Icon = {
   BsFillExclamationTriangleFill,
   BsFillKeyboardFill,
   BsGlobe,
+  BsList,
   BsTagsFill,
   BsExclamationSquareFill,
   BiImageAdd,
   BiZoomIn,
   BiZoomOut,
+  BsCodeSlash,
   BiWifi,
   FaMoon,
   FaExpandAlt,
   FaChevronRight,
   FaChevronLeft,
+  FaUserGraduate,
   FaQuestionCircle,
   FaUserFriends,
   FaBookmark,
@@ -104,7 +149,10 @@ export const Icon = {
   RiFeedbackFill,
   RiLogoutBoxRFill,
   HiLockClosed,
+  HiOutlineSwitchHorizontal,
   HiDotsHorizontal,
+  HiPlusSm,
   HiLink,
   TbGridDots,
+  IoGrid,
 }

@@ -15,6 +15,7 @@ import {
   RiVideoAddFill,
 } from 'react-icons/ri'
 import { IoNotifications, IoNotificationsOutline } from 'react-icons/io5'
+import { DIcons } from '../Assets/3d Icons'
 
 export const groupsLinks = [
   {
@@ -71,7 +72,19 @@ export const feedLinks = [
 ]
 
 export const feedLinksOne = [
-  { title: 'Live video', mtitle: 'Live', icon: <MdVideoCameraBack /> },
-  { title: 'Photo/Video', mtitle: 'Video', icon: <MdOutlinePhotoLibrary /> },
-  { title: 'Feelings/activity', mtitle: 'Feeling', icon: <BsEmojiWink /> },
+  {
+    title: 'Live video',
+    mtitle: 'Live',
+    icon: <img src={DIcons.camera} alt='' className='w-10 h-10' />,
+  },
+  {
+    title: 'Photo/Video',
+    mtitle: 'Video',
+    icon: <img src={DIcons.picture} alt='' className='w-10 h-10' />,
+  },
+  {
+    title: 'Feelings/activity',
+    mtitle: 'Feeling',
+    icon: <img src={DIcons.mic} alt='' className='w-10 h-10' />,
+  },
 ]

@@ -1,13 +1,7 @@
 import { useRef } from 'react'
-import {
-  Saved,
-  Friends,
-  MarketPlace,
-  WatchReels,
-  MemoriesBtnIcon,
-} from '../Components/IWGradients/IWGradients'
 
 import { Icon } from './Icon'
+import { DIcons } from '../Assets/3d Icons'
 export const MakePostLinkOne = () => {
   const picture = useRef(null)
   const tag = useRef(null)
@@ -73,31 +67,31 @@ export const GoPLink = () => {
     {
       icon: <Icon.MdSettingsSuggest />,
       title: 'Settings & privacy',
-      isMove: true,
+      next: true,
       ref: settings,
     },
     {
       icon: <Icon.FaQuestionCircle />,
       title: 'Help & support',
-      isMove: true,
+      next: true,
       ref: support,
     },
     {
       icon: <Icon.FaMoon />,
       title: 'Display & accessibility',
-      isMove: true,
+      next: true,
       ref: display,
     },
     {
       icon: <Icon.RiFeedbackFill />,
       title: 'Give feedback',
-      isMove: false,
+      next: false,
       ref: feedback,
     },
     {
       icon: <Icon.RiLogoutBoxRFill />,
       title: 'Log Out',
-      isMove: false,
+      next: false,
       ref: logOut,
     },
   ]
@@ -177,27 +171,29 @@ export const SideLinks = () => {
   const links = [
     {
       title: 'Friends',
-      icon: <Friends />,
+      icon: <img src={DIcons.friend} alt='' className='w-8 object-cover h-8' />,
       url: 'menu/friends/fbid',
     },
     {
       title: 'Saved',
-      icon: <Saved />,
+      icon: (
+        <img src={DIcons.bookmark} alt='' className='w-8 object-cover h-8' />
+      ),
       url: 'menu/saved/fbid',
     },
     {
       title: 'Marketplace',
-      icon: <MarketPlace />,
+      icon: <img src={DIcons.bag} alt='' className='w-8 object-cover h-8' />,
       url: 'menu/marketplace/fbid',
     },
     {
       title: 'Watch',
-      icon: <WatchReels />,
+      icon: <img src={DIcons.video} alt='' className='w-8 object-cover h-8' />,
       url: 'menu/watch/fbid',
     },
     {
       title: 'Memories',
-      icon: <MemoriesBtnIcon />,
+      icon: <img src={DIcons.clock} alt='' className='w-8 object-cover h-8' />,
       url: 'menu/memories/fbid',
     },
   ]
