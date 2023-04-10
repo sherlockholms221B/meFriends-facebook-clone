@@ -11,7 +11,7 @@ const layoutRoute = [
     component: <Profile />,
   },
   {
-    route: '/backface/api/profile',
+    route: '/post/details/photo',
     component: <PostDetails />,
   },
   {
