@@ -3,6 +3,7 @@ import React from 'react'
 import MenuPage from './MenuPage'
 import { Icon } from '../utils/Icon'
 import { comments } from '../utils/constants'
+import SoftIconContainer from '../examples/icon'
 
 const Friends = () => {
   return (
@@ -43,7 +44,7 @@ const Friends = () => {
                             i === 0 && 'left-0 '
                           } ${i === 1 && 'left-8'}   ${
                             i > 1 && 'hidden'
-                          } ring-2 ring-white
+                          } ring-2 ring-white hover:z-10 cursor-pointer
                            `}
                         />
                       ))}
@@ -109,25 +110,15 @@ const FriendsBtn = () => {
             title: 'Custome lists',
             isMove: true,
           },
-        ].map(({ icon, title, isMove, ref }, i) => (
-          <div
-            key={i + title}
-            className={`  ${title} flex justify-between items-center dark:hover:bg-darkComplementry hover:bg-secondaryWhite p-2 w-full rounded-md cursor-pointer first:bg-darkComplementry first:hover:bg-darkComplementry `}
-          >
-            <div className='flex flex-row items-center gap-2 w-fit '>
-              <p className=' text-xl rounded-full  dark:bg-darkComplementry dark:text-heading_dark_white bg-gray-200 p-2 w-fit h-fit'>
-                {icon}
-              </p>
-              <h4 className='text-gray-900 font-medium dark:text-white'>
-                {title}
-              </h4>
-            </div>
-            {isMove && (
-              <p className='font-medium text-2xl dark:text-white'>
-                <Icon.MdOutlineArrowForwardIos />
-              </p>
-            )}
-          </div>
+        ].map(({ icon, title, isMove, ref }, index) => (
+          <SoftIconContainer
+            key={index}
+            icon={icon}
+            text={title}
+            handleClick={() => {}}
+            next={isMove}
+            ref={ref}
+          />
         ))}
       </section>
     </div>
