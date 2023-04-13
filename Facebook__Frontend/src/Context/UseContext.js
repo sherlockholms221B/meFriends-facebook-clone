@@ -1,6 +1,24 @@
-import { useContext, createContext, useState, useRef } from 'react'
+/**
+  This file is used for controlling the global states of the components,
+  Maintainer can customize the state for the different components here.
+*/
+import {
+  useContext,
+  createContext,
+  useState,
+  useRef,
+  useReducer,
+  useMemo,
+} from 'react'
 
-const AppContext = createContext()
+// import reducer functions
+import reducer from '../Hooks/Reducer'
+
+//set up react create context
+const AppContext = createContext(null)
+
+// Setting custom name for the context which is visible on react dev tools
+AppContext.displayName = 'meFriends'
 
 export const AppProvider = ({ children }) => {
   const [createPostState, setCreatePostState] = useState(false)
@@ -15,14 +33,10 @@ export const AppProvider = ({ children }) => {
   const [displayState, setDisplayState] = useState(false)
   const [feedbackState, setFeedbackState] = useState(false)
   const [supportState, setSupportState] = useState(false)
-  const [isLoading, setIsLoading] = useState(true)
   const [chatState, setChatState] = useState(false)
   const [goBack, setGoBack] = useState(false)
   const [chatSettings, setChatSettings] = useState(false)
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false)
-  const [menuSl, setMenuSl] = useState(false)
-  const [groupSl, setGroupSl] = useState(false)
-  const [shortCutSl, setShortCutSl] = useState(false)
   const [mobileMenu, setMobileMenu] = useState(false)
   const [selectedFriends, setSelectedFriends] = useState([])
   const [audState, setAudState] = useState('Public')
@@ -41,20 +55,23 @@ export const AppProvider = ({ children }) => {
 
     return
   }
+  const initialState = {
+    loading: true,
+    menuSideLink: false,
+    groupSlideLink: false,
+    shortCut: false,
+  }
 
-  const stateAcceptor = (states) => {}
+  const [controller, dispatch] = useReducer(reducer, initialState)
+
+  const value = useMemo(() => [controller, dispatch], [controller, dispatch])
+
   return (
     <AppContext.Provider
       value={{
-        menuSl,
-        setMenuSl,
-        shortCutSl,
-        setShortCutSl,
-        groupSl,
-        setGroupSl,
+        value,
         isSubMenuOpen,
         setIsSubMenuOpen,
-        stateAcceptor,
         location,
         setLocation,
         dynamicLocation,
@@ -84,8 +101,6 @@ export const AppProvider = ({ children }) => {
         setSupportState,
         selectedFriends,
         setSelectedFriends,
-        isLoading,
-        setIsLoading,
         goBack,
         setGoBack,
         likeRef,
@@ -104,6 +119,15 @@ export const AppProvider = ({ children }) => {
   )
 }
 
+// meFriends  Dashboard React custom hook for using context
 export const useGlobalContext = () => {
-  return useContext(AppContext)
+  const context = useContext(AppContext)
+
+  if (!context) {
+    throw new Error(
+      'useSoftUIController should be used inside the SoftUIControllerProvider.'
+    )
+  }
+
+  return context
 }
