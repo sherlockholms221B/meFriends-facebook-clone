@@ -1,45 +1,50 @@
 import React from 'react'
+
+//import framer motion module
 import { motion } from 'framer-motion'
 
+//import context
 import { useGlobalContext } from '../Context/UseContext'
-import { useLocation } from 'react-router-dom'
+
+//import component
 import { Navbar } from '../Components'
 import MSideBar from '../Components/SideBars/MSideBar'
-import MenuSL from './MenuSL'
 
 const MenuPageUrl = (Component) =>
   function HOC() {
-    const search = useLocation().search
-    const query = new URLSearchParams(search).get('talling')
-    const { location, menuSl, shortCutSl, groupSl } = useGlobalContext()
-
+    const {
+      location,
+      groupSl,
+      value: [controller, dispatch],
+    } = useGlobalContext()
+    const { menuSideLink, shortCut, groupSlideLink } = controller
     return (
-      <>
-        {(menuSl || groupSl || shortCutSl) && (
+      <React.Fragment>
+        {(menuSideLink || groupSlideLink || shortCut) && (
           <section className='absolute top-0 bottom-0 w-full h-full z-10'>
             <Navbar />
-            <div
+            <section
               style={{ paddingTop: `${location.height}px` }}
-              className='flex items-center justify-center overflow-auto h-[100vh] w-[100vw] backdrop-filter backdrop-saturate-100 backdrop-brightness-50 backdrop-opacity-100 backdrop-contrast-100
+              className='flex items-center justify-center overflow-auto h-full w-full items-strech mid_small:justify-between  backdrop-filter backdrop-saturate-100 backdrop-brightness-50 backdrop-opacity-100 backdrop-contrast-100
               '
             >
-              <div className=' flex items-strech mid_small:justify-between w-[100vw] h-[100%]'>
-                <MSideBar />
-                <div className=' min-w-[260px] w-full overflow-auto h-full flex justify-start items-stretch'>
-                  <motion.div
-                    animate={{ x: [200, 0] }}
-                    whileInView={{ opacity: [0, 1] }}
-                    transition={{ duration: 0.3, ease: 'easeInOut' }}
-                    className='w-[620px] dark:bg-darkComplementry h-full opacity-0 overflow-hidden flex items-center justify-center border-r'
-                  >
-                    {(menuSl || groupSl || shortCutSl) && <Component />}
-                  </motion.div>
-                </div>
-              </div>
-            </div>
+              <MSideBar />
+              <section className='w-full overflow-auto h-full flex justify-start items-stretch'>
+                <motion.div
+                  animate={{ x: [200, 0] }}
+                  whileInView={{ opacity: [0, 1] }}
+                  transition={{ duration: 0.3, ease: 'easeInOut' }}
+                  className=' dark:bg-darkComplementry h-full max-w-[620px] min-w-[260px] opacity-0 overflow-hidden flex items-center justify-center border-r dark:border-borderDark border-gray-600'
+                >
+                  {(menuSideLink || groupSlideLink || shortCut) && (
+                    <Component />
+                  )}
+                </motion.div>
+              </section>
+            </section>
           </section>
         )}
-      </>
+      </React.Fragment>
     )
   }
 
