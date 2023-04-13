@@ -3,11 +3,12 @@ import React from 'react'
 import MenuPageUrl from './MenuPageUrl'
 import { Input } from '../Components'
 import { Icon } from '../utils/Icon'
-import { BorderLine } from '../Components/RDOMC'
+import { Demaceta } from '../Components/RDOMC'
+import SoftIconContainer from '../examples/icon'
 
 const MenuSL = () => {
   return (
-    <section className='w-full h-full pt-3 pb-3'>
+    <section className='w-[620px] h-full pt-3 pb-3'>
       <article className='pl-3'>
         <h5 className='text-2xl text-gray-800 dark:text-heading_dark_white font-bold'>
           Menu
@@ -21,7 +22,12 @@ const MenuSL = () => {
             </h5>
           </article>
           <article className='relative rounded-full w-[96%] h-fit'>
-            <Input type={`text`} name={`menusl`} placeholder={`Search menu`} />
+            <Input
+              type='text'
+              name='menusl'
+              placeholder='Search menu...'
+              autoFocus
+            />
             <Icon.MdOutlineSearch className='absolute top-2 left-3 text-gray-400 text-2xl cursor-pointer ' />
           </article>
         </section>
@@ -74,23 +80,17 @@ const MenuSL = () => {
                   title: 'Marketplace listing',
                   isMove: true,
                 },
-              ].map(({ icon, title, isMove, ref }, i) => (
-                <>
-                  <div
-                    key={i + title}
-                    className={`  ${title} flex justify-between items-center dark:hover:bg-darkComplementry hover:bg-secondaryWhite p-2 w-full rounded-md cursor-pointer`}
-                  >
-                    <div className='flex flex-row items-center gap-2 w-fit '>
-                      <p className=' text-xl rounded-full  dark:bg-darkComplementry dark:text-heading_dark_white bg-gray-200 p-2 w-fit h-fit'>
-                        {icon}
-                      </p>
-                      <h4 className='text-gray-900 font-medium dark:text-white dark:brightness-75'>
-                        {title}
-                      </h4>
-                    </div>
-                  </div>
-                  {i === 2 && <BorderLine />}
-                </>
+              ].map(({ icon, title, isMove, ref }, index) => (
+                <React.Fragment key={index}>
+                  <SoftIconContainer
+                    key={index}
+                    text={title}
+                    icon={icon}
+                    ref={ref}
+                    handleClick={() => {}}
+                  />
+                  {index === 2 && <Demaceta />}
+                </React.Fragment>
               ))}
             </section>
           </div>
