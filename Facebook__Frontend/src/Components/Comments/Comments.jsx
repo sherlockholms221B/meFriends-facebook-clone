@@ -1,10 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
 
-import { Input, Comment } from '../index'
+//import react-router-dom module
+// import { Link } from 'react-router-dom'
+
+//import components
+import { Input, Comment, Profile } from '../index'
+
+//import data
 import { comments } from '../../utils/constants'
-import { profile } from '../../Assets/exports'
 
 const Comments = ({
   postDetail,
@@ -16,19 +19,11 @@ const Comments = ({
   setValue,
 }) => {
   return (
-    <>
+    <React.Fragment>
       <div className={`flex flex-col ${isComment && 'p-2'} justify-between `}>
         {isComment && postDetail && (
-          <div className='flex flex-row flex-nowrap gap-2 items-center mb-4'>
-            <Link to={`/backface/api/profile`}>
-              <div className=' rounded-full cursor-pointer'>
-                <img
-                  src={profile}
-                  alt='profile'
-                  className='object-cover w-8 h-8 rounded-full'
-                />
-              </div>
-            </Link>
+          <div className='flex flex-row flex-nowrap justify-between items-center mb-4'>
+            <Profile link='/' size />
             <Input
               handleChange={(e) => setValue(e.target.value)}
               value={value}
@@ -38,7 +33,7 @@ const Comments = ({
             />
           </div>
         )}
-
+        {/*  configure comments */}
         {!viewMore
           ? comments
               .slice(0, 1)
@@ -75,7 +70,7 @@ const Comments = ({
               )
             )}
         {isComment && (
-          <>
+          <React.Fragment>
             {!viewMore && (
               <button
                 onClick={() => setViewMore(!viewMore)}
@@ -84,10 +79,10 @@ const Comments = ({
                 see more
               </button>
             )}
-          </>
+          </React.Fragment>
         )}
       </div>
-    </>
+    </React.Fragment>
   )
 }
 
