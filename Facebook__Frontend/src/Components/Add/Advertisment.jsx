@@ -8,6 +8,7 @@ import { Add } from '../index'
 import { comments, posts } from '../../utils/constants'
 import { person_nine, person_eight } from '../../Assets/exports'
 import { MdOutlineSearch, MdVideoCall } from 'react-icons/md'
+import { DIcons } from '../../Assets/3d Icons'
 
 const Advertisment = () => {
   const [add, setAdd] = useState(false)
@@ -43,7 +44,13 @@ const Advertisment = () => {
         <h3 className={`${addHearder}`}>Birthdays</h3>
         {[
           {
-            img: <BsFillGiftFill />,
+            img: (
+              <img
+                src={DIcons.gift}
+                alt=''
+                className=' w-10 h-10 object-cover'
+              />
+            ),
             name: 'Ani Banny Love ',
             count: '2 others',
             description: 'have their birthday today',
@@ -53,7 +60,7 @@ const Advertisment = () => {
             className='flex flex-row gap-4 items-center p-2 w-full cursor-pointer rounded-md dark:hover:bg-darkComplementry hover:bg-secondaryWhite '
             key={i + name}
           >
-            <p className='text-3xl shade_blue'>{img}</p>
+            {img}
             <div className=''>
               <h3 className='text-md text-gray-900 dark:text-heading_dark_gray'>
                 <span className='text-md font-semibold text-gray-900 capitalize dark:text-heading_dark_white'>
