@@ -1,5 +1,3 @@
-import { useGlobalContext } from '../Context/UseContext'
-
 export const refresh = async () => {
   window.location.reload()
 }
@@ -34,6 +32,7 @@ export const IconHandler = (value) => {
     notificationState,
     setGoBack,
     setAudState,
+    logOut,
   } = value
   e.stopPropagation()
   const _ = ref.current.classList
@@ -86,6 +85,7 @@ export const IconHandler = (value) => {
   }
   if (classNames.includes('Log')) {
     localStorage.removeItem('user')
+    logOut()
     window.location.reload()
     return
   }
