@@ -31,11 +31,11 @@ const ABS = () => {
     feedbackState,
     supportState,
     chatState,
-    menuSl,
-    shortCutSl,
-    groupSl,
     mobileMenu,
+    value: [controller, dispatch],
   } = useGlobalContext()
+
+  const { menuSideLink, shortCut, groupSlideLink } = controller
   return (
     <>
       {createPostState && <CreatePost />}
@@ -50,9 +50,9 @@ const ABS = () => {
       {supportState && <Support />}
       {feedbackState && <Feedback />}
       {chatState && <Chat />}
-      {menuSl && <MenuSl />}
-      {shortCutSl && <ShortCutsSl />}
-      {groupSl && <GroupSl />}
+      {menuSideLink && <MenuSl />}
+      {shortCut && <ShortCutsSl />}
+      {groupSlideLink && <GroupSl />}
       {mobileMenu && <MOverlay />}
       <GPDT />
     </>
