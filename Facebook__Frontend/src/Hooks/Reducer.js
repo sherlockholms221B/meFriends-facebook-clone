@@ -14,27 +14,34 @@ export default function reducer(state, action) {
           ...state,
           menuSideLink: false,
           groupSlideLink: false,
-          [action.name]: true,
+          [name]: true,
         }
       } else if (name === 'menuSideLink' && (shortCut || groupSlideLink)) {
         return {
           ...state,
           shortCut: false,
           groupSlideLink: false,
-          [action.name]: true,
+          [name]: true,
         }
       } else if (name === 'groupSlideLink' && (shortCut || menuSideLink)) {
         return {
           ...state,
           shortCut: false,
           menuSideLink: false,
-          [action.name]: true,
+          [name]: true,
         }
       } else if (menuSideLink || shortCut || groupSlideLink) {
-        return { ...state, [action.name]: !action.value }
+        return { ...state, [name]: !action.value }
       }
-      return { ...state, [action.name]: action.value }
+      return { ...state, [name]: action.value }
     }
+
+    case 'ADD_iMAGE_FILE':
+      console.log(state)
+      return {
+        ...state,
+        postfile: [...state.postfile, action.value],
+      }
 
     default: {
       throw new Error(`Unhandled action type: ${action.type}`)
