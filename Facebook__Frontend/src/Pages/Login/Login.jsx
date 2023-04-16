@@ -1,6 +1,4 @@
-import React, { useState } from 'react'
-import { MdOutlineClose } from 'react-icons/md'
-import { motion } from 'framer-motion'
+import React from 'react'
 
 import Main from './Switch'
 // import { useMultistepForm } from './useMultistepForm'
@@ -11,11 +9,10 @@ const Login = () => {
 
   //    ])
   return (
-    <section className='relative w-full h-full flex flex-col justify-evenly items-center bg-primaryWhite dark:bg-darkPrimary'>
-      <h2 className='text-5xl font-bold dark:text-white text-gray-800 tracking-wide mb-2'>
-        MeFriends
-      </h2>
-      <Main />
+    <section className='relative w-full h-full flex flex-col justify-start items-center bg-primaryWhite dark:bg-darkPrimary'>
+      <section className='flex flex-col items-center mt-14 w-full p_sm:w-fit'>
+        <Main />
+      </section>
     </section>
   )
 }

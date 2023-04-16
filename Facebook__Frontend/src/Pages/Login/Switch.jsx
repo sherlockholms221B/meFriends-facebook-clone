@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { AccountForm } from './AccountForm'
 import { AddressForm } from './AddressForm'
 import { useMultistepForm } from './useMultistepForm'
+import { Password } from './Passwords'
 import { LogIn } from './In'
 import { UserForm } from './UserForm'
 import { ProfileUpload } from './ImageUpload'
@@ -9,6 +10,8 @@ import { createUser } from './index'
 import useAuthStore from '../../Store/AuthStore'
 import { useNavigate } from 'react-router-dom'
 import { CoverUpload } from './CoverImage'
+import { Demaceta } from '../../Components/RDOMC'
+import { Icon } from '../../utils/Icon'
 
 const INITIAL_DATA = {
   firstName: '',
@@ -59,16 +62,21 @@ function Main() {
         setWrongeDataType={setWrongeDataType}
         wrongeDataType={wrongeDataType}
       />,
+      <AccountForm
+        {...information}
+        updateFields={updateFields}
+        setWrongeDataType={setWrongeDataType}
+        wrongeDataType={wrongeDataType}
+      />,
       <AddressForm
         {...information}
         updateFields={updateFields}
         setWrongeDataType={setWrongeDataType}
         wrongeDataType={wrongeDataType}
       />,
-      <AccountForm
+      <Password
         {...information}
         updateFields={updateFields}
-        setWrongeDataType={setWrongeDataType}
         wrongeDataType={wrongeDataType}
       />,
       <ProfileUpload
@@ -91,10 +99,10 @@ function Main() {
 
   const onSubmit = async (e) => {
     e.preventDefault()
-    if (currentStepIndex === 1) {
+    if (currentStepIndex === 4) {
       information.password === information.newPassword
         ? next()
-        : setWrongeDataType({ isOn: true, msg: 'password mismatch' })
+        : setWrongeDataType({ isOn: true, msg: 'Password Mismatch' })
       return
     }
     if (!isLastStep) return next()
@@ -106,7 +114,7 @@ function Main() {
       addUser,
       navigate
     )
-    console.log(data, msg)
+    setWrongeDataType({ ...wrongeDataType, msg: msg })
   }
 
   useEffect(() => {
@@ -120,31 +128,42 @@ function Main() {
   }, [wrongeDataType.msg])
 
   return (
-    <section className='relative bg-white dark:bg-darkSecondary dark:border-borderDark border mt-1 rounded-sm w-[450px] '>
-      <form onSubmit={onSubmit}>
-        {!isFirstStep && (
-          <div className='absolute top-2 right-2 dark:text-white tracking-tighter text-gray-800 text-md font-semibold'>
-            {currentStepIndex} / {steps.length - 1}
-          </div>
-        )}
+    <section className=' bg-white dark:bg-darkPrimary rounded-sm w-full p_sm:w-[450px] medium:w-[760px] text-center'>
+      {!isFirstStep && (
+        <section
+          role='button'
+          onClick={() => {
+            back()
+          }}
+          className='absolute top-0 right-0 left-0 bg-[#0c4aad47] w-full flex flex-row justify-start gap-4 items-center py-3 px-2'
+        >
+          <Icon.MdArrowBack className='text-xl small:text-2xl dark:text-heading_dark_white text-gray-800' />
+          <h3 className='dark:text-heading_dark_white text-gray-800 font-semibold text-xs xtra_small:text-sm p_sm:text-md tracking-normal underline'>
+            Join Mefriends
+          </h3>
+        </section>
+      )}
+      {isFirstStep && (
+        <React.Fragment>
+          <Demaceta />
+          <h2 className='text-xl text-blue-800 p_sm:text-5xl font-bold tracking-wide mb-3'>
+            MeFriends
+          </h2>
+          <Demaceta />
+        </React.Fragment>
+      )}
+      <form onSubmit={onSubmit} className='w-full'>
         {step}
-        <div className='mt-4 flex gap-4 justify-between items-center mx-2 mb-2'>
+        <div className='mt-4 mb-2 w-full flex justify-center items-center'>
           {!isFirstStep && (
-            <>
-              <button
-                type='button'
-                onClick={back}
-                className='dark:text-white text-gray-800 font-medium tracking-wider dark:bg-darkPrimary px-2.5 py-1.5 rounded-[5px] bg-white'
-              >
-                Back
-              </button>
+            <React.Fragment>
               <button
                 type='submit'
-                className='dark:text-white text-gray-800 font-medium tracking-wider bg-blue-700 px-2.5 py-1.5 rounded-[5px] '
+                className='text-white font-bold bg-blue-800 w-[90%] rounded-md p-2 text-xl hover:bg-blue-700'
               >
                 {isLastStep ? 'Finish' : 'Next'}
               </button>
-            </>
+            </React.Fragment>
           )}
         </div>
       </form>

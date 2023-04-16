@@ -69,7 +69,6 @@ export const createUser = async (
 
   const query = signInUser(email)
   const userAlreadyExist = await client.fetch(query)
-
   if (userAlreadyExist.length) {
     return {
       data: [],
@@ -91,14 +90,20 @@ export const GetUser = async ({ email, password }, addUser, navigate) => {
       msg: ' Invalid email or password',
     }
   }
-  const query = signInUser(email, password)
+  const query = signInUser(email)
 
   const data = await client.fetch(query)
-
+  console.log(data)
   if (data.length === 0) {
     return {
       data: [],
       msg: 'user not found',
+    }
+  }
+  if (data[0]?.password !== password) {
+    return {
+      data: [],
+      msg: 'Incorrect password. Try again.',
     }
   }
 
@@ -107,12 +112,7 @@ export const GetUser = async ({ email, password }, addUser, navigate) => {
   return { data: data, msg: 'user successfully found' }
 }
 
-export const upload = async (
-  selectedFile,
-  setImageAsset,
-  setIsloading,
-  setWrongeFileType
-) => {
+export const upload = async (selectedFile, isloading, setisloading) => {
   const fileTypes = [
     'image/png',
     'image/jpeg',
@@ -121,20 +121,18 @@ export const upload = async (
     'image/tiff',
   ]
   if (!fileTypes.includes(selectedFile.type)) {
-    // setIsloading(false)
     return {
-      mag: 'upload failed',
+      msg: 'upload failed. Wronge file type',
     }
   }
 
-  // setIsloading(true)
+  setisloading(true)
   const data = await client.assets.upload('image', selectedFile, {
     contentType: selectedFile.type,
     filename: selectedFile.name,
   })
+  setisloading(false)
 
-  // setImageAsset(data)
-  // setIsloading(false)
   return {
     data: data,
     msg: 'upload successful',

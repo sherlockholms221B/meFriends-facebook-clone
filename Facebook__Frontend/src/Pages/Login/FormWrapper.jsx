@@ -1,24 +1,22 @@
 import * as React from 'react'
-// import { useMultistepForm } from './useMultistepForm'
+import { Demaceta } from '../../Components/RDOMC'
 
-export function FormWrapper({ title, children }) {
-  // const { isFirstStep } = useMultistepForm()
+export function FormWrapper({ qustion, title, children }) {
   return (
-    <>
-      {title !== 'Log in to Mefriends' && (
-        <>
-          <h5 className='text-2xl font-bold dark:text-white text-gray-800 ml-1 mt-1'>
-            Sign up
-          </h5>
-          <plaintext className='text-gray-800 dark:text-white ml-2 mt-0.5'>
-            it's quick & easy
-          </plaintext>
-        </>
+    <React.Fragment>
+      {qustion && (
+        <React.Fragment>
+          <Demaceta />
+          <h2 className='text-sm p_sm:text-lg px-4 text-gray-900  dark:text-heading_dark_white font-bold tracking-wide mb-3'>
+            {qustion}
+          </h2>
+          <Demaceta />
+        </React.Fragment>
       )}
-      <h2 className='text-center mt-2 mb-4 text-lg dark:text-white text-gray-800 font-medium'>
-        {title}
+      <h2 className='px-5 text-center mt-2 mb-4 small:text-md dark:text-heading_dark_gray text-gray-800 text-xs font-medium'>
+        {title && title}
       </h2>
       <section>{children}</section>
-    </>
+    </React.Fragment>
   )
 }

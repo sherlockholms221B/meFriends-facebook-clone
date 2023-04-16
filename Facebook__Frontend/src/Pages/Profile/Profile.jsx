@@ -12,8 +12,9 @@ import MSideBar from '../../Components/SideBars/MSideBar'
 
 const Profile = () => {
   const { location } = useGlobalContext()
+  console.log(location)
   return (
-    <React.Fragment>
+    <section>
       <Navbar />
       <div
         style={{ paddingTop: `${location.height}px` }}
@@ -39,7 +40,7 @@ const Profile = () => {
           </div>
         </div>
       </div>
-    </React.Fragment>
+    </section>
   )
 }
 

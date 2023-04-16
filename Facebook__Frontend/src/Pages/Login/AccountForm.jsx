@@ -3,8 +3,11 @@ import { FormWrapper } from './FormWrapper'
 
 export function AccountForm({ birthDate, updateFields, gender }) {
   return (
-    <FormWrapper title='Gender & Age'>
-      <section className='w-full h-fit flex-col flex justify-center p-4 items-center gap-y-5'>
+    <FormWrapper
+      title='Enter your date of birth. You can always make this private later.'
+      qustion="What's your date of birth?"
+    >
+      <section className='w-full h-fit flex-col flex justify-center py-4 px-1.5 items-center gap-y-5'>
         <Input
           name='login'
           type='text'

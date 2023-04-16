@@ -1,18 +1,42 @@
+//import formwrapper
 import { FormWrapper } from './FormWrapper'
+
+//import component
 import { Input } from '../../Components/index'
 import { useMultistepForm } from './useMultistepForm'
 import { GetUser } from './index'
 import useAuthStore from '../../Store/AuthStore'
 import { useNavigate } from 'react-router-dom'
+import { Demaceta } from '../../Components/RDOMC'
 
-export function LogIn({ email, password, updateFields }) {
+export function LogIn({
+  email,
+  password,
+  updateFields,
+  setWrongeDataType,
+  wrongeDataType,
+}) {
   const navigate = useNavigate()
   const { addUser } = useAuthStore()
 
   const { next } = useMultistepForm([])
   return (
-    <FormWrapper title='Log in to Mefriends'>
-      <section className='w-full h-fit flex-col flex justify-center p-4 items-center gap-y-5'>
+    <FormWrapper title=''>
+      <section
+        role='button'
+        onClick={() => {}}
+        className='absolute top-0 right-0 left-0 bg-[#0c4aad47] w-full flex flex-row justify-center items-center py-3 px-2'
+      >
+        <h3 className='text-blue-700 font-semibold text-xs xtra_small:text-sm p_sm:text-md tracking-normal'>
+          Get meFriends for andriod and browse faster
+        </h3>
+      </section>
+      <section className='w-full h-fit flex-col flex justify-center p_sm:p-4 px-2 items-center gap-y-5'>
+        {wrongeDataType.msg && (
+          <p className='text-red-700 tracking-wide capitalize'>
+            {wrongeDataType.msg}
+          </p>
+        )}
         <Input
           placeholder={'Email adress or phone number'}
           name='login'
@@ -22,7 +46,7 @@ export function LogIn({ email, password, updateFields }) {
           handleChange={(e) => updateFields({ email: e.target.value })}
         />
         <Input
-          placeholder={'Your password'}
+          placeholder={'Password'}
           autoFocus
           name='login'
           type='password'
@@ -37,22 +61,22 @@ export function LogIn({ email, password, updateFields }) {
               addUser,
               navigate
             )
+            setWrongeDataType({ ...wrongeDataType, msg: msg })
             localStorage.setItem('user', data[0])
-            console.log(data, msg)
           }}
-          className='text-white font-bold bg-blue-500 w-full rounded-md p-2 text-xl hover:bg-blue-600'
+          className='text-white font-bold bg-blue-800 w-full rounded-md p-2 text-xl hover:bg-blue-700'
         >
           Log in
         </button>
         <p className='text-md  text-blue-500 hover:underline cursor-pointer'>
           Forgotten password?
         </p>
-        <div className='h-[2px] w-full bg-[#E3E3E3] dark:bg-darkComplementry ' />
+        <Demaceta />
         <button
-          className='capitalize text-white font-bold text-xl p-2 rounded-md bg-green-500 hover:bg-green-600'
+          className=' text-white font-bold md_lg:text-xl text-md p-2 rounded-md bg-green-500 hover:bg-green-600 w-[90%]'
           onClick={() => next()}
         >
-          create new account
+          Create new account
         </button>
       </section>
     </FormWrapper>

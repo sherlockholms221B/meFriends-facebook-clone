@@ -1,15 +1,11 @@
 import { useState } from 'react'
 
 export function useMultistepForm(steps) {
-  // const [props] = steps
-  // const [{ props }] = steps
-  // console.log(props.password, props.newPassword)
   const [currentStepIndex, setCurrentStepIndex] = useState(0)
 
   function next() {
     setCurrentStepIndex((i) => {
       if (i >= steps.length - 1) return i
-      // if (props.password !== props.newPassword) return i
       return i + 1
     })
   }

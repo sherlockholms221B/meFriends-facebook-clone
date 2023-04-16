@@ -4,15 +4,15 @@ import { FormWrapper } from './FormWrapper'
 export function UserForm({
   firstName,
   lastName,
-  email,
-  newPassword,
   updateFields,
-  password,
   wrongeDataType,
 }) {
   return (
-    <FormWrapper title='User Details'>
-      <section className='w-full h-fit flex-col flex justify-center p-4 items-center gap-y-5'>
+    <FormWrapper
+      title='Enter the name you use in real life'
+      qustion="What's your name?"
+    >
+      <section className='w-full h-fit flex-col flex justify-center py-4 px-1.5 items-center gap-y-5'>
         {wrongeDataType.isOn && (
           <h2 className='text-red-600 text-md tracking-wide capitalize'>
             {wrongeDataType.msg}
@@ -32,34 +32,8 @@ export function UserForm({
           type='text'
           name='login'
           value={lastName}
-          placeholder={'Last name'}
+          placeholder={'Surname'}
           handleChange={(e) => updateFields({ lastName: e.target.value })}
-        />
-        <Input
-          placeholder={'Email adress or phone number'}
-          name='login'
-          required
-          type='email'
-          value={email}
-          handleChange={(e) => updateFields({ email: e.target.value })}
-        />
-        <Input
-          placeholder={'Your password'}
-          autoFocus
-          required
-          name='login'
-          type='password'
-          value={password}
-          handleChange={(e) => updateFields({ password: e.target.value })}
-        />
-        <Input
-          placeholder={'confirm password'}
-          required
-          name='login'
-          min={1}
-          type='password'
-          value={newPassword}
-          handleChange={(e) => updateFields({ newPassword: e.target.value })}
         />
       </section>
     </FormWrapper>
