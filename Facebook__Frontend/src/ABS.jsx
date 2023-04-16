@@ -15,8 +15,10 @@ import {
   Chat,
   GPDT,
 } from './Components/index'
-import { MenuSl, GroupSl, ShortCutsSl } from './Controllers'
 import MOverlay from './Components/SideBars/components/MOverlay'
+import MenuSL from './Controllers/menusl/index'
+import GroupSl from './Controllers/groupsl/index'
+import ShortCutsSl from './Controllers/shortcutsl/index'
 const ABS = () => {
   const {
     addToYourState,
@@ -50,7 +52,7 @@ const ABS = () => {
       {supportState && <Support />}
       {feedbackState && <Feedback />}
       {chatState && <Chat />}
-      {menuSideLink && <MenuSl />}
+      {menuSideLink && <MenuSL />}
       {shortCut && <ShortCutsSl />}
       {groupSlideLink && <GroupSl />}
       {mobileMenu && <MOverlay />}
