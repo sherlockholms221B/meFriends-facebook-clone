@@ -18,7 +18,7 @@ const MegWrapper = (Component) =>
       supportState,
     } = useGlobalContext()
     return (
-      <>
+      <React.Fragment>
         {(createPostState ||
           addToYourState ||
           postAudienceState ||
@@ -48,7 +48,7 @@ const MegWrapper = (Component) =>
             </section>
           </section>
         )}
-      </>
+      </React.Fragment>
     )
   }
 
