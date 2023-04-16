@@ -79,7 +79,7 @@ import {
   RiSettings2Fill,
 } from 'react-icons/ri'
 import { TbGridDots } from 'react-icons/tb'
-import { IoGrid } from 'react-icons/io5'
+import { IoGrid, IoChevronBack } from 'react-icons/io5'
 
 export const Icon = {
   AiOutlineBug,
@@ -155,4 +155,5 @@ export const Icon = {
   HiLink,
   TbGridDots,
   IoGrid,
+  IoChevronBack,
 }
