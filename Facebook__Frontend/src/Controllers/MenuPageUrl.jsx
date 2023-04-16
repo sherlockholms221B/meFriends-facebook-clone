@@ -14,7 +14,6 @@ const MenuPageUrl = (Component) =>
   function HOC() {
     const {
       location,
-      groupSl,
       value: [controller, dispatch],
     } = useGlobalContext()
     const { menuSideLink, shortCut, groupSlideLink } = controller

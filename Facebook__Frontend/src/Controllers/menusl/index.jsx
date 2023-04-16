@@ -1,10 +1,13 @@
 import React from 'react'
 
-import MenuPageUrl from './MenuPageUrl'
-import { Input } from '../Components'
-import { Icon } from '../utils/Icon'
-import { Demaceta } from '../Components/RDOMC'
-import SoftIconContainer from '../examples/icon'
+//import Hoc component
+import MenuPageUrl from '../MenuPageUrl'
+
+//import components
+import { Input } from '../../Components'
+import { Icon } from '../../utils/Icon'
+import { Demaceta } from '../../Components/RDOMC'
+import { SoftIconContainer } from '../../examples'
 
 const MenuSL = () => {
   return (
@@ -21,7 +24,7 @@ const MenuSL = () => {
               Recent
             </h5>
           </article>
-          <article className='relative rounded-full w-[96%] h-fit'>
+          <section className='relative rounded-full w-[96%] h-fit'>
             <Input
               type='text'
               name='menusl'
@@ -29,7 +32,7 @@ const MenuSL = () => {
               autoFocus
             />
             <Icon.MdOutlineSearch className='absolute top-2 left-3 text-gray-400 text-2xl cursor-pointer ' />
-          </article>
+          </section>
         </section>
         <section className='rounded-md dark:bg-darkSecondary w-[33%] h-fit flex flex-col gap-4 pt-3 pb-3'>
           <div className=' '>
