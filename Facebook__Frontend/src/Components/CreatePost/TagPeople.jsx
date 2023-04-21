@@ -21,7 +21,7 @@ const TagPeople = () => {
     <div
       className={` ${
         tagPeopleState && 'translate_x'
-      }  z-20  w-full h-full rounded-lg dark:border dark:border-borderDark`}
+      }  z-20  w-full h-full rounded-lg dark:border dark:border-bd500`}
     >
       <Head
         title={`Tag people`}
@@ -29,7 +29,7 @@ const TagPeople = () => {
         setSecondState={setTagPeopleState}
         setThirdState={setGoBack}
       />
-      <div className='relative w-full h-fit flex flex-row items-center justify-between mid_small:justify-around mt-2 mb-2  px-2 mid_small:px-0'>
+      <div className='relative w-full h-fit flex flex-row items-center justify-between sm:justify-around mt-2 mb-2  px-2 sm:px-0'>
         <div className='relative rounded-full'>
           <Input
             type={`text`}
@@ -89,7 +89,7 @@ const TagPeople = () => {
                   setSearchFriends('')
                 }}
                 key={i + creator}
-                className='flex flex-row gap-2 items-center px-2 py-0.5 hover:bg-secondaryWhite rounded-md w-full mt-1 mb-1'
+                className='flex flex-row gap-2 items-center px-2 py-0.5 hover:bg-light300 rounded-md w-full mt-1 mb-1'
               >
                 <div className='rounded-full cursor-pointer'>
                   <img

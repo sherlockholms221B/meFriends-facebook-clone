@@ -1,119 +1,114 @@
 import React from 'react'
+
+//import framer motion module
 import { motion } from 'framer-motion'
-import { BsCodeSlash } from 'react-icons/bs'
-import {
-  MdOutlineNotifications,
-  MdOutlineCancelPresentation,
-  MdSchedule,
-  MdSecurity,
-  MdOutlineAutoAwesomeMotion,
-  MdOutlineFolderShared,
-  MdBookmarkBorder,
-  MdOutlineHistory,
-} from 'react-icons/md'
+
+//import custom react icons
+import { Icon } from '../../utils/Icon'
 
 const PostOptions = ({ isChat }) => {
   return (
-    <motion.div
+    <motion.section
       whileInView={{ opacity: [0, 1], scale: [0, 1] }}
-      transition={{ duration: 0.4, ease: 'linear' }}
+      transition={{ duration: 0.15, ease: 'easeInOut' }}
       className={` ${
-        isChat ? ' -left-full top-5' : 'top-10 right-10'
-      } opacity-0 vertical_scroll rounded-tl-lg rounded-b-lg  shadow-lg z-10 h-[400px] overflow-auto absolute bg-white p-2 dark:bg-darkSecondary dark:shadow-black dark:shadow-sm`}
+        isChat
+          ? ' -left-full top-5'
+          : 'top-full right-2 left-2  mdxs:top-10 mdxs:right-10 mdxs:left-auto'
+      } opacity-0 vertical_scroll rounded-tl-lg rounded-b-lg  shadow-lg z-10 h-[400px] overflow-auto absolute bg-white p-2 dark:bg-dark400 dark:shadow-black dark:shadow-sm`}
     >
       <div className='mr-4 ml-1'>
-        <div className=' border-b-[2px]  dark:border-borderDark pt-2 pb-3'>
-          <div className='flex flex-row items-center gap-2 cursor-pointer dark:hover:bg-darkComplementry hover:bg-primary p-1 rounded-md '>
-            <MdBookmarkBorder className='text-2xl text-gray-600 dark:text-heading_dark_white' />
-            <div className='flex flex-col'>
-              <h3 className='text-md font-semibold text-gray-600 dark:text-heading_dark_white'>
+        <section className=' border-b-[2px]  dark:border-bd500 pt-2 pb-3'>
+          <div className='flex flex-row items-center gap-2 cursor-pointer dark:hover:bg-dark300 hover:bg-light500 p-1 rounded-md '>
+            <Icon.MdBookmarkBorder className='text-2xl text-gray-600 dark:text-thdark500' />
+            <article className='flex flex-col'>
+              <h3 className='text-md font-semibold text-gray-600 dark:text-thdark500'>
                 Save Post
               </h3>
-              <p className='text-[12px] text-gray-400 dark:text-heading_dark_gray'>
+              <p className='text-[12px] text-gray-400 dark:text-thlight500'>
                 Add this to your saved items
               </p>
-            </div>
+            </article>
           </div>
-        </div>
-        <div className='flex flex-col border-b-[2px] border-borderDark pt-2 pb-2 gap-2'>
+        </section>
+        <section className='flex flex-col border-b-[2px] border-bd500 pt-2 pb-2 gap-2'>
           {[
             {
               title: 'View edit history',
-              icon: <MdOutlineHistory />,
+              icon: <Icon.MdOutlineHistory />,
             },
             {
               title: 'Turn on notifications for this post',
-              icon: <MdOutlineNotifications />,
+              icon: <Icon.MdOutlineNotifications />,
             },
             {
               title: 'Embed',
-              icon: <BsCodeSlash />,
+              icon: <Icon.BsCodeSlash />,
             },
           ].map((option) => (
-            <div className='flex flex-row items-center gap-2 cursor-pointer dark:hover:bg-darkComplementry hover:bg-primary px-1 py-2 rounded-md '>
-              <p className='text-2xl text-gray-600 dark:text-heading_dark_white'>
-                {' '}
-                {option.icon}{' '}
+            <div className='flex flex-row items-center gap-2 cursor-pointer dark:hover:bg-dark300 hover:bg-light500 px-1 py-2 rounded-md '>
+              <p className='text-2xl text-gray-600 dark:text-thdark500'>
+                {option.icon}
               </p>
-              <h3 className='text-md font-semibold text-gray-600 dark:text-heading_dark_white'>
+              <h3 className='text-md font-semibold text-gray-600 dark:text-thdark500'>
                 {option.title}
               </h3>
             </div>
           ))}
-        </div>
+        </section>
 
         {[
-          { title: 'Report post to group admins', icon: <MdSecurity /> },
+          { title: 'Report post to group admins', icon: <Icon.MdSecurity /> },
           {
             title: 'Hide post',
             explanation: 'see fewer posts like this',
-            icon: <MdOutlineCancelPresentation />,
+            icon: <Icon.MdOutlineCancelPresentation />,
           },
           {
             title: 'Snooze progremmer facts for 30 days',
             explanation: 'Temporarily stop seeing this post',
-            icon: <MdSchedule />,
+            icon: <Icon.MdSchedule />,
           },
           {
             title: 'Hide all from programming facts',
             explanation: 'Stop seeing posts from this page',
-            icon: <MdOutlineAutoAwesomeMotion />,
+            icon: <Icon.MdOutlineAutoAwesomeMotion />,
           },
           {
             title: 'Snooze progremmer for 30 days',
             explanation: 'Temporarily stop seeing this post',
-            icon: <MdSchedule />,
+            icon: <Icon.MdSchedule />,
           },
           {
             title: 'Unfollow progremmer',
             explanation: 'stop seeing post but stay in group',
-            icon: <MdOutlineAutoAwesomeMotion />,
+            icon: <Icon.MdOutlineAutoAwesomeMotion />,
           },
           {
             title: 'Report post',
             explanation: "I'm concerned about this post",
-            icon: <MdOutlineFolderShared />,
+            icon: <Icon.MdOutlineFolderShared />,
           },
         ].map((option) => (
           <div
-            className='flex flex-row gap-2 items-center mt-1 mb-1 px-2 py-2 cursor-pointer rounded-md dark:hover:bg-darkComplementry hover:bg-primary'
+            className='flex flex-row gap-2 items-center mt-1 mb-1 px-2 py-2 cursor-pointer rounded-md dark:hover:bg-dark300 hover:bg-light500'
             key={option.title}
           >
-            <p className='text-2xl text-gray-600 dark:text-heading_dark_white'>
+            <p className='text-2xl text-gray-600 dark:text-thdark500'>
               {option.icon}
             </p>
-            <div className='flex flex-col'>
-              <h3 className='text-md font-semibold text-gray-600 dark:text-heading_dark_white'>
+            <article className='flex flex-col'>
+              <h3 className='text-md font-semibold text-gray-600 dark:text-thdark500'>
                 {option.title}
               </h3>
-              <p className='text-[12px] text-gray-400 dark:text-heading_dark_gray'>
+              <p className='text-[12px] text-gray-400 dark:text-thlight500'>
                 {option?.explanation}
               </p>
-            </div>
+            </article>
           </div>
         ))}
       </div>
-    </motion.div>
+    </motion.section>
   )
 }
 

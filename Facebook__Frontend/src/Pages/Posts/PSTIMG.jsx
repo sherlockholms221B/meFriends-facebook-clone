@@ -81,7 +81,7 @@ const PSTIMG = ({ synced }) => {
                 className='h-12 w-12 rounded-full ring-4 ring-blue-600'
               />
               <figcaption className='flex flex-col text-start'>
-                <h5 className='capitalize dark:text-heading_dark_white text-black brightness-95'>
+                <h5 className='capitalize dark:text-thdark500 text-black brightness-95'>
                   <b>{'John Diggle'}</b>
                 </h5>
                 <article className='flex flex-row '>
@@ -91,7 +91,7 @@ const PSTIMG = ({ synced }) => {
                   <center>
                     <strong className='dark:text-white text-black'>.</strong>
                   </center>
-                  <u className='dark:text-heading_dark_gray text-black text-base ml-1'>
+                  <u className='dark:text-thlight500 text-black text-base ml-1'>
                     {moment(new Date()).fromNow()}
                   </u>
                 </article>
@@ -106,7 +106,7 @@ const PSTIMG = ({ synced }) => {
           x: [0, 20],
         }}
         onClick={() => setIndex(index - 1)}
-        className='text-white absolute text-2xl top-1/2 left-2 rounded-full p-3 dark:bg-darkSecondary '
+        className='text-white absolute text-2xl top-1/2 left-2 rounded-full p-3 dark:bg-dark400 '
       >
         <Icon.FaChevronLeft />
       </motion.button>
@@ -115,7 +115,7 @@ const PSTIMG = ({ synced }) => {
           x: [0, -20],
         }}
         onClick={() => setIndex(index + 1)}
-        className='text-white absolute text-2xl top-1/2 right-2 rounded-full p-3 dark:bg-darkSecondary'
+        className='text-white absolute text-2xl top-1/2 right-2 rounded-full p-3 dark:bg-dark400'
       >
         <Icon.FaChevronRight />
       </motion.button>

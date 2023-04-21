@@ -39,6 +39,8 @@ export const AppProvider = ({ children }) => {
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false)
   const [mobileMenu, setMobileMenu] = useState(false)
   const [selectedFriends, setSelectedFriends] = useState([])
+  const [postvalue, setPostvalue] = useState('')
+
   const [audState, setAudState] = useState('Public')
 
   const [location, setLocation] = useState({
@@ -60,6 +62,7 @@ export const AppProvider = ({ children }) => {
     menuSideLink: false,
     groupSlideLink: false,
     shortCut: false,
+    postfile: [],
   }
 
   const [controller, dispatch] = useReducer(reducer, initialState)
@@ -112,6 +115,8 @@ export const AppProvider = ({ children }) => {
         setChatSettings,
         mobileMenu,
         setMobileMenu,
+        postvalue,
+        setPostvalue,
       }}
     >
       {children}

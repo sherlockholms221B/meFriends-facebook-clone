@@ -13,9 +13,9 @@ import { DIcons } from '../../Assets/3d Icons'
 const Advertisment = () => {
   const [add, setAdd] = useState(false)
   const addHearder =
-    'larg:text-xl text-md font-bold text-gray-900 dark:text-heading_dark_white'
+    'lg:text-xl text-md font-bold text-gray-900 dark:text-thdark500'
   return (
-    <div className='overflow-hidden h-screen hover:overflow-auto hidden laptop:block w-260 larg:w-[280px] md_lg:w-[320px] pt-4'>
+    <div className='overflow-hidden h-screen hover:overflow-auto hidden lap:block w-260 lg:w-[280px] xlg:w-[320px] pt-4'>
       <div className='flex flex-col gap-3 justify-start items-start w-full h-max pt-2 pb-4'>
         <h3 className={`${addHearder}`}>Sponsored</h3>
         {[
@@ -57,21 +57,21 @@ const Advertisment = () => {
           },
         ].map(({ img, name, count, description }, i) => (
           <div
-            className='flex flex-row gap-4 items-center p-2 w-full cursor-pointer rounded-md dark:hover:bg-darkComplementry hover:bg-secondaryWhite '
+            className='flex flex-row gap-4 items-center p-2 w-full cursor-pointer rounded-md dark:hover:bg-dark300 hover:bg-light300 '
             key={i + name}
           >
             {img}
             <div className=''>
-              <h3 className='text-md text-gray-900 dark:text-heading_dark_gray'>
-                <span className='text-md font-semibold text-gray-900 capitalize dark:text-heading_dark_white'>
+              <h3 className='text-md text-gray-900 dark:text-thlight500'>
+                <span className='text-md font-semibold text-gray-900 capitalize dark:text-thdark500'>
                   {name}
                 </span>{' '}
                 and{' '}
-                <span className='text-md font-semibold text-gray-900 capitalize dark:text-heading_dark_white'>
+                <span className='text-md font-semibold text-gray-900 capitalize dark:text-thdark500'>
                   {count}
                 </span>
               </h3>
-              <p className='text-md text-gray-900 dark:text-heading_dark_gray'>
+              <p className='text-md text-gray-900 dark:text-thlight500'>
                 {description}{' '}
               </p>
             </div>
@@ -92,10 +92,10 @@ const Advertisment = () => {
               },
             ].map((option, i) => (
               <div
-                className='rounded-full p-2 hover:bg-secondaryWhite dark:hover:bg-darkComplementry cursor-pointer'
+                className='rounded-full p-2 hover:bg-light300 dark:hover:bg-dark300 cursor-pointer'
                 key={i}
               >
-                <p className='text-gray-500 text-2xl dark:text-heading_dark_gray'>
+                <p className='text-gray-500 text-2xl dark:text-thlight500'>
                   {option.icon}
                 </p>
               </div>
@@ -108,7 +108,7 @@ const Advertisment = () => {
               <Link
                 to={`/backface/api/profile`}
                 key={i + creator}
-                className='flex flex-row gap-4 items-center p-2 dark:hover:bg-darkComplementry hover:bg-secondaryWhite rounded-md w-full'
+                className='flex flex-row gap-4 items-center p-2 dark:hover:bg-dark300 hover:bg-light300 rounded-md w-full'
               >
                 <div className='relative hover:border-gray-300 border-white rounded-full cursor-pointer'>
                   <img
@@ -122,7 +122,7 @@ const Advertisment = () => {
                     } absolute w-[9px] h-[9px] rounded-full  top-0 right-0 border-2 border-white z-10`}
                   ></div>
                 </div>
-                <h3 className='text-md font-semibold text-gray-700 capitalize dark:text-heading_dark_white'>
+                <h3 className='text-md font-semibold text-gray-700 capitalize dark:text-thdark500'>
                   {creator}
                 </h3>
               </Link>

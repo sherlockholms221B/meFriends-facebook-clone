@@ -17,7 +17,7 @@ const DynamicMenu = (Component) =>
         transition={{ duration: 0.4, ease: 'linear' }}
         className={`${
           isSubMenuOpen ? '' : ''
-        }absolute z-10 opacity-0 transition-all before:absolute before:w-5 before:h-5    before:-translate-x-[95%] before:bg-inherit rounded-b-xl rounded-tr-xl triangle dark:bg-darkSecondary bg-white hidden `}
+        }absolute z-10 opacity-0 transition-all before:absolute before:w-5 before:h-5    before:-translate-x-[95%] before:bg-inherit rounded-b-xl rounded-tr-xl triangle dark:bg-dark400 bg-white hidden `}
         ref={DNM}
       >
         <Component />

@@ -4,15 +4,16 @@ import MenuPage from './MenuPage'
 import { Icon } from '../utils/Icon'
 import { comments } from '../utils/constants'
 import SoftIconContainer from '../examples/icon'
+import { Input } from '../Components'
 
 const Friends = () => {
   return (
-    <div className='dark:bg-darkPrimary flex flex-col gap-4 w-full h-full p-4 overflow-auto'>
+    <div className='dark:bg-dark500 flex flex-col gap-4 w-full h-full p-4 overflow-auto'>
       <article className='flex flex-row justify-between items-center p-2 pt-4 pb-0 '>
-        <h5 className='text-xl text-gray-800 dark:text-heading_dark_white font-bold'>
+        <h5 className='text-xl text-gray-800 dark:text-thdark500 font-bold'>
           People you may know
         </h5>
-        <p className=' text-xl rounded-full  dark:bg-darkComplementry dark:text-heading_dark_white bg-gray-200 p-2 w-fit h-fit'>
+        <p className=' text-xl rounded-full  dark:bg-dark300 dark:text-thdark500 bg-gray-200 p-2 w-fit h-fit'>
           <Icon.MdSettings />
         </p>
       </article>
@@ -21,7 +22,7 @@ const Friends = () => {
           ({ creator, profile: [{ profileImage }], isPrivate }, i) => (
             <div
               key={i + creator}
-              className='max-w-[180px] h-[360px] flex-grow dark:bg-darkSecondary rounded-xl border dark:border-borderDark'
+              className='max-w-[180px] h-[360px] flex-grow dark:bg-dark400 rounded-xl border dark:border-bd500'
             >
               <img
                 src={profileImage}
@@ -49,13 +50,13 @@ const Friends = () => {
                         />
                       ))}
                     </div>
-                    <p className='text-xs dark:text-heading_dark_gray'>{`20 mutual friends`}</p>
+                    <p className='text-xs dark:text-thlight500'>{`20 mutual friends`}</p>
                   </div>
                 </div>
-                <button className='bg-secondaryWhite hover:bg-primaryWhite dark:bg-blue-600 dark:text-heading_dark_white py-1.5 text-base rounded-lg font-semibold w-[90%]'>
+                <button className='bg-light300 hover:bg-light400 dark:bg-blue-600 dark:text-thdark500 py-1.5 text-base rounded-lg font-semibold w-[90%]'>
                   Add friend
                 </button>
-                <button className='bg-secondaryWhite hover:bg-primaryWhite dark:bg-darkComplementry dark:text-heading_dark_white py-1.5 text-base rounded-lg font-semibold w-[90%]'>
+                <button className='bg-light300 hover:bg-light400 dark:bg-dark300 dark:text-thdark500 py-1.5 text-base rounded-lg font-semibold w-[90%]'>
                   Remove
                 </button>
               </div>
@@ -69,15 +70,24 @@ const Friends = () => {
 
 const FriendsBtn = () => {
   return (
-    <div className='flex flex-col gap-4 w-full h-full '>
+    <div className='flex flex-col gap-4 w-full h-full px-2'>
       <div className='flex flex-row justify-between items-center p-2 '>
-        <h5 className='text-2xl text-gray-800 dark:text-heading_dark_white font-bold'>
+        <h5 className='text-2xl text-gray-800 dark:text-thdark500 font-bold'>
           Friends
         </h5>
-        <p className=' text-xl rounded-full  dark:bg-darkComplementry dark:text-heading_dark_white bg-gray-200 p-2 w-fit h-fit'>
+        <p className=' text-xl rounded-full  dark:bg-dark300 dark:text-thdark500 bg-gray-200 p-2 w-fit h-fit'>
           <Icon.MdSettings />
         </p>
       </div>
+      <section className='relative rounded-full w-[96%] h-fit'>
+        <Input
+          type='text'
+          name='menusl'
+          placeholder='Search friend...'
+          autoFocus
+        />
+        <Icon.MdOutlineSearch className='absolute top-2 left-3 text-gray-400 text-2xl cursor-pointer ' />
+      </section>
       <section className='w-full flex flex-col gap-1 pl-2 pr-2 group'>
         {[
           {
@@ -112,6 +122,7 @@ const FriendsBtn = () => {
           },
         ].map(({ icon, title, isMove, ref }, index) => (
           <SoftIconContainer
+            // hidden
             key={index}
             icon={icon}
             text={title}

@@ -1,5 +1,6 @@
 import React, { useState, useRef, useLayoutEffect } from 'react'
-
+//location
+import { useLocation } from 'react-router-dom'
 //import component from components
 import { Input, THRDot } from '../index'
 import MbarLink from './components/mobile'
@@ -20,7 +21,7 @@ const Navbar = () => {
   const [searchValue, setSearchValue] = useState('')
   const [isMbar, setIsMbar] = useState('home')
   const navBarRef = useRef(null)
-  const { dynamicLocation, mobileMenu, setMobileMenu } = useGlobalContext()
+  const { dynamicLocation } = useGlobalContext()
 
   useLayoutEffect(() => {
     const element = navBarRef.current.getBoundingClientRect()
@@ -31,15 +32,15 @@ const Navbar = () => {
   return (
     <nav
       ref={navBarRef}
-      className='dark:bg-darkSecondary flex flex-col medium:flex-row justify-between fixed top-0 right-0 w-full z-10 items-center bg-white shadow-inner border-b dark:border-b-2 dark:border-borderDark'
+      className='dark:bg-dark400 flex flex-col md:flex-row justify-between fixed top-0 right-0 w-full z-10 items-center bg-white shadow-inner border-b dark:border-b-2 dark:border-bd500'
     >
-      <section className=' dark:bg-darkSecondary flex_row justify-between bg-white shadow-inner  dark:pb-1 dark:border-borderDark px-2 xtra_small:px-4 py-1.5 '>
+      <section className=' dark:bg-dark400 flex_row justify-between bg-white shadow-inner  dark:pb-1 dark:border-bd500 px-2 xs:px-4 py-1.5 '>
         <button onClick={refresh}>
-          <h1 className='text-2xl font-semibold xtra_small:text-[28px] small:font-bold small:text-3xl dark:text-white deep_blue'>
+          <h1 className='text-2xl font-semibold xs:text-[28px] mdsm:font-bold mdsm:text-3xl dark:text-white deep_blue'>
             MeFriend
           </h1>
         </button>
-        <section className='hidden small:flex relative w-11 h-11 medium:w-fit medium: medium:h-fit justify-center items-center dark:bg-darkComplementry rounded-full ml-10'>
+        <section className='hidden mdsm:flex relative w-11 h-11 md:w-fit md: md:h-fit justify-center items-center dark:bg-dark300 rounded-full ml-10'>
           <Input
             type={`text`}
             name={`search`}
@@ -50,19 +51,16 @@ const Navbar = () => {
             }}
             value={searchValue}
           />
-          <Icon.MdOutlineSearch className=' medium:absolute relative medium:top-2.5 medium:left-3 top-0 left-0 text-gray-500 text-2xl cursor-pointer dark:text-heading_dark_gray md_lg:-left-6' />
+          <Icon.MdOutlineSearch className=' md:absolute relative md:top-2.5 md:left-3 top-0 left-0 text-gray-500 text-2xl cursor-pointer dark:text-thlight500 xlg:-left-6' />
         </section>
 
         <THRDot />
       </section>
 
-      <section className='flex_row justify-between px-4 py-0.5 mt-1 small:hidden'>
-        {mNavLink.map(({ icon, outlined, alarts, tip }, index) => (
+      <section className='flex_row justify-between px-4 py-0.5 mt-1 mdsm:hidden'>
+        {mNavLink.map((data, index) => (
           <MbarLink
-            icon={icon}
-            outlined={outlined}
-            alarts={alarts}
-            tip={tip}
+            {...data}
             isMbar={isMbar}
             setIsMbar={setIsMbar}
             index={index}

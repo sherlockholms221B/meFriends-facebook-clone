@@ -1,41 +1,66 @@
-import React from 'react'
+import * as React from 'react'
+
+//import react router module
 import { Link, useLocation } from 'react-router-dom'
 
+//import context
 import { useGlobalContext } from '../Context/UseContext'
-import { feedLinks, feedLinksOne } from '../utils/links'
 
-import { Stories, Post, Reels, Rooms, Profile } from './index.js'
+//import data
+import { feedLinks, feedLinksOne } from '../utils/links'
 import { posts } from '../utils/constants'
+
+//import component
+import { Stories, Post, Reels, Rooms, Profile } from './index.js'
+
+//import react custom icons
 import { Icon } from '../utils/Icon'
-import { BsList } from 'react-icons/bs'
-import { IoGrid } from 'react-icons/io5'
+
+//import authstore from zustand store
 import useAuthStore from '../Store/AuthStore'
-const Posts = ({ isNot }) => {
+import { allPostsQuery } from '../utils/querries'
+import { client } from '../utils/client'
+
+//component
+const Posts = ({ profile }) => {
   const { userProfile } = useAuthStore()
+  const [allPost, setAllPost] = React.useState([])
   const {
     setCreatePostState,
     setMessageState,
     setNotificationState,
     setProfileState,
   } = useGlobalContext()
-  const isActiveStyle =
-    'py-3  px-2 small:px-11   mt-1 cursor-pointer  border-b-4 border-blue-600 blue_text  place-items-center'
-  const isNotActiveStyle =
-    'py-3  px-2 small:px-11 rounded-lg  mt-1 mb-1 text-gray-600 cursor-pointer hover:bg-primary dark:hover:bg-darkComplementry  dark:text-heading_dark_gray'
-  const vivaIconContainer =
-    'flex flex-row flex-nowrap items-center hover:bg-primary dark:hover:bg-darkComplementry small:rounded-md rounded-sm cursor-pointer'
 
+  React.useEffect(() => {
+    const query = allPostsQuery()
+    client.fetch(query).then((data) => {
+      console.log(data)
+      setAllPost(data)
+    })
+  }, [])
+
+  //custom styles
+  const isActiveStyle =
+    'py-3  px-2 mdsm:px-11   mt-1 cursor-pointer  border-b-4 border-blue-600 blue_text  place-items-center'
+  const isNotActiveStyle =
+    'py-3  px-2 mdsm:px-11 rounded-lg  mt-1 mb-1 text-gray-600 cursor-pointer hover:bg-light500 dark:hover:bg-dark300  dark:text-thlight500'
+  const vivaIconContainer =
+    'flex flex-row flex-nowrap items-center hover:bg-light500 dark:hover:bg-dark300 mdsm:rounded-md rounded-sm cursor-pointer'
+  //
+
+  //react-router-dom query parameters
   const search = useLocation().search
   const query = new URLSearchParams(search).get('talling')
 
   return (
-    <section className='overflow-hidden flex items-center justify-center h-screen mx-auto w-full mid_small:w-520 md_lg:w-[700px] laptop:mx-0 px-0.5 pt-0.5 small:pt-2'>
+    <section className='overflow-hidden flex items-center justify-center h-screen mx-auto w-full sm:w-520 xlg:w-[700px] lap:mx-0 px-0.5 pt-0.5 mdsm:pt-2'>
       <section className='flex flex-col w-full h-full overflow-auto scroll-hidden pb-20'>
-        <section className='dark:bg-darkSecondary bg-white rounded-md shadow-lg medium:order-2 '>
-          <section className='flex_row gap-2 justify-between px-1 xtra_small:p-2 border-b-2 border-gray-300 dark:border-[#3a3b3c] py-2 small:py-4'>
+        <section className='dark:bg-dark400 bg-white border dark:border-bd500 rounded-md shadow-lg md:order-2 '>
+          <section className='flex_row gap-2 justify-between px-1 xs:p-2 border-b-2 border-gray-300 dark:border-[#3a3b3c] py-2 mdsm:py-4'>
             <Profile link={'`/backface/api/profile`'} />
             <article
-              className='rounded-full bg-primary dark:bg-darkComplementry hover:bg-secondaryWhite px-3 py-1.5 w-full cursor-pointer  justify-start'
+              className='rounded-full bg-light500 dark:bg-dark300 hover:bg-light300 px-3 py-1.5 w-full cursor-pointer  justify-start'
               onClick={() => {
                 setMessageState(false)
                 setNotificationState(false)
@@ -43,7 +68,7 @@ const Posts = ({ isNot }) => {
                 setCreatePostState(true)
               }}
             >
-              <h1 className='text-sm font-normal dark:text-heading_dark_gray text-gray-500 p-1'>
+              <h1 className='text-sm font-normal dark:text-thlight500 text-gray-500 p-1'>
                 Whats on your mind,{' '}
                 <span className='text-md brightness-110 tracking-wide font-medium'>
                   {userProfile.userName}
@@ -51,62 +76,49 @@ const Posts = ({ isNot }) => {
               </h1>
             </article>
           </section>
-          <section className='flex_row flex-nowrap justify-around px-1 small:px-2 py-1 small:py-2'>
+          <section className='flex_row flex-nowrap justify-around px-1 mdsm:px-2 py-1 mdsm:py-2'>
             {feedLinksOne.map(({ icon, title, mtitle }, i) => (
               <article
                 key={i}
-                className={` ${vivaIconContainer} ${
-                  i === 0 && ' px-4 small:px-6 '
-                } ${i === 1 && ' px-4 '} ${
-                  i === 2 && ' px-3 '
-                } py-0.5 small:py-2  flex flex-row items-center justify-center`}
+                className={` ${vivaIconContainer} px-4 mdsm:px-6
+               py-0.5 mdsm:py-2 flex flex-row items-center justify-center gap-2`}
               >
-                <p
-                  className={` ${i === 0 && ' text-red-500 text-xl'} ${
-                    i === 1 && '  text-green-500 text-lg'
-                  } ${
-                    i === 2 && ' text-yellow-500 text-lg'
-                  } small:text-3xl font-bold mr-1`}
-                >
-                  {icon}
-                </p>
-                <p className='hidden small:block text-gray-500 font-semibold dark:text-heading_dark_gray'>
+                {icon}
+                <p className='hidden mdsm:block text-gray-500 font-semibold dark:text-thlight500 tracking-wider'>
                   {title}
                 </p>
-                <p className='text-md small:hidden text-gray-500 font-semibold dark:text-heading_dark_gray'>
+                <p className='text-md mdsm:hidden text-gray-500 font-semibold dark:text-thlight500'>
                   {mtitle}
                 </p>
               </article>
             ))}
           </section>
         </section>
-        {!isNot && (
-          <section className='dark:bg-darkSecondary bg-white rounded-md shadow-lg medium:order-2  mt-4'>
+        {!profile && (
+          <section className='dark:bg-dark400 bg-white rounded-md shadow-lg md:order-2  mt-4'>
             <section className='flex_row justify-between px-4 border-b-2 border-gray-300 dark:border-[#3a3b3c] py-1'>
-              <h2 className='text-xl font-bold dark:text-heading_dark_white'>
-                Posts
-              </h2>
+              <h2 className='text-xl font-bold dark:text-thdark500'>Posts</h2>
               <div className=' flex flex-row items-center justify-end gap-2 py-1.5 cursor-pointer '>
                 {[
                   {
                     title: 'Filters',
                     icon: (
-                      <Icon.MdOutlineCompareArrows className='text-2xl dark:text-heading_dark_white' />
+                      <Icon.MdOutlineCompareArrows className='text-2xl dark:text-thdark500' />
                     ),
                   },
                   {
                     title: 'Manage posts',
                     icon: (
-                      <Icon.MdSettings className='text-2xl dark:text-heading_dark_white' />
+                      <Icon.MdSettings className='text-2xl dark:text-thdark500' />
                     ),
                   },
                 ].map(({ title, icon }, i) => (
                   <article
-                    className='flex items-center flex-nowrap gap-2 rounded-md px-3 py-2 dark:bg-darkComplementry'
+                    className='flex items-center flex-nowrap gap-2 rounded-md px-3 py-2 dark:bg-dark300'
                     key={i}
                   >
                     {icon}
-                    <p className='dark:text-heading_dark_white text-lg  font-semibold'>
+                    <p className='dark:text-thdark500 text-lg  font-semibold'>
                       {title}
                     </p>
                   </article>
@@ -117,11 +129,11 @@ const Posts = ({ isNot }) => {
               {[
                 {
                   name: 'list view',
-                  icon: <BsList />,
+                  icon: <Icon.BsList />,
                 },
                 {
                   name: 'grid view',
-                  icon: <IoGrid />,
+                  icon: <Icon.IoGrid />,
                 },
               ].map(({ name, icon }, i) => (
                 <Link
@@ -140,19 +152,17 @@ const Posts = ({ isNot }) => {
                   key={i + name}
                 >
                   <article className='flex flex-row gap-2 items-center '>
-                    <p className='font-bold text-md small:text-2xl '>{icon} </p>
-                    <h1 className='font-medium text-sm small:text-lg'>
-                      {name}
-                    </h1>
+                    <p className='font-bold text-md mdsm:text-2xl '>{icon} </p>
+                    <h1 className='font-medium text-sm mdsm:text-lg'>{name}</h1>
                   </article>
                 </Link>
               ))}
             </div>
           </section>
         )}
-        {isNot && (
-          <div className='dark:bg-darkSecondary bg-white rounded-md shadow-lg mt-4 medium:order-1 medium:mb-4'>
-            <div className='flex_row justify-around  capitalize border-b-2 px-1  dark:border-borderDark  border-[#D8D5D5]'>
+        {profile && (
+          <div className='dark:bg-dark400 bg-white rounded-md shadow-lg mt-4 md:order-1 md:mb-4 border dark:border-bd500'>
+            <div className='flex_row justify-around  capitalize border-b-2 px-1  dark:border-bd500  border-[#D8D5D5]'>
               {feedLinks.map(({ name, icon }, i) => (
                 <Link
                   to={`?talling=${name}`}
@@ -170,15 +180,13 @@ const Posts = ({ isNot }) => {
                   key={i + name}
                 >
                   <article className='flex flex-row gap-2 items-center '>
-                    <p className='font-bold text-md small:text-2xl '>{icon} </p>
-                    <h1 className='font-medium text-sm small:text-lg'>
-                      {name}
-                    </h1>
+                    <p className='font-bold text-md mdsm:text-2xl '>{icon} </p>
+                    <h1 className='font-medium text-sm mdsm:text-lg'>{name}</h1>
                   </article>
                 </Link>
               ))}
             </div>
-            <section className='rounded-md flex gap-2.5 flex-nowrap mb-0 small:mb-2 p-1 small:p-4 scroll_styled mid_small:overflow-x-scroll overflow-x-hidden'>
+            <section className='rounded-md flex flex-nowrap p-1 mdsm:p-2 '>
               {(query === 'stories' || query === null) && <Stories />}
               {query === 'reels' && <Reels />}
               {query === 'rooms' && <Rooms />}
@@ -186,28 +194,9 @@ const Posts = ({ isNot }) => {
           </div>
         )}
 
-        {posts.map(
-          (
-            {
-              creator,
-              profile: [{ profileImage, createdAt }],
-              isPrivate,
-              post,
-              postText,
-            },
-            index
-          ) => (
-            <Post
-              creator={creator}
-              profileImage={profileImage}
-              createdAt={createdAt}
-              isPrivate={isPrivate}
-              post={post}
-              postText={postText}
-              key={`${creator + index}`}
-            />
-          )
-        )}
+        {allPost.map((data, index) => (
+          <Post {...data} key={index} />
+        ))}
       </section>
     </section>
   )

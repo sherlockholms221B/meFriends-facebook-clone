@@ -1,10 +1,11 @@
 import React from 'react'
 
+//import react-router-dom module
 import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
-    <footer className='hidden larg:block mt-10 mb-4 py-2 xl:flex flex-col gap-3 text-center pb-16'>
+    <footer className='hidden lg:block mt-10 mb-4 py-2 xl:flex flex-col gap-3 text-center pb-16'>
       <h3 className='text-sm text-gray-500 '>
         This is a facebook clone web3 application designed only for educational
         purposes contact the developer for more.
@@ -19,7 +20,7 @@ const Footer = () => {
       </p>
       <Link
         to='http://xtus.netlify.app'
-        className='p-4 dark:bg-darkSecondary uppercase dark:text-white tracking-wider font-medium rounded-md m-6'
+        className='p-4 dark:bg-dark400 uppercase dark:text-white tracking-wider font-medium rounded-md m-6'
       >
         contact developer
       </Link>

@@ -1,17 +1,15 @@
 import React from 'react'
-import { useGlobalContext } from '../../Context/UseContext'
 import { Icon } from '../../utils/Icon'
 
-const PostAIR = () => {
-  const { audState } = useGlobalContext()
+const PostAIR = ({ state }) => {
   return (
-    <>
-      {audState === 'Public' && <Icon.GiEarthAmerica />}
-      {audState === 'Friends' && <Icon.FaUserFriends />}
-      {audState === 'Only me' && <Icon.HiLockClosed />}
-      {audState === 'Specific friends' && <Icon.MdPerson />}
-      {audState === 'Custom' && <Icon.MdSettings />}
-    </>
+    <React.Fragment>
+      {state === 'Public' && <Icon.GiEarthAmerica />}
+      {state === 'Friends' && <Icon.FaUserFriends />}
+      {state === 'Only me' && <Icon.HiLockClosed />}
+      {state === 'Specific friends' && <Icon.MdPerson />}
+      {state === 'Custom' && <Icon.MdSettings />}
+    </React.Fragment>
   )
 }
 

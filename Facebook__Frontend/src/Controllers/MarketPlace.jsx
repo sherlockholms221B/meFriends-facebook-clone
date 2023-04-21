@@ -8,12 +8,12 @@ import { SoftButton, SoftIconContainer } from '../examples'
 import { comments } from '../utils/constants'
 const MarketPlace = () => {
   return (
-    <div className='dark:bg-darkPrimary flex flex-col gap-4 w-full h-full p-4 overflow-auto'>
+    <div className='dark:bg-dark500 flex flex-col gap-4 w-full h-full p-4 overflow-auto'>
       <article className='flex flex-row justify-between items-center p-2 pt-4 pb-0 '>
-        <h5 className='text-xl text-gray-800 dark:text-heading_dark_white font-bold'>
+        <h5 className='text-xl text-gray-800 dark:text-thdark500 font-bold'>
           Today's picks
         </h5>
-        <p className=' text-xl rounded-full  dark:bg-darkComplementry dark:text-heading_dark_white bg-gray-200 p-2 w-fit h-fit'>
+        <p className=' text-xl rounded-full  dark:bg-dark300 dark:text-thdark500 bg-gray-200 p-2 w-fit h-fit'>
           <Icon.MdSettings />
         </p>
       </article>
@@ -32,7 +32,7 @@ const MarketPlace = () => {
                     {'$500.0'}
                   </h4>
                   <div className='flex flex-row gap-2 items-center justify-start'>
-                    <p className='text-xs dark:text-heading_dark_gray'>
+                    <p className='text-xs dark:text-thlight500'>
                       {'smart phone'}
                     </p>
                   </div>
@@ -48,17 +48,17 @@ const MarketPlace = () => {
 
 const MarketPlaceBtn = () => {
   return (
-    <section className='dark:bg-darkSecondary flex flex-col w-[400px] h-full vertical_scroll px-3 items-start pt-3 pb-3 text-start'>
+    <section className='dark:bg-dark400 flex flex-col w-[400px] h-full vertical_scroll px-3 items-start pt-3 pb-3 text-start'>
       <article className='pl-3 w-full text-start flex justify-between items-center'>
-        <h5 className='text-3xl text-gray-800 dark:text-heading_dark_white brightness-105 tracking-wide'>
+        <h5 className='text-3xl text-gray-800 dark:text-thdark500 brightness-105 tracking-wide'>
           <strong>Marketplace</strong>
         </h5>
         <SoftButton
           rounded
-          title='dark:bg-darkComplementry bg-gray-200 p-2 rounded-full'
+          title='dark:bg-dark300 bg-gray-200 p-2 rounded-full'
           functionCall={() => {}}
         >
-          <Icon.MdSettings className='text-xl dark:text-heading_dark_white' />
+          <Icon.MdSettings className='text-xl dark:text-thdark500' />
         </SoftButton>
       </article>
       <section className='relative rounded-full w-full h-fit my-3'>
@@ -103,11 +103,11 @@ const MarketPlaceBtn = () => {
         Create new listing
       </SoftButton>
       <Demaceta />
-      <b className='text-xl text-gray-800 dark:text-heading_dark_white brightness-95 tracking-wider'>
+      <b className='text-xl text-gray-800 dark:text-thdark500 brightness-95 tracking-wider'>
         Filter
       </b>
       <Demaceta />
-      <b className='text-xl text-gray-800 dark:text-heading_dark_white brightness-95 tracking-wider'>
+      <b className='text-xl text-gray-800 dark:text-thdark500 brightness-95 tracking-wider'>
         Categories
       </b>
       {[

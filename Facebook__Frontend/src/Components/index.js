@@ -17,7 +17,7 @@ import PostOptions from './Posts/PostOptions'
 import PostAudience from './CreatePost/PostAudience'
 import AddToYour from './CreatePost/AddToYour'
 import ProfilePicture from './Posts/ProfilePicture'
-import AddPicture from './CreatePost/AddPicture'
+import AddFile from './CreatePost/AddFile'
 import Head from './CreatePost/Head'
 import CreatePostLinks from './CreatePost/CreatePostLinks'
 import TagPeople from './CreatePost/TagPeople'
@@ -57,7 +57,7 @@ export {
   PostOptions,
   PostAudience,
   AddToYour,
-  AddPicture,
+  AddFile,
   TagPeople,
   Like,
   Input,

@@ -1,85 +1,92 @@
 import React from 'react'
-import { HiLink } from 'react-icons/hi'
-import { MdHome } from 'react-icons/md'
-import { TbGridDots } from 'react-icons/tb'
-import { Link } from 'react-router-dom'
 
-import Groups from '../Groups'
+//import components
 import { Active, Footer, Profile } from '../index'
 import { SideLinks } from '../../utils/LWRef'
 import { barHarder, barContainer, roundedIcon } from '../../utils/useStyles'
-import { useGlobalContext } from '../../Context/UseContext'
 import { groupsLinks } from '../../utils/links'
-import { BorderLine } from '../RDOMC'
+import { Button, Demaceta, Paragraph, To } from '../RDOMC'
+import Groups from '../Groups'
+import SidelayOut from './components/layout'
+import SlideLinks from './components/side actions'
+
+//import custom icon
+import { Icon } from '../../utils/Icon'
+
+//import global context
+import { useGlobalContext } from '../../Context/UseContext'
+
+//import reducer actions
+import { SideMenu, shortCuts } from '../../Actions'
 const SideBar = () => {
-  const { menuSl, setMenuSl, setShortCutSl, setGroupSl } = useGlobalContext()
+  const {
+    value: [controller, dispatch],
+  } = useGlobalContext()
+
+  // const { menuSideLink, groupSlideLink, shortCut } = controller
   return (
-    <section className='hidden small:flex dark:bg-darkSecondary dark:larg:bg-darkPrimary bg-white overflow-hidden h-screen hover:overflow-auto w-min larg:w-[300px] larg:bg-inherit'>
-      <section className='hover:overflow-auto flex flex-col justify-start items-center w-fit larg:w-full h-max pl-2.5'>
-        <section className='h-full '>
-          <Link to={`/`} className={` ${barContainer}   py-2 mt-2`}>
-            <MdHome className='text-xl text-blue-700' />
-            <p className={`${barHarder} `}>Home</p>
-            <Active queryTerm={`home`} term={null} />
-          </Link>
-          <Profile
-            link={`/backface/api/profile`}
-            hidden
-            size
-            style={` py-2 ${barContainer}`}
-          />
-          <BorderLine />
-          {SideLinks().map((page, i) => (
-            <Link
-              key={i + page.title}
-              to={`${page.url}?talling=${page.title}`}
-              className={`${barContainer} py-2`}
-            >
-              {page.icon}
-              <p className='text-md text-gray-800 font-medium dark:text-heading_dark_white hidden larg:block'>
-                {page.title}
-              </p>
-              <Active queryTerm={page.title} term={null} />
-            </Link>
-          ))}
-          <button
-            to={`?talling=${`menu`}`}
-            className={` ${barContainer} py-1 `}
-            onClick={() => {
-              setMenuSl(!menuSl)
-              setGroupSl(false)
-              setShortCutSl(false)
-            }}
-          >
-            <p className={`${roundedIcon} text-lg -ml-1 larg:-ml-2 p-1.5`}>
-              <TbGridDots />
-            </p>
-            <p className={`${barHarder}`}>See all</p>
-            <Active queryTerm={`menu`} term={null} />
-          </button>
-          <BorderLine />
-          <Groups
-            barHarder={barHarder}
-            barContainer={barContainer}
-            roundedIcon={roundedIcon}
-            isMbar={true}
-            groupsLinks={groupsLinks}
-          />
-          <BorderLine />
-          <button
-            to={`?talling=${`shortcuts`}`}
-            className={` ${barContainer} py-1`}
-          >
-            <p className={`${roundedIcon} text-lg -ml-1 larg:-ml-2 p-1.5`}>
-              <HiLink />
-            </p>
-            <p className={` ${barHarder} `}>See all shortcuts</p>
-            <Active queryTerm={`shortcuts`} />
-          </button>
-          <Footer />
-        </section>
-      </section>
-    </section>
+    <SidelayOut title='lg:w-[300px] dark:bg-dark400 dark:lg:bg-dark500'>
+      <To
+        link='/'
+        title=' group relative hover:bg-inherit lg:hover:bg-light500 lg:dark:hover:bg-dark300 flex flex-row gap-4 items-center w-full  rounded-md   py-2 mt-2'
+      >
+        <Icon.MdHome className='text-3xl text-blue-700' />
+        <Paragraph title={barHarder}>Home</Paragraph>
+        <Active page='home' current={null} />
+      </To>
+      <Profile
+        link='/backface/api/profile'
+        hidden
+        size
+        style={` py-2 ${barContainer}`}
+      />
+      <Demaceta />
+      {SideLinks().map((page, i) => (
+        <SlideLinks page={page} index={i} key={page.title + i} />
+      ))}
+      <Button
+        title={` ${barContainer} py-1 `}
+        functionCall={() => {
+          SideMenu(dispatch, { name: 'menuSideLink', value: true })
+        }}
+      >
+        <Paragraph title={`${roundedIcon} text-lg p-2`}>
+          <Icon.TbGridDots />
+        </Paragraph>
+        <Paragraph title={`${barHarder}`}>See all</Paragraph>
+        <Active page={`menu`} current={null} />
+      </Button>
+      <Demaceta />
+      <Groups
+        barHarder={barHarder}
+        barContainer={barContainer}
+        roundedIcon={roundedIcon}
+        isMbar={true}
+        groupsLinks={groupsLinks}
+      />
+      <Demaceta />
+      <Groups
+        barHarder={barHarder}
+        barContainer={barContainer}
+        roundedIcon={roundedIcon}
+        isMbar={true}
+        groupsLinks={groupsLinks}
+        hiddentab
+      />
+      <Button
+        title={` ${barContainer} py-1 `}
+        functionCall={() => {
+          shortCuts(dispatch, { name: 'shortCut', value: true })
+        }}
+      >
+        <Paragraph title={`${roundedIcon} text-lg p-2`}>
+          <Icon.HiLink />
+        </Paragraph>
+        <Paragraph title={`${barHarder}`}>Shortcuts</Paragraph>
+        <Active page={`menu`} />
+      </Button>
+      <Footer />
+    </SidelayOut>
   )
 }
 

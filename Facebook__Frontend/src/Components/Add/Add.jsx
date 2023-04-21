@@ -5,22 +5,22 @@ const Add = ({ add, setAdd, title, description, img, index }) => {
   const [addOptions, setAddOptions] = useState(false)
   return (
     <>
-      <div className='relative flex flex-row justify-strech gap-4 p-2 w-full rounded-md hover:bg-secondaryWhite dark:hover:bg-darkComplementry cursor-pointer items-center'>
+      <div className='relative flex flex-row justify-strech gap-4 p-2 w-full rounded-md hover:bg-light300 dark:hover:bg-dark300 cursor-pointer items-center'>
         <img
           onClick={() => setAdd(!add)}
           src={img}
           alt='add'
           className={`${
             index === 1
-              ? 'larg:h-24 h-20 larg:w-[110px] w-[94px]'
-              : 'larg:h-24 h-20 larg:w-[110px] w-[94px]'
+              ? 'lg:h-24 h-20 lg:w-[110px] w-[94px]'
+              : 'lg:h-24 h-20 lg:w-[110px] w-[94px]'
           } rounded-md object-fit`}
         />
         <div className=''>
-          <h3 className='text-sm larg:text-md  dark:text-heading_dark_white font-semibold text-gray-900 uppercase'>
+          <h3 className='text-sm lg:text-md  dark:text-thdark500 font-semibold text-gray-900 uppercase'>
             {title}
           </h3>
-          <p className=' larg:text-[15px] text-xs text-gray-500 dark:text-heading_dark_gray'>
+          <p className=' lg:text-[15px] text-xs text-gray-500 dark:text-thlight500'>
             {description}
           </p>
         </div>

@@ -1,75 +1,98 @@
 import React from 'react'
+
+//import react-router-dom module
 import { Link } from 'react-router-dom'
 
+//import component
 import Groups from '../Groups'
 import { Active, Profile } from '../index'
 import { SideLinks } from '../../utils/LWRef'
+import { Button, Demaceta, Paragraph, To } from '../RDOMC'
+
+//import context
 import { useGlobalContext } from '../../Context/UseContext'
+
+//import data
 import { groupsLinks } from '../../utils/links'
-import { BorderLine } from '../RDOMC'
+
+//import icons
 import { Icon } from '../../utils/Icon'
 
-const MSideBar = () => {
-  const { menuSl, setMenuSl, setShortCutSl, setGroupSl } = useGlobalContext()
-  const barContainer =
-    'relative hover:bg-inherit xl:hover:bg-primary xl:dark:hover:bg-darkComplementry flex flex-row gap-2 items-center w-full  rounded-md'
-  const roundedIcon =
-    ' dark:bg-darkComplementry dark:text-white text-black rounded-full  bg-primaryWhite'
-  return (
-    <div className=' hidden small:flex dark:border-r dark:xl:border-0 dark:border-borderDark  dark:bg-darkSecondary overflow-hidden hover:overflow-auto w-max  bg-white pt-4 pl-2 pr-2 '>
-      <div className='flex flex-col justify-start items-baseline larg:w-full h-fit pb-2 pl-2 pr-2'>
-        <Link to={`/`} className={` ${barContainer} p-0 py-2`}>
-          <p className='text-3xl text-heading_dark_white'>
-            <Icon.MdHome />
-          </p>
-          <Active queryTerm={`home`} homeTerm={null} />
-        </Link>
-        <Profile link={`/backface/api/profile`} size />
-        <BorderLine />
-        {SideLinks().map((page, i) => (
-          <Link
-            key={i + page.title}
-            to={`/${page.url}?talling=${page.title}`}
-            className='relative xl:pl-3 p-0 xl:dark:hover:bg-darkComplementry xl:hover:bg-primary hover:bg-inherit mt-0.5 mb-0.5 flex flex-row gap-2 items-center w-full py-2 rounded-md'
-          >
-            <p className='text-xl larg:text-2xl pl-1.5'>{page.icon}</p>
+//import reducer actions
+import { SideMenu, shortCuts } from '../../Actions'
 
-            <Active queryTerm={page.title} homeTerm={null} />
-          </Link>
-        ))}
-        <button
-          onClick={() => {
-            setMenuSl(!menuSl)
-            setGroupSl(false)
-            setShortCutSl(false)
-          }}
-          to={`?talling=${`menu`}`}
-          className={` ${barContainer} xl:pl-1 p-0   py-2 `}
-        >
-          <p className={`${roundedIcon} text-lg -ml-1 xl:-ml-0 p-2 xl:p-2`}>
-            <Icon.TbGridDots />
-          </p>
-          <Active queryTerm={`menu`} homeTerm={null} />
-        </button>
-        <BorderLine />
-        <Groups
-          barContainer={barContainer}
-          roundedIcon={roundedIcon}
-          isMbar={false}
-          groupsLinks={groupsLinks}
-        />
-        <BorderLine />
+// import { barHarder } from '../../utils/useStyles'
+import SidelayOut from './components/layout'
+
+const MSideBar = () => {
+  const {
+    location,
+    value: [controller, dispatch],
+  } = useGlobalContext()
+  const barContainer =
+    'relative hover:bg-inherit xl:hover:bg-light500 xl:dark:hover:bg-dark300 flex flex-row items-center w-full rounded-md '
+  const roundedIcon =
+    ' dark:bg-dark300 dark:text-white text-black rounded-full  bg-light400'
+  return (
+    <SidelayOut
+      title='dark:bg-dark400 pr-3 border-r dark:border-border-bd500'
+      padding={location.height}
+    >
+      <To link={`/`} title={` ${barContainer} py-2`}>
+        <Icon.MdHome className='text-3xl text-thdark500' />
+        <Active page={`home`} current={null} />
+      </To>
+      <Profile link={`/backface/api/profile`} size />
+      <Demaceta />
+      {SideLinks().map((page, i) => (
         <Link
-          to={`?talling=${`shortcuts`}`}
-          className={` ${barContainer} xl:pl-1 p-0 mt-3 py-2`}
+          key={i + page.title}
+          to={`/${page.url}?talling=${page.title}`}
+          className='relative  xl:dark:hover:bg-dark300 xl:hover:bg-light500 hover:bg-inherit mt-0.5 mb-0.5 flex flex-row items-center w-full py-2 rounded-md'
         >
-          <p className={`${roundedIcon} text-lg -ml-1 xl:-ml-0 p-2 xl:p-2`}>
-            <Icon.HiLink />
-          </p>
-          <Active queryTerm={`shortcuts`} />
+          {page.icon}
+
+          <Active page={page.title} current={null} />
         </Link>
-      </div>
-    </div>
+      ))}
+      <Button
+        title={` ${barContainer} py-1 `}
+        functionCall={() => {
+          SideMenu(dispatch, { name: 'menuSideLink', value: true })
+        }}
+      >
+        <Paragraph title={`${roundedIcon} text-lg p-2`}>
+          <Icon.TbGridDots />
+        </Paragraph>
+        <Active page={`menu`} current={null} />
+      </Button>
+      <Demaceta />
+      <Groups
+        barContainer={barContainer}
+        roundedIcon={roundedIcon}
+        isMbar={false}
+        groupsLinks={groupsLinks}
+      />
+      <Demaceta />
+      <Groups
+        barContainer={barContainer}
+        roundedIcon={roundedIcon}
+        isMbar={false}
+        groupsLinks={groupsLinks}
+        hiddentab
+      />
+      <Button
+        title={` ${barContainer} py-1 `}
+        functionCall={() => {
+          shortCuts(dispatch, { name: 'shortCut', value: true })
+        }}
+      >
+        <Paragraph title={`${roundedIcon} text-lg p-2`}>
+          <Icon.HiLink />
+        </Paragraph>
+        <Active page='menu' current={null} />
+      </Button>
+    </SidelayOut>
   )
 }
 

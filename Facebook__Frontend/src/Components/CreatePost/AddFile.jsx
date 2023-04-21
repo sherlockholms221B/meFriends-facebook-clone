@@ -2,14 +2,16 @@ import React, { useReducer, useRef } from 'react'
 
 import { useGlobalContext } from '../../Context/UseContext'
 import { Icon } from '../../utils/Icon'
-import reducer from '../../Reducers/GReducer'
 import IMG from '../Posts/IMG'
+import { addFile } from '../../Actions'
 
-const AddPicture = () => {
-  const [state, dispatch] = useReducer(reducer, [])
+const AddFile = () => {
   const pictureRef = useRef(null)
   const pictureRefTwo = useRef(null)
-  const { setAddPictureState } = useGlobalContext()
+  const {
+    setAddPictureState,
+    value: [controller, dispatch],
+  } = useGlobalContext()
 
   const selectPicture = (e) => {
     pictureRef.current.click()
@@ -19,15 +21,20 @@ const AddPicture = () => {
     pictureRefTwo.current.click()
   }
 
+  console.log(controller)
+
   function readURL(input) {
     if (window.File && window.FileReader && window.FileList && window.Blob) {
       for (let index = 0; index < input.files.length; index++) {
-        if (!input.files[index].type.match('image')) continue
-        var reader = new FileReader()
-        reader.onload = function (e) {
-          dispatch({ type: 'add', payload: e.target.result })
+        if (input.files[index].type.match('image')) {
+          var reader = new FileReader()
+          reader.onload = function (e) {
+            addFile(dispatch, { value: e.target.result })
+          }
+          reader.readAsDataURL(input.files[index])
+        } else if (input.files[index].type.match('video')) {
+          console.log(input.files)
         }
-        reader.readAsDataURL(input.files[index])
       }
     } else {
       alert('Your broswer does not support the specified function')
@@ -35,13 +42,18 @@ const AddPicture = () => {
   }
 
   return (
-    <div
+    <section
       className={`relative w-full ${
-        state.length !== 0 ? 'h-fit' : 'h-48'
-      } p-2 rounded-md border-[2px] home_scroll dark:border-borderDark border-gray-400 mb-2 overflow-auto`}
+        controller.postfile.length !== 0 ? 'h-fit' : 'h-48'
+      } p-2 rounded-md border-[2px] home_scroll dark:border-bd500 border-gray-400 mb-2 overflow-auto`}
     >
-      {state.length !== 0 && <IMG postlength={state?.length} post={state} />}
-      {state.length !== 0 && (
+      {controller.postfile.length !== 0 && (
+        <IMG
+          postlength={controller.postfile?.length}
+          post={controller.postfile}
+        />
+      )}
+      {controller.postfile.length !== 0 && (
         <div className='absolute top-0 right-0 left-0 flex justify-between p-5'>
           <div className='flex flex-row gap-3 items-center'>
             <div className='cursor-pointer flex flex-row gap-2 items-center bg-white w-fit  p-2 rounded-md'>
@@ -78,10 +90,10 @@ const AddPicture = () => {
           </p>
         </div>
       )}
-      {state.length === 0 && (
+      {controller.postfile.length === 0 && (
         <div
           onClick={(e) => selectPicture(e)}
-          className='relative  h-full w-full hover:bg-secondaryWhite dark:bg-darkComplementry hover:border-dashed border-2 hover:border-gray-600 dark:border-0 flex flex-col transition-all items-center justify-center rounded-md p-2 cursor-pointer'
+          className='relative  h-full w-full hover:bg-light300 dark:bg-dark300 hover:border-dashed border-2 hover:border-gray-600 dark:border-0 flex flex-col transition-all items-center justify-center rounded-md p-2 cursor-pointer'
         >
           <input
             onChange={({ target }) => {
@@ -102,7 +114,7 @@ const AddPicture = () => {
             or drag and drop
           </p>
           <p
-            className='dark:bg-darkComplementry absolute top-2 right-2 rounded-full hover:bg-secondaryWhite bg-white shadow-xl z-40 p-1 dark:shadow-black dark:shadow-sm'
+            className='dark:bg-dark300 absolute top-2 right-2 rounded-full hover:bg-light300 bg-white shadow-xl z-40 p-1 dark:shadow-black dark:shadow-sm'
             onClick={(e) => {
               e.stopPropagation()
               setAddPictureState(false)
@@ -112,8 +124,8 @@ const AddPicture = () => {
           </p>
         </div>
       )}
-    </div>
+    </section>
   )
 }
 
-export default AddPicture
+export default AddFile

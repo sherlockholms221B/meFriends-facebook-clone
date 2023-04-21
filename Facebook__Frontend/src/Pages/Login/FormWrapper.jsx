@@ -7,13 +7,13 @@ export function FormWrapper({ qustion, title, children }) {
       {qustion && (
         <React.Fragment>
           <Demaceta />
-          <h2 className='text-sm p_sm:text-lg px-4 text-gray-900  dark:text-heading_dark_white font-bold tracking-wide mb-3'>
+          <h2 className='text-sm mdxs:text-lg px-4 text-gray-900  dark:text-thdark500 font-bold tracking-wide mb-3'>
             {qustion}
           </h2>
           <Demaceta />
         </React.Fragment>
       )}
-      <h2 className='px-5 text-center mt-2 mb-4 small:text-md dark:text-heading_dark_gray text-gray-800 text-xs font-medium'>
+      <h2 className='px-5 text-center mt-2 mb-4 mdsm:text-md dark:text-thlight500 text-gray-800 text-xs font-medium'>
         {title && title}
       </h2>
       <section>{children}</section>

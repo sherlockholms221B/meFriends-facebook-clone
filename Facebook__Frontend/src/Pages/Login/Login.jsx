@@ -9,8 +9,8 @@ const Login = () => {
 
   //    ])
   return (
-    <section className='relative w-full h-full flex flex-col justify-start items-center bg-primaryWhite dark:bg-darkPrimary'>
-      <section className='flex flex-col items-center mt-14 w-full p_sm:w-fit'>
+    <section className='relative w-full h-full flex flex-col justify-start items-center bg-light400 dark:bg-dark500'>
+      <section className='flex flex-col items-center mt-14 w-full mdxs:w-fit'>
         <Main />
       </section>
     </section>

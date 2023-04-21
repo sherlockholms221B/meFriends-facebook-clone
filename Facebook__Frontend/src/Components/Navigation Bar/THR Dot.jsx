@@ -18,7 +18,7 @@ const THRDot = () => {
     setMobileMenu,
   } = useGlobalContext()
   return (
-    <section className='flex flex-row gap-2 small:gap-3 items-center'>
+    <section className='flex flex-row gap-2 mdsm:gap-3 items-center'>
       {NavDot1().map(({ icon, alarts, tip, ref }, i) => (
         <ul
           ref={ref}
@@ -35,7 +35,7 @@ const THRDot = () => {
               notificationState,
             })
           }
-          className={`relative hidden small:block p-2.5 dark:bg-darkComplementry  ${tip} rounded-full bg-secondaryWhite  hover:bg-primaryWhite
+          className={`relative hidden mdsm:block p-2.5 dark:bg-dark300  ${tip} rounded-full bg-light300  hover:bg-light400
             cursor-pointer`}
           key={i + alarts}
         >
@@ -53,12 +53,12 @@ const THRDot = () => {
         </ul>
       ))}
       <Link
-        to={`api/search/random?srid=${437353034034503059593593050}`}
+        to={`/api/search/random?srid=${437353034034503059593593050}`}
         onClick={() => {}}
-        className={`relative small:hidden p-0.5 xtra_small:p-1.5 dark:bg-darkComplementry rounded-full bg-secondaryWhite  hover:bg-primaryWhite
+        className={`relative mdsm:hidden p-0.5 xs:p-1.5 dark:bg-dark300 rounded-full bg-light300  hover:bg-light400
             cursor-pointer`}
       >
-        <Icon.MdOutlineSearch className='text-xl xtra_small:text-2xl font-semibold dark:text-white' />
+        <Icon.MdOutlineSearch className='text-xl xs:text-2xl font-semibold dark:text-white' />
       </Link>
       <button
         data-tip
@@ -71,8 +71,8 @@ const THRDot = () => {
         }}
       >
         <Profile link={'/'} />
-        <div className='hidden small:flex absolute w-[15px] h-[15px] rounded-full bg-red-600 top-0 right-0 border-2 border-white z-10' />
-        <div className='hidden small:flex absolute bottom-[-3px] dark:ring-slate-800 dark:bg-darkComplementry right-0 rounded-full bg-secondaryWhite border-white  ring-2 ring-white w-4 h-4  justify-center items-center'>
+        <div className='hidden mdsm:flex absolute w-[15px] h-[15px] rounded-full bg-red-600 top-0 right-0 border-2 border-white z-10' />
+        <div className='hidden mdsm:flex absolute bottom-[-3px] dark:ring-slate-800 dark:bg-dark300 right-0 rounded-full bg-light300 border-white  ring-2 ring-white w-4 h-4  justify-center items-center'>
           <MdOutlineExpandMore className='text-tablet dark:text-white text-black font-bold' />
         </div>
         <ToolTip
@@ -87,10 +87,10 @@ const THRDot = () => {
         onClick={() => {
           setMobileMenu(true)
         }}
-        className={`relative small:hidden p-0.5 xtra_small:p-1.5 dark:bg-darkComplementry rounded-full bg-secondaryWhite  tablet:hover:bg-primaryWhite
+        className={`relative mdsm:hidden p-0.5 xs:p-1.5 dark:bg-dark300 rounded-full bg-light300  tab:hover:bg-light400
             cursor-pointer`}
       >
-        <MdMenu className='text-xl xtra_small:text-2xl font-semibold dark:text-white' />
+        <MdMenu className='text-xl xs:text-2xl font-semibold dark:text-white' />
       </button>
     </section>
   )

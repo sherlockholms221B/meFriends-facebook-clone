@@ -27,11 +27,11 @@ export function LogIn({
         onClick={() => {}}
         className='absolute top-0 right-0 left-0 bg-[#0c4aad47] w-full flex flex-row justify-center items-center py-3 px-2'
       >
-        <h3 className='text-blue-700 font-semibold text-xs xtra_small:text-sm p_sm:text-md tracking-normal'>
+        <h3 className='text-blue-700 font-semibold text-xs xs:text-sm mdxs:text-md tracking-normal'>
           Get meFriends for andriod and browse faster
         </h3>
       </section>
-      <section className='w-full h-fit flex-col flex justify-center p_sm:p-4 px-2 items-center gap-y-5'>
+      <section className='w-full h-fit flex-col flex justify-center mdxs:p-4 px-2 items-center gap-y-5'>
         {wrongeDataType.msg && (
           <p className='text-red-700 tracking-wide capitalize'>
             {wrongeDataType.msg}
@@ -47,7 +47,6 @@ export function LogIn({
         />
         <Input
           placeholder={'Password'}
-          autoFocus
           name='login'
           type='password'
           value={password}
@@ -73,7 +72,7 @@ export function LogIn({
         </p>
         <Demaceta />
         <button
-          className=' text-white font-bold md_lg:text-xl text-md p-2 rounded-md bg-green-500 hover:bg-green-600 w-[90%]'
+          className=' text-white font-bold xlg:text-xl text-md p-2 rounded-md bg-green-500 hover:bg-green-600 w-[90%]'
           onClick={() => next()}
         >
           Create new account

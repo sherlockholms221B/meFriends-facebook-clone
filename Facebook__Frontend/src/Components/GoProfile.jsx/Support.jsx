@@ -58,10 +58,10 @@ const Support = () => {
               })
             }
             key={i + title}
-            className={`  ${title} hover:bg-darkComplementry hover:bg-secondaryWhite p-2 w-full rounded-md cursor-pointer`}
+            className={`  ${title} hover:bg-dark300 hover:bg-light300 p-2 w-full rounded-md cursor-pointer`}
           >
             <div className='flex flex-row items-center gap-2 w-fit '>
-              <p className='text-xl rounded-full  dark:bg-darkComplementry dark:text-heading_dark_white bg-gray-200 p-2 w-fit h-fit'>
+              <p className='text-xl rounded-full  dark:bg-dark300 dark:text-thdark500 bg-gray-200 p-2 w-fit h-fit'>
                 {icon}
               </p>
               <h4 className='text-gray-900 font-medium dark:text-white'>

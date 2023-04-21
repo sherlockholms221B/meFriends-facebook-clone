@@ -24,7 +24,7 @@ const MenuPageUrl = (Component) =>
             <Navbar />
             <section
               style={{ paddingTop: `${location.height}px` }}
-              className='flex items-center justify-center overflow-auto h-full w-full items-strech mid_small:justify-between  backdrop-filter backdrop-saturate-100 backdrop-brightness-50 backdrop-opacity-100 backdrop-contrast-100
+              className='flex items-center justify-center overflow-auto h-full w-full items-strech sm:justify-between  backdrop-filter backdrop-saturate-100 backdrop-brightness-50 backdrop-opacity-100 backdrop-contrast-100
               '
             >
               <MSideBar />
@@ -33,7 +33,7 @@ const MenuPageUrl = (Component) =>
                   animate={{ x: [200, 0] }}
                   whileInView={{ opacity: [0, 1] }}
                   transition={{ duration: 0.3, ease: 'easeInOut' }}
-                  className=' dark:bg-darkComplementry h-full max-w-[620px] min-w-[260px] opacity-0 overflow-hidden flex items-center justify-center border-r dark:border-borderDark border-gray-600'
+                  className=' dark:bg-dark300 h-full max-w-[620px] min-w-[260px] opacity-0 overflow-hidden flex items-center justify-center border-r dark:border-bd500 border-gray-600'
                 >
                   {(menuSideLink || groupSlideLink || shortCut) && (
                     <Component />

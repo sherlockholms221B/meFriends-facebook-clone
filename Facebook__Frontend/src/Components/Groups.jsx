@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom'
 
 import { Active } from './index'
 import { useGlobalContext } from '../Context/UseContext'
+import { Button, Paragraph } from './RDOMC'
+import { sideGroup } from '../Actions'
+import { Icon } from '../utils/Icon'
 
 const Groups = ({
   isMbar,
@@ -11,8 +14,12 @@ const Groups = ({
   barContainer,
   roundedIcon,
   groupsLinks,
+  hiddentab,
 }) => {
-  const { dynamicLocation } = useGlobalContext()
+  const {
+    dynamicLocation,
+    value: [controller, dispatch],
+  } = useGlobalContext()
   return (
     <>
       {groupsLinks.map(({ img, name }) => (
@@ -28,8 +35,8 @@ const Groups = ({
           key={name}
           className={` ${
             !isMbar
-              ? ''
-              : 'pl-2 larg:hover:bg-primary  larg:dark:hover:bg-darkComplementry hover:bg-inherit'
+              ? 'pl-1'
+              : 'pl-2 lg:hover:bg-light500  lg:dark:hover:bg-dark300 hover:bg-inherit'
           } relative mb-0.5 flex flex-row gap-4 items-center w-full py-2 rounded-md`}
         >
           <img
@@ -41,27 +48,27 @@ const Groups = ({
           {isMbar && (
             <h3
               onMouseOver={(e) => e.stopPropagation()}
-              className={`dark:text-white hidden larg:block text-md font-semibold text-gray-900 `}
+              className={`dark:text-white hidden lg:block text-md font-semibold text-gray-900 `}
             >
               {name}
             </h3>
           )}
         </Link>
       ))}
-      <Link
-        to={`?talling=${`groups`}`}
-        className={` ${barContainer} ${!isMbar ? '' : 'larg:pl-1'} py-1 `}
-      >
-        <p
-          className={`${roundedIcon} ${
-            !isMbar ? '' : 'larg:-ml-0 larg:p-2'
-          } text-lg -ml-1 p-2 `}
+      {!hiddentab && (
+        <Button
+          title={` ${barContainer} py-1 `}
+          functionCall={() => {
+            sideGroup(dispatch, { name: 'groupSlideLink', value: true })
+          }}
         >
-          <MdGroups />
-        </p>
-        {isMbar && <p className={barHarder}>See all groups</p>}
-        <Active queryTerm={`groups`} homeTerm={null} />
-      </Link>
+          <Paragraph title={`${roundedIcon} text-lg p-2 `}>
+            <Icon.MdGroups />
+          </Paragraph>
+          {isMbar && <p className={barHarder}>See all groups</p>}
+          <Active page={`menu`} current={null} />
+        </Button>
+      )}
     </>
   )
 }

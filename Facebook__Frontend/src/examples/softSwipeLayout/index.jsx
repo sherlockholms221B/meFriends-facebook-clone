@@ -38,7 +38,7 @@ const SoftSwipeLayout = ({ data, title }) => {
     <React.Fragment>
       <section className=' h-60 flex flex-row items-center justify-start swiper relative p-2'>
         <section className='swiper-slide flex justify-center items-center ring-2 dark:ring-slate-700 ring-white rounded-lg shadow-md shadow-slate-700 w-full h-60'>
-          <figure className='group dark:bg-darkSecondary flex flex-col w-full h-full rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out relative text-center'>
+          <figure className='group dark:bg-dark400 flex flex-col w-full h-full rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out relative text-center'>
             <img
               src={urlFor(userProfile?.profileImage.asset).url()}
               alt='str'

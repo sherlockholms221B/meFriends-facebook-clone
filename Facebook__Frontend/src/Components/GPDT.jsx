@@ -13,10 +13,10 @@ const GPDT = () => {
         <img
           src={person_nine}
           alt='add'
-          className='larg:h-24 h-20 larg:w-[110px] w-[94px] rounded-md object-cover'
+          className='lg:h-24 h-20 lg:w-[110px] w-[94px] rounded-md object-cover'
         />
         <article className='flex flex-col gap-3'>
-          <h3 className='text-xl dark:text-heading_dark_white font-semibold brightness-125'>
+          <h3 className='text-xl dark:text-thdark500 font-semibold brightness-125'>
             Programmers
           </h3>
           {[
@@ -31,7 +31,7 @@ const GPDT = () => {
           ].map(({ title, icon }, i) => (
             <div className='flex_row gap-2' key={i}>
               <p className='light_text_gray font-normal text-2xl'>{icon}</p>
-              <h2 className='light_text_gray dark:text-heading_dark_gray font-normal text-lg text-center'>
+              <h2 className='light_text_gray dark:text-thlight500 font-normal text-lg text-center'>
                 {title}
               </h2>
             </div>

@@ -17,7 +17,7 @@ const Messages = () => {
     <>
       <section className='flex flex-col gap-2 p-3 rounded-t-lg'>
         <div className='flex flex-row w-full justify-between items-center'>
-          <h3 className='text-2xl font-bold text-gray-900 dark:text-heading_dark_white'>
+          <h3 className='text-2xl font-bold text-gray-900 dark:text-thdark500'>
             Chats
           </h3>
           <article className='flex flex-row gap-2 items-center pl-1'>
@@ -34,13 +34,13 @@ const Messages = () => {
               },
             ].map((option, i) => (
               <article
-                className='rounded-full p-2 dark:hover:bg-darkComplementry hover:bg-secondaryWhite cursor-pointer'
+                className='rounded-full p-2 dark:hover:bg-dark300 hover:bg-light300 cursor-pointer'
                 key={i}
               >
                 <p
                   className={`  ${i === 1 ? 'text-sm' : 'text-2xl'} ${
                     i === 3 && 'text-md -ml-1'
-                  }  text-gray-600 dark:text-heading_dark_gray`}
+                  }  text-gray-600 dark:text-thlight500`}
                 >
                   {option.icon}
                 </p>
@@ -56,7 +56,7 @@ const Messages = () => {
             handleChange={(e) => setSearchChats(e.target.value)}
             value={searchChats}
           />
-          <MdOutlineSearch className='absolute top-2 left-6 text-gray-600 dark:text-heading_dark_gray text-2xl cursor-pointer ' />
+          <MdOutlineSearch className='absolute top-2 left-6 text-gray-600 dark:text-thlight500 text-2xl cursor-pointer ' />
         </section>
         <article className='w-full flex flex-row flex-nowrap justify-start items-center gap-4 pl-2 mt-2'>
           {[
@@ -69,7 +69,7 @@ const Messages = () => {
           ].map(({ title, i }) => (
             <p
               key={i}
-              className='text-md dark:text-heading_dark_white capitalize rounded-full py-0.5 px-2 font-medium bg-blue-600 brightness-125'
+              className='text-md dark:text-thdark500 capitalize rounded-full py-0.5 px-2 font-medium bg-blue-600 brightness-125'
             >
               {title}
             </p>
@@ -80,7 +80,7 @@ const Messages = () => {
         {comments.map(
           ({ creator, profile: [{ profileImage, createdAt }], comment }, i) => (
             <div
-              className='w-full flex flex-row gap-3 cursor-pointer dark:hover:bg-darkComplementry  hover:bg-slate-200 px-2 py-1.5 mt-0.5 mb-0.5 rounded-md'
+              className='w-full flex flex-row gap-3 cursor-pointer dark:hover:bg-dark300  hover:bg-slate-200 px-2 py-1.5 mt-0.5 mb-0.5 rounded-md'
               key={i + creator}
               onClick={() => {
                 setMessageState(false)
@@ -93,10 +93,10 @@ const Messages = () => {
                 className='w-10 h-10 rounded-full'
               />
               <article className=''>
-                <h3 className='capitalize text-black dark:text-heading_dark_white hidden larg:block text-lg font-medium'>
+                <h3 className='capitalize text-black dark:text-thdark500 hidden lg:block text-lg font-medium'>
                   {creator}
                 </h3>
-                <article className='flex_row gap-2 dark:text-heading_dark_gray'>
+                <article className='flex_row gap-2 dark:text-thlight500'>
                   <h3 className='text-sm'>
                     {`${comment.substring(0, randomNumberGenerator(9, 21))}...`}
                   </h3>
@@ -109,7 +109,7 @@ const Messages = () => {
           )
         )}
       </section>
-      <section className='flex justify-center items-center border-t-[1px] dark:border-borderDark border-t-slate-300 p-3 rounded-b-lg '>
+      <section className='flex justify-center items-center border-t-[1px] dark:border-bd500 border-t-slate-300 p-3 rounded-b-lg '>
         <h4 className='deep_blue cursor-pointer hover:underline'>
           See all in Messenger
         </h4>

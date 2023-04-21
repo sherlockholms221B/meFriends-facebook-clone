@@ -9,7 +9,7 @@ import useAuthStore from '../Store/AuthStore'
 const Protector = ({ children }) => {
   const { userProfile } = useAuthStore()
 
-  const [user, setUser] = React.useState(userProfile)
+  const [user, setUser] = React.useState(true)
 
   return user ? children : <Navigate to={`/dashbord/api-me-friends/login`} />
 }

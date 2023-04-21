@@ -62,20 +62,20 @@ const Display = () => {
           <div
             className={` ${
               options.length === 0 ? 'items-center' : 'items-start'
-            }  ${i === 1 ? 'hidden mid_small:flex' : 'flex'} flex-row gap-2 `}
+            }  ${i === 1 ? 'hidden sm:flex' : 'flex'} flex-row gap-2 `}
             key={i}
           >
-            <i className='text-xl rounded-full  dark:bg-darkComplementry dark:text-heading_dark_white bg-gray-200 p-3 w-fit h-fit'>
+            <i className='text-xl rounded-full  dark:bg-dark300 dark:text-thdark500 bg-gray-200 p-3 w-fit h-fit'>
               {icon}
             </i>
             <div className=''>
-              <h4 className='text-xl font-medium text-gray-900 dark:text-heading_dark_white'>
+              <h4 className='text-xl font-medium text-gray-900 dark:text-thdark500'>
                 {title}{' '}
               </h4>
               <p className='text-md text-gray-500 font-normal'> {desc} </p>
               {options.map((items, i) => (
                 <button
-                  className={` ${items.class} mt-2.5 mb-2.5 w-full cursor-pointer dark:hover:bg-darkComplementry hover:bg-primary p-2 rounded-md`}
+                  className={` ${items.class} mt-2.5 mb-2.5 w-full cursor-pointer dark:hover:bg-dark300 hover:bg-light500 p-2 rounded-md`}
                   key={i}
                   ref={items.ref}
                   onClick={() => {
@@ -87,7 +87,7 @@ const Display = () => {
                     className='flex flex-row justify-between items-center'
                   >
                     <div className='flex flex-col items-start text-start w-fit'>
-                      <h4 className='text-lg capitalize font-medium text-gray-900 dark:text-heading_dark_white'>
+                      <h4 className='text-lg capitalize font-medium text-gray-900 dark:text-thdark500'>
                         {items.switch}
                       </h4>
                       {items.isDesc && (
@@ -101,7 +101,7 @@ const Display = () => {
                         theme === items.class
                           ? 'relative bg-inherit before:w-2 before:h-2 before:bg-blue-500 before:absolute before:rounded-full before:translate-y-1/2 before:-translate-x-1/2 ring-blue-500 before:top-auto before:right-auto ring-2'
                           : 'ring-2 dark:ring-white ring-gray-500'
-                      }  mid_small:h-4 h-3 mid_small:w-4 w-3 rounded-full transition-colors `}
+                      }  sm:h-4 h-3 sm:w-4 w-3 rounded-full transition-colors `}
                     />
                   </div>
                 </button>
@@ -109,16 +109,16 @@ const Display = () => {
             </div>
           </div>
         ))}
-        <div className='hidden items-center mid_small:flex flex-row justify-between cursor-pointer  hover:bg-primary p-2 rounded-md'>
+        <div className='hidden items-center sm:flex flex-row justify-between cursor-pointer  hover:bg-light500 p-2 rounded-md'>
           <article className='flex flex-row gap-2 items-center'>
-            <p className='text-xl  dark:bg-darkComplementry dark:text-heading_dark_white rounded-full bg-gray-200 p-3 w-fit h-fit'>
+            <p className='text-xl  dark:bg-dark300 dark:text-thdark500 rounded-full bg-gray-200 p-3 w-fit h-fit'>
               <Icon.BsFillKeyboardFill />
             </p>
-            <h4 className='text-xl font-medium text-gray-900 dark:text-heading_dark_white'>
+            <h4 className='text-xl font-medium text-gray-900 dark:text-thdark500'>
               keyboard{' '}
             </h4>
           </article>
-          <p className='font-medium text-2xl dark:text-heading_dark_white'>
+          <p className='font-medium text-2xl dark:text-thdark500'>
             <Icon.MdOutlineArrowForwardIos />
           </p>
         </div>

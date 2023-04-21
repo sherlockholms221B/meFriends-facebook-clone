@@ -128,7 +128,7 @@ function Main() {
   }, [wrongeDataType.msg])
 
   return (
-    <section className=' bg-white dark:bg-darkPrimary rounded-sm w-full p_sm:w-[450px] medium:w-[760px] text-center'>
+    <section className=' bg-white dark:bg-dark500 rounded-sm w-full mdxs:w-[450px] md:w-[760px] text-center'>
       {!isFirstStep && (
         <section
           role='button'
@@ -137,8 +137,8 @@ function Main() {
           }}
           className='absolute top-0 right-0 left-0 bg-[#0c4aad47] w-full flex flex-row justify-start gap-4 items-center py-3 px-2'
         >
-          <Icon.MdArrowBack className='text-xl small:text-2xl dark:text-heading_dark_white text-gray-800' />
-          <h3 className='dark:text-heading_dark_white text-gray-800 font-semibold text-xs xtra_small:text-sm p_sm:text-md tracking-normal underline'>
+          <Icon.MdArrowBack className='text-xl mdsm:text-2xl dark:text-thdark500 text-gray-800' />
+          <h3 className='dark:text-thdark500 text-gray-800 font-semibold text-xs xs:text-sm mdxs:text-md tracking-normal underline'>
             Join Mefriends
           </h3>
         </section>
@@ -146,7 +146,7 @@ function Main() {
       {isFirstStep && (
         <React.Fragment>
           <Demaceta />
-          <h2 className='text-xl text-blue-800 p_sm:text-5xl font-bold tracking-wide mb-3'>
+          <h2 className='text-xl text-blue-800 mdxs:text-5xl font-bold tracking-wide mb-3'>
             MeFriends
           </h2>
           <Demaceta />

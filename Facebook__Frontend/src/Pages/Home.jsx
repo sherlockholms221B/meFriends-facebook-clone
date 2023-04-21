@@ -39,7 +39,7 @@ export default function Home() {
     let template
     if (loading) {
       template = (
-        <section className='dark:bg-darkPrimary bg-white text-center flex flex-col items-center justify-center w-screen h-screen'>
+        <section className='dark:bg-dark500 bg-white text-center flex flex-col items-center justify-center w-screen h-full'>
           <figure className=' text-center blue_text'>
             <img src={logo} alt='src logo' className='w-16 h-16 object-cover' />
             <figcaption className='text-center flex flex-col justify-center items-center'>
@@ -60,13 +60,13 @@ export default function Home() {
         <Navbar />
         <section
           style={{ paddingTop: `${location.height}px` }}
-          className='flex items-strech justify-center mid_small:justify-between  dark:bg-darkPrimary relative h-screen w-screen bg-primary'
+          className='flex items-strech justify-center sm:justify-between  dark:bg-dark500 relative h-screen w-screen bg-light500'
         >
           <SideBar />
           <Feeds profile />
           <Advertisment />
         </section>
-        <section className='absolute bottom-5 dark:bg-darkComplementry p-3 right-5 rounded-full flex items-center justify-center cursor-pointer hover:brightness-125 border border-slate-800'>
+        <section className='absolute bottom-5 dark:bg-dark300 p-3 right-5 rounded-full flex items-center justify-center cursor-pointer hover:brightness-125 border border-slate-800'>
           <FaEdit className='text-white text-xl' />
         </section>
       </React.Fragment>

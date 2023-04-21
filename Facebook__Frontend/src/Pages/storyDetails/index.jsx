@@ -23,19 +23,19 @@ const StoryDetails = () => {
 
   return (
     <React.Fragment>
-      <section className='flex flex-col tablet:flex-row items-center w-screen h-screen '>
-        <aside className='tablet:w-550 dark:bg-darkSecondary h-full flex flex-col'>
+      <section className='flex flex-col tab:flex-row items-center w-screen h-screen '>
+        <aside className='tab:w-550 dark:bg-dark400 h-full flex flex-col'>
           <section className='flex items-center justify-start gap-3 p-2 w-full'>
             <Icon.MdClose
-              className='text-3xl dark:text-heading_dark_white'
+              className='text-3xl dark:text-thdark500'
               onClick={() => navigate(-1)}
             />
             <Icon.MdOutlineFacebook className='text-5xl shade_blue' />
           </section>
-          <hr className='dark:border-borderDark border-black' />
+          <hr className='dark:border-bd500 border-black' />
           <section className='p-4 h-full overflow-y-auto flex flex-col gap-4'>
             <article className='w-full text-start'>
-              <h5 className='text-3xl text-gray-800 dark:text-heading_dark_white brightness-105 tracking-wide'>
+              <h5 className='text-3xl text-gray-800 dark:text-thdark500 brightness-105 tracking-wide'>
                 <strong>Stories</strong>
               </h5>
               <SoftButton
@@ -54,7 +54,7 @@ const StoryDetails = () => {
               </SoftButton>
             </article>
 
-            <b className=' dark:text-heading_dark_white text-black tracking-normal'>
+            <b className=' dark:text-thdark500 text-black tracking-normal'>
               Your story
             </b>
             <Button
@@ -63,7 +63,7 @@ const StoryDetails = () => {
             >
               <Button
                 functionCall={() => {}}
-                title='p-3 bg-darkComplementry rounded-full'
+                title='p-3 bg-dark300 rounded-full'
               >
                 <Icon.HiPlusSm className='text-blue-400' fontSize={50} />
               </Button>
@@ -71,12 +71,12 @@ const StoryDetails = () => {
                 <h5 className='dark:text-white text-black'>
                   <b>Create a stroy</b>
                 </h5>
-                <p className='text-black dark:text-heading_dark_gray text-sm'>
+                <p className='text-black dark:text-thlight500 text-sm'>
                   Share a photo or write something
                 </p>
               </Button>
             </Button>
-            <b className=' dark:text-heading_dark_white text-black tracking-normal'>
+            <b className=' dark:text-thdark500 text-black tracking-normal'>
               All stories
             </b>
             {posts.map(
@@ -93,7 +93,7 @@ const StoryDetails = () => {
                 <button
                   key={index}
                   type='button '
-                  className='w-full hover:bg-darkComplementry p-3 rounded-md'
+                  className='w-full hover:bg-dark300 p-3 rounded-md'
                 >
                   <figure className='flex flex-row items-center gap-3'>
                     <img
@@ -102,7 +102,7 @@ const StoryDetails = () => {
                       className='h-16 w-16 rounded-full ring-4 ring-blue-600'
                     />
                     <figcaption className='flex flex-col text-start'>
-                      <h5 className='capitalize dark:text-heading_dark_white text-black brightness-95'>
+                      <h5 className='capitalize dark:text-thdark500 text-black brightness-95'>
                         <b>{creator}</b>
                       </h5>
                       <article className='flex flex-row '>
@@ -114,7 +114,7 @@ const StoryDetails = () => {
                             .
                           </strong>
                         </center>
-                        <u className='dark:text-heading_dark_gray text-black text-base ml-1'>
+                        <u className='dark:text-thlight500 text-black text-base ml-1'>
                           {moment(createdAt).fromNow()}
                         </u>
                       </article>

@@ -10,17 +10,17 @@ import { Input } from '../../Components'
 
 const GroupSl = () => {
   return (
-    <section className='dark:bg-darkSecondary flex flex-col w-[400px] h-full vertical_scroll px-3 items-start pt-3 pb-3 text-start'>
+    <section className='dark:bg-dark400 flex flex-col w-[400px] h-full vertical_scroll px-3 items-start pt-3 pb-3 text-start'>
       <article className='pl-3 w-full text-start flex justify-between items-center'>
-        <h5 className='text-2xl text-gray-800 dark:text-heading_dark_white font-semibold brightness-105 tracking-wide'>
+        <h5 className='text-2xl text-gray-800 dark:text-thdark500 font-semibold brightness-105 tracking-wide'>
           Groups
         </h5>
         <SoftButton
           rounded
-          title='dark:bg-darkComplementry bg-gray-200 p-2 rounded-full'
+          title='dark:bg-dark300 bg-gray-200 p-2 rounded-full'
           functionCall={() => {}}
         >
-          <Icon.MdSettings className='text-xl dark:text-heading_dark_white' />
+          <Icon.MdSettings className='text-xl dark:text-thdark500' />
         </SoftButton>
       </article>
       <section className='relative rounded-full w-full h-fit my-3'>
@@ -61,7 +61,7 @@ const GroupSl = () => {
         Create new group
       </SoftButton>
       <Demaceta />
-      <h5 className='text-lg text-gray-800 dark:text-heading_dark_white font-semibold brightness-105 tracking-wide'>
+      <h5 className='text-lg text-gray-800 dark:text-thdark500 font-semibold brightness-105 tracking-wide'>
         Groups you manage
       </h5>
     </section>

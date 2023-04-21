@@ -5,13 +5,11 @@ import { storiesbox } from '../../utils/constants'
 
 const Friends = () => {
   return (
-    <section className='bg-white dark:bg-darkSecondary rounded-lg p-3 flex flex-col gap-5  '>
+    <section className='bg-white dark:bg-dark400 rounded-lg p-3 flex flex-col gap-5  '>
       <div className='flex items-start justify-between'>
         <article>
-          <h2 className='text-xl font-bold dark:text-heading_dark_white'>
-            Friends
-          </h2>
-          <p className='text-md text-gray-500 dark:text-heading_dark_gray'>
+          <h2 className='text-xl font-bold dark:text-thdark500'>Friends</h2>
+          <p className='text-md text-gray-500 dark:text-thlight500'>
             4,108 friends
           </p>
         </article>
@@ -24,12 +22,12 @@ const Friends = () => {
         {storiesbox.map(({ creator, talling }, i) => (
           <figure
             key={i}
-            className={`${i > 8 && 'hidden'} p_sm:w-28 w-20 h-fit`}
+            className={`${i > 8 && 'hidden'} mdxs:w-28 w-20 h-fit`}
           >
             <img
               src={talling}
               alt='friends'
-              className={`p_sm:w-28 p_sm:h-28 w-20 h-20 ${
+              className={`mdxs:w-28 mdxs:h-28 w-20 h-20 ${
                 i > 8 && 'hidden'
               }  rounded-xl flex-1 `}
             />
@@ -37,7 +35,7 @@ const Friends = () => {
               <h3
                 className={`${
                   i > 8 && 'hidden'
-                } dark:text-heading_dark_white capitalize text-md text-start`}
+                } dark:text-thdark500 capitalize text-md text-start`}
               >
                 {creator}
               </h3>

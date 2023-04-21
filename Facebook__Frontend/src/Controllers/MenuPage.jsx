@@ -13,20 +13,20 @@ const MenuPage = (Component, ComponentBtn, idName) =>
     const { location } = useGlobalContext()
 
     return (
-      <>
+      <React.Fragment>
         <Navbar />
         <div
           style={{ paddingTop: `${location.height}px` }}
-          className='flex items-center justify-center dark:bg-darkPrimary relative h-screen w-screen bg-primary overflow-hidden'
+          className='flex items-center justify-center dark:bg-dark500 relative h-screen w-screen bg-light500 overflow-hidden'
         >
-          <div className=' flex items-strech mid_small:justify-between w-[100vw] h-[100%]'>
+          <div className=' flex items-strech sm:justify-between w-screen h-screen'>
             <MSideBar />
             <div className=' min-w-[260px] w-full  h-full relative'>
-              <div className='flex_row w-screen h-screen '>
+              <div className='flex flex-col mdxs:flex-row items-center w-screen h-screen '>
                 <motion.div
                   whileInView={{ opacity: [0, 1] }}
                   transition={{ duration: 1, ease: 'easeInOut' }}
-                  className='w-550 dark:bg-darkSecondary h-full overflow-hidden flex items-start justify-center border-r-2 dark:border-borderDark'
+                  className='sm:w-550 w-full dark:bg-dark400 h-full overflow-hidden flex items-start justify-center border-r-2 dark:border-bd500'
                 >
                   {idName && <ComponentBtn />}
                 </motion.div>
@@ -45,7 +45,7 @@ const MenuPage = (Component, ComponentBtn, idName) =>
             </div>
           </div>
         </div>
-      </>
+      </React.Fragment>
     )
   }
 

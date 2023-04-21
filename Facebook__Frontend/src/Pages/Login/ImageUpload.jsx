@@ -14,7 +14,7 @@ export function ProfileUpload({ updateFields, profile, setProfile }) {
       <section className='w-full h-fit flex-col flex justify-center p-4 items-center gap-y-5'>
         <div className='flex flex-col justify-center items-center outline-none w-full h-fit'>
           {isloading ? (
-            <p className='text-lg capitalize tracking-wide font-medium dark:text-heading_dark_white text-gray-800 '>
+            <p className='text-lg capitalize tracking-wide font-medium dark:text-thdark500 text-gray-800 '>
               uploading...
             </p>
           ) : (

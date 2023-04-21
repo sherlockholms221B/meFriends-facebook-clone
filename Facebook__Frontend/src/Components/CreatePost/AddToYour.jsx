@@ -11,7 +11,7 @@ const AddToYour = () => {
     <div
       className={` ${
         addToYourState ? 'translate_x' : ''
-      }  z-20  w-full h-full rounded-lg dark:border dark:border-borderDark`}
+      }  z-20  w-full h-full rounded-lg dark:border dark:border-bd500`}
     >
       <Head
         title={`Add to your post`}

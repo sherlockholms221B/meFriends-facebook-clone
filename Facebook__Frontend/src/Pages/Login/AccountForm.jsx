@@ -17,7 +17,7 @@ export function AccountForm({ birthDate, updateFields, gender }) {
           handleChange={(e) => updateFields({ gender: e.target.value })}
         />
         <input
-          className='w-full rounded-md p-2 outline-none  bg-primary dark:bg-darkComplementry hover:bg-secondaryWhite  placeholder:text-gray-600 dark:placeholder:text-heading_dark_gray dark:text-white'
+          className='w-full rounded-md p-2 outline-none  bg-light500 dark:bg-dark300 hover:bg-light300  placeholder:text-gray-600 dark:placeholder:text-thlight500 dark:text-white'
           name='login'
           required
           type='date'

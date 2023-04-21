@@ -30,7 +30,7 @@ const HED = () => {
   return (
     <section
       ref={HedRef}
-      className='w-full border-b-2 border-gray-200 bg-gradient-to-b to-white from-slate-200 dark:from-[#3a3b3c] dark:to-[#242526] dark:border-borderDark'
+      className='w-full border-b-2 border-gray-200 bg-gradient-to-b to-white from-slate-200 dark:from-[#3a3b3c] dark:to-[#242526] dark:border-bd500'
     >
       <figure className='max-w-[1000px] w-full mx-auto rounded-b-lg'>
         <img
@@ -39,18 +39,18 @@ const HED = () => {
           className='max-w-[1000px] w-full mx-auto h-458 object-cover rounded-b-lg'
         />
       </figure>
-      <section className='max-w-[1000px] w-full mx-auto flex flex-col small:flex-row border-b-2 border-gray-500 m-auto relative  items-center pt-5 pb-2 px-2 laptop:px-0'>
+      <section className='max-w-[1000px] w-full mx-auto flex flex-col mdsm:flex-row border-b-2 border-gray-500 m-auto relative  items-center pt-5 pb-2 px-2 lap:px-0'>
         <img
           src={urlFor(userProfile?.profileImage?.asset).url()}
           alt='profile'
-          className='absolute -top-11 left-10 small:left-0 w-52 h-52 rounded-full object-cover ring-4 ring-white'
+          className='absolute -top-11 left-10 mdsm:left-0 w-52 h-52 rounded-full object-cover ring-4 ring-white'
         />
-        <div className=' w-60 small:h-10 h-40 rounded-full ' />
+        <div className=' w-60 mdsm:h-10 h-40 rounded-full ' />
         <section className='flex flex-col gap-3 py-3'>
-          <h3 className='text-4xl dark:text-heading_dark_white font-bold'>
+          <h3 className='text-4xl dark:text-thdark500 font-bold'>
             {userProfile?.userName}
           </h3>
-          <p className='text-xl light_text_gray dark:text-heading_dark_gray font-semibold'>
+          <p className='text-xl light_text_gray dark:text-thlight500 font-semibold'>
             4.1k friends
           </p>
           <section className='full h-9'>
@@ -58,14 +58,14 @@ const HED = () => {
           </section>
         </section>
       </section>
-      <section className='max-w-[1000px] w-full mx-auto  m-auto relative flex items-center justify-between py-3 px-2 laptop:px-0'>
+      <section className='max-w-[1000px] w-full mx-auto  m-auto relative flex items-center justify-between py-3 px-2 lap:px-0'>
         <article className='flex items-center gap-4 w-8/12 '>
           {['Post', 'About', 'Friends', 'Photo', 'Vidoe', 'More'].map(
             (item, i) => (
               <p
                 className={`${
-                  i < 5 && i !== 0 && 'hidden mid_small:block'
-                } light_text_gray dark:text-heading_dark_gray font-semibold text-lg cursor-pointer`}
+                  i < 5 && i !== 0 && 'hidden sm:block'
+                } light_text_gray dark:text-thlight500 font-semibold text-lg cursor-pointer`}
                 key={i}
               >
                 {item}
@@ -73,7 +73,7 @@ const HED = () => {
             )
           )}
         </article>
-        <article className='w-fit rounded-md bg-secondaryWhite dark:bg-darkComplementry dark:text-heading_dark_white hover:bg-primaryWhite px-4 py-3'>
+        <article className='w-fit rounded-md bg-light300 dark:bg-dark300 dark:text-thdark500 hover:bg-light400 px-4 py-3'>
           <Icon.MdMoreHoriz className='text-2xl cursor-pointer' />
         </article>
       </section>

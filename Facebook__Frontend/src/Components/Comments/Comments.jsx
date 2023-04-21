@@ -74,7 +74,7 @@ const Comments = ({
             {!viewMore && (
               <button
                 onClick={() => setViewMore(!viewMore)}
-                className='text-sm text-gray-500 dark:text-heading_dark_gray font-medium self-start ml-14 mt-2 animate-pulse'
+                className='text-sm text-gray-500 dark:text-thlight500 font-medium self-start ml-14 mt-2 animate-pulse'
               >
                 see more
               </button>

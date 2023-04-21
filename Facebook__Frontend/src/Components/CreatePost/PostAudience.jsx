@@ -20,7 +20,7 @@ const PostAudience = () => {
     <div
       className={` ${
         postAudienceState ? 'translate_x' : ''
-      }  z-20  w-full h-full rounded-lg dark:border dark:border-borderDark`}
+      }  z-20  w-full h-full rounded-lg dark:border dark:border-bd500`}
     >
       <Head
         title={`Post audience`}
@@ -30,14 +30,14 @@ const PostAudience = () => {
       />
       <div className='max-h-[350px] overflow-auto home_scroll p-2 '>
         <div className=''>
-          <h4 className='text-lg font-semibold text-gray-800 dark:text-heading_dark_white'>
+          <h4 className='text-lg font-semibold text-gray-800 dark:text-thdark500'>
             Who can see your post?
           </h4>
-          <p className='text-md text-gray-500 dark:text-heading_dark_gray'>
+          <p className='text-md text-gray-500 dark:text-thlight500'>
             Your post will appear in Feed, on your profile and in search
             results.
           </p>
-          <p className='text-md text-gray-500  mt-5  dark:text-heading_dark_gray'>
+          <p className='text-md text-gray-500  mt-5  dark:text-thlight500'>
             Your default audience is set to{' '}
             <span className='font-bold'>Public</span>, but you can change the
             audience of this specific post.
@@ -53,20 +53,20 @@ const PostAudience = () => {
                   ref={ref}
                   className={`flex ${id} ${
                     audState === title && 'bg-blue-00'
-                  } justify-between items-center cursor-pointer mt-2 mb-2 p-2 rounded-md dark:hover:bg-darkComplementry group first:border first:dark:hover:bg-darkComplementry first:dark:bg-darkComplementry`}
+                  } justify-between items-center cursor-pointer mt-2 mb-2 p-2 rounded-md dark:hover:bg-dark300 group first:borer first:bg-[#0c4aad2b] first:dark:hover:bg-[#0c4aad47]`}
                   onClick={(e) => {
                     IconHandler({ e, ref, setAudState })
                   }}
                 >
                   <div className='flex items-center gap-2 '>
-                    <p className='rounded-full bg-gray-300 dark:bg-darkComplementry dark:text-heading_dark_white text-lg mid_small:p-4 p-2 group-hover:brightness-150'>
+                    <p className='rounded-full bg-gray-300 dark:bg-dark300 dark:text-thdark500 text-lg sm:p-4 p-2 group-hover:brightness-150'>
                       {icon}
                     </p>
                     <div className='flex flex-col gap-0 '>
-                      <h3 className='xtra_small:text-lg text-md font-semibold text-gray-800 dark:text-heading_dark_white '>
+                      <h3 className='xs:text-lg text-md font-semibold text-gray-800 dark:text-thdark500 '>
                         {title}
                       </h3>
-                      <p className='mid_small:text-md text-xs text-gray-500 dark:text-heading_dark_gray mt-[-5px]'>
+                      <p className='sm:text-md text-xs text-gray-500 dark:text-thlight500 mt-[-5px]'>
                         {description}
                       </p>
                     </div>
@@ -85,7 +85,7 @@ const PostAudience = () => {
           )}
         </div>
       </div>
-      <div className='relative flex flex-col gap-2 border-t-2 dark:border-borderDark border-gray-300 p-3'>
+      <div className='relative flex flex-col gap-2 border-t-2 dark:border-bd500 border-gray-300 p-3'>
         <div className='flex justify-start items-center gap-2'>
           <input
             type='checkbox'
@@ -98,7 +98,7 @@ const PostAudience = () => {
           />
           <label
             htmlFor='default'
-            className='dark:text-heading_dark_white text-gray-600 font-semibold'
+            className='dark:text-thdark500 text-gray-600 font-semibold'
           >
             Set as default audience
           </label>
@@ -108,7 +108,7 @@ const PostAudience = () => {
             onClick={() =>
               previous(setCreatePostState, setPostAudienceState, setGoBack)
             }
-            className='deep_blue font-semibold hover:bg-secondaryWhite py-2 px-4 rounded-sm  '
+            className='deep_blue font-semibold hover:bg-light300 py-2 px-4 rounded-sm  '
             type='button'
           >
             Cancle

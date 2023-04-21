@@ -27,14 +27,14 @@ const Chat = () => {
   return (
     <motion.div
       drag
-      className='absolute bottom-0 right-40 w-[320px] dark:bg-darkSecondary z-10  h-fit rounded-lg dark:border dark:border-borderDark'
+      className='absolute bottom-0 right-40 w-[320px] dark:bg-dark400 z-10  h-fit rounded-lg dark:border dark:border-bd500'
     >
       <div className='relative w-full h-full'>
-        <div className='relative flex flex-row items-center justify-between border-b p-0.5 border-gray-300 dark:border-borderDark '>
+        <div className='relative flex flex-row items-center justify-between border-b p-0.5 border-gray-300 dark:border-bd500 '>
           <section
             data-tip
             data-for='chat'
-            className='flex flex-row gap-2 items-center p-1 rounded-md hover:bg-darkComplementry cursor-pointer'
+            className='flex flex-row gap-2 items-center p-1 rounded-md hover:bg-dark300 cursor-pointer'
             onClick={() => setChatSettings(!chatSettings)}
           >
             <ProfilePicture />
@@ -45,7 +45,7 @@ const Chat = () => {
                   <MdOutlineExpandMore />
                 </span>
               </h3>
-              <p className='text-xs brightness-75 text-heading_dark_white'>{`Active ${moment(
+              <p className='text-xs brightness-75 text-thdark500'>{`Active ${moment(
                 new Date()
               ).fromNow()}`}</p>
             </article>
@@ -82,7 +82,7 @@ const Chat = () => {
             return (
               <div key={i} className='flex flex-col gap-4'>
                 <div className='flex flex-row gap-2 items-start'>
-                  <div className='relative border-2 dark:border-borderDark border-white rounded-full cursor-pointer'>
+                  <div className='relative border-2 dark:border-bd500 border-white rounded-full cursor-pointer'>
                     <img
                       src={person_eight}
                       alt='profile'
@@ -93,7 +93,7 @@ const Chat = () => {
                     {chat?.sender?.map((message, i) => (
                       <p
                         key={i}
-                        className='px-2 py-1 rounded-lg text-left dark:bg-darkComplementry dark:text-heading_dark_white max-w-[70%] w-fit  first:rounded-tl-2xl first:rounded-bl-none last:rounded-bl-2xl last:rounded-tl-none brightness-110'
+                        className='px-2 py-1 rounded-lg text-left dark:bg-dark300 dark:text-thdark500 max-w-[70%] w-fit  first:rounded-tl-2xl first:rounded-bl-none last:rounded-bl-2xl last:rounded-tl-none brightness-110'
                       >
                         {message}
                       </p>
@@ -108,7 +108,7 @@ const Chat = () => {
                   {chat?.respond?.map((message, i) => (
                     <p
                       key={i}
-                      className='px-2 py-1 rounded-lg text-left bg-blue-500 max-w-[70%] w-fit first:rounded-tr-2xl first:rounded-br-none last:rounded-br-2xl last:rounded-tr-none dark:text-heading_dark_white brightness-125'
+                      className='px-2 py-1 rounded-lg text-left bg-blue-500 max-w-[70%] w-fit first:rounded-tr-2xl first:rounded-br-none last:rounded-br-2xl last:rounded-tr-none dark:text-thdark500 brightness-125'
                     >
                       {message}
                     </p>
@@ -118,14 +118,14 @@ const Chat = () => {
             )
           })}
         </div>
-        <div className='relative flex justify-end border-t-2 dark:border-borderDark border-gray-300 py-2'>
+        <div className='relative flex justify-end border-t-2 dark:border-bd500 border-gray-300 py-2'>
           <textarea
             ref={textRef}
             value={value}
             onChange={(e) => setValue(e.target.value)}
             onKeyUp={(e) => createPostHeadings(e)}
             placeholder={`Aa`}
-            className=' outline-none w-[150px] focus:w-full h-8 px-1 text-start transition-all rounded-full focus:rounded-md cursor-pointer resize-none dark:bg-darkComplementry dark:text-white placeholder:text-gray-500 font-meduim'
+            className=' outline-none w-[150px] focus:w-full h-8 px-1 text-start transition-all rounded-full focus:rounded-md cursor-pointer resize-none dark:bg-dark300 dark:text-white placeholder:text-gray-500 font-meduim'
           />
         </div>
         {chatSettings && <PostOptions isChat />}

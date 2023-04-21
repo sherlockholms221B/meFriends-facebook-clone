@@ -16,11 +16,11 @@ const STPage = () => {
 
   const navigation = useNavigate()
   return (
-    <section className='dark:bg-darkPrimary bg-primaryWhite h-screen w-screen'>
-      <section className='flex flex-row gap-3 py-3 items-center border-b dark:border-borderDark border-gray-700'>
+    <section className='dark:bg-dark500 bg-light400 h-screen w-screen'>
+      <section className='flex flex-row gap-3 py-3 items-center border-b dark:border-bd500 border-gray-700'>
         <button
           onClick={() => navigation(-1)}
-          className=' dark:shadow-black dark:bg-darkComplementry w-10 h-10    rounded-full hover:bg-secondaryWhite bg-gray-300 p-2 cursor-pointer'
+          className=' dark:shadow-black dark:bg-dark300 w-10 h-10    rounded-full hover:bg-light300 bg-gray-300 p-2 cursor-pointer'
         >
           <Icon.MdArrowBack className='text-2xl  dark:text-white' />
         </button>
