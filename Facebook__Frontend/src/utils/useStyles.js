@@ -1,6 +1,6 @@
 export const barHarder =
-  ' text-black dark:text-heading_dark_white hidden larg:block tracking-wider font-bold text-lg brightness-95'
+  ' text-black dark:text-thdark500 hidden lg:block tracking-wider font-bold text-lg brightness-95'
 export const barContainer =
-  'group relative hover:bg-inherit larg:hover:bg-primary larg:dark:hover:bg-darkComplementry flex flex-row gap-4 items-center w-full rounded-md'
+  'group relative hover:bg-inherit lg:hover:bg-light500 lg:dark:hover:bg-dark300 flex flex-row gap-4 items-center w-full rounded-md'
 export const roundedIcon =
-  'group-hover:brightness-150  dark:bg-darkComplementry dark:text-white text-black rounded-full  bg-primaryWhite'
+  'group-hover:brightness-150  dark:bg-dark300 dark:text-white text-black rounded-full  bg-light400'

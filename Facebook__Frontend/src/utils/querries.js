@@ -26,7 +26,8 @@ export const allPostsQuery = () => {
       userName,
       profile,
     },
-    }
+    },
+    audience
   }`
 
   return query

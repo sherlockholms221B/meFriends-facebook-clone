@@ -1,12 +1,6 @@
 import { HiOutlineUserGroup, HiUserGroup } from 'react-icons/hi'
-import {
-  MdOutlineOndemandVideo,
-  MdVideoCameraBack,
-  MdOutlinePhotoLibrary,
-  MdHome,
-  MdOutlineHome,
-} from 'react-icons/md'
-import { BsBookFill, BsEmojiWink, BsHouse, BsHouseFill } from 'react-icons/bs'
+import { MdOutlineOndemandVideo, MdHome, MdOutlineHome } from 'react-icons/md'
+import { BsBookFill, BsHouse, BsHouseFill } from 'react-icons/bs'
 
 import { feed_eight, feed_nine, feed_ten } from '../Assets/exports'
 import {
@@ -38,30 +32,35 @@ export const mNavLink = [
     outlined: <MdOutlineHome />,
     alert: '+10',
     tip: 'home',
+    link: '/',
   },
   {
     icon: <HiUserGroup />,
     outlined: <HiOutlineUserGroup />,
     tip: 'Friends',
     alert: '4',
+    link: 'menu/friends/fbid',
   },
   {
     icon: <RiMessengerFill />,
     outlined: <RiMessengerLine />,
     alarts: '3',
     tip: 'messenger',
+    link: '/',
   },
   {
     icon: <IoNotifications />,
     outlined: <IoNotificationsOutline />,
     alarts: '1',
     tip: 'notification',
+    link: '/',
   },
   {
     icon: <BsHouseFill />,
     outlined: <BsHouse />,
     alarts: '1',
     tip: 'groups',
+    link: 'menu/marketplace/fbid',
   },
 ]
 
