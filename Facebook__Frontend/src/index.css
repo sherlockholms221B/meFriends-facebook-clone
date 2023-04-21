@@ -99,7 +99,7 @@ body {
 }
 
 .dark_white {
-  @apply dark:text-heading_dark_white;
+  @apply dark:text-thdark500;
 }
 
 .light_text_gray {
