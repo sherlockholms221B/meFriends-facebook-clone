@@ -12,7 +12,7 @@ export default {
       name: 'video',
       title: 'Video',
       type: 'array',
-      of:[{type:'file'}],
+      of: [{ type: 'file' }],
       options: {
         hotspot: true,
       },
@@ -21,7 +21,7 @@ export default {
       name: 'image',
       title: 'Image',
       type: 'array',
-      of:[{type:'image'}],
+      of: [{ type: 'image' }],
       options: {
         hotspot: true,
       },
@@ -56,6 +56,26 @@ export default {
     {
       name: 'share',
       title: 'Share',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [
+            {
+              type: 'user',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'audience',
+      title: 'Audience',
+      type: 'string',
+    },
+    {
+      name: 'taged',
+      title: 'Taged',
       type: 'array',
       of: [
         {
