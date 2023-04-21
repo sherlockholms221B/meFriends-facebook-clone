@@ -13,7 +13,7 @@ module.exports = {
       laptop: '900px',
       larg: '1160px',
       xtra_larg: '1280px',
-      md_lg: '1366px',
+      md_lg: '1367px',
     },
     extend: {
       width: {
