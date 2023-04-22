@@ -137,6 +137,7 @@ const Post = ({ topic, comments, image, postedBy, _createdAt }) => {
             setViewMore={setViewMore}
             value={value}
             setValue={setValue}
+            comments={comments}
           />
         </section>
       </section>

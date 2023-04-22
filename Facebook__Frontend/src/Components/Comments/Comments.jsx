@@ -7,9 +7,10 @@ import React from 'react'
 import { Input, Comment, Profile } from '../index'
 
 //import data
-import { comments } from '../../utils/constants'
+// import { comments } from '../../utils/constants'
 
 const Comments = ({
+  comments,
   postDetail,
   isComment,
   setIsComment,
@@ -37,49 +38,30 @@ const Comments = ({
         {!viewMore
           ? comments
               .slice(0, 1)
-              .map(
-                (
-                  { creator, profile: [{ profileImage, createdAt }], comment },
-                  index
-                ) => (
-                  <Comment
-                    isComment={isComment}
-                    setIsComment={setIsComment}
-                    createdAt={createdAt}
-                    creator={creator}
-                    profileImage={profileImage}
-                    comment={comment}
-                    key={`${creator + index}`}
-                  />
-                )
-              )
-          : comments.map(
-              (
-                { creator, profile: [{ profileImage, createdAt }], comment },
-                index
-              ) => (
+              .map(({ comment, postedBy }, index) => (
                 <Comment
                   isComment={isComment}
                   setIsComment={setIsComment}
-                  createdAt={createdAt}
-                  creator={creator}
-                  profileImage={profileImage}
                   comment={comment}
-                  key={`${creator + index}`}
+                  key={index}
                 />
-              )
-            )}
-        {isComment && (
-          <React.Fragment>
-            {!viewMore && (
-              <button
-                onClick={() => setViewMore(!viewMore)}
-                className='text-sm text-gray-500 dark:text-thlight500 font-medium self-start ml-14 mt-2 animate-pulse'
-              >
-                see more
-              </button>
-            )}
-          </React.Fragment>
+              ))
+          : comments.map(({ comment, postedBy }, index) => (
+              <Comment
+                isComment={isComment}
+                setIsComment={setIsComment}
+                comment={comment}
+                {...postedBy}
+                key={index}
+              />
+            ))}
+        {isComment && !viewMore && (
+          <button
+            onClick={() => setViewMore(!viewMore)}
+            className='text-sm text-gray-500 dark:text-thlight500 font-medium self-start ml-14 mt-2 animate-pulse'
+          >
+            see more
+          </button>
         )}
       </div>
     </React.Fragment>
