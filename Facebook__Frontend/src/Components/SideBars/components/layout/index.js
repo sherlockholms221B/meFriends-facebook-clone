@@ -3,8 +3,7 @@ import React from 'react'
 const SidelayOut = ({ children, title, padding }) => {
   return (
     <section
-      // style={{ marginTop: `${padding}px` }}
-      className={`hidden mdsm:flex bg-transparent overflow-hidden h-full hover:overflow-auto w-min  ${
+      className={`hidden mdsm:flex overflow-hidden h-full hover:overflow-auto w-min  ${
         title && title
       }`}
     >

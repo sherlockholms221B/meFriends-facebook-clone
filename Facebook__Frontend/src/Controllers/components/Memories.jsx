@@ -1,5 +1,5 @@
 import React from 'react'
-import MenuPage from './MenuPage'
+import MenuPage from '../MenuPage'
 
 const Memories = () => {
   return (

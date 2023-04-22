@@ -1,7 +1,12 @@
 import React from 'react'
 
+//import higher order component
 import MegWrapper from '../MegWrapper'
+
+//import components
 import { Head, CreatePostLinks } from '../index'
+
+//import useglobal context
 import { useGlobalContext } from '../../Hooks/context/UseContext'
 
 const AddToYour = () => {

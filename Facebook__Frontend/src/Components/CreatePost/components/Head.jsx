@@ -1,6 +1,9 @@
 import React from 'react'
 
+//import utilities function
 import { previous } from '../../../Functions/utilities/SH'
+
+//import custom icon
 import { Icon } from '../../../utils/Icon'
 
 const Head = (prop) => {

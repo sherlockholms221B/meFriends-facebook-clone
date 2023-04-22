@@ -1,18 +1,18 @@
 import React from 'react'
 
 //import controller higher order components
-import MenuPage from './MenuPage'
+import MenuPage from '../MenuPage'
 
 //import custom react icons
-import { Icon } from '../utils/Icon'
+import { Icon } from '../../utils/Icon'
 
 //import data
-import { comments } from '../utils/constants'
+import { comments } from '../../utils/constants'
 
 //import components
-import { Demarcate } from '../Components/RDOMC'
-import SoftIconContainer from '../examples/icon'
-import SoftButton from '../examples/SoftButton'
+import { Demarcate } from '../../Components/RDOMC'
+import SoftIconContainer from '../../examples/icon'
+import SoftButton from '../../examples/SoftButton'
 
 const Saved = () => {
   return (

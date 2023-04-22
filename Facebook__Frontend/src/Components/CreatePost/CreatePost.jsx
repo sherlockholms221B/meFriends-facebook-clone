@@ -18,6 +18,7 @@ import useAuthStore from '../../Store/AuthStore'
 //import re-useable component
 import SoftTextArea from '../../examples/SoftTextArea'
 import SoftPostBg from '../../examples/SoftPostBg'
+import SoftTag from '../../examples/SoftTag'
 import { AddFile, CreatePostLinks, PostAIR, Profile } from '../index'
 
 const CreatePost = () => {
@@ -38,7 +39,7 @@ const CreatePost = () => {
   const { userProfile } = useAuthStore()
   // const importPattern = /^:import\(("[^"]*"|'[^']*'|[^"']+)\)$/
   // importPattern.exec('/')
-  console.log(selectedFriends)
+  // console.log(selectedFriends)
   return (
     <section
       className={
@@ -62,26 +63,13 @@ const CreatePost = () => {
       </article>
       <section className='w-full h-full p-4'>
         <section className='flex flex-row gap-2 items-center mb-2'>
-          <Profile size link='/' />
-          <div className=' w-fit'>
-            <article className='w-full flex flex-wrap items-center'>
-              <strong className='text-md dark:text-white tracking-wide text-zinc-700 pr-1 capitalize'>
+          <Profile link='/' />
+          <section className='w-fit flex flex-col items-start gap-2'>
+            <article className='w-full flex justify-start items-center flex-wrap'>
+              <strong className='text-md dark:text-white tracking-wide text-zinc-700'>
                 {userProfile?.userName}
+                <SoftTag data={selectedFriends} />
               </strong>
-              {selectedFriends.length > 0 && (
-                <h3 className='text-xs pr-1 font-semibold text-gray-800 dark:text-thdark500 '>
-                  is with
-                </h3>
-              )}
-              {selectedFriends.length > 0 &&
-                selectedFriends.map((friend, i) => (
-                  <h3
-                    key={i}
-                    className='text-xs pl-1 hover:underline cursor-pointer pr-1 font-semibold text-gray-800 dark:text-thdark500 '
-                  >
-                    {`${friend},`}
-                  </h3>
-                ))}
             </article>
             <article
               className='flex dark:bg-dark300 flex-row gap-2 items-center rounded-sm bg-gray-200 w-fit py-0.5 px-1 cursor-pointer  dark:text-white'
@@ -95,7 +83,7 @@ const CreatePost = () => {
               </b>
               <Icon.GoTriangleDown />
             </article>
-          </div>
+          </section>
         </section>
         <section className='w-full max-h-[280px] overflow-auto vertical_scroll '>
           <SoftTextArea

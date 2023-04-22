@@ -1,8 +1,15 @@
 import React from 'react'
+
+//import framer motino module
 import { motion } from 'framer-motion'
 
-import { useGlobalContext } from '../Hooks/context/UseContext'
+//import react router module
 import { useLocation } from 'react-router-dom'
+
+//import useglobal context
+import { useGlobalContext } from '../Hooks/context/UseContext'
+
+//import components
 import { Navbar } from '../Components'
 import MSideBar from '../Components/SideBars/MSideBar'
 
@@ -10,30 +17,31 @@ const MenuPage = (Component, ComponentBtn, idName) =>
   function HOC() {
     const search = useLocation().search
     const query = new URLSearchParams(search).get('talling')
-    const { location } = useGlobalContext()
+     const { location } = useGlobalContext()
+     console.log(location);
 
     return (
       <React.Fragment>
         <Navbar />
-        <div
-          style={{ paddingTop: `${location.height}px` }}
-          className='flex items-center justify-center dark:bg-dark500 relative h-screen w-screen bg-light500 overflow-hidden'
+        <section
+          style={{ marginTop: `${location.height}px` }}
+          className='flex items-center justify-center relative h-screen w-screen overflow-hidden'
         >
-          <div className=' flex items-strech sm:justify-between w-screen h-screen'>
+          <section className=' flex items-strech sm:justify-between w-screen h-screen'>
             <MSideBar />
-            <div className=' min-w-[260px] w-full  h-full relative'>
-              <div className='flex flex-col mdxs:flex-row items-center w-screen h-screen '>
+            <section className=' min-w-[260px] w-full  h-full relative'>
+              <div className='flex flex-col mdxs:flex-row items-center w-screen h-screen  bg-light500 dark:bg-dark500 '>
                 <motion.div
                   whileInView={{ opacity: [0, 1] }}
                   transition={{ duration: 1, ease: 'easeInOut' }}
-                  className='sm:w-550 w-full dark:bg-dark400 h-full overflow-hidden flex items-start justify-center border-r-2 dark:border-bd500'
+                  className='sm:w-550 w-full dark:bg-dark400 bg-white h-full overflow-hidden flex items-start justify-center border-r-2 dark:border-bd500'
                 >
                   {idName && <ComponentBtn />}
                 </motion.div>
                 <motion.div
                   whileInView={{ opacity: [0, 1], x: [200, 0] }}
                   transition={{ duration: 0.5, easing: 'easeInOut' }}
-                  className='w-full bg-black h-full text-white relative flex justify-center overflow-auto'
+                  className='w-full h-full bg-light500 dark:bg-dark500 text-white relative flex justify-center overflow-auto'
                 >
                   {(query === 'Friends' ||
                     query === 'Saved' ||
@@ -42,9 +50,9 @@ const MenuPage = (Component, ComponentBtn, idName) =>
                     query.includes('Market')) && <Component />}
                 </motion.div>
               </div>
-            </div>
-          </div>
-        </div>
+            </section>
+          </section>
+        </section>
       </React.Fragment>
     )
   }

@@ -39,7 +39,9 @@ const THRDot = () => {
             cursor-pointer`}
           key={i + alarts}
         >
-          <li className='text-2xl font-semibold dark:text-white'>{icon}</li>
+          <li className='text-2xl font-semibold dark:text-white text-black'>
+            {icon}
+          </li>
           <div className='dark:border-0 flex items-center justify-center absolute w-[18px] h-[18px] rounded-full ring-2 ring-white bg-red-700 top-0 right-0 z-10'>
             <p className='text-white text-[12px] font-bold'>{alarts}</p>
           </div>

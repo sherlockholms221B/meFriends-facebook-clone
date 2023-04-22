@@ -11,7 +11,7 @@ const SoftIconContainer = ({ icon, text, next, handleClick, ref, hidden }) => {
       onClick={handleClick}
       className={` ${next && 'justify-between flex flex-row items-center'} ${
         hidden && 'hidden sm:block'
-      } group dark:hover:bg-dark300 hover:bg-light300 p-2 w-full rounded-md cursor-pointer`}
+      } group dark:hover:bg-dark300 hover:bg-light500 p-2 w-full rounded-md cursor-pointer`}
     >
       <article className='flex flex-row items-center gap-2 w-fit '>
         <p className='text-xl rounded-full dark:bg-dark300 dark:text-thdark500 bg-gray-200 p-2 w-fit h-fit'>

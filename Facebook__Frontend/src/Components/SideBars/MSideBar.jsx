@@ -35,11 +35,11 @@ const MSideBar = () => {
     ' dark:bg-dark300 dark:text-white text-black rounded-full  bg-light400'
   return (
     <SidelayOut
-      title='dark:bg-dark400 pr-3 border-r dark:border-border-bd500'
+      title='bg-white dark:bg-dark400 pr-3 border-r dark:border-bd500 bg-light500'
       padding={location.height}
     >
       <To link={`/`} title={` ${barContainer} py-2`}>
-        <Icon.MdHome className='text-3xl text-thdark500' />
+        <Icon.MdHome className='text-3xl dark:text-thdark500 text-black' />
         <Active page={`home`} current={null} />
       </To>
       <Profile link={`/backface/api/profile`} size />
@@ -48,7 +48,7 @@ const MSideBar = () => {
         <Link
           key={i + page.title}
           to={`/${page.url}?talling=${page.title}`}
-          className='relative  xl:dark:hover:bg-dark300 xl:hover:bg-light500 hover:bg-inherit mt-0.5 mb-0.5 flex flex-row items-center w-full py-2 rounded-md'
+          className='relative  xl:dark:hover:bg-dark300 xl:hover:bg-light500 hover:bg-inherit mt-0.5 mb-0.5 flex flex-row items-center w-full py-2 rounded-md '
         >
           {page.icon}
 

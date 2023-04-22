@@ -21,7 +21,7 @@ const Profile = ({ size, link, hidden, style }) => {
         src={urlFor(userProfile?.profileImage.asset).url()}
         alt='profile'
         className={`object-contain  ${
-          size ? 'w-7 h-7' : 'w-5 xs:w-8 h-5 xs:h-8 mdsm:w-11 mdsm:h-11'
+          size ? 'w-7 h-7' : 'w-5 h-5 xs:w-8 xs:h-8 mdsm:w-11 mdsm:h-11'
         } } rounded-full object-cover`}
       />
       {hidden && (

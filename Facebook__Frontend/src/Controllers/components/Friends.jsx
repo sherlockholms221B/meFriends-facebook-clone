@@ -1,28 +1,28 @@
 import React from 'react'
 
-import MenuPage from './MenuPage'
-import { Icon } from '../utils/Icon'
-import { comments } from '../utils/constants'
-import SoftIconContainer from '../examples/icon'
-import { Input } from '../Components'
+import MenuPage from '../MenuPage'
+import { Icon } from '../../utils/Icon'
+import { comments } from '../../utils/constants'
+import SoftIconContainer from '../../examples/icon'
+import { Input } from '../../Components'
 
 const Friends = () => {
   return (
-    <div className='dark:bg-dark500 flex flex-col gap-4 w-full h-full p-4 overflow-auto'>
+    <div className='dark:bg-dark500 bg-inherit flex flex-col gap-4 w-full h-full p-4 overflow-auto'>
       <article className='flex flex-row justify-between items-center p-2 pt-4 pb-0 '>
         <h5 className='text-xl text-gray-800 dark:text-thdark500 font-bold'>
           People you may know
         </h5>
-        <p className=' text-xl rounded-full  dark:bg-dark300 dark:text-thdark500 bg-gray-200 p-2 w-fit h-fit'>
+        <p className=' text-xl rounded-full  dark:bg-dark300 dark:text-thdark500 bg-light500 text-black p-2 w-fit h-fit'>
           <Icon.MdSettings />
         </p>
       </article>
       <section className='flex flex-row flex-wrap w-full gap-2 pl-2 pr-2 group'>
         {comments.map(
           ({ creator, profile: [{ profileImage }], isPrivate }, i) => (
-            <div
+            <section
               key={i + creator}
-              className='max-w-[180px] h-[360px] flex-grow dark:bg-dark400 rounded-xl border dark:border-bd500'
+              className='max-w-[180px] h-[360px] flex-grow dark:bg-dark400 bg-white rounded-xl  border dark:border-bd500 shadow-lg'
             >
               <img
                 src={profileImage}
@@ -34,7 +34,7 @@ const Friends = () => {
                   <h4 className='text-base text-gray-900 font-medium dark:text-white capitalize'>
                     {creator}
                   </h4>
-                  <div className='flex flex-row gap-2 items-center justify-start'>
+                  <figure className='flex flex-row gap-2 items-center justify-start'>
                     <div className='flex flex-row'>
                       {comments.map(({ profile: [{ profileImage }] }, i) => (
                         <img
@@ -50,17 +50,19 @@ const Friends = () => {
                         />
                       ))}
                     </div>
-                    <p className='text-xs dark:text-thlight500'>{`20 mutual friends`}</p>
-                  </div>
+                    <figcaption>
+                      <p className='text-xs dark:text-thlight500 text-zinc-500'>{`20 mutual friends`}</p>
+                    </figcaption>
+                  </figure>
                 </div>
-                <button className='bg-light300 hover:bg-light400 dark:bg-blue-600 dark:text-thdark500 py-1.5 text-base rounded-lg font-semibold w-[90%]'>
+                <button className='hover:bg-blue-700 dark:bg-tpBlue500 bg-blue-600 dark:text-thdark500 py-1.5 text-base rounded-lg font-semibold w-[90%]'>
                   Add friend
                 </button>
-                <button className='bg-light300 hover:bg-light400 dark:bg-dark300 dark:text-thdark500 py-1.5 text-base rounded-lg font-semibold w-[90%]'>
+                <button className='bg-light400 hover:bg-light500 dark:bg-dark300 dark:text-thdark500 text-black py-1.5 text-base rounded-lg font-semibold w-[90%]'>
                   Remove
                 </button>
               </div>
-            </div>
+            </section>
           )
         )}
       </section>
@@ -70,15 +72,15 @@ const Friends = () => {
 
 const FriendsBtn = () => {
   return (
-    <div className='flex flex-col gap-4 w-full h-full px-2'>
-      <div className='flex flex-row justify-between items-center p-2 '>
-        <h5 className='text-2xl text-gray-800 dark:text-thdark500 font-bold'>
+    <section className='flex flex-col gap-4 w-full h-full px-2 bg-white dark:bg-dark400'>
+      <article className='flex flex-row justify-between items-center p-2 '>
+        <h5 className='text-2xl text-gray-800 dark:text-thdark500 font-bold tracking-wide'>
           Friends
         </h5>
         <p className=' text-xl rounded-full  dark:bg-dark300 dark:text-thdark500 bg-gray-200 p-2 w-fit h-fit'>
           <Icon.MdSettings />
         </p>
-      </div>
+      </article>
       <section className='relative rounded-full w-[96%] h-fit'>
         <Input
           type='text'
@@ -132,7 +134,7 @@ const FriendsBtn = () => {
           />
         ))}
       </section>
-    </div>
+    </section>
   )
 }
 

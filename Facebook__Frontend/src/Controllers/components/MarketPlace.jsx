@@ -1,11 +1,11 @@
 import React from 'react'
 
-import MenuPage from './MenuPage'
-import { Icon } from '../utils/Icon'
-import { Input } from '../Components'
-import { Demarcate } from '../Components/RDOMC'
-import { SoftButton, SoftIconContainer } from '../examples'
-import { comments } from '../utils/constants'
+import MenuPage from '../MenuPage'
+import { Icon } from '../../utils/Icon'
+import { Input } from '../../Components'
+import { Demarcate } from '../../Components/RDOMC'
+import { SoftButton, SoftIconContainer } from '../../examples'
+import { comments } from '../../utils/constants'
 const MarketPlace = () => {
   return (
     <div className='dark:bg-dark500 flex flex-col gap-4 w-full h-full p-4 overflow-auto'>
