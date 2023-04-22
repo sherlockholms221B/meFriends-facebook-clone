@@ -50,7 +50,7 @@ const Post = ({ topic, comments, image, postedBy, _createdAt }) => {
 
   return (
     <React.Fragment>
-      <section className='dark:border dark:border-bd500 dark:bg-dark400 md:order-3 flex flex-col rounded-md bg-white shadow-xl mt-4 '>
+      <section className='dark:border dark:border-bd500 dark:bg-dark400 md:order-3 flex flex-col rounded-md bg-white drop-shadow-xl shadow-xl mt-4 '>
         <section className=' relative flex flex-row justify-between items-center px-3 py-2'>
           <section className='flex gap-2 items-center'>
             <To

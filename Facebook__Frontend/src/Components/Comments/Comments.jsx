@@ -41,6 +41,7 @@ const Comments = ({
               .map(({ comment, postedBy }, index) => (
                 <Comment
                   isComment={isComment}
+                  {...postedBy}
                   setIsComment={setIsComment}
                   comment={comment}
                   key={index}

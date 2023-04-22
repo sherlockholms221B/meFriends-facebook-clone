@@ -24,7 +24,9 @@ export const allPostsQuery = () => {
       postedBy->{
       _id,
       userName,
-      profile,
+      profileImage,
+      _createdAt,
+      email
     },
     },
     audience
