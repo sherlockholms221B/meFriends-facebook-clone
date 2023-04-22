@@ -3,7 +3,7 @@ import { MdGroups } from 'react-icons/md'
 import { Link } from 'react-router-dom'
 
 import { Active } from './index'
-import { useGlobalContext } from '../Context/UseContext'
+import { useGlobalContext } from '../Hooks/context/UseContext'
 import { Button, Paragraph } from './RDOMC'
 import { sideGroup } from '../Actions'
 import { Icon } from '../utils/Icon'

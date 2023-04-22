@@ -1,5 +1,5 @@
 import React from 'react'
-import { useGlobalContext } from '../../Context/UseContext'
+import { useGlobalContext } from '../../Hooks/context/UseContext'
 import { forward, IconHandler } from '../../Functions/SH'
 import { MakePostLinkOne, MakePostLinkTwo } from '../../utils/LWRef'
 import ToolTip from '../ToolTip'

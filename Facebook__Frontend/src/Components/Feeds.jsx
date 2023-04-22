@@ -4,11 +4,11 @@ import * as React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 //import context
-import { useGlobalContext } from '../Context/UseContext'
+import { useGlobalContext } from '../Hooks/context/UseContext'
 
 //import data
 import { feedLinks, feedLinksOne } from '../utils/links'
-import { posts } from '../utils/constants'
+// import { posts } from '../utils/constants'
 
 //import component
 import { Stories, Post, Reels, Rooms, Profile } from './index.js'

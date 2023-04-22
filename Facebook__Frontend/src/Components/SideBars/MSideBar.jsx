@@ -10,7 +10,7 @@ import { SideLinks } from '../../utils/LWRef'
 import { Button, Demaceta, Paragraph, To } from '../RDOMC'
 
 //import context
-import { useGlobalContext } from '../../Context/UseContext'
+import { useGlobalContext } from '../../Hooks/context/UseContext'
 
 //import data
 import { groupsLinks } from '../../utils/links'

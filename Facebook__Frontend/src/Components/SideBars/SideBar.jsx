@@ -14,7 +14,7 @@ import SlideLinks from './components/side actions'
 import { Icon } from '../../utils/Icon'
 
 //import global context
-import { useGlobalContext } from '../../Context/UseContext'
+import { useGlobalContext } from '../../Hooks/context/UseContext'
 
 //import reducer actions
 import { SideMenu, shortCuts } from '../../Actions'

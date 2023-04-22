@@ -1,7 +1,7 @@
 import React from 'react'
 import { MdMenu, MdOutlineExpandMore } from 'react-icons/md'
 import { Link } from 'react-router-dom'
-import { useGlobalContext } from '../../Context/UseContext'
+import { useGlobalContext } from '../../Hooks/context/UseContext'
 import { IconHandler } from '../../Functions/SH'
 import { NavDot1 } from '../../utils/LWRef'
 import { Profile, ToolTip } from '../index'

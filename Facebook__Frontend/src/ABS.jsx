@@ -1,5 +1,5 @@
 import React from 'react'
-import { useGlobalContext } from './Context/UseContext'
+import { useGlobalContext } from './Hooks/context/UseContext'
 import {
   CreatePost,
   PostAudience,

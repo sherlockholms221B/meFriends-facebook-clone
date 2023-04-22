@@ -10,7 +10,7 @@ import { logo } from '../Assets/exports'
 import { SideBar, Feeds, Advertisment, Navbar } from '../Components/index'
 
 //import context
-import { useGlobalContext } from '../Context/UseContext'
+import { useGlobalContext } from '../Hooks/context/UseContext'
 
 // import actions handlers
 import { loadingSet } from '../Actions'

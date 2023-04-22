@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { useGlobalContext } from '../../Context/UseContext'
+import { useGlobalContext } from '../../Hooks/context/UseContext'
 import MegWrapper from '../MegWrapper'
 import { Head, Input, NoPost } from '../index'
 import { previous } from '../../Functions/SH'

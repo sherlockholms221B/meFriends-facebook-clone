@@ -12,7 +12,7 @@ import {
 } from 'react'
 
 // import reducer functions
-import reducer from '../Hooks/Reducer'
+import reducer from '../reducer/reducer.js'
 
 //set up react create context
 const AppContext = createContext(null)

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { FaBookmark } from 'react-icons/fa'
-import { useGlobalContext } from '../../Context/UseContext'
+import { useGlobalContext } from '../../Hooks/context/UseContext'
 import { IconHandler } from '../../Functions/SH'
 import Head from '../CreatePost/Head'
 

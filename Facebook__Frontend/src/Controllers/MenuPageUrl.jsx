@@ -4,7 +4,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 
 //import context
-import { useGlobalContext } from '../Context/UseContext'
+import { useGlobalContext } from '../Hooks/context/UseContext'
 
 //import component
 import { Navbar } from '../Components'

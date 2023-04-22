@@ -9,7 +9,7 @@ import Input from '../Input'
 import MegWrapper from '../MegWrapper'
 import { comments } from '../../utils/constants'
 import { randomNumberGenerator } from '../../Functions/random.'
-import { useGlobalContext } from '../../Context/UseContext'
+import { useGlobalContext } from '../../Hooks/context/UseContext'
 const Messages = () => {
   const { setChatState, setMessageState } = useGlobalContext()
   const [searchChats, setSearchChats] = useState('')

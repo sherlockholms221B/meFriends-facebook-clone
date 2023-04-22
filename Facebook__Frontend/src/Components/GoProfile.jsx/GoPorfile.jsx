@@ -11,7 +11,7 @@ import { CMPFooter, Profile } from '../index'
 import { Demaceta } from '../RDOMC'
 
 //import context
-import { useGlobalContext } from '../../Context/UseContext'
+import { useGlobalContext } from '../../Hooks/context/UseContext'
 
 //import data from utils
 import { GoPLink } from '../../utils/LWRef'

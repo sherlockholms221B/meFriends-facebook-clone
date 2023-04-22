@@ -1,7 +1,7 @@
 import React from 'react'
 
 import MegWrapper from '../MegWrapper'
-import { useGlobalContext } from '../../Context/UseContext'
+import { useGlobalContext } from '../../Hooks/context/UseContext'
 import { Head } from '../index'
 import { IconHandler } from '../../Functions/SH'
 import { Icon } from '../../utils/Icon'

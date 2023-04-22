@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 //import context
-import { useGlobalContext } from '../../../Context/UseContext'
+import { useGlobalContext } from '../../../Hooks/context/UseContext'
 import { Icon } from '../../../utils/Icon'
 import Profile from '../../Profile'
 import { IconHandler } from '../../../Functions/SH'

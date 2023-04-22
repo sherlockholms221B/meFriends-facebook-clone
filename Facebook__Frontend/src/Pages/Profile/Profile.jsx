@@ -1,7 +1,7 @@
 import React from 'react'
 
 //import context
-import { useGlobalContext } from '../../Context/UseContext'
+import { useGlobalContext } from '../../Hooks/context/UseContext'
 
 //import components
 import { CMPFooter, Feeds, Navbar } from '../../Components'

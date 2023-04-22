@@ -15,7 +15,7 @@ import { Comments, PostOptions, Like, Share, COMBTN, PostAIR } from '../index'
 import IMG from './IMG'
 
 //import context
-import { useGlobalContext } from '../../Context/UseContext'
+import { useGlobalContext } from '../../Hooks/context/UseContext'
 import { urlFor } from '../../utils/client'
 import { To } from '../RDOMC'
 

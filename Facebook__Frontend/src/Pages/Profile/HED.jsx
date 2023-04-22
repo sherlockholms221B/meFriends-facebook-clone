@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 //import context
-import { useGlobalContext } from '../../Context/UseContext'
+import { useGlobalContext } from '../../Hooks/context/UseContext'
 
 //import data
 import { comments } from '../../utils/constants'

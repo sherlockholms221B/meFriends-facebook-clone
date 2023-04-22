@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 
-import { useGlobalContext } from '../Context/UseContext'
+import { useGlobalContext } from '../Hooks/context/UseContext'
 import { useLocation } from 'react-router-dom'
 import { Navbar } from '../Components'
 import MSideBar from '../Components/SideBars/MSideBar'

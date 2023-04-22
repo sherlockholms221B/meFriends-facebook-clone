@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
-import { useGlobalContext } from '../../Context/UseContext'
+import { useGlobalContext } from '../../Hooks/context/UseContext'
 
 const DynamicMenu = (Component) =>
   function HOC() {

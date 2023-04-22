@@ -9,7 +9,7 @@ import MbarLink from './components/mobile'
 import { refresh } from '../../Functions/SH'
 
 //import context
-import { useGlobalContext } from '../../Context/UseContext'
+import { useGlobalContext } from '../../Hooks/context/UseContext'
 
 //import custom links
 import { mNavLink } from '../../utils/links'

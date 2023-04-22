@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react'
 
 import MegWrapper from '../MegWrapper'
-import { useGlobalContext } from '../../Context/UseContext'
+import { useGlobalContext } from '../../Hooks/context/UseContext'
 import { AddFile, CreatePostLinks, PostAIR, Profile } from '../index'
 import { forward } from '../../Functions/SH'
 import { Icon } from '../../utils/Icon'

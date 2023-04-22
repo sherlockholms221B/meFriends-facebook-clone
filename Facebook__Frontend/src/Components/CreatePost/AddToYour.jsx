@@ -2,7 +2,7 @@ import React from 'react'
 
 import MegWrapper from '../MegWrapper'
 import { Head, CreatePostLinks } from '../index'
-import { useGlobalContext } from '../../Context/UseContext'
+import { useGlobalContext } from '../../Hooks/context/UseContext'
 
 const AddToYour = () => {
   const { setCreatePostState, addToYourState, setAddToYourState, setGoBack } =

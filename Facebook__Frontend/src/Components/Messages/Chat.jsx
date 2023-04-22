@@ -10,7 +10,7 @@ import { Icon } from '../../utils/Icon'
 import { chat } from '../../utils/constants'
 import { person_eight } from '../../Assets/exports'
 import { useRef } from 'react'
-import { useGlobalContext } from '../../Context/UseContext'
+import { useGlobalContext } from '../../Hooks/context/UseContext'
 import ToolTip from '../ToolTip'
 import PostOptions from '../Posts/PostOptions'
 
