@@ -3,7 +3,7 @@ import React from 'react'
 import { FaBookmark } from 'react-icons/fa'
 import { useGlobalContext } from '../../Hooks/context/UseContext'
 import { IconHandler } from '../../Functions/utilities/SH'
-import Head from '../CreatePost/Head'
+import Head from '../CreatePost/components/Head'
 
 import MegWrapper from '../MegWrapper'
 import { Icon } from '../../utils/Icon'

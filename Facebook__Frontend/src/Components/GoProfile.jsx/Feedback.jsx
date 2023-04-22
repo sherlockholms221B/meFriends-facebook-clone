@@ -1,6 +1,6 @@
 import React from 'react'
 import { useGlobalContext } from '../../Hooks/context/UseContext'
-import Head from '../CreatePost/Head'
+import Head from '../CreatePost/components/Head'
 
 import MegWrapper from '../MegWrapper'
 import { Icon } from '../../utils/Icon'

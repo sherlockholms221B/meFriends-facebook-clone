@@ -1,13 +1,20 @@
-import React, { useReducer, useRef } from 'react'
+import * as React from 'react'
 
-import { useGlobalContext } from '../../Hooks/context/UseContext'
-import { Icon } from '../../utils/Icon'
-import IMG from '../Posts/IMG'
-import { addFile } from '../../Functions/actions/index'
+//import useglobal context
+import { useGlobalContext } from '../../../Hooks/context/UseContext'
+
+//import custom icon
+import { Icon } from '../../../utils/Icon'
+
+//import component
+import IMG from '../../Posts/IMG'
+
+//import utilities function
+import { addFile } from '../../../Functions/actions/index'
 
 const AddFile = () => {
-  const pictureRef = useRef(null)
-  const pictureRefTwo = useRef(null)
+  const pictureRef = React.useRef(null)
+  const pictureRefTwo = React.useRef(null)
   const {
     setAddPictureState,
     value: [controller, dispatch],
@@ -43,9 +50,10 @@ const AddFile = () => {
 
   return (
     <section
-      className={`relative w-full ${
-        controller.postfile.length !== 0 ? 'h-fit' : 'h-48'
-      } p-2 rounded-md border-[2px] home_scroll dark:border-bd500 border-gray-400 mb-2 overflow-auto`}
+      className={
+        ' p-2 rounded-md border-[2px] home_scroll dark:border-bd500 border-gray-400 mb-2 overflow-auto relative w-full ' +
+        (controller.postfile.length !== 0 ? 'h-fit' : 'h-48')
+      }
     >
       {controller.postfile.length !== 0 && (
         <IMG
@@ -54,14 +62,10 @@ const AddFile = () => {
         />
       )}
       {controller.postfile.length !== 0 && (
-        <div className='absolute top-0 right-0 left-0 flex justify-between p-5'>
-          <div className='flex flex-row gap-3 items-center'>
-            <div className='cursor-pointer flex flex-row gap-2 items-center bg-white w-fit  p-2 rounded-md'>
-              <Icon.MdModeEditOutline />
-              <h3 className='text-md font-medium text-gray-800 '>Edit</h3>
-            </div>
+        <section className='absolute top-0 right-0 left-0 flex justify-between p-5'>
+          <section className='flex flex-row gap-3 items-center'>
             <div
-              className='cursor-pointer flex flex-row gap-2 items-center bg-white w-fit p-2 rounded-md'
+              className='cursor-pointer flex flex-row gap-2 items-center bg-white dark:bg-dark400 w-fit p-2 rounded-md'
               onClick={(e) => selectPictureTwo(e)}
             >
               <input
@@ -73,27 +77,27 @@ const AddFile = () => {
                 hidden
                 multiple
               />
-              <Icon.BiImageAdd className=' text-2xl rotate-6 text-gray-800' />
-              <h3 className='text-md font-medium text-gray-800 '>
+              <Icon.BiImageAdd className=' text-2xl rotate-6 text-gray-800 dark:text-light400' />
+              <h3 className='text-md font-medium dark:text-light400 text-gray-800 '>
                 Add photos/Video
               </h3>
             </div>
-          </div>
+          </section>
           <p
-            className='rounded-full bg-white p-2 cursor-pointer'
+            className='rounded-full bg-white dark:bg-dark400 p-2 cursor-pointer'
             onClick={(e) => {
               e.stopPropagation()
               setAddPictureState(false)
             }}
           >
-            <Icon.MdClose className='text-2xl ' />
+            <Icon.MdClose className='text-2xl dark:text-light400' />
           </p>
-        </div>
+        </section>
       )}
       {controller.postfile.length === 0 && (
-        <div
+        <section
           onClick={(e) => selectPicture(e)}
-          className='relative  h-full w-full hover:bg-light300 dark:bg-dark300 hover:border-dashed border-2 hover:border-gray-600 dark:border-0 flex flex-col transition-all items-center justify-center rounded-md p-2 cursor-pointer'
+          className='relative h-full w-full hover:bg-light300 dark:bg-dark300 hover:border-dashed border-2 hover:border-gray-600 dark:border-0 flex flex-col transition-all items-center justify-center rounded-md p-2 cursor-pointer'
         >
           <input
             onChange={({ target }) => {
@@ -122,7 +126,7 @@ const AddFile = () => {
           >
             <Icon.MdClose className='text-2xl text-gray-700  dark:text-white ' />
           </p>
-        </div>
+        </section>
       )}
     </section>
   )

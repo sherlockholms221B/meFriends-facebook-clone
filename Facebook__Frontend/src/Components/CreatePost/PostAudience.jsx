@@ -1,13 +1,22 @@
-import React, { useState } from 'react'
+import * as React from 'react'
 
+//import useglobal context
 import { useGlobalContext } from '../../Hooks/context/UseContext'
+
+//import utitlitis function
 import { IconHandler, previous } from '../../Functions/utilities/SH'
+
+//import static react ref link
 import { PostAudienceLinks } from '../../utils/LWRef'
+
+//import component
 import { Head } from '../index'
+
+//import higher oder component
 import MegWrapper from '../MegWrapper'
 
 const PostAudience = () => {
-  const [value, setValue] = useState(true)
+  const [value, setValue] = React.useState(true)
   const {
     setCreatePostState,
     postAudienceState,
@@ -17,10 +26,11 @@ const PostAudience = () => {
     audState,
   } = useGlobalContext()
   return (
-    <div
-      className={` ${
-        postAudienceState ? 'translate_x' : ''
-      }  z-20  w-full h-full rounded-lg dark:border dark:border-bd500`}
+    <section
+      className={
+        ' z-20  w-full h-full rounded-lg dark:border dark:border-bd500 ' +
+        (postAudienceState && 'translate_x')
+      }
     >
       <Head
         title={`Post audience`}
@@ -28,8 +38,8 @@ const PostAudience = () => {
         setSecondState={setPostAudienceState}
         setThirdState={setGoBack}
       />
-      <div className='max-h-[350px] overflow-auto home_scroll p-2 '>
-        <div className=''>
+      <section className='max-h-[350px] overflow-auto home_scroll p-2 '>
+        <article className=''>
           <h4 className='text-lg font-semibold text-gray-800 dark:text-thdark500'>
             Who can see your post?
           </h4>
@@ -38,31 +48,33 @@ const PostAudience = () => {
             results.
           </p>
           <p className='text-md text-gray-500  mt-5  dark:text-thlight500'>
-            Your default audience is set to{' '}
-            <span className='font-bold'>Public</span>, but you can change the
-            audience of this specific post.
+            Your default audience is set to <b>Public</b>, but you can change
+            the audience of this specific post.
           </p>
-        </div>
+        </article>
 
-        <div className='group/edit '>
+        <section className='group/edit'>
           {PostAudienceLinks().map(
-            ({ icon, title, description, id, ref }, i) => {
+            ({ icon, title, description, id, ref }, index) => {
               return (
-                <div
-                  key={i + title}
+                <button
+                  key={index + title}
                   ref={ref}
-                  className={`flex ${id} ${
-                    audState === title && 'bg-blue-00'
-                  } justify-between items-center cursor-pointer mt-2 mb-2 p-2 rounded-md dark:hover:bg-dark300 group first:borer first:bg-[#0c4aad2b] first:dark:hover:bg-[#0c4aad47]`}
+                  className={
+                    ' flex justify-between items-center cursor-pointer mt-2 mb-2 p-2 rounded-md dark:hover:bg-dark300 group first:borer first:bg-[#0c4aad2b] first:dark:hover:bg-[#0c4aad47] w-full hover:bg-dark200 dark:hover:bg-inherit ' +
+                    id +
+                    ' ' +
+                    (audState === title && 'bg-blue-00')
+                  }
                   onClick={(e) => {
                     IconHandler({ e, ref, setAudState })
                   }}
                 >
-                  <div className='flex items-center gap-2 '>
-                    <p className='rounded-full bg-gray-300 dark:bg-dark300 dark:text-thdark500 text-lg sm:p-4 p-2 group-hover:brightness-150'>
+                  <article className='flex items-center gap-2 '>
+                    <p className='rounded-full bg-gray-300 dark:bg-dark300 dark:text-thdark500 text-lg sm:p-4 p-2 dark:group-hover:brightness-150 '>
                       {icon}
                     </p>
-                    <div className='flex flex-col gap-0 '>
+                    <div className='flex flex-col gap-0 items-start'>
                       <h3 className='xs:text-lg text-md font-semibold text-gray-800 dark:text-thdark500 '>
                         {title}
                       </h3>
@@ -70,21 +82,22 @@ const PostAudience = () => {
                         {description}
                       </p>
                     </div>
-                  </div>
+                  </article>
                   <div
                     ref={ref}
-                    className={` ${
-                      audState === title
-                        ? 'relative bg-inherit before:w-2 before:h-2 before:bg-blue-500 before:absolute before:rounded-full before:translate-y-1/2 before:translate-x-1/2 ring-blue-500 ring-2'
-                        : 'ring-2 dark:ring-white ring-gray-500'
-                    }  h-4 w-4  rounded-full transition-colors `}
+                    className={
+                      (audState === title
+                        ? ' relative bg-inherit before:w-2 before:h-2 before:bg-blue-500 before:absolute before:rounded-full before:translate-y-1/2 before:-translate-x-1/2 ring-blue-500 ring-2'
+                        : ' ring-2 dark:ring-white ring-gray-500 ') +
+                      ' h-4 w-4  rounded-full transition-colors '
+                    }
                   />
-                </div>
+                </button>
               )
             }
           )}
-        </div>
-      </div>
+        </section>
+      </section>
       <div className='relative flex flex-col gap-2 border-t-2 dark:border-bd500 border-gray-300 p-3'>
         <div className='flex justify-start items-center gap-2'>
           <input
@@ -124,7 +137,7 @@ const PostAudience = () => {
           </button>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

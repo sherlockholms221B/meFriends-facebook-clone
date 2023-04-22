@@ -25,7 +25,7 @@ const MegWrapper = (Component) =>
           feedbackState ||
           tagPeopleState) && (
           <section className='flex justify-center items-center absolute top-0 backdrop-blur-sm right-0  z-30 h-screen w-screen dark:backdrop-filter dark:backdrop-saturate-100 dark:backdrop-brightness-50 dark:backdrop-opacity-100 dark:backdrop-contrast-100 dark:backdrop-blur-0'>
-            <section className='mx-auto w-full sm:w-520 xlg:w-[700px] lap:mx-0 h-max bg-white dark:bg-dark400 rounded-lg shadow-black'>
+            <section className='mx-auto w-full sm:w-520 xlg:w-[700px] lap:mx-0 h-max bg-white dark:bg-dark400 rounded-lg shadow-black overflow-hidden'>
               <Component />
             </section>
           </section>

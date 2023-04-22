@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { previous } from '../../Functions/utilities/SH'
-import { Icon } from '../../utils/Icon'
+import { previous } from '../../../Functions/utilities/SH'
+import { Icon } from '../../../utils/Icon'
 
 const Head = (prop) => {
   const { title, setFirstState, setSecondState, setThirdState } = prop

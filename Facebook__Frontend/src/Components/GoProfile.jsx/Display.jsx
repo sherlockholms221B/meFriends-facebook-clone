@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 
 import { useGlobalContext } from '../../Hooks/context/UseContext'
-import Head from '../CreatePost/Head'
+import Head from '../CreatePost/components/Head'
 import MegWrapper from '../MegWrapper'
 import { themeSwitcher } from '../../Functions/utilities/darkTheme'
 import { Icon } from '../../utils/Icon'

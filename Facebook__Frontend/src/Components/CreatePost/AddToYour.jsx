@@ -8,10 +8,11 @@ const AddToYour = () => {
   const { setCreatePostState, addToYourState, setAddToYourState, setGoBack } =
     useGlobalContext()
   return (
-    <div
-      className={` ${
-        addToYourState ? 'translate_x' : ''
-      }  z-20  w-full h-full rounded-lg dark:border dark:border-bd500`}
+    <section
+      className={
+        ' z-20  w-full h-full rounded-lg dark:border dark:border-bd500 ' +
+        (addToYourState && 'translate_x')
+      }
     >
       <Head
         title={`Add to your post`}
@@ -20,7 +21,7 @@ const AddToYour = () => {
         setThirdState={setGoBack}
       />
       <CreatePostLinks home={false} />
-    </div>
+    </section>
   )
 }
 

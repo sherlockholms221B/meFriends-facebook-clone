@@ -1,9 +1,19 @@
 import React from 'react'
-import { useGlobalContext } from '../../Hooks/context/UseContext'
-import { forward, IconHandler } from '../../Functions/utilities/SH'
-import { MakePostLinkOne, MakePostLinkTwo } from '../../utils/LWRef'
-import ToolTip from '../ToolTip'
-import { Icon } from '../../utils/Icon'
+
+//import react tooltip
+import ToolTip from '../../ToolTip'
+
+//import useglobal context
+import { useGlobalContext } from '../../../Hooks/context/UseContext'
+
+//import utililties function
+import { forward, IconHandler } from '../../../Functions/utilities/SH'
+
+//import links with ref
+import { MakePostLinkOne, MakePostLinkTwo } from '../../../utils/LWRef'
+
+//import custom icons
+import { Icon } from '../../../utils/Icon'
 
 const CreatePostLinks = ({ home }) => {
   const {
@@ -18,16 +28,17 @@ const CreatePostLinks = ({ home }) => {
   } = useGlobalContext()
 
   return (
-    <div className='flex flex-row gap-2 items-center w-full sm:w-fit'>
+    <section className='flex flex-row gap-2 items-center w-full sm:w-fit'>
       <div
-        className={`flex flex-row items-center ${
-          home
+        className={
+          ' flex flex-row items-center cursor-pointer ' +
+          (home
             ? 'w-full justify-around sm:gap-2 sm:w-fit sm:justify-start'
-            : 'flex-wrap  justify-around  gap-4  py-2'
-        } cursor-pointer`}
+            : 'flex-wrap  justify-around  gap-4  py-2')
+        }
       >
         {createPostState && (
-          <>
+          <React.Fragment>
             {MakePostLinkOne().map(({ icon, ref, tip }, i) => (
               <button
                 data-tip
@@ -35,11 +46,11 @@ const CreatePostLinks = ({ home }) => {
                 key={i}
                 ref={ref}
                 className={`${
-                  i === 0 ? 'text-green-600  hover:bg-[#49ec4e1c]' : ''
-                } ${i === 1 ? 'text-blue-600  hover:bg-[#49a0ec1c]' : ''} ${
-                  i === 2 ? 'text-yellow-600  hover:bg-[#ece6491c]' : ''
-                } ${i === 3 ? 'text-red-600  hover:bg-[#e549491c]' : ''} ${
-                  i === 4 ? 'shade_blue  hover:bg-[#498aec1c]' : ''
+                  i === 0 && 'text-green-600  hover:bg-[#49ec4e1c]'
+                } ${i === 1 && 'text-blue-600  hover:bg-[#49a0ec1c]'} ${
+                  i === 2 && 'text-yellow-600  hover:bg-[#ece6491c]'
+                } ${i === 3 && 'text-red-600  hover:bg-[#e549491c]'} ${
+                  i === 4 && 'shade_blue  hover:bg-[#498aec1c]'
                 }  text-2xl p-2 rounded-full`}
                 onClick={(e) =>
                   IconHandler({
@@ -82,30 +93,30 @@ const CreatePostLinks = ({ home }) => {
               effect={`float`}
               place={`top`}
             />
-          </>
+          </React.Fragment>
         )}
         {addToYourState && (
-          <>
+          <React.Fragment>
             {MakePostLinkTwo().map(({ icon, title }, i) => (
-              <div
+              <article
                 key={i}
                 className={`${
-                  i === 0 ? 'text-green-600  hover:bg-[#49ec4e1c]' : ''
-                } ${i === 1 ? 'text-blue-600  hover:bg-[#49a0ec1c]' : ''} ${
-                  i === 2 ? 'text-yellow-600  hover:bg-[#ece6491c]' : ''
-                } ${i === 3 ? 'text-red-600  hover:bg-[#e549491c]' : ''} ${
-                  i === 4 ? 'shade_blue  hover:bg-[#498aec1c]' : ''
+                  i === 0 && 'text-green-600  hover:bg-[#49ec4e1c]'
+                } ${i === 1 && 'text-blue-600  hover:bg-[#49a0ec1c]'} ${
+                  i === 2 && 'text-yellow-600  hover:bg-[#ece6491c]'
+                } ${i === 3 && 'text-red-600  hover:bg-[#e549491c]'} ${
+                  i === 4 && 'shade_blue  hover:bg-[#498aec1c]'
                 }  ${
-                  i === 5 ? 'text-purple-600  hover:bg-[#e549c61c]' : ''
+                  i === 5 && 'text-purple-600  hover:bg-[#e549c61c]'
                 } flex flex-row items-center  gap-2 pl-2 sm:pr-12 py-2 w-[40%] hover:bg-light300 rounded-md cursor-pointer `}
               >
                 <p
-                  className={`${i === 0 ? 'text-green-600 ' : ''} ${
-                    i === 1 ? 'deep_blue' : ''
-                  } ${i === 2 ? 'text-yellow-600' : ''} ${
-                    i === 3 ? 'text-red-600' : ''
-                  } ${i === 4 ? 'shade_blue' : ''} ${
-                    i === 5 ? 'text-purple-600' : ''
+                  className={`${i === 0 && 'text-green-600 '} ${
+                    i === 1 && 'deep_blue'
+                  } ${i === 2 && 'text-yellow-600'} ${
+                    i === 3 && 'text-red-600'
+                  } ${i === 4 && 'shade_blue'} ${
+                    i === 5 && 'text-purple-600'
                   } text-3xl `}
                   onClick={(e) => IconHandler(e)}
                 >
@@ -114,12 +125,12 @@ const CreatePostLinks = ({ home }) => {
                 <h5 className='font-medium text-xs xs:text-md mdsm:text-lg '>
                   {title}
                 </h5>
-              </div>
+              </article>
             ))}
-          </>
+          </React.Fragment>
         )}
       </div>
-    </div>
+    </section>
   )
 }
 

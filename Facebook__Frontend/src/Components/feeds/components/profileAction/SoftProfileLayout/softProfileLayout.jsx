@@ -36,18 +36,18 @@ const SoftProfileLayout = (props) => {
             },
           ].map(({ title, icon }, index) => (
             <article
-              className='flex items-center flex-nowrap gap-2 rounded-md px-3 py-2 dark:bg-dark300'
+              className='flex items-center flex-nowrap gap-2 rounded-md px-3 py-2 bg-light500 dark:bg-dark300 hover:bg-light300'
               key={index}
             >
               {icon}
-              <p className='dark:text-thdark500 text-lg  font-semibold'>
+              <strong className='dark:text-thdark500 text-lg tracking-tight text-zinc-600 font-[500]'>
                 {title}
-              </p>
+              </strong>
             </article>
           ))}
         </div>
       </section>
-      <section className='flex_row justify-around capitalize px-1 transition-colors'>
+      <section className='flex flex-row flex-nowrap justify-between capitalize px-4 transition-colors'>
         {[
           {
             name: 'List view',

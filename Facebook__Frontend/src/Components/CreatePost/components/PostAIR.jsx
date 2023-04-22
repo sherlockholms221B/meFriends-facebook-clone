@@ -1,5 +1,7 @@
 import React from 'react'
-import { Icon } from '../../utils/Icon'
+
+//import custom icons
+import { Icon } from '../../../utils/Icon'
 
 const PostAIR = ({ state }) => {
   return (

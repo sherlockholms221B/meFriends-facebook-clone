@@ -31,7 +31,7 @@ const Input = ({
           ' hidden md:block md:w-400 lg:w-520 font-normal pl-10 py-2  placeholder:text-lg xlg:w-[700px] xlg:-ml-10'
         } ${
           name === 'friends' &&
-          'pl-10 py-1.5 pr-4 sm:w-[410px] xs:w-260 w-210 placeholder:text-md'
+          'pl-10 py-3 pr-4 sm:w-[410px] xs:w-260 w-210 placeholder:text-md'
         } ${name === 'menusl' && 'pl-10 py-2 w-full placeholder:text-md'} ${
           name === 'comment' &&
           'w-[88%] mdxs:w-[93%] px-2 py-1 placeholder:text-sm'

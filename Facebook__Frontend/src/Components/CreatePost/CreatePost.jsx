@@ -1,9 +1,15 @@
-import React, { useState, useRef } from 'react'
+import * as React from 'react'
 
+//import higher order component
 import MegWrapper from '../MegWrapper'
+
+//import context
 import { useGlobalContext } from '../../Hooks/context/UseContext'
-import { AddFile, CreatePostLinks, PostAIR, Profile } from '../index'
+
+//import utilitis function
 import { forward } from '../../Functions/utilities/SH'
+
+//import custom react icons
 import { Icon } from '../../utils/Icon'
 
 //import authprofile from store
@@ -12,9 +18,10 @@ import useAuthStore from '../../Store/AuthStore'
 //import re-useable component
 import SoftTextArea from '../../examples/SoftTextArea'
 import SoftPostBg from '../../examples/SoftPostBg'
+import { AddFile, CreatePostLinks, PostAIR, Profile } from '../index'
 
 const CreatePost = () => {
-  const textRef = useRef(null)
+  const textRef = React.useRef(null)
   const {
     postvalue,
     setPostvalue,
@@ -29,18 +36,20 @@ const CreatePost = () => {
   } = useGlobalContext()
 
   const { userProfile } = useAuthStore()
-  const importPattern = /^:import\(("[^"]*"|'[^']*'|[^"']+)\)$/
-  importPattern.exec('/')
+  // const importPattern = /^:import\(("[^"]*"|'[^']*'|[^"']+)\)$/
+  // importPattern.exec('/')
+  console.log(selectedFriends)
   return (
     <section
-      className={` ${
-        goBack ? 'translate__x' : ''
-      }  z-20  w-full h-full rounded-lg dark:border dark:border-bd500`}
+      className={
+        ' z-20  w-full h-full rounded-lg dark:border dark:border-bd500 ' +
+        (goBack && 'translate__x')
+      }
     >
       <article className='relative flex flex-row py-4 items-center justify-center border-b border-gray-300 dark:border-bd500 '>
-        <h3 className='text-xl font-bold dark:text-white text-gray-900'>
+        <strong className='text-xl tracking-normal dark:text-white text-gray-900'>
           Create post
-        </h3>
+        </strong>
         <p
           className='absolute dark:bg-dark300 top-2 right-2 rounded-full hover:bg-light300 bg-gray-300 p-2 cursor-pointer  dark:shadow-black dark:shadow-sm'
           onClick={() => {
@@ -52,13 +61,13 @@ const CreatePost = () => {
         </p>
       </article>
       <section className='w-full h-full p-4'>
-        <div className='flex flex-row gap-2 items-center mb-2'>
+        <section className='flex flex-row gap-2 items-center mb-2'>
           <Profile size link='/' />
           <div className=' w-fit'>
             <article className='w-full flex flex-wrap items-center'>
-              <h3 className='text-md dark:text-white font-semibold pr-1 text-gray-800 capitalize'>
+              <strong className='text-md dark:text-white tracking-wide text-zinc-700 pr-1 capitalize'>
                 {userProfile?.userName}
-              </h3>
+              </strong>
               {selectedFriends.length > 0 && (
                 <h3 className='text-xs pr-1 font-semibold text-gray-800 dark:text-thdark500 '>
                   is with
@@ -81,13 +90,13 @@ const CreatePost = () => {
               <article className='text-sm text-gray-900   dark:text-white'>
                 <PostAIR state={audState} />
               </article>
-              <h3 className='text-sm text-gray-900   dark:text-white'>
+              <b className='text-sm text-zinc-700 dark:text-white'>
                 {audState}
-              </h3>
+              </b>
               <Icon.GoTriangleDown />
             </article>
           </div>
-        </div>
+        </section>
         <section className='w-full max-h-[280px] overflow-auto vertical_scroll '>
           <SoftTextArea
             state={postvalue}
@@ -102,29 +111,23 @@ const CreatePost = () => {
           className='w-full border-2 cursor-pointer dark:border-bd500 flex flex-row justify-between items-center sm:p-3 mt-4 rounded-md'
           onClick={() => forward(setCreatePostState, setAddToYourState)}
         >
-          <h5 className='hidden mdsm:block text-md font-semibold text-gray-800  dark:text-white'>
+          <h5 className='hidden mdsm:block text-md font-[700] text-gray-800  dark:text-white'>
             Add to your post
           </h5>
           <CreatePostLinks home={true} />
         </section>
-        {postvalue ? (
-          <button
-            type='button'
-            className='w-full p-2 mt-2 mb-2 rounded-lg text-center 
-                bg-blue-500 text-white font-bold text-lg
-            '
-          >
-            Post
-          </button>
-        ) : (
-          <button
-            type='button'
-            className='w-full p-2 mt-2 mb-2 rounded-lg text-center dark:bg-dark300 bg-gray-200 text-gray-400 cursor-not-allowed font-bold text-lg
-            '
-          >
-            Post
-          </button>
-        )}
+        <button
+          type='button'
+          className={
+            ' w-full p-2 mt-2 mb-2 rounded-lg text-center font-bold text-lg ' +
+            (postvalue
+              ? 'bg-blue-500 text-white cursor-pointer'
+              : ' dark:bg-dark300 bg-gray-200 text-gray-400 cursor-not-allowed ')
+          }
+          onClick={() => {}}
+        >
+          Post
+        </button>
       </section>
     </section>
   )
