@@ -21,7 +21,7 @@ const Comments = ({
 }) => {
   return (
     <React.Fragment>
-      <div className={`flex flex-col ${isComment && 'p-2'} justify-between `}>
+      <div className={`flex flex-col ${isComment && 'p-2'} justify-between  `}>
         {isComment && postDetail && (
           <div className='flex flex-row flex-nowrap justify-between items-center mb-4'>
             <Profile link='/' size />
