@@ -1,22 +1,25 @@
-import React from 'react'
+import * as React from 'react'
 // import PropTypes from 'prop-types'
 
 //import custom icons
 import { Icon } from '../../../../../utils/Icon'
 
 //import react module
-import { useLocation } from 'react-router-dom'
+// import { useLocation } from 'react-router-dom'
 
 //impoort styles
 import { active, notActive } from '../../../styles'
 
 const SoftProfileLayout = (props) => {
-  const search = useLocation().search
-  const query = new URLSearchParams(search).get('talling')
+  const [location, setLocation] = React.useState('List view')
+  // const search = useLocation().search
+  // const query = new URLSearchParams(search).get('talling')
   return (
     <section className='dark:bg-dark400 bg-white rounded-md shadow-lg md:order-2  mt-4'>
       <section className='flex_row justify-between px-4 border-b-2 border-gray-300 dark:border-[#3a3b3c] py-1'>
-        <h2 className='text-xl font-bold dark:text-thdark500'>Posts</h2>
+        <strong className='text-xl tracking-wide dark:text-thdark500'>
+          Posts
+        </strong>
         <div className=' flex flex-row items-center justify-end gap-2 py-1.5 cursor-pointer '>
           {[
             {
@@ -44,35 +47,35 @@ const SoftProfileLayout = (props) => {
           ))}
         </div>
       </section>
-      <div className='flex_row justify-around capitalize px-1  '>
+      <section className='flex_row justify-around capitalize px-1 transition-colors'>
         {[
           {
-            name: 'list view',
+            name: 'List view',
             icon: <Icon.BsList />,
           },
           {
-            name: 'grid view',
+            name: 'Grid view',
             icon: <Icon.IoGrid />,
           },
-        ].map(({ name, icon }, i) => (
+        ].map(({ name, icon }, index) => (
           <button
-            to={`?talling=${name}`}
-            className={`
-                ${
-                  query === name
-                    ? active()
-                    : `${i === 0 && query === null ? active() : notActive()}`
-                } 
-              `}
-            key={i + name}
+            className={
+              location === name
+                ? active()
+                : index === 0 && location === null
+                ? active()
+                : notActive()
+            }
+            onClick={() => setLocation(name)}
+            key={index + name}
           >
-            <article className='flex flex-row gap-2 items-center '>
+            <article className='flex flex-row flex-nowrap gap-2 items-center'>
               <p className='font-bold text-md mdsm:text-2xl '>{icon} </p>
-              <h1 className='font-medium text-sm mdsm:text-lg'>{name}</h1>
+              <b className='text-sm mdsm:text-lg'>{name}</b>
             </article>
           </button>
         ))}
-      </div>
+      </section>
     </section>
   )
 }
