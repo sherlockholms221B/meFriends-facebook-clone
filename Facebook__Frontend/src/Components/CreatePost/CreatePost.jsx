@@ -66,7 +66,7 @@ const CreatePost = () => {
           <Profile link='/' />
           <section className='w-fit flex flex-col items-start gap-2'>
             <article className='w-full flex justify-start items-center flex-wrap'>
-              <strong className='text-md dark:text-white tracking-wide text-zinc-700'>
+              <strong className='text-xs mdsm:text-lg mdxs:text-sm dark:text-white tracking-wide text-zinc-700'>
                 {userProfile?.userName}
                 <SoftTag data={selectedFriends} />
               </strong>

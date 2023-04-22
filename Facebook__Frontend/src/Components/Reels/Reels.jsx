@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 import { storiesbox } from '../../utils/constants'
 import { SoftSwipeLayout } from '../../examples'

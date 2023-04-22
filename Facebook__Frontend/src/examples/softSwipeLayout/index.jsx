@@ -19,8 +19,8 @@ const SoftSwipeLayout = ({ data, title }) => {
   React.useEffect(() => {
     new Swiper('.swiper', {
       speed: 300,
-      spaceBetween: 10,
-      slidesPerView: title === 'Rooms' ? 3 : 5,
+      spaceBetween: 6,
+      slidesPerView: title === 'Rooms' ? 2 : 3,
       modules: [Navigation, Pagination, History],
       createElements: true,
       init: 'true',
@@ -31,13 +31,23 @@ const SoftSwipeLayout = ({ data, title }) => {
         nextEl: '.swipe-btn-custom-next',
         prevEl: '.swipe-btn-custom-prev',
       },
+      breakpoints: {
+        300: {
+          slidesPerView: title === 'Rooms' ? 2 : 4,
+          spaceBetween: 10,
+        },
+
+        1367: {
+          slidesPerView: title === 'Rooms' ? 3 : 6,
+        },
+      },
     })
-  }, [])
+  }, [title])
 
   return (
     <React.Fragment>
-      <section className=' h-60 flex flex-row items-center justify-start swiper relative p-2'>
-        <section className='swiper-slide flex justify-center items-center ring-2 dark:ring-slate-700 ring-white rounded-lg shadow-md shadow-slate-700 w-full h-60'>
+      <section className='h-40 mdxs:h-48  flex flex-row items-center justify-start swiper relative p-2'>
+        <section className='swiper-slide flex justify-center items-center rounded-lg shadow-xl  w-full h-48 '>
           <figure className='group dark:bg-dark400 flex flex-col w-full h-full rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out relative text-center'>
             <img
               src={urlFor(userProfile?.profileImage.asset).url()}
@@ -45,7 +55,7 @@ const SoftSwipeLayout = ({ data, title }) => {
               className='w-full h-[70%] rounded-t-lg object-cover group-hover:brightness-75'
             />
             <figcaption>
-              <h1 className='text-gray-600 text-md font-semibold rounded-b-lg pt-4 px-1'>
+              <h1 className='text-gray-600 text-xs mdxs:text-sm mdsm:text-base font-semibold rounded-b-lg pt-4 px-1'>
                 Create {title}
               </h1>
             </figcaption>
@@ -59,15 +69,19 @@ const SoftSwipeLayout = ({ data, title }) => {
         {data.map((tallings, index) => (
           <section
             key={index}
-            class='swiper-slide max-w-28 h-60 flex justify-center items-center'
+            class={
+              ' swiper-slide max-w-28 h-60 flex justify-center items-center ' +
+              (title === 'Rooms' &&
+                'w-52 h-52 flex flex-col justify-around items-center overflow-hidden rounded-lg shadow-md  hover:shadow-xl transition-shadow duration-300 ease-in-out relative text-center')
+            }
           >
-            <Box tallings={tallings} />
+            <Box tallings={tallings} title={title} />
           </section>
         ))}
-        <button className='swipe-btn-custom-next absolute z-[5] p-2.5 top-auto bottom-auto right-2 bg-[#0c4aad8f] rounded-full h-fit w-fit'>
+        <button className='hidden mdsm:block swipe-btn-custom-next absolute z-[5] p-2.5 top-auto bottom-auto right-2 bg-dark400 rounded-full h-fit w-fit'>
           <Icon.MdOutlineArrowForwardIos className='text-white text-lg' />
         </button>
-        <button className='swipe-btn-custom-prev absolute z-[5] p-2.5 top-auto bottom-auto left-2 bg-[#0c4aad8f] rounded-full h-fit w-fit'>
+        <button className='hidden mdsm:block swipe-btn-custom-prev absolute z-[5] p-2.5 top-auto bottom-auto left-2 bg-dark400  rounded-full h-fit w-fit'>
           <Icon.IoChevronBack className='text-white text-xl' />
         </button>
       </section>

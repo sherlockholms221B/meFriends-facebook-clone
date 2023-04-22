@@ -62,11 +62,11 @@ const Posts = ({ profile }) => {
                 </button>
               ))}
             </div>
-            <div className='rounded-md flex flex-nowrap p-1 mdsm:p-2 '>
+            <section className='rounded-md flex flex-nowrap mdxs:p-2 p-1'>
               {(location === 'stories' || location === null) && <Stories />}
               {location === 'reels' && <Reels />}
               {location === 'rooms' && <Rooms />}
-            </div>
+            </section>
           </section>
         )}
 

@@ -11,7 +11,9 @@ const SoftTag = ({ data }) => {
 
   let templete
   if (length === length - (length - 1)) {
-    templete = data.map((name, index) => <p className=''> is with {name}.</p>)
+    templete = data.map((name, index) => (
+      <React.Fragment>is with {name}.</React.Fragment>
+    ))
     return templete
   }
 
@@ -45,11 +47,15 @@ const SoftTag = ({ data }) => {
     )
   })
   const _others = friends.filter((name, index) => index > 2)
-  templete = (
-    <React.Fragment>
-      is with {slicedFriends} and {_others.length} others.
-    </React.Fragment>
-  )
+  templete =
+    friends.length !== 0 ? (
+      <React.Fragment>
+        is with {slicedFriends} and {_others.length} others.
+      </React.Fragment>
+    ) : (
+      ''
+    )
+  
   return templete
 }
 

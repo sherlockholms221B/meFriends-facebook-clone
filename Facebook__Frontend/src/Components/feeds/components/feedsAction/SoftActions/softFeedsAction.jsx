@@ -25,8 +25,8 @@ const SoftFeedsAction = (props) => {
   } = useGlobalContext()
   const { userProfile } = useAuthStore()
   return (
-    <section className='dark:bg-dark400 bg-white border dark:border-bd500 rounded-md shadow-lg transition-shadow md:order-2 pt-4 px-4'>
-      <section className='flex flex-row justify-between items-center w-full gap-2 px- xs: py-2 mdsm:py-4'>
+    <section className='dark:bg-dark400 bg-white border dark:border-bd500 rounded-md shadow-lg transition-shadow md:order-2 pt-1 mdsm:pt-4 px-4'>
+      <section className='flex flex-row justify-between items-center w-full gap-2 xs:py-1 mdsm:py-4'>
         <Profile link='/backface/api/profile' />
         <article
           className='rounded-full bg-light500 dark:bg-dark300 hover:bg-light300 p-3 w-full cursor-pointer flex flex-row flex-nowrap transition-colors'
@@ -37,25 +37,25 @@ const SoftFeedsAction = (props) => {
             setCreatePostState(true)
           }}
         >
-          <strong className='text-base font-normal dark:text-thlight500 text-zinc-600'>
+          <strong className='text-xs mdxs:text-sm mdsm:text-base font-normal dark:text-thlight500 text-zinc-600'>
             Whats on your mind,{' '}
             <span className='capitalize'>{userProfile.userName}</span>
           </strong>
         </article>
       </section>
       <hr className='dark:border-bd500' />
-      <section className='flex flex-row flex-nowrap items-center justify-around w-full px-1 mdsm:px-2 py-1 '>
+      <section className='flex flex-row flex-nowrap items-center justify-around w-full px-1 mdsm:px-2 py-0.5 '>
         {feedLinksOne.map(({ icon, title, mtitle }, i) => (
           <figure
             key={i}
             className={
               actionContainer() +
-              'px-4 mdsm:px-6 py-1 flex flex-row items-center justify-center gap-2 cursor-pointer transition-colors'
+              ' px-2 mdxs:px-4 mdsm:px-6 py-0.5 flex flex-row items-center justify-center gap-2 cursor-pointer transition-colors w-full '
             }
           >
             {icon}
             <figcaption>
-              <p className='hidden mdsm:block tracking-wider text-base font-normal dark:text-thlight500 text-zinc-600'>
+              <p className='hidden mdsm:flex tracking-wider text-base font-normal dark:text-thlight500 text-zinc-600 flex-nowrap'>
                 {title}
               </p>
               <p className='text-md mdsm:hidden text-base font-normal dark:text-thlight500 text-zinc-600'>

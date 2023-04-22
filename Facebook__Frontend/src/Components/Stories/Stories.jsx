@@ -2,6 +2,7 @@ import * as React from 'react'
 
 import { storiesbox } from '../../utils/constants'
 
+//import components
 import { SoftSwipeLayout } from '../../examples/index.js'
 
 const Stories = () => {

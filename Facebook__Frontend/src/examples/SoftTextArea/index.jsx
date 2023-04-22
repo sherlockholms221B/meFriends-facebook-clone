@@ -29,7 +29,7 @@ const SoftTextArea = ({ currentRef, state, setState }) => {
         name='heading'
         id='headingId'
         placeholder={`What's on your mind, ${userProfile.userName}`}
-        className='outline-none w-full cursor-pointer   mt-2 mb-2 placeholder:text-2xl dark:bg-dark400 pt-2 pl-2 dark:text-white placeholder:text-gray-500 placeholder:capitalize font-meduim overflow-hidden resize-none'
+        className='outline-none w-full cursor-pointer   mt-2 mb-2 placeholder:text-md mdsm:placeholder:text-2xl dark:bg-dark400 pt-2 pl-2 dark:text-white placeholder:text-gray-500 font-meduim overflow-hidden resize-none'
       />
     </section>
   )

@@ -79,7 +79,12 @@ const TagPeople = () => {
                   </h3>
                   <button
                     type='button'
-                    onClick={() => {}}
+                    onClick={() => {
+                      console.log(index)
+                      setSelectedFriends((data) => {
+                        return data?.filter((name, _id) => _id !== index)
+                      })
+                    }}
                     className='group/edit rounded-full p-1 hover:bg-slate-300 dark:hover:bg-tpBlue500 cursor-pointer'
                   >
                     <Icon.MdClose className='text-lg text-blue-600' />
@@ -94,14 +99,13 @@ const TagPeople = () => {
             <h4 className='uppercase text-sm ml-2 text-gray-400 font-medium'>
               search
             </h4>
-            {posts.map(({ creator, profile: [{ profileImage }] }, i) => (
+            {posts.map(({ creator, profile: [{ profileImage }] }, index) => (
               <article
                 onClick={(e) => {
                   const friendName = e.target.textContent
                   setSelectedFriends([...selectedFriends, friendName])
-                  setSearchFriends('')
                 }}
-                key={i + creator}
+                key={index + creator}
                 className='flex flex-row gap-2 items-center px-2 py-0.5 hover:bg-light300 dark:hover:bg-dark300 rounded-md w-full mt-1 mb-1'
               >
                 <div className='rounded-full cursor-pointer'>

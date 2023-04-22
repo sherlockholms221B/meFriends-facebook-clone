@@ -72,18 +72,28 @@ export const feedLinks = [
 
 export const feedLinksOne = [
   {
-    title: 'Live video',
+    title: 'Live/video',
     mtitle: 'Live',
-    icon: <img src={DIcons.camera} alt='' className='w-10 h-10' />,
+    icon: (
+      <img src={DIcons.camera} alt='' className='w-8 h-8 mdxs:w-10 mdxs:h-10' />
+    ),
   },
   {
     title: 'Photo/Video',
     mtitle: 'Video',
-    icon: <img src={DIcons.picture} alt='' className='w-10 h-10' />,
+    icon: (
+      <img
+        src={DIcons.picture}
+        alt=''
+        className='w-8 h-8 mdxs:w-10 mdxs:h-10'
+      />
+    ),
   },
   {
     title: 'Feelings/activity',
     mtitle: 'Feeling',
-    icon: <img src={DIcons.mic} alt='' className='w-10 h-10' />,
+    icon: (
+      <img src={DIcons.mic} alt='' className='w-8 h-8 mdxs:w-10 mdxs:h-10' />
+    ),
   },
 ]
