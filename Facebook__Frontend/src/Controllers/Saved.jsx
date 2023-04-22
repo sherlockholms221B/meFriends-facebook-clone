@@ -10,7 +10,7 @@ import { Icon } from '../utils/Icon'
 import { comments } from '../utils/constants'
 
 //import components
-import { Demaceta } from '../Components/RDOMC'
+import { Demarcate } from '../Components/RDOMC'
 import SoftIconContainer from '../examples/icon'
 import SoftButton from '../examples/SoftButton'
 
@@ -132,7 +132,7 @@ const SavedBtn = () => {
           />
         ))}
       </section>
-      <Demaceta />
+      <Demarcate />
       <section className='flex flex-col w-full'>
         <h5 className='text-lg text-gray-800 dark:text-thdark500 font-bold'>
           My collection

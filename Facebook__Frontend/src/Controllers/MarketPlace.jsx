@@ -3,7 +3,7 @@ import React from 'react'
 import MenuPage from './MenuPage'
 import { Icon } from '../utils/Icon'
 import { Input } from '../Components'
-import { Demaceta } from '../Components/RDOMC'
+import { Demarcate } from '../Components/RDOMC'
 import { SoftButton, SoftIconContainer } from '../examples'
 import { comments } from '../utils/constants'
 const MarketPlace = () => {
@@ -102,11 +102,11 @@ const MarketPlaceBtn = () => {
         <Icon.HiPlusSm />
         Create new listing
       </SoftButton>
-      <Demaceta />
+      <Demarcate />
       <b className='text-xl text-gray-800 dark:text-thdark500 brightness-95 tracking-wider'>
         Filter
       </b>
-      <Demaceta />
+      <Demarcate />
       <b className='text-xl text-gray-800 dark:text-thdark500 brightness-95 tracking-wider'>
         Categories
       </b>

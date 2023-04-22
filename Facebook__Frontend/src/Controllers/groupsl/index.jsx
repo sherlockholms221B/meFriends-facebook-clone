@@ -4,7 +4,7 @@ import React from 'react'
 import MenuPageUrl from '../MenuPageUrl'
 import SoftButton from '../../examples/SoftButton'
 import { SoftIconContainer } from '../../examples'
-import { Demaceta } from '../../Components/RDOMC'
+import { Demarcate } from '../../Components/RDOMC'
 import { Icon } from '../../utils/Icon'
 import { Input } from '../../Components'
 
@@ -60,7 +60,7 @@ const GroupSl = () => {
         <Icon.HiPlusSm />
         Create new group
       </SoftButton>
-      <Demaceta />
+      <Demarcate />
       <h5 className='text-lg text-gray-800 dark:text-thdark500 font-semibold brightness-105 tracking-wide'>
         Groups you manage
       </h5>

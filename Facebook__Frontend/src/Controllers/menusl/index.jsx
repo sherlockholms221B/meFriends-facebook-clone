@@ -6,7 +6,7 @@ import MenuPageUrl from '../MenuPageUrl'
 //import components
 import { Input } from '../../Components'
 import { Icon } from '../../utils/Icon'
-import { Demaceta } from '../../Components/RDOMC'
+import { Demarcate } from '../../Components/RDOMC'
 import { SoftIconContainer } from '../../examples'
 
 const MenuSL = () => {
@@ -92,7 +92,7 @@ const MenuSL = () => {
                     ref={ref}
                     handleClick={() => {}}
                   />
-                  {index === 2 && <Demaceta />}
+                  {index === 2 && <Demarcate />}
                 </React.Fragment>
               ))}
             </section>

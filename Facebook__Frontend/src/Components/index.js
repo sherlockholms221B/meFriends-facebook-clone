@@ -1,7 +1,7 @@
 import Navbar from './Navigation Bar/Navbar'
 import THRDot from './Navigation Bar/THR Dot'
 import SideBar from './SideBars/SideBar'
-import Feeds from './Feeds'
+import Feeds from './feeds/Feeds'
 import Post from './Posts/Post'
 import Comments from './Comments/Comments'
 import Comment from './Comments/Comment'

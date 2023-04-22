@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import Groups from '../Groups'
 import { Active, Profile } from '../index'
 import { SideLinks } from '../../utils/LWRef'
-import { Button, Demaceta, Paragraph, To } from '../RDOMC'
+import { Button, Demarcate, Paragraph, To } from '../RDOMC'
 
 //import context
 import { useGlobalContext } from '../../Hooks/context/UseContext'
@@ -43,7 +43,7 @@ const MSideBar = () => {
         <Active page={`home`} current={null} />
       </To>
       <Profile link={`/backface/api/profile`} size />
-      <Demaceta />
+      <Demarcate />
       {SideLinks().map((page, i) => (
         <Link
           key={i + page.title}
@@ -66,14 +66,14 @@ const MSideBar = () => {
         </Paragraph>
         <Active page={`menu`} current={null} />
       </Button>
-      <Demaceta />
+      <Demarcate />
       <Groups
         barContainer={barContainer}
         roundedIcon={roundedIcon}
         isMbar={false}
         groupsLinks={groupsLinks}
       />
-      <Demaceta />
+      <Demarcate />
       <Groups
         barContainer={barContainer}
         roundedIcon={roundedIcon}

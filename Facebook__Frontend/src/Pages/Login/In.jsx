@@ -7,7 +7,7 @@ import { useMultistepForm } from './useMultistepForm'
 import { GetUser } from './index'
 import useAuthStore from '../../Store/AuthStore'
 import { useNavigate } from 'react-router-dom'
-import { Demaceta } from '../../Components/RDOMC'
+import { Demarcate } from '../../Components/RDOMC'
 
 export function LogIn({
   email,
@@ -70,7 +70,7 @@ export function LogIn({
         <p className='text-md  text-blue-500 hover:underline cursor-pointer'>
           Forgotten password?
         </p>
-        <Demaceta />
+        <Demarcate />
         <button
           className=' text-white font-bold xlg:text-xl text-md p-2 rounded-md bg-green-500 hover:bg-green-600 w-[90%]'
           onClick={() => next()}

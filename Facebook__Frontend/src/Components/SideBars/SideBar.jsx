@@ -5,7 +5,7 @@ import { Active, Footer, Profile } from '../index'
 import { SideLinks } from '../../utils/LWRef'
 import { barHarder, barContainer, roundedIcon } from '../../utils/useStyles'
 import { groupsLinks } from '../../utils/links'
-import { Button, Demaceta, Paragraph, To } from '../RDOMC'
+import { Button, Demarcate, Paragraph, To } from '../RDOMC'
 import Groups from '../Groups'
 import SidelayOut from './components/layout'
 import SlideLinks from './components/side actions'
@@ -40,7 +40,7 @@ const SideBar = () => {
         size
         style={` py-2 ${barContainer}`}
       />
-      <Demaceta />
+      <Demarcate />
       {SideLinks().map((page, i) => (
         <SlideLinks page={page} index={i} key={page.title + i} />
       ))}
@@ -56,7 +56,7 @@ const SideBar = () => {
         <Paragraph title={`${barHarder}`}>See all</Paragraph>
         <Active page={`menu`} current={null} />
       </Button>
-      <Demaceta />
+      <Demarcate />
       <Groups
         barHarder={barHarder}
         barContainer={barContainer}
@@ -64,7 +64,7 @@ const SideBar = () => {
         isMbar={true}
         groupsLinks={groupsLinks}
       />
-      <Demaceta />
+      <Demarcate />
       <Groups
         barHarder={barHarder}
         barContainer={barContainer}

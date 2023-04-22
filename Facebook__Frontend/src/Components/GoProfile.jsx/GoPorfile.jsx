@@ -8,7 +8,7 @@ import MegWrapper from '../MegWrapper'
 
 //import components
 import { CMPFooter, Profile } from '../index'
-import { Demaceta } from '../RDOMC'
+import { Demarcate } from '../RDOMC'
 
 //import context
 import { useGlobalContext } from '../../Hooks/context/UseContext'
@@ -49,7 +49,7 @@ const GoPorfile = () => {
             }
           />
         </section>
-        <Demaceta />
+        <Demarcate />
         <section
           section
           className='dark:hover:bg-dark300 hover:bg-light300 h-fit flex flex-row justify-between items-center gap-3 p-2 rounded-md'

@@ -10,7 +10,7 @@ import { createUser } from './index'
 import useAuthStore from '../../Store/AuthStore'
 import { useNavigate } from 'react-router-dom'
 import { CoverUpload } from './CoverImage'
-import { Demaceta } from '../../Components/RDOMC'
+import { Demarcate } from '../../Components/RDOMC'
 import { Icon } from '../../utils/Icon'
 
 const INITIAL_DATA = {
@@ -145,11 +145,11 @@ function Main() {
       )}
       {isFirstStep && (
         <React.Fragment>
-          <Demaceta />
+          <Demarcate />
           <h2 className='text-xl text-blue-800 mdxs:text-5xl font-bold tracking-wide mb-3'>
             MeFriends
           </h2>
-          <Demaceta />
+          <Demarcate />
         </React.Fragment>
       )}
       <form onSubmit={onSubmit} className='w-full'>
