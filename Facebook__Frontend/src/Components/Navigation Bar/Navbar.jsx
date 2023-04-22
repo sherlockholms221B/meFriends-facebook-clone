@@ -6,7 +6,7 @@ import { Input, THRDot } from '../index'
 import MbarLink from './components/mobile'
 
 //import functions
-import { refresh } from '../../Functions/SH'
+import { refresh } from '../../Functions/utilities/SH'
 
 //import context
 import { useGlobalContext } from '../../Hooks/context/UseContext'

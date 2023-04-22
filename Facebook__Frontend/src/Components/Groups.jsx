@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { Active } from './index'
 import { useGlobalContext } from '../Hooks/context/UseContext'
 import { Button, Paragraph } from './RDOMC'
-import { sideGroup } from '../Actions'
+import { sideGroup } from '../Functions/actions/index'
 import { Icon } from '../utils/Icon'
 
 const Groups = ({

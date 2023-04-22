@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { useGlobalContext } from '../../Hooks/context/UseContext'
 import MegWrapper from '../MegWrapper'
 import { Head, Input, NoPost } from '../index'
-import { previous } from '../../Functions/SH'
+import { previous } from '../../Functions/utilities/SH'
 import { posts } from '../../utils/constants'
 import { Icon } from '../../utils/Icon'
 

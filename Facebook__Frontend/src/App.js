@@ -7,7 +7,7 @@ import { Routes, Route } from 'react-router-dom'
 import { Home, Protector } from './Pages'
 
 //import theme checker from function & run check when app renders
-import { themeCheck } from './Functions/darkTheme'
+import { themeCheck } from './Functions/utilities/darkTheme'
 
 //import absolute components
 import ABS from './ABS'

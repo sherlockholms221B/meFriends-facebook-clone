@@ -1,7 +1,7 @@
 import React from 'react'
 
 //import react-router-dom module
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 //import higher order components wrapper
 import MegWrapper from '../MegWrapper'
@@ -20,7 +20,7 @@ import { GoPLink } from '../../utils/LWRef'
 import { Icon } from '../../utils/Icon'
 
 //import iconhandler from function
-import { IconHandler } from '../../Functions/SH'
+import { IconHandler } from '../../Functions/utilities/SH'
 
 //import authstore
 import useAuthStore from '../../Store/AuthStore'

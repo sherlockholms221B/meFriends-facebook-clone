@@ -17,7 +17,7 @@ import { Icon } from '../../utils/Icon'
 import { useGlobalContext } from '../../Hooks/context/UseContext'
 
 //import reducer actions
-import { SideMenu, shortCuts } from '../../Actions'
+import { SideMenu, shortCuts } from '../../Functions/actions/index'
 const SideBar = () => {
   const {
     value: [controller, dispatch],

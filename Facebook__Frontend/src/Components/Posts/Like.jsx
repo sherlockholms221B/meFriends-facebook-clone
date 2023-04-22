@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { AiOutlineLike } from 'react-icons/ai'
-import { like } from '../../Audio'
+import { like } from '../../Assets/Audio/index'
 
 const Like = ({ PostBtn1, PostBtnI, PostBtnT }) => {
   const likeRef = useRef(null)

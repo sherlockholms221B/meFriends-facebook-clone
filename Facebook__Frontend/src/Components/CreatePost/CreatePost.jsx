@@ -3,7 +3,7 @@ import React, { useState, useRef } from 'react'
 import MegWrapper from '../MegWrapper'
 import { useGlobalContext } from '../../Hooks/context/UseContext'
 import { AddFile, CreatePostLinks, PostAIR, Profile } from '../index'
-import { forward } from '../../Functions/SH'
+import { forward } from '../../Functions/utilities/SH'
 import { Icon } from '../../utils/Icon'
 
 //import authprofile from store

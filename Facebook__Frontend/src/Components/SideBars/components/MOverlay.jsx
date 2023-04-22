@@ -3,8 +3,8 @@ import React, { useRef } from 'react'
 import { useGlobalContext } from '../../../Hooks/context/UseContext'
 import { Icon } from '../../../utils/Icon'
 import Profile from '../../Profile'
-import { IconHandler } from '../../../Functions/SH'
-import { themeSwitcher } from '../../../Functions/darkTheme'
+import { IconHandler } from '../../../Functions/utilities/SH'
+import { themeSwitcher } from '../../../Functions/utilities/darkTheme'
 import { RiLogoutBoxRFill } from 'react-icons/ri'
 const MOverlay = () => {
   const lightMode = useRef(null)

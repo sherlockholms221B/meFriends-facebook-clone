@@ -19,7 +19,7 @@ import { groupsLinks } from '../../utils/links'
 import { Icon } from '../../utils/Icon'
 
 //import reducer actions
-import { SideMenu, shortCuts } from '../../Actions'
+import { SideMenu, shortCuts } from '../../Functions/actions/index'
 
 // import { barHarder } from '../../utils/useStyles'
 import SidelayOut from './components/layout'

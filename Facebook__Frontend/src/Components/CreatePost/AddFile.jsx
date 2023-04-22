@@ -3,7 +3,7 @@ import React, { useReducer, useRef } from 'react'
 import { useGlobalContext } from '../../Hooks/context/UseContext'
 import { Icon } from '../../utils/Icon'
 import IMG from '../Posts/IMG'
-import { addFile } from '../../Actions'
+import { addFile } from '../../Functions/actions/index'
 
 const AddFile = () => {
   const pictureRef = useRef(null)

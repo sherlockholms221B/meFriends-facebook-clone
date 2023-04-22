@@ -3,7 +3,7 @@ import React from 'react'
 import MegWrapper from '../MegWrapper'
 import { useGlobalContext } from '../../Hooks/context/UseContext'
 import { Head } from '../index'
-import { IconHandler } from '../../Functions/SH'
+import { IconHandler } from '../../Functions/utilities/SH'
 import { Icon } from '../../utils/Icon'
 
 const Settings = () => {

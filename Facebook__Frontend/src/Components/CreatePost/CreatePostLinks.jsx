@@ -1,6 +1,6 @@
 import React from 'react'
 import { useGlobalContext } from '../../Hooks/context/UseContext'
-import { forward, IconHandler } from '../../Functions/SH'
+import { forward, IconHandler } from '../../Functions/utilities/SH'
 import { MakePostLinkOne, MakePostLinkTwo } from '../../utils/LWRef'
 import ToolTip from '../ToolTip'
 import { Icon } from '../../utils/Icon'

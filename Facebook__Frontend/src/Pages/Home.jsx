@@ -13,7 +13,7 @@ import { SideBar, Feeds, Advertisment, Navbar } from '../Components/index'
 import { useGlobalContext } from '../Hooks/context/UseContext'
 
 // import actions handlers
-import { loadingSet } from '../Actions'
+import { loadingSet } from '../Functions/actions/index'
 
 export default function Home() {
   //Distructure context valuses from contexts

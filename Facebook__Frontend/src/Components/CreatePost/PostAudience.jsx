@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import { useGlobalContext } from '../../Hooks/context/UseContext'
-import { IconHandler, previous } from '../../Functions/SH'
+import { IconHandler, previous } from '../../Functions/utilities/SH'
 import { PostAudienceLinks } from '../../utils/LWRef'
 import { Head } from '../index'
 import MegWrapper from '../MegWrapper'
