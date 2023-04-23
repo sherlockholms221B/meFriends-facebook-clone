@@ -30,7 +30,7 @@ const Profile = () => {
                   <EDIOP />
                   <Photos />
                   <Friends />
-                  <CMPFooter />
+                  <CMPFooter hidden />
                 </section>
                 <section className='overflow-auto scroll-hidden'>
                   <Feeds isNot={false} />

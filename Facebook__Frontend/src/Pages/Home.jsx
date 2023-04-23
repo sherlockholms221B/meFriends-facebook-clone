@@ -66,8 +66,8 @@ export default function Home() {
           <Feeds profile />
           <Advertisment />
         </section>
-        <section className='absolute bottom-5 dark:bg-dark300 p-3 right-5 rounded-full flex items-center justify-center cursor-pointer hover:brightness-125 border border-slate-800'>
-          <FaEdit className='text-white text-xl' />
+        <section className='absolute bottom-5 dark:bg-dark300 bg-white p-3 right-5 rounded-full flex items-center justify-center cursor-pointer hover:brightness-105 shadow-md border dark:border-bd500'>
+          <FaEdit className='dark:text-white text-dark500 text-xl' />
         </section>
       </React.Fragment>
     )

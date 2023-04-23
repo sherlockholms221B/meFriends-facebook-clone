@@ -17,7 +17,7 @@ const SoftProfileLayout = (props) => {
   return (
     <section className='dark:bg-dark400 bg-white rounded-md shadow-lg md:order-2  mt-4'>
       <section className='flex_row justify-between px-4 border-b-2 border-gray-300 dark:border-[#3a3b3c] py-1'>
-        <strong className='text-xl tracking-wide dark:text-thdark500'>
+        <strong className='text-sm mdsm:text-base lg:text-xl tracking-wide dark:text-thdark500'>
           Posts
         </strong>
         <div className=' flex flex-row items-center justify-end gap-2 py-1.5 cursor-pointer '>
@@ -36,11 +36,11 @@ const SoftProfileLayout = (props) => {
             },
           ].map(({ title, icon }, index) => (
             <article
-              className='flex items-center flex-nowrap gap-2 rounded-md px-3 py-2 bg-light500 dark:bg-dark300 hover:bg-light300'
+              className='flex items-center flex-nowrap gap-2 rounded-md p-1.5 mdxs:px-3 mdxs:gggpy-2 bg-light500 dark:bg-dark300 hover:bg-light300'
               key={index}
             >
               {icon}
-              <strong className='dark:text-thdark500 text-lg tracking-tight text-zinc-600 font-[500]'>
+              <strong className='dark:text-thdark500 text-sm mdsm:text-lg tracking-tight text-zinc-600 font-[500]'>
                 {title}
               </strong>
             </article>
