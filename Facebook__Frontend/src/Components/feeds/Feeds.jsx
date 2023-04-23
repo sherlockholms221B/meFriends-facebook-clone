@@ -70,7 +70,7 @@ const Posts = ({ profile }) => {
           </section>
         )}
 
-        {allPost.map((data, index) => (
+        {allPost?.map((data, index) => (
           <Post {...data} key={index} />
         ))}
       </section>

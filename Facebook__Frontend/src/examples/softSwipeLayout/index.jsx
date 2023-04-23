@@ -69,7 +69,7 @@ const SoftSwipeLayout = ({ data, title }) => {
         {data.map((tallings, index) => (
           <section
             key={index}
-            class={
+            className={
               ' swiper-slide max-w-28 h-60 flex justify-center items-center ' +
               (title === 'Rooms' &&
                 'w-52 h-52 flex flex-col justify-around items-center overflow-hidden rounded-lg shadow-md  hover:shadow-xl transition-shadow duration-300 ease-in-out relative text-center')

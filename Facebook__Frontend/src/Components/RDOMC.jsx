@@ -67,9 +67,9 @@ export const Demarcate = () => {
   )
 }
 
-export const To = ({ children, link, title, key }) => {
+export const To = ({ children, link, title }) => {
   return (
-    <Link key={`${key && key}`} to={link} className={`${title && title}`}>
+    <Link to={link} className={`${title && title}`}>
       {children}
     </Link>
   )

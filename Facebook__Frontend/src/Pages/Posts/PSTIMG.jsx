@@ -10,19 +10,20 @@ import { motion } from 'framer-motion'
 import { Icon } from '../../utils/Icon'
 import moment from 'moment'
 import { profile } from '../../Assets/exports'
+import { urlFor } from '../../utils/client'
 
-const PSTIMG = ({ synced }) => {
+const PSTIMG = ({ synced, image, video }) => {
   const [index, setIndex] = React.useState(0)
 
   React.useEffect(() => {
-    const lastindex = comments.length - 1
+    const lastindex = image.length - 1
     if (index < 0) {
       setIndex(lastindex)
     }
     if (index > lastindex) {
       setIndex(0)
     }
-  }, [index])
+  }, [index, image.length])
 
   React.useEffect(() => {
     let slider = setInterval(() => {
@@ -38,28 +39,26 @@ const PSTIMG = ({ synced }) => {
     /* POST DETAILS IMAGE COMPONENT */
     <React.Fragment>
       <section className=' max-w-[600px] w-full mx-auto h-full flex flex-row relative overflow-hidden'>
-        {comments.map(
-          ({ creator, createdAt, profile: [{ profileImage }] }, i) => {
-            let position = 'nextSlide'
-            if (index === i) {
-              position = 'activeSlide'
-            }
-            if (index === i - 1 || (i === 0 && index === comments.length - 1)) {
-              position = 'lastSlide'
-            }
-            return (
-              <React.Fragment key={i}>
-                <img
-                  src={profileImage}
-                  alt='post'
-                  className={`${position} ${
-                    synced ? 'rounded-xl' : ''
-                  } h-full object-cover transition-all absolute w-full top-0 right-0 `}
-                />
-              </React.Fragment>
-            )
+        {image?.map(({ asset, _key, _type }, i) => {
+          let position = 'nextSlide'
+          if (index === i) {
+            position = 'activeSlide'
           }
-        )}
+          if (index === i - 1 || (i === 0 && index === image.length - 1)) {
+            position = 'lastSlide'
+          }
+          return (
+            <React.Fragment key={i + _key}>
+              <img
+                src={urlFor(asset).url()}
+                alt='post'
+                className={`${position} ${
+                  synced ? 'rounded-xl' : ''
+                } h-full object-cover transition-all absolute w-full top-0 right-0 `}
+              />
+            </React.Fragment>
+          )
+        })}
         {synced && (
           <section
             className={`absolute top-0 right-0 left-0 w-full p-4 flex flex-col gap-3`}

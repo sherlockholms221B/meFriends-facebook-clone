@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 //import react-router-dom module
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 //import components
 import {
@@ -16,12 +16,15 @@ import PSTIMG from './PSTIMG'
 
 //import icons from utils
 import { Icon } from '../../utils/Icon'
+import { postDetailQuery } from '../../utils/querries'
+import { client } from '../../utils/client'
 
 const PostDetails = () => {
   const navigate = useNavigate()
   const [isComment, setIsComment] = React.useState(true)
   const [viewMore, setViewMore] = React.useState(true)
   const [value, setValue] = React.useState('')
+  const [details, setdetails] = React.useState([])
   const PostBtn1 =
     'flex flex-row flex-nowrap justify-center  items-center sm:dark:hover:bg-dark300 sm:hover:bg-light500 bg-light500 dark:bg-dark300 sm:dark:bg-inherit sm:rounded-[3px] rounded-full px-6 xs:px-8 py-2 cursor-pointer '
   const PostBtnI = 'text-xl font-bold text-gray-500 mr-1  dark:text-thlight500'
@@ -29,6 +32,16 @@ const PostDetails = () => {
   const PostBtnT =
     'hidden sm:block text-sm xs:text-md text-gray-500 font-semibold dark:text-thlight500'
 
+  const search = useLocation().search
+  const _postId = new URLSearchParams(search).get('fbid')
+  console.log(_postId)
+
+  React.useLayoutEffect(() => {
+    const query = postDetailQuery(_postId)
+    client.fetch(query).then((data) => {
+      setdetails(data[0])
+    })
+  }, [_postId])
   return (
     <React.Fragment>
       <section className='flex justify-between items-center py-1 pr-2 border-b-2 dark:border-bd500 dark:bg-dark400 '>
@@ -51,7 +64,7 @@ const PostDetails = () => {
               <Icon.FaExpandAlt className='text-lg text-thdark500' />
             </div>
           </section>
-          <PSTIMG />
+          <PSTIMG {...details} />
         </section>
         <div className='w-full tab:w-550 dark:bg-dark400 h-full overflow-y-auto'>
           <div className='flex flex-row flex-nowrap justify-between items-center mx-2 p-2 border-b-2 border-gray-300 dark:border-[#3a3b3c]'>
@@ -77,20 +90,17 @@ const PostDetails = () => {
           </section>
           <section className='tab:max-h-[73%] max-h-[53%] overflow-auto home_scroll'>
             <Comments
-              postDetail={false}
               isComment={isComment}
               setIsComment={setIsComment}
               viewMore={viewMore}
               setViewMore={setViewMore}
               value={value}
               setValue={setValue}
+              comments={details?.comments}
             />
           </section>
-          <div className='flex flex-row flex-nowrap gap-2 items-center px-3 pt-2 pb-3 border-t-2 dark:border-bd500'>
-            <Profile
-              link='/backface/api/profile'
-              style='object-cover w-8 h-8 rounded-full'
-            />
+          <section className='flex flex-row flex-nowrap gap-2 items-center px-3 pt-2 pb-3 border-t-2 dark:border-bd500'>
+            <Profile link='/backface/api/profile' />
             <Input
               handleChange={(e) => setValue(e.target.value)}
               value={value}
@@ -98,7 +108,7 @@ const PostDetails = () => {
               name={`comment`}
               placeholder={`Write a comment`}
             />
-          </div>
+          </section>
         </div>
       </section>
     </React.Fragment>

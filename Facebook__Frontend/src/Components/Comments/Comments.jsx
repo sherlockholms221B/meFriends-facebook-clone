@@ -37,8 +37,8 @@ const Comments = ({
         {/*  configure comments */}
         {!viewMore
           ? comments
-              .slice(0, 1)
-              .map(({ comment, postedBy }, index) => (
+              ?.slice(0, 1)
+              ?.map(({ comment, postedBy }, index) => (
                 <Comment
                   isComment={isComment}
                   {...postedBy}
@@ -47,7 +47,7 @@ const Comments = ({
                   key={index}
                 />
               ))
-          : comments.map(({ comment, postedBy }, index) => (
+          : comments?.map(({ comment, postedBy }, index) => (
               <Comment
                 isComment={isComment}
                 setIsComment={setIsComment}

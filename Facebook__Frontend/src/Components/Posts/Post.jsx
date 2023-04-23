@@ -1,31 +1,31 @@
 import * as React from 'react'
 
 //import react-router dom module router
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 //import moment
 import moment from 'moment'
 
 //import react custom icons
 import { Icon } from '../../utils/Icon'
-import { AiOutlineLike } from 'react-icons/ai'
 
 //import components
-import { Comments, PostOptions, Like, Share, COMBTN, PostAIR } from '../index'
+import { Comments, PostOptions, Like, Share, COMBTN } from '../index'
+import { To } from '../RDOMC'
 import IMG from './IMG'
 
 //import context
 import { useGlobalContext } from '../../Hooks/context/UseContext'
 import { urlFor } from '../../utils/client'
-import { To } from '../RDOMC'
 
-const Post = ({ topic, comments, image, postedBy, _createdAt }) => {
+const Post = ({ topic, comments, image, postedBy, _createdAt,_id }) => {
   const [value, setValue] = React.useState('')
   const [isComment, setIsComment] = React.useState(false)
   const [viewMore, setViewMore] = React.useState(false)
   const [postOption, setPostOption] = React.useState(false)
   const togleMenu = React.useRef(null)
   const { dynamicLocation } = useGlobalContext()
+  // console.log(_id);
 
   React.useEffect(() => {
     setViewMore(false)
@@ -94,7 +94,7 @@ const Post = ({ topic, comments, image, postedBy, _createdAt }) => {
           </h5>
         </article>
         <To
-          link={`/post/details/photo?fbid=${`544657569769743763856776056734384697367458468744835`}`}
+          link={`/post/details/photo?fbid=${_id}`}
         >
           <IMG post={image} postlength={image?.length} />
         </To>
@@ -130,7 +130,7 @@ const Post = ({ topic, comments, image, postedBy, _createdAt }) => {
           </section>
 
           <Comments
-            postDetail={true}
+            postDetail
             isComment={isComment}
             setIsComment={setIsComment}
             viewMore={viewMore}

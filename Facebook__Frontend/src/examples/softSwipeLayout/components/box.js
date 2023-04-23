@@ -15,7 +15,6 @@ const Box = ({
   },
   title,
 }) => {
-  console.log(title)
   return (
     <Link
       to={`/story/details/photo?fbid=${`544657569769743763856776056734384697367458468744835`}`}
