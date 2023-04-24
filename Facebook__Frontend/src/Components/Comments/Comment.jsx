@@ -2,6 +2,8 @@ import React from 'react'
 
 //import react-router-dom module
 import { Link } from 'react-router-dom'
+
+//import sanity url reader
 import { urlFor } from '../../utils/client'
 
 //import moment

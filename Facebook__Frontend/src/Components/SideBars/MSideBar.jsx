@@ -19,7 +19,7 @@ import { groupsLinks } from '../../utils/links'
 import { Icon } from '../../utils/Icon'
 
 //import reducer actions
-import { SideMenu, shortCuts } from '../../Functions/actions/index'
+import { SideMenu, shortCuts } from '../../Functions/actions/internal'
 
 // import { barHarder } from '../../utils/useStyles'
 import SidelayOut from './components/layout'
@@ -27,7 +27,7 @@ import SidelayOut from './components/layout'
 const MSideBar = () => {
   const {
     location,
-    value: [controller, dispatch],
+    internalAction: [controller, dispatchAction],
   } = useGlobalContext()
   const barContainer =
     'relative hover:bg-inherit xl:hover:bg-light500 xl:dark:hover:bg-dark300 flex flex-row items-center w-full rounded-md '
@@ -58,7 +58,7 @@ const MSideBar = () => {
       <Button
         title={` ${barContainer} py-1 `}
         functionCall={() => {
-          SideMenu(dispatch, { name: 'menuSideLink', value: true })
+          SideMenu(dispatchAction, { name: 'menuSideLink', value: true })
         }}
       >
         <Paragraph title={`${roundedIcon} text-lg p-2`}>
@@ -84,7 +84,7 @@ const MSideBar = () => {
       <Button
         title={` ${barContainer} py-1 `}
         functionCall={() => {
-          shortCuts(dispatch, { name: 'shortCut', value: true })
+          shortCuts(dispatchAction, { name: 'shortCut', value: true })
         }}
       >
         <Paragraph title={`${roundedIcon} text-lg p-2`}>

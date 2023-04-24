@@ -21,6 +21,9 @@ import SoftPostBg from '../../examples/SoftPostBg'
 import SoftTag from '../../examples/SoftTag'
 import { AddFile, CreatePostLinks, PostAIR, Profile } from '../index'
 
+//import utilities function
+import { post } from '../../Functions/utilities'
+
 const CreatePost = () => {
   const textRef = React.useRef(null)
   const {
@@ -34,12 +37,12 @@ const CreatePost = () => {
     setGoBack,
     audState,
     selectedFriends,
+    internalAction: [controller, dispatchAction],
   } = useGlobalContext()
 
   const { userProfile } = useAuthStore()
   // const importPattern = /^:import\(("[^"]*"|'[^']*'|[^"']+)\)$/
   // importPattern.exec('/')
-  // console.log(selectedFriends)
   return (
     <section
       className={
@@ -112,7 +115,18 @@ const CreatePost = () => {
               ? 'bg-blue-500 text-white cursor-pointer'
               : ' dark:bg-dark300 bg-gray-200 text-gray-400 cursor-not-allowed ')
           }
-          onClick={() => {}}
+          onClick={() => {
+            if (postvalue) {
+              const data = {
+                topic: postvalue,
+                audience: audState,
+                taged: selectedFriends,
+                _creatorId: userProfile?._id,
+                file: { image: controller.postfile },
+              }
+              post(data)
+            }
+          }}
         >
           Post
         </button>

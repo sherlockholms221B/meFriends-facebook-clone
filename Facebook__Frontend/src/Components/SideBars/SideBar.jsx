@@ -17,10 +17,10 @@ import { Icon } from '../../utils/Icon'
 import { useGlobalContext } from '../../Hooks/context/UseContext'
 
 //import reducer actions
-import { SideMenu, shortCuts } from '../../Functions/actions/index'
+import { SideMenu, shortCuts } from '../../Functions/actions/internal'
 const SideBar = () => {
   const {
-    value: [controller, dispatch],
+    internalAction: [controller, dispatchAction],
   } = useGlobalContext()
 
   // const { menuSideLink, groupSlideLink, shortCut } = controller
@@ -34,12 +34,7 @@ const SideBar = () => {
         <Paragraph title={barHarder}>Home</Paragraph>
         <Active page='home' current={null} />
       </To>
-      <Profile
-        link='/backface/api/profile'
-        hidden
-        size
-        style={` py-2 ${barContainer}`}
-      />
+      <Profile hidden size customstyle={` py-2 ${barContainer}`} />
       <Demarcate />
       {SideLinks().map((page, i) => (
         <SlideLinks page={page} index={i} key={page.title + i} />
@@ -47,7 +42,7 @@ const SideBar = () => {
       <Button
         title={` ${barContainer} py-1 `}
         functionCall={() => {
-          SideMenu(dispatch, { name: 'menuSideLink', value: true })
+          SideMenu(dispatchAction, { name: 'menuSideLink', value: true })
         }}
       >
         <Paragraph title={`${roundedIcon} text-lg p-2`}>
@@ -76,7 +71,7 @@ const SideBar = () => {
       <Button
         title={` ${barContainer} py-1 `}
         functionCall={() => {
-          shortCuts(dispatch, { name: 'shortCut', value: true })
+          shortCuts(dispatchAction, { name: 'shortCut', value: true })
         }}
       >
         <Paragraph title={`${roundedIcon} text-lg p-2`}>

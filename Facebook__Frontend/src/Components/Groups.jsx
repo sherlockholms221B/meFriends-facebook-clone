@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { Active } from './index'
 import { useGlobalContext } from '../Hooks/context/UseContext'
 import { Button, Paragraph } from './RDOMC'
-import { sideGroup } from '../Functions/actions/index'
+import { sideGroup } from '../Functions/actions/internal'
 import { Icon } from '../utils/Icon'
 
 const Groups = ({
@@ -18,7 +18,7 @@ const Groups = ({
 }) => {
   const {
     dynamicLocation,
-    value: [controller, dispatch],
+    internalAction: [controller, dispatchAction],
   } = useGlobalContext()
   return (
     <>
@@ -59,7 +59,7 @@ const Groups = ({
         <Button
           title={` ${barContainer} py-1 `}
           functionCall={() => {
-            sideGroup(dispatch, { name: 'groupSlideLink', value: true })
+            sideGroup(dispatchAction, { name: 'groupSlideLink', value: true })
           }}
         >
           <Paragraph title={`${roundedIcon} text-lg p-2 `}>

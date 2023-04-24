@@ -10,14 +10,16 @@ import { Icon } from '../../../utils/Icon'
 import IMG from '../../Posts/IMG'
 
 //import utilities function
-import { addFile } from '../../../Functions/actions/index'
+import { addFile } from '../../../Functions/actions/internal'
+import { upload } from '../../../Pages/Login'
 
 const AddFile = () => {
+  const [loading, setLoading] = React.useState(false)
   const pictureRef = React.useRef(null)
   const pictureRefTwo = React.useRef(null)
   const {
     setAddPictureState,
-    value: [controller, dispatch],
+    internalAction: [controller, dispatchAction],
   } = useGlobalContext()
 
   const selectPicture = (e) => {
@@ -28,17 +30,21 @@ const AddFile = () => {
     pictureRefTwo.current.click()
   }
 
-  console.log(controller)
-
-  function readURL(input) {
+  async function readURL(input) {
     if (window.File && window.FileReader && window.FileList && window.Blob) {
       for (let index = 0; index < input.files.length; index++) {
         if (input.files[index].type.match('image')) {
-          var reader = new FileReader()
-          reader.onload = function (e) {
-            addFile(dispatch, { value: e.target.result })
-          }
-          reader.readAsDataURL(input.files[index])
+          const { data, msg } = await upload(
+            input.files[index],
+            loading,
+            setLoading
+          )
+          addFile(dispatchAction, { value: { ...data } })
+          // var reader = new FileReader()
+          // reader.onload = function (e) {
+          //   addFile(dispatch, { value: e.target.result })
+          // }
+          // reader.readAsDataURL(input.files[index])
         } else if (input.files[index].type.match('video')) {
           console.log(input.files)
         }

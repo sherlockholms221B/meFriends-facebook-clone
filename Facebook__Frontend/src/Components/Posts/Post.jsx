@@ -1,8 +1,5 @@
 import * as React from 'react'
 
-//import react-router dom module router
-// import { Link } from 'react-router-dom'
-
 //import moment
 import moment from 'moment'
 
@@ -16,6 +13,8 @@ import IMG from './IMG'
 
 //import context
 import { useGlobalContext } from '../../Hooks/context/UseContext'
+
+//import sanity url reader
 import { urlFor } from '../../utils/client'
 
 const Post = ({ topic, comments, image, postedBy, _createdAt,_id }) => {
@@ -25,7 +24,6 @@ const Post = ({ topic, comments, image, postedBy, _createdAt,_id }) => {
   const [postOption, setPostOption] = React.useState(false)
   const togleMenu = React.useRef(null)
   const { dynamicLocation } = useGlobalContext()
-  // console.log(_id);
 
   React.useEffect(() => {
     setViewMore(false)
@@ -49,7 +47,6 @@ const Post = ({ topic, comments, image, postedBy, _createdAt,_id }) => {
   //
 
   return (
-    <React.Fragment>
       <section className='dark:border dark:border-bd500 dark:bg-dark400 md:order-3 flex flex-col rounded-md bg-white drop-shadow-xl shadow-xl mt-4'>
         <section className=' relative flex flex-row justify-between items-center px-3 py-2'>
           <section className='flex gap-2 items-center'>
@@ -141,7 +138,6 @@ const Post = ({ topic, comments, image, postedBy, _createdAt,_id }) => {
           />
         </section>
       </section>
-    </React.Fragment>
   )
 }
 
