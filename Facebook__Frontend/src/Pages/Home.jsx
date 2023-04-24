@@ -13,13 +13,15 @@ import { SideBar, Feeds, Advertisment, Navbar } from '../Components/index'
 import { useGlobalContext } from '../Hooks/context/UseContext'
 
 // import actions handlers
-import { loadingSet } from '../Functions/actions/index'
+import { loadingSet } from '../Functions/actions/internal'
+import { getAllPost } from '../Functions/actions/external'
 
 export default function Home() {
   //Distructure context valuses from contexts
   const {
     location,
-    value: [controller, dispatch],
+    internalAction: [controller, dispatchAction],
+    externalAction: [state, dispatchCall],
   } = useGlobalContext()
 
   const { loading } = controller
@@ -27,13 +29,19 @@ export default function Home() {
   // useEffect to turn off loading
   React.useEffect(() => {
     const interval = setTimeout(() => {
-      loadingSet(dispatch, false)
+      loadingSet(dispatchAction, false)
     }, 3000)
 
     return () => {
       clearInterval(interval)
     }
-  }, [dispatch])
+  }, [dispatchAction])
+
+  //get all posts
+  // React.useEffect(() => {
+  //   getAllPost(dispatchCall, { _id: 'all-post' })
+  // }, [dispatchCall])
+  // console.log(state)
 
   function isloading() {
     let template

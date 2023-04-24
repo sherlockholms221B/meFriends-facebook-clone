@@ -10,20 +10,22 @@ import { motion } from 'framer-motion'
 import { Icon } from '../../utils/Icon'
 import moment from 'moment'
 import { profile } from '../../Assets/exports'
+
+//import sanity url reader
 import { urlFor } from '../../utils/client'
 
 const PSTIMG = ({ synced, image, video }) => {
   const [index, setIndex] = React.useState(0)
 
   React.useEffect(() => {
-    const lastindex = image.length - 1
+    const lastindex = image?.length - 1
     if (index < 0) {
       setIndex(lastindex)
     }
     if (index > lastindex) {
       setIndex(0)
     }
-  }, [index, image.length])
+  }, [index, image?.length])
 
   React.useEffect(() => {
     let slider = setInterval(() => {

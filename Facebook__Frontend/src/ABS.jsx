@@ -34,7 +34,7 @@ const ABS = () => {
     supportState,
     chatState,
     mobileMenu,
-    value: [controller, dispatch],
+    internalAction: [controller, dispatchAction],
   } = useGlobalContext()
 
   const { menuSideLink, shortCut, groupSlideLink } = controller

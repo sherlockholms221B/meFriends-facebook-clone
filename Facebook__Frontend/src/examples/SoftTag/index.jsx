@@ -1,4 +1,5 @@
 import * as React from 'react'
+
 // import PropTypes from 'prop-types'
 
 const SoftTag = ({ data }) => {
@@ -12,7 +13,7 @@ const SoftTag = ({ data }) => {
   let templete
   if (length === length - (length - 1)) {
     templete = data.map((name, index) => (
-      <React.Fragment>is with {name}.</React.Fragment>
+      <React.Fragment key={index}>is with {name}.</React.Fragment>
     ))
     return templete
   }
@@ -23,15 +24,16 @@ const SoftTag = ({ data }) => {
       .filter((name, index) => length !== index + 1)
       .map((name, index) => {
         return (
-          <React.Fragment>
+          <React.Fragment key={index}>
             {name}
-            {index + 2 !== length && ','}{' '}
+            {index + 2 !== length && <React.Fragment>&#44;</React.Fragment>}
+            &nbsp;
           </React.Fragment>
         )
       })
     templete = (
       <React.Fragment>
-        is with {filteredFriends} and {_name}.
+        is with&nbsp;{filteredFriends}&nbsp;and&nbsp;{_name}.
       </React.Fragment>
     )
 
@@ -40,21 +42,18 @@ const SoftTag = ({ data }) => {
 
   const slicedFriends = friends.slice(0, 3).map((name, index) => {
     return (
-      <React.Fragment>
+      <React.Fragment key={index}>
         {name}
-        {!(index >= 2) && ','}{' '}
+        {!(index >= 2) && <React.Fragment>&#44;</React.Fragment>}&nbsp;
       </React.Fragment>
     )
   })
   const _others = friends.filter((name, index) => index > 2)
-  templete =
-    friends.length !== 0 ? (
-      <React.Fragment>
-        is with {slicedFriends} and {_others.length} others.
-      </React.Fragment>
-    ) : (
-      ''
-    )
+  templete = friends.length !== 0 && (
+    <React.Fragment>
+      is with&nbsp;{slicedFriends}&nbsp;and&nbsp;{_others.length}&nbsp;others.
+    </React.Fragment>
+  ) 
   
   return templete
 }
