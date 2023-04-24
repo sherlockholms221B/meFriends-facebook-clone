@@ -12,7 +12,8 @@ import {
 } from 'react'
 
 // import reducer functions
-import reducer from '../reducer/reducer.js'
+import reducer from '../reducer/internal.js'
+import externalReducer from '../reducer/extarnal.js'
 
 //set up react create context
 const AppContext = createContext(null)
@@ -65,14 +66,23 @@ export const AppProvider = ({ children }) => {
     postfile: [],
   }
 
-  const [controller, dispatch] = useReducer(reducer, initialState)
+  const [controller, dispatchAction] = useReducer(reducer, initialState)
+  const [state, dispatchCall] = useReducer(externalReducer, [])
 
-  const value = useMemo(() => [controller, dispatch], [controller, dispatch])
+  const internalAction = useMemo(
+    () => [controller, dispatchAction],
+    [controller, dispatchAction]
+  )
+  const externalAction = useMemo(
+    () => [state, dispatchCall],
+    [state, dispatchCall]
+  )
 
   return (
     <AppContext.Provider
       value={{
-        value,
+        internalAction,
+        externalAction,
         isSubMenuOpen,
         setIsSubMenuOpen,
         location,

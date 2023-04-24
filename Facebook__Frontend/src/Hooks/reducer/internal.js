@@ -37,7 +37,6 @@ export default function reducer(state, action) {
     }
 
     case 'ADD_iMAGE_FILE':
-      console.log(state)
       return {
         ...state,
         postfile: [...state.postfile, action.value],
