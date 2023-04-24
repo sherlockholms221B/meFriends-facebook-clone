@@ -11,6 +11,7 @@ import HED from './Profile/HED'
 import PSTIMG from './Posts/PSTIMG'
 import { FriendStack } from '../Components/RDOMC'
 import StoryDetails from './storyDetails/index'
+import IMG from '../Components/Posts/IMG'
 
 export {
   Home,
@@ -23,6 +24,7 @@ export {
   Friends,
   Photos,
   HED,
+  IMG,
   PSTIMG,
   FriendStack,
   StoryDetails,

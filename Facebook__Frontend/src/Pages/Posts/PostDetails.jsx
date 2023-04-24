@@ -25,16 +25,9 @@ const PostDetails = () => {
   const [viewMore, setViewMore] = React.useState(true)
   const [value, setValue] = React.useState('')
   const [details, setdetails] = React.useState([])
-  const PostBtn1 =
-    'flex flex-row flex-nowrap justify-center  items-center sm:dark:hover:bg-dark300 sm:hover:bg-light500 bg-light500 dark:bg-dark300 sm:dark:bg-inherit sm:rounded-[3px] rounded-full px-6 xs:px-8 py-2 cursor-pointer '
-  const PostBtnI = 'text-xl font-bold text-gray-500 mr-1  dark:text-thlight500'
-
-  const PostBtnT =
-    'hidden sm:block text-sm xs:text-md text-gray-500 font-semibold dark:text-thlight500'
 
   const search = useLocation().search
   const _postId = new URLSearchParams(search).get('fbid')
-  console.log(_postId)
 
   React.useLayoutEffect(() => {
     const query = postDetailQuery(_postId)
@@ -79,14 +72,8 @@ const PostDetails = () => {
           <section
             className={`flex flex-row flex-nowrap justify-around px-2 py-1 items-center mx-2 border-b-2 border-gray-300 dark:border-bd500`}
           >
-            <Like PostBtn1={PostBtn1} PostBtnI={PostBtnI} PostBtnT={PostBtnT} />
-            <COMBTN
-              isComment={isComment}
-              setIsComment={setIsComment}
-              PostBtn1={PostBtn1}
-              PostBtnI={PostBtnI}
-              PostBtnT={PostBtnT}
-            />
+            <Like />
+            <COMBTN isComment={isComment} setIsComment={setIsComment} />
           </section>
           <section className='tab:max-h-[73%] max-h-[53%] overflow-auto home_scroll'>
             <Comments

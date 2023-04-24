@@ -42,11 +42,8 @@ const GoPorfile = () => {
       >
         <section role='button' onClick={() => setProfileState(false)}>
           <Profile
-            link={`/backface/api/profile`}
             hidden
-            style={
-              'flex flex row gap-4 items-center hover:bg-light300 dark:hover:bg-dark300 h-fit flex flex-row items-center gap-3 px-2 py-1 rounded-md cursor-pointer'
-            }
+            customstyle='flex flex row gap-4 items-center hover:bg-light300 dark:hover:bg-dark300 h-fit flex flex-row items-center gap-3 px-2 py-1 rounded-md cursor-pointer'
           />
         </section>
         <Demarcate />

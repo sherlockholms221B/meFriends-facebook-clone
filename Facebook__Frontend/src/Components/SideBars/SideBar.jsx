@@ -9,6 +9,7 @@ import { Button, Demarcate, Paragraph, To } from '../RDOMC'
 import Groups from '../Groups'
 import SidelayOut from './components/layout'
 import SlideLinks from './components/side actions'
+import Redirect from '../../examples/SoftRedirect'
 
 //import custom icon
 import { Icon } from '../../utils/Icon'
@@ -26,15 +27,17 @@ const SideBar = () => {
   // const { menuSideLink, groupSlideLink, shortCut } = controller
   return (
     <SidelayOut title='lg:w-[300px] dark:bg-dark400 dark:lg:bg-dark500'>
-      <To
+      <Redirect
         link='/'
-        title=' group relative hover:bg-inherit lg:hover:bg-light500 lg:dark:hover:bg-dark300 flex flex-row gap-4 items-center w-full  rounded-md   py-2 mt-2'
+        customstyles=' group relative hover:bg-inherit lg:hover:bg-light500 lg:dark:hover:bg-dark300 flex flex-row gap-4 items-center w-full  rounded-md   py-2 mt-2'
       >
         <Icon.MdHome className='text-3xl text-blue-700' />
         <Paragraph title={barHarder}>Home</Paragraph>
         <Active page='home' current={null} />
-      </To>
-      <Profile hidden size customstyle={` py-2 ${barContainer}`} />
+      </Redirect>
+      <Redirect link='/backface/api/profile' customstyles='w-full'>
+        <Profile hidden size customstyle={' py-2 ' + barContainer} />
+      </Redirect>
       <Demarcate />
       {SideLinks().map((page, i) => (
         <SlideLinks page={page} index={i} key={page.title + i} />
@@ -77,7 +80,7 @@ const SideBar = () => {
         <Paragraph title={`${roundedIcon} text-lg p-2`}>
           <Icon.HiLink />
         </Paragraph>
-        <Paragraph title={`${barHarder}`}>Shortcuts</Paragraph>
+        <Paragraph title={barHarder}>Shortcuts</Paragraph>
         <Active page={`menu`} />
       </Button>
       <Footer />

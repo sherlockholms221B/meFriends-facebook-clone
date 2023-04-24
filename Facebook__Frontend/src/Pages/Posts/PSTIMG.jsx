@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import { useNavigate } from 'react-router-dom'
+
 //import data
 import { comments } from '../../utils/constants'
 
@@ -15,6 +17,7 @@ import { profile } from '../../Assets/exports'
 import { urlFor } from '../../utils/client'
 
 const PSTIMG = ({ synced, image, video }) => {
+  const navigate = useNavigate()
   const [index, setIndex] = React.useState(0)
 
   React.useEffect(() => {
@@ -68,36 +71,42 @@ const PSTIMG = ({ synced, image, video }) => {
             <div className='flex flex-row gap-1'>
               {comments.map((data, index) => (
                 <div
-                  className='w-full h-2 bg-gray-400 rounded-full'
+                  className='w-full h-1 tab:h-2 bg-gray-400 rounded-full'
                   key={index}
                 >
-                  <div className={`w-full h-2 bg-white rounded-full`} />
+                  <div className='w-full h-1 tab:h-2 bg-white rounded-full' />
                 </div>
               ))}
             </div>
-            <figure className='flex flex-row items-center gap-3'>
-              <img
-                src={profile}
-                alt='storie'
-                className='h-12 w-12 rounded-full ring-4 ring-blue-600'
+            <div className='flex flex-row items-center justify-between'>
+              <figure className='flex flex-row items-center gap-3'>
+                <img
+                  src={profile}
+                  alt='storie'
+                  className='h-12 w-12 rounded-full ring-4 ring-blue-600'
+                />
+                <figcaption className='flex flex-col text-start'>
+                  <h5 className='capitalize dark:text-thdark500 text-black brightness-95'>
+                    <b>{'John Diggle'}</b>
+                  </h5>
+                  <article className='flex flex-row '>
+                    <u className='dark:text-blue-700 text-black text-base mr-1'>
+                      {comments.length} new
+                    </u>
+                    <center>
+                      <strong className='dark:text-white text-black'>.</strong>
+                    </center>
+                    <u className='dark:text-thlight500 text-black text-base ml-1'>
+                      {moment(new Date()).fromNow()}
+                    </u>
+                  </article>
+                </figcaption>
+              </figure>
+              <Icon.MdClose
+                className='text-3xl dark:text-thdark500'
+                onClick={() => navigate(-1)}
               />
-              <figcaption className='flex flex-col text-start'>
-                <h5 className='capitalize dark:text-thdark500 text-black brightness-95'>
-                  <b>{'John Diggle'}</b>
-                </h5>
-                <article className='flex flex-row '>
-                  <u className='dark:text-blue-700 text-black text-base mr-1'>
-                    {comments.length} new
-                  </u>
-                  <center>
-                    <strong className='dark:text-white text-black'>.</strong>
-                  </center>
-                  <u className='dark:text-thlight500 text-black text-base ml-1'>
-                    {moment(new Date()).fromNow()}
-                  </u>
-                </article>
-              </figcaption>
-            </figure>
+            </div>
           </section>
         )}
       </section>

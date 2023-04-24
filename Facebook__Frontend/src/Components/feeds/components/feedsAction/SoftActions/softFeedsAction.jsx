@@ -27,7 +27,7 @@ const SoftFeedsAction = (props) => {
   return (
     <section className='dark:bg-dark400 bg-white border dark:border-bd500 rounded-md shadow-lg transition-shadow md:order-2 pt-1 mdsm:pt-4 px-4'>
       <section className='flex flex-row justify-between items-center w-full gap-2 xs:py-1 mdsm:py-4'>
-        <Profile link='/backface/api/profile' />
+        <Profile />
         <article
           className='rounded-full bg-light500 dark:bg-dark300 hover:bg-light300 p-3 w-full cursor-pointer flex flex-row flex-nowrap transition-colors'
           onClick={() => {

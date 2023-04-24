@@ -11,11 +11,12 @@ const PostOptions = ({ isChat }) => {
     <motion.section
       whileInView={{ opacity: [0, 1], scale: [0, 1] }}
       transition={{ duration: 0.15, ease: 'easeInOut' }}
-      className={` ${
-        isChat
+      className={
+        (isChat
           ? ' -left-full top-5'
-          : 'top-full right-2 left-2  mdxs:top-10 mdxs:right-10 mdxs:left-auto'
-      } opacity-0 vertical_scroll rounded-tl-lg rounded-b-lg  shadow-lg z-10 h-[400px] overflow-auto absolute bg-white p-2 dark:bg-dark400 dark:shadow-black dark:shadow-sm`}
+          : 'top-full right-2 left-2  mdxs:top-10 mdxs:right-10 mdxs:left-auto') +
+        ' opacity-0 vertical_scroll rounded-tl-lg rounded-b-lg  shadow-lg z-10 h-[400px] overflow-auto absolute bg-white p-2 dark:bg-dark400 dark:shadow-black dark:shadow-sm '
+      }
     >
       <div className='mr-4 ml-1'>
         <section className=' border-b-[2px]  dark:border-bd500 pt-2 pb-3'>

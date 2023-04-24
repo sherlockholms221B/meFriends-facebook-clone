@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import ProfilePicture from '../Posts/ProfilePicture'
 import moment from 'moment'
 import { MdOutlineExpandMore } from 'react-icons/md'
 import { ImPhone } from 'react-icons/im'
@@ -13,6 +12,7 @@ import { useRef } from 'react'
 import { useGlobalContext } from '../../Hooks/context/UseContext'
 import ToolTip from '../ToolTip'
 import PostOptions from '../Posts/PostOptions'
+import Profile from '../Profile'
 
 const Chat = () => {
   const { setChatState, chatSettings, setChatSettings } = useGlobalContext()
@@ -37,7 +37,7 @@ const Chat = () => {
             className='flex flex-row gap-2 items-center p-1 rounded-md hover:bg-dark300 cursor-pointer'
             onClick={() => setChatSettings(!chatSettings)}
           >
-            <ProfilePicture />
+            <Profile />
             <article className='w-fit flex flex-wrap flex-col items-start'>
               <h3 className='flex items-center gap-1 text-md dark:text-white font-semibold pr-1 text-gray-800 capitalize brightness-125'>
                 Eta Scanner{' '}

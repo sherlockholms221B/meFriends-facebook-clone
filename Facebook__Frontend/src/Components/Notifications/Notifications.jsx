@@ -1,7 +1,12 @@
 import React from 'react'
 
+//import higher oder cmp
 import MegWrapper from '../MegWrapper'
-import { HiDotsHorizontal } from 'react-icons/hi'
+
+//import custom icons
+import { Icon } from '../../utils/Icon'
+
+
 const Notifications = () => {
   return (
     <section className='flex flex-col gap-2 p-3 rounded-t-lg'>
@@ -12,11 +17,11 @@ const Notifications = () => {
         <div className='flex flex-row gap-2 items-center pl-1'>
           {[
             {
-              icon: <HiDotsHorizontal />,
+              icon: <Icon.HiDotsHorizontal />,
               id: 1,
             },
           ].map((option, i) => (
-            <div
+            <article
               className='rounded-full p-2 dark:hover:bg-dark300 hover:bg-light300 cursor-pointer'
               key={i + option.id}
             >
@@ -27,7 +32,7 @@ const Notifications = () => {
               >
                 {option.icon}
               </p>
-            </div>
+            </article>
           ))}
         </div>
       </section>
@@ -52,9 +57,9 @@ const Notifications = () => {
         {[{ title: 'New' }, { title: 'See all' }].map(({ title }, i) => (
           <p
             key={i}
-            className={`${
-              i === 1 ? 'text-blue-500' : 'text-black'
-            } dark:text-thdark500 text-md font-medium`}
+            className={(
+              i === 1 ? 'text-blue-500' :  ' text-black ')
+            + ' dark:text-thdark500 text-md font-medium '}
           >
             {title}
           </p>

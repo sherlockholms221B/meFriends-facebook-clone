@@ -16,7 +16,6 @@ import CreatePost from './CreatePost/CreatePost'
 import PostOptions from './Posts/PostOptions'
 import PostAudience from './CreatePost/PostAudience'
 import AddToYour from './CreatePost/AddToYour'
-import ProfilePicture from './Posts/ProfilePicture'
 import AddFile from './CreatePost/components/AddFile'
 import Head from './CreatePost/components/Head'
 import CreatePostLinks from './CreatePost/components/CreatePostLinks'
@@ -42,6 +41,7 @@ import PostAIR from './CreatePost/components/PostAIR'
 import Chat from './Messages/Chat'
 import GPDT from './GPDT'
 import Profile from './Profile'
+import IMG from './Posts/IMG'
 
 export {
   Navbar,
@@ -51,6 +51,7 @@ export {
   Advertisment,
   Add,
   Post,
+  IMG,
   Head,
   CreatePost,
   CreatePostLinks,
@@ -66,7 +67,6 @@ export {
   Comments,
   Comment,
   DynamicMenu,
-  ProfilePicture,
   ToolTip,
   NoPost,
   Notifications,
