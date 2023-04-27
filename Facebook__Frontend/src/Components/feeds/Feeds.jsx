@@ -29,10 +29,6 @@ const Posts = ({ profile }) => {
     })
   }, [])
 
-  //react-router-dom query parameters
-  // const search = useLocation().search
-  // const query = new URLSearchParams(search).get('talling')
-
   return (
     <section className='overflow-hidden h-screen mx-auto lap:mx-0 w-full sm:w-520 xlg:w-[700px] px-0.5 pt-0.5 mdsm:pt-2'>
       <section className='flex flex-col w-full h-full overflow-auto scroll-hidden pb-20'>

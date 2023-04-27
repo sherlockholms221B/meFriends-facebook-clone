@@ -47,7 +47,7 @@ const Notifications = () => {
         ].map(({ title }, i) => (
           <p
             key={i}
-            className='text-md dark:text-thdark500 capitalize rounded-full py-1 px-2 font-medium bg-blue-700'
+            className='text-md dark:text-white capitalize rounded-full py-1 px-2 font-medium bg-tpBlue500'
           >
             {title}
           </p>
@@ -57,9 +57,10 @@ const Notifications = () => {
         {[{ title: 'New' }, { title: 'See all' }].map(({ title }, i) => (
           <p
             key={i}
-            className={(
-              i === 1 ? 'text-blue-500' :  ' text-black ')
-            + ' dark:text-thdark500 text-md font-medium '}
+            className={
+              (i === 1 ? 'text-blue-500' : ' text-black ') +
+              ' dark:text-thdark500 text-md font-medium '
+            }
           >
             {title}
           </p>

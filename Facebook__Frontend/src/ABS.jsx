@@ -37,9 +37,15 @@ const ABS = () => {
     internalAction: [controller, dispatchAction],
   } = useGlobalContext()
 
-  const { menuSideLink, shortCut, groupSlideLink } = controller
+  const {
+    sidebaraction: {
+      SIDE_MENU: { SIDE_MENU },
+      SIDE_GROUP: { SIDE_GROUP },
+      SIDE_SHORT_CUT: { SIDE_SHORT_CUT },
+    },
+  } = controller
   return (
-    <>
+    <React.Fragment>
       {createPostState && <CreatePost />}
       {postAudienceState && <PostAudience />}
       {tagPeopleState && <TagPeople />}
@@ -52,12 +58,12 @@ const ABS = () => {
       {supportState && <Support />}
       {feedbackState && <Feedback />}
       {chatState && <Chat />}
-      {menuSideLink && <MenuSL />}
-      {shortCut && <ShortCutsSl />}
-      {groupSlideLink && <GroupSl />}
+      {SIDE_MENU && <MenuSL />}
+      {SIDE_SHORT_CUT && <ShortCutsSl />}
+      {SIDE_GROUP && <GroupSl />}
       {mobileMenu && <MOverlay />}
       <GPDT />
-    </>
+    </React.Fragment>
   )
 }
 

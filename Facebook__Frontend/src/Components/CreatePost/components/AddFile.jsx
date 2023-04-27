@@ -11,7 +11,10 @@ import IMG from '../../Posts/IMG'
 
 //import utilities function
 import { addFile } from '../../../Functions/actions/internal'
-import { upload } from '../../../Pages/Login'
+import { upload, uploadvideo } from '../../../Pages/Login'
+
+//
+import { ADD_iMAGE_FILE, ADD_VIDEO_FILE } from '../../../Functions/type'
 
 const AddFile = () => {
   const [loading, setLoading] = React.useState(false)
@@ -39,20 +42,28 @@ const AddFile = () => {
             loading,
             setLoading
           )
-          addFile(dispatchAction, { value: { ...data } })
+
+          addFile(dispatchAction, { value: { ...data } }, ADD_iMAGE_FILE)
           // var reader = new FileReader()
           // reader.onload = function (e) {
           //   addFile(dispatch, { value: e.target.result })
           // }
           // reader.readAsDataURL(input.files[index])
         } else if (input.files[index].type.match('video')) {
-          console.log(input.files)
+          const { data, msg } = await uploadvideo(
+            input.files[index],
+            loading,
+            setLoading
+          )
+
+          addFile(dispatchAction, { value: { ...data } }, ADD_VIDEO_FILE)
         }
       }
     } else {
       alert('Your broswer does not support the specified function')
     }
   }
+  console.log(controller.video, 'hdhd')
 
   return (
     <section
@@ -61,10 +72,14 @@ const AddFile = () => {
         (controller.postfile.length !== 0 ? 'h-fit' : 'h-48')
       }
     >
-      {controller.postfile.length !== 0 && (
+      {controller.postfile.length !== 0 && controller.video.length !== 0 && (
         <IMG
           postlength={controller.postfile?.length}
-          post={controller.postfile}
+          post={
+            controller.postfile.length === 0
+              ? controller.postfile
+              : controller.video
+          }
         />
       )}
       {controller.postfile.length !== 0 && (

@@ -19,6 +19,7 @@ import { useGlobalContext } from '../../Hooks/context/UseContext'
 
 //import reducer actions
 import { SideMenu, shortCuts } from '../../Functions/actions/internal'
+import { SIDE_MENU, SIDE_SHORT_CUT } from '../../Functions/type'
 const SideBar = () => {
   const {
     internalAction: [controller, dispatchAction],
@@ -45,7 +46,7 @@ const SideBar = () => {
       <Button
         title={` ${barContainer} py-1 `}
         functionCall={() => {
-          SideMenu(dispatchAction, { name: 'menuSideLink', value: true })
+          SideMenu(dispatchAction, { name: SIDE_MENU, value: true })
         }}
       >
         <Paragraph title={`${roundedIcon} text-lg p-2`}>
@@ -74,7 +75,7 @@ const SideBar = () => {
       <Button
         title={` ${barContainer} py-1 `}
         functionCall={() => {
-          shortCuts(dispatchAction, { name: 'shortCut', value: true })
+          shortCuts(dispatchAction, { name: SIDE_SHORT_CUT, value: true })
         }}
       >
         <Paragraph title={`${roundedIcon} text-lg p-2`}>

@@ -24,6 +24,9 @@ import { SideMenu, shortCuts } from '../../Functions/actions/internal'
 // import { barHarder } from '../../utils/useStyles'
 import SidelayOut from './components/layout'
 
+//import action types
+import { SIDE_MENU,SIDE_SHORT_CUT } from '../../Functions/type'
+
 const MSideBar = () => {
   const {
     location,
@@ -58,7 +61,7 @@ const MSideBar = () => {
       <Button
         title={` ${barContainer} py-1 `}
         functionCall={() => {
-          SideMenu(dispatchAction, { name: 'menuSideLink', value: true })
+          SideMenu(dispatchAction, { name: SIDE_MENU, value: true })
         }}
       >
         <Paragraph title={`${roundedIcon} text-lg p-2`}>
@@ -84,7 +87,7 @@ const MSideBar = () => {
       <Button
         title={` ${barContainer} py-1 `}
         functionCall={() => {
-          shortCuts(dispatchAction, { name: 'shortCut', value: true })
+          shortCuts(dispatchAction, { name: SIDE_SHORT_CUT, value: true })
         }}
       >
         <Paragraph title={`${roundedIcon} text-lg p-2`}>

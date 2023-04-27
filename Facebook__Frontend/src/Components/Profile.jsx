@@ -19,10 +19,10 @@ const Profile = ({ size, hidden, customstyle }) => {
         alt='profile'
         className={
           ' rounded-full object-cover ' +
-          (size ? 'w-7 h-7' : 'w-5 h-5 xs:w-8 xs:h-8 mdsm:w-11 mdsm:h-11')
+          (size ? ' w-8 h-8 ' : ' w-5 h-5 xs:w-8 xs:h-8 mdsm:w-11 mdsm:h-11 ')
         }
       />
-      <figcaption>
+      <figcaption className='w-fit'>
         {hidden && (
           <p className={' capitalize ' + barHarder}>{userProfile?.userName}</p>
         )}

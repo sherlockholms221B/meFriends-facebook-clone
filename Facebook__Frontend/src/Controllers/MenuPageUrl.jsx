@@ -9,6 +9,7 @@ import { useGlobalContext } from '../Hooks/context/UseContext'
 //import component
 import { Navbar } from '../Components'
 import MSideBar from '../Components/SideBars/MSideBar'
+// import { SideMenu } from '../Functions/actions/internal'
 
 const MenuPageUrl = (Component) =>
   function HOC() {
@@ -16,10 +17,16 @@ const MenuPageUrl = (Component) =>
       location,
       internalAction: [controller, dispatchAction],
     } = useGlobalContext()
-    const { menuSideLink, shortCut, groupSlideLink } = controller
+    const {
+      sidebaraction: {
+        SIDE_MENU: { SIDE_MENU },
+        SIDE_GROUP: { SIDE_GROUP },
+        SIDE_SHORT_CUT: { SIDE_SHORT_CUT },
+      },
+    } = controller
     return (
       <React.Fragment>
-        {(menuSideLink || groupSlideLink || shortCut) && (
+        {(SIDE_MENU || SIDE_GROUP || SIDE_SHORT_CUT) && (
           <section className='absolute top-0 bottom-0 w-full h-full z-10'>
             <Navbar />
             <section
@@ -35,9 +42,7 @@ const MenuPageUrl = (Component) =>
                   transition={{ duration: 0.3, ease: 'easeInOut' }}
                   className=' dark:bg-dark300 h-full max-w-[620px] min-w-[260px] opacity-0 overflow-hidden flex items-center justify-center border-r dark:border-bd500 border-gray-600'
                 >
-                  {(menuSideLink || groupSlideLink || shortCut) && (
-                    <Component />
-                  )}
+                  <Component />
                 </motion.div>
               </section>
             </section>

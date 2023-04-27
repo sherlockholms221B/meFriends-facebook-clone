@@ -12,6 +12,7 @@ import { To } from '../RDOMC'
 
 //import sanity url reader
 import { urlFor } from '../../utils/client'
+import Redirect from '../../examples/SoftRedirect'
 
 const Post = ({ topic, comments, image, postedBy, _createdAt, _id }) => {
   const [value, setValue] = React.useState('')
@@ -28,13 +29,16 @@ const Post = ({ topic, comments, image, postedBy, _createdAt, _id }) => {
     <section className='dark:border dark:border-bd500 dark:bg-dark400 md:order-3 flex flex-col rounded-md bg-white drop-shadow-xl shadow-xl mt-4'>
       <section className=' relative flex flex-row justify-between items-center px-3 py-2'>
         <section className='flex gap-2 items-center'>
-          <To link='backface/api/profile' title='rounded-full cursor-pointer'>
+          <Redirect
+            link='backface/api/profile'
+            title='rounded-full cursor-pointer'
+          >
             <img
               src={urlFor(postedBy?.profileImage?.asset).url()}
               alt='profile'
               className='object-cover w-11 h-11 rounded-full'
             />
-          </To>
+          </Redirect>
           <div className='flex flex-col'>
             <h2 className='capitalize text-md dark:text-thlight500 text-black-200 tracking-wide mb-1 cursor-pointer'>
               <b>{postedBy?.userName}</b>

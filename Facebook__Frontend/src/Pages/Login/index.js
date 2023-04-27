@@ -139,3 +139,29 @@ export const upload = async (selectedFile, isloading, setisloading) => {
     msg: 'upload successful',
   }
 }
+export const uploadvideo = async (selectedFile, isloading, setisloading) => {
+  // const fileTypes = [
+  //   'image/png',
+  //   'image/jpeg',
+  //   'image/svg',
+  //   'image/gif',
+  //   'image/tiff',
+  // ]
+  // if (!fileTypes.includes(selectedFile.type)) {
+  //   return {
+  //     msg: 'upload failed. Wronge file type',
+  //   }
+  // }
+
+  setisloading(true)
+  const data = await client.assets.upload('file', selectedFile, {
+    contentType: selectedFile.type,
+    filename: selectedFile.name,
+  })
+  setisloading(false)
+
+  return {
+    data: data,
+    msg: 'upload successful',
+  }
+}

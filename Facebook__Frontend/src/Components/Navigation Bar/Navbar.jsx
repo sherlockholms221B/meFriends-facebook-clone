@@ -57,7 +57,7 @@ const Navbar = () => {
         <THRDot />
       </section>
 
-      <section className='flex_row justify-between px-4 py-0.5 mt-1 mdsm:hidden'>
+      <section className='flex flex-row items-center w-full justify-between px-4 py-2 mt-1 mdsm:hidden'>
         {mNavLink.map((data, index) => (
           <MbarLink
             {...data}

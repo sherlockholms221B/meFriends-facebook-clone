@@ -8,10 +8,8 @@ import {
   SIDE_SHORT_CUT,
   LOADING,
 } from '../../Functions/type'
-//
 
-const _name_arr = [SIDE_GROUP, SIDE_MENU, SIDE_SHORT_CUT]
-
+//reducer function
 export default function reducer(state, action) {
   switch (action.type) {
     case LOADING: {
@@ -20,40 +18,29 @@ export default function reducer(state, action) {
     case SIDE_GROUP:
     case SIDE_SHORT_CUT:
     case SIDE_MENU: {
-      console.log(state.sidebaraction)
+      //get action name
       const name = action.name
+
+      //distructure action state from reducer state
       const {
         sidebaraction: { SIDE_MENU, SIDE_GROUP, SIDE_SHORT_CUT },
       } = state
 
+      //filter out the current and return a boolean if any action is active or other wise
       const _boolean_arr = [SIDE_GROUP, SIDE_MENU, SIDE_SHORT_CUT]
         .filter((value) => value.name !== name)
         .findIndex((value, index) => value[name] === Boolean(index + 1))
       const _boolean_arr_ = [SIDE_GROUP, SIDE_MENU, SIDE_SHORT_CUT].findIndex(
         (value, index) => value[name] === Boolean(index + 1)
       )
-
       let _BOO = Boolean(_boolean_arr + 1)
       let _BOO_ = Boolean(_boolean_arr_ + 1)
 
-      const [value] = [SIDE_GROUP, SIDE_MENU, SIDE_SHORT_CUT]
-        .filter((value) => value.name !== name)
-        .map((value) => {
-          const togle = {
-            [value.name]: {
-              ...state.sidebaraction[value.name],
-              [value.name]: !action.value,
-            },
-          }
-          return togle
-        })
-      console.log(_boolean_arr, [value], 'boolean')
       if (_BOO) {
         return {
           ...state,
           sidebaraction: {
             ...state.sidebaraction,
-            ...value,
             [name]: { ...state.sidebaraction[name], [name]: action.value },
           },
         }

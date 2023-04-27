@@ -9,9 +9,13 @@ import useAuthStore from '../Store/AuthStore'
 const Protector = ({ children }) => {
   const { userProfile } = useAuthStore()
 
-  const [user, setUser] = React.useState(true)
+  const [user, setUser] = React.useState(userProfile)
 
-  return user ? children : <Navigate to={`/dashbord/api-me-friends/login`} />
+  return user?._id ? (
+    children
+  ) : (
+    <Navigate to={`/dashbord/api-me-friends/login`} />
+  )
 }
 
 export default Protector

@@ -1,5 +1,4 @@
 import React from 'react'
-import { MdGroups } from 'react-icons/md'
 import { Link } from 'react-router-dom'
 
 import { Active } from './index'
@@ -7,6 +6,9 @@ import { useGlobalContext } from '../Hooks/context/UseContext'
 import { Button, Paragraph } from './RDOMC'
 import { sideGroup } from '../Functions/actions/internal'
 import { Icon } from '../utils/Icon'
+
+//import action type
+import { SIDE_GROUP } from '../Functions/type'
 
 const Groups = ({
   isMbar,
@@ -59,7 +61,7 @@ const Groups = ({
         <Button
           title={` ${barContainer} py-1 `}
           functionCall={() => {
-            sideGroup(dispatchAction, { name: 'groupSlideLink', value: true })
+            sideGroup(dispatchAction, { name: SIDE_GROUP, value: true })
           }}
         >
           <Paragraph title={`${roundedIcon} text-lg p-2 `}>

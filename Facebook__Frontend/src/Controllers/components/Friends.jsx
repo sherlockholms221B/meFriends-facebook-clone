@@ -8,32 +8,32 @@ import { Input } from '../../Components'
 
 const Friends = () => {
   return (
-    <div className='dark:bg-dark500 bg-inherit flex flex-col gap-4 w-full h-full p-4 overflow-auto'>
-      <article className='flex flex-row justify-between items-center p-2 pt-4 pb-0 '>
-        <h5 className='text-xl text-gray-800 dark:text-thdark500 font-bold'>
+    <div className='dark:bg-dark500 bg-inherit flex flex-col gap-y-2 md:gap-4 w-full h-full px-1 py-0 md:p-4 overflow-auto scroll-hidden border-t-2 dark:border-t-bd500 md:border-none'>
+      <article className='flex flex-row justify-between items-center p-2 md:pt-4 pb-0 '>
+        <h5 className=' text-lg md:text-xl text-gray-800 dark:text-thdark500 font-bold'>
           People you may know
         </h5>
-        <p className=' text-xl rounded-full  dark:bg-dark300 dark:text-thdark500 bg-light500 text-black p-2 w-fit h-fit'>
+        <button className='text-xl rounded-full dark:bg-dark300 dark:text-thdark500 bg-light500 text-black p-2 w-fit h-fit'>
           <Icon.MdSettings />
-        </p>
+        </button>
       </article>
-      <section className='flex flex-row flex-wrap w-full gap-2 pl-2 pr-2 group'>
+      <section className='flex flex-col md:flex-row flex-wrap gap-2 md:px-2 group w-full md:w-fit md:mx-auto'>
         {comments.map(
           ({ creator, profile: [{ profileImage }], isPrivate }, i) => (
             <section
               key={i + creator}
-              className='max-w-[180px] h-[360px] flex-grow dark:bg-dark400 bg-white rounded-xl  border dark:border-bd500 shadow-lg'
+              className='w-full md:max-w-[180px] h-fit md:h-[360px] flex flex-row items-center md:items-start md:flex-col flex-grow dark:bg-dark400 bg-white rounded-md md:rounded-xl border dark:border-bd500 shadow-lg px-2 md:p-0 gap-2 md:gap-0'
             >
               <img
                 src={profileImage}
                 alt=''
-                className='w-full h-1/2 object-cover rounded-t-xl'
+                className='md:w-full md:h-1/2 w-20 h-w-20 sm:w-28 sm:h-28 object-cover rounded-full md:rounded-t-xl md:rounded-none'
               />
-              <div className='h-1/2 w-full flex flex-col items-center justify-evenly text-left'>
+              <div className='h-full md:h-1/2 w-full flex flex-col items-center justify-evenly text-left gap-y-2 gap-x-1 md:gap-0'>
                 <div className='w-[90%] flex flex-col gap-1 items-start justify-evenly '>
-                  <h4 className='text-base text-gray-900 font-medium dark:text-white capitalize'>
+                  <strong className='text-base text-gray-900 font-[500] md:font-medium dark:text-white capitalize'>
                     {creator}
-                  </h4>
+                  </strong>
                   <figure className='flex flex-row gap-2 items-center justify-start'>
                     <div className='flex flex-row'>
                       {comments.map(({ profile: [{ profileImage }] }, i) => (
@@ -55,12 +55,14 @@ const Friends = () => {
                     </figcaption>
                   </figure>
                 </div>
-                <button className='hover:bg-blue-700 dark:bg-tpBlue500 bg-blue-600 dark:text-thdark500 py-1.5 text-base rounded-lg font-semibold w-[90%]'>
-                  Add friend
-                </button>
-                <button className='bg-light400 hover:bg-light500 dark:bg-dark300 dark:text-thdark500 text-black py-1.5 text-base rounded-lg font-semibold w-[90%]'>
-                  Remove
-                </button>
+                <div className='flex flex-row md:flex-col items-center w-full gap-x-2 md:gap-x-0 md:gap-y-2'>
+                  <button className='hover:bg-blue-700 dark:bg-tpBlue500 bg-blue-600 dark:text-thdark500 py-1.5 text-base rounded-lg font-semibold w-full md:w-[90%]'>
+                    Add friend
+                  </button>
+                  <button className='bg-light400 hover:bg-light500 dark:bg-dark300 dark:text-thdark500 text-black py-1.5 text-base rounded-lg font-semibold w-full md:w-[90%]'>
+                    Remove
+                  </button>
+                </div>
               </div>
             </section>
           )
@@ -72,16 +74,17 @@ const Friends = () => {
 
 const FriendsBtn = () => {
   return (
-    <section className='flex flex-col gap-4 w-full h-full px-2 bg-white dark:bg-dark400'>
+    <section className='flex flex-col gap-4 w-full h-fit sm:h-full px-2 bg-white dark:bg-dark500 md:dark:bg-dark400'>
       <article className='flex flex-row justify-between items-center p-2 '>
         <h5 className='text-2xl text-gray-800 dark:text-thdark500 font-bold tracking-wide'>
           Friends
         </h5>
-        <p className=' text-xl rounded-full  dark:bg-dark300 dark:text-thdark500 bg-gray-200 p-2 w-fit h-fit'>
-          <Icon.MdSettings />
-        </p>
+        <button className=' text-xl rounded-full  dark:bg-dark300 dark:text-thdark500 bg-gray-200 p-2 w-fit h-fit'>
+          <Icon.MdSettings className='hidden md:block' />
+          <Icon.MdOutlineSearch className='md:hidden text-gray-400 text-2xl cursor-pointer ' />
+        </button>
       </article>
-      <section className='relative rounded-full w-[96%] h-fit'>
+      <section className='hidden md:block relative rounded-full w-[96%] h-fit'>
         <Input
           type='text'
           name='menusl'
@@ -90,7 +93,7 @@ const FriendsBtn = () => {
         />
         <Icon.MdOutlineSearch className='absolute top-2 left-3 text-gray-400 text-2xl cursor-pointer ' />
       </section>
-      <section className='w-full flex flex-col gap-1 pl-2 pr-2 group'>
+      <section className='w-full flex-col gap-1 pl-2 pr-2 group hidden md:flex'>
         {[
           {
             icon: <Icon.RiSettings2Fill />,

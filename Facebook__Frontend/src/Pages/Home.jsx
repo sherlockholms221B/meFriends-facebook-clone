@@ -14,14 +14,15 @@ import { useGlobalContext } from '../Hooks/context/UseContext'
 
 // import actions handlers
 import { loadingSet } from '../Functions/actions/internal'
-import { getAllPost } from '../Functions/actions/external'
+import { client } from '../utils/client'
+// import { getAllPost } from '../Functions/actions/external'
 
 export default function Home() {
   //Distructure context valuses from contexts
   const {
     location,
     internalAction: [controller, dispatchAction],
-    externalAction: [state, dispatchCall],
+    // externalAction: [state, dispatchCall],
   } = useGlobalContext()
 
   const { loading } = controller
@@ -30,12 +31,15 @@ export default function Home() {
   React.useEffect(() => {
     const interval = setTimeout(() => {
       loadingSet(dispatchAction, false)
-    }, 3000)
+    }, 100)
 
     return () => {
       clearInterval(interval)
     }
   }, [dispatchAction])
+  // const arry = ['me','we','us','he','he','she']
+  //   const arr = [true, false, true, true]
+  //   const _arr = arr.filter((value, index) => value === Boolean(index + 1))
 
   //get all posts
   // React.useEffect(() => {
@@ -48,13 +52,11 @@ export default function Home() {
     if (loading) {
       template = (
         <section className='dark:bg-dark500 bg-white text-center flex flex-col items-center justify-center w-screen h-full'>
-          <figure className=' text-center blue_text'>
+          <figure>
             <img src={logo} alt='src logo' className='w-16 h-16 object-cover' />
-            <figcaption className='text-center flex flex-col justify-center items-center'>
-              <p className='text-sm text-gray-500 absolute bottom-12 tracking-wide'>
-                From
-              </p>
-              <h3 className='text-blue-700 absolute bottom-6 font-extrabold tracking-wider'>
+            <figcaption className='text-center flex flex-col justify-center items-center absolute bottom-24 sm:bottom-6'>
+              <p className='text-sm text-gray-500 tracking-wide'>From</p>
+              <h3 className='text-blue-700 font-extrabold tracking-wider'>
                 @Santus
               </h3>
             </figcaption>

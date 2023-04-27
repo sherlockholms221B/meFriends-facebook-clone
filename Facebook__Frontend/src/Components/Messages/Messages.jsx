@@ -69,7 +69,7 @@ const Messages = () => {
           ].map(({ title, i }) => (
             <p
               key={i}
-              className='text-md dark:text-thdark500 capitalize rounded-full py-0.5 px-2 font-medium bg-blue-600 brightness-125'
+              className='text-md dark:text-thdark500 capitalize rounded-full py-1 px-2 font-medium bg-tpBlue500 brightness-125'
             >
               {title}
             </p>

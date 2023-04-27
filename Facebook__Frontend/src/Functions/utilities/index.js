@@ -1,4 +1,5 @@
 import { client } from '../../utils/client'
+import { GET_SINGLE_POST } from '../type'
 
 export function share() {
   if (navigator.onLine) {
@@ -10,34 +11,35 @@ export function post(data) {
   const {
     topic,
     audience,
-    // file: { image },
+    file: { image },
     _creatorId,
     taged,
+    dispatchCall,
   } = data
-  let image = [1, 2, 3, 4, 5]
+  const template = image.map((image) => {
+    let template = {
+      _type: 'image',
+      _key: image.assetId.concat(image.sha1hash),
+      asset: {
+        _type: 'reference',
+        _ref: image?._id,
+      },
+    }
+    return { ...template }
+  })
+
   const document = {
     _type: 'post',
     audience,
     topic,
-    image: [
-      image.map((image) => {
-        return {
-          _type: 'image',
-          asset: {
-            _type: 'reference',
-            _ref: image._id,
-          },
-        }
-      }),
-    ],
+    image: template,
     userId: _creatorId,
     postedBy: {
       _type: 'postedBy',
       _ref: _creatorId,
     },
   }
-  console.log(document)
-  // client.create(document).then((response) => {
-  //   console.log(response)
-  // })
+  client.create(document).then((response) => {
+    dispatchCall({ type: GET_SINGLE_POST, payload: response })
+  })
 }

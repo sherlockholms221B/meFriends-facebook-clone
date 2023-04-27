@@ -15,6 +15,9 @@ import {
 import reducer from '../reducer/internal.js'
 import externalReducer from '../reducer/extarnal.js'
 
+//import action types
+import { SIDE_GROUP,SIDE_SHORT_CUT,SIDE_MENU } from '../../Functions/type.js'
+
 //set up react create context
 const AppContext = createContext(null)
 
@@ -60,10 +63,25 @@ export const AppProvider = ({ children }) => {
   }
   const initialState = {
     loading: true,
-    menuSideLink: false,
-    groupSlideLink: false,
-    shortCut: false,
+    // menuSideLink: false,
+    // groupSlideLink: false,
+    // shortCut: false,
+    sidebaraction: {
+     SIDE_MENU: {
+    SIDE_MENU: false,
+      name: SIDE_MENU
+  },
+ SIDE_GROUP: {
+    SIDE_GROUP: false,
+      name: SIDE_GROUP
+  },
+  SIDE_SHORT_CUT:{
+    SIDE_SHORT_CUT: false,
+      name: SIDE_SHORT_CUT
+  }
+},
     postfile: [],
+    video: [],
   }
 
   const [controller, dispatchAction] = useReducer(reducer, initialState)

@@ -38,6 +38,7 @@ const CreatePost = () => {
     audState,
     selectedFriends,
     internalAction: [controller, dispatchAction],
+    externalAction: [state, dispatchCall],
   } = useGlobalContext()
 
   const { userProfile } = useAuthStore()
@@ -123,6 +124,8 @@ const CreatePost = () => {
                 taged: selectedFriends,
                 _creatorId: userProfile?._id,
                 file: { image: controller.postfile },
+                state,
+                dispatchCall,
               }
               post(data)
             }
