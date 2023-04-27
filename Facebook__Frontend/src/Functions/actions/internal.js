@@ -6,7 +6,7 @@ const sideGroup = (dispatch, { value, name }) =>
   dispatch({ type: 'SIDE_GROUP', value, name })
 const shortCuts = (dispatch, { name, value }) =>
   dispatch({ type: 'SIDE_SHORT_CUT', value, name })
-const addFile = (dispatch, { value }) =>
-  dispatch({ type: 'ADD_iMAGE_FILE', value })
+const addFile = (dispatch, { value }, actionType) =>
+  dispatch({ type: actionType, value })
 
 export { loadingSet, sideGroup, SideMenu, shortCuts, addFile }

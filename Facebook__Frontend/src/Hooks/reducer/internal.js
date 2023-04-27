@@ -1,45 +1,91 @@
-// Amda  Dashboard React reducer
+// Don't edith this folder if you don't know what you are doing. @santus
+//
+import {
+  ADD_VIDEO_FILE,
+  ADD_iMAGE_FILE,
+  SIDE_GROUP,
+  SIDE_MENU,
+  SIDE_SHORT_CUT,
+  LOADING,
+} from '../../Functions/type'
+//
+
+const _name_arr = [SIDE_GROUP, SIDE_MENU, SIDE_SHORT_CUT]
+
 export default function reducer(state, action) {
   switch (action.type) {
-    case 'LOADING': {
+    case LOADING: {
       return { ...state, loading: action.value }
     }
-    case 'SIDE_GROUP':
-    case 'SIDE_SHORT_CUT':
-    case 'SIDE_MENU': {
+    case SIDE_GROUP:
+    case SIDE_SHORT_CUT:
+    case SIDE_MENU: {
+      console.log(state.sidebaraction)
       const name = action.name
-      const { menuSideLink, shortCut, groupSlideLink } = state
-      if (name === 'shortCut' && (menuSideLink || groupSlideLink)) {
+      const {
+        sidebaraction: { SIDE_MENU, SIDE_GROUP, SIDE_SHORT_CUT },
+      } = state
+
+      const _boolean_arr = [SIDE_GROUP, SIDE_MENU, SIDE_SHORT_CUT]
+        .filter((value) => value.name !== name)
+        .findIndex((value, index) => value[name] === Boolean(index + 1))
+      const _boolean_arr_ = [SIDE_GROUP, SIDE_MENU, SIDE_SHORT_CUT].findIndex(
+        (value, index) => value[name] === Boolean(index + 1)
+      )
+
+      let _BOO = Boolean(_boolean_arr + 1)
+      let _BOO_ = Boolean(_boolean_arr_ + 1)
+
+      const [value] = [SIDE_GROUP, SIDE_MENU, SIDE_SHORT_CUT]
+        .filter((value) => value.name !== name)
+        .map((value) => {
+          const togle = {
+            [value.name]: {
+              ...state.sidebaraction[value.name],
+              [value.name]: !action.value,
+            },
+          }
+          return togle
+        })
+      console.log(_boolean_arr, [value], 'boolean')
+      if (_BOO) {
         return {
           ...state,
-          menuSideLink: false,
-          groupSlideLink: false,
-          [name]: true,
+          sidebaraction: {
+            ...state.sidebaraction,
+            ...value,
+            [name]: { ...state.sidebaraction[name], [name]: action.value },
+          },
         }
-      } else if (name === 'menuSideLink' && (shortCut || groupSlideLink)) {
+      } else if (_BOO_) {
         return {
           ...state,
-          shortCut: false,
-          groupSlideLink: false,
-          [name]: true,
+          sidebaraction: {
+            ...state.sidebaraction,
+            [name]: { ...state.sidebaraction[name], [name]: !action.value },
+          },
         }
-      } else if (name === 'groupSlideLink' && (shortCut || menuSideLink)) {
-        return {
-          ...state,
-          shortCut: false,
-          menuSideLink: false,
-          [name]: true,
-        }
-      } else if (menuSideLink || shortCut || groupSlideLink) {
-        return { ...state, [name]: !action.value }
       }
-      return { ...state, [name]: action.value }
+      return {
+        ...state,
+        sidebaraction: {
+          ...state.sidebaraction,
+          [name]: { ...state.sidebaraction[name], [name]: action.value },
+        },
+      }
     }
 
-    case 'ADD_iMAGE_FILE':
+    case ADD_iMAGE_FILE:
       return {
         ...state,
         postfile: [...state.postfile, action.value],
+      }
+    case ADD_VIDEO_FILE:
+      const filetype = action.mimeType
+      const value = { ...action.value, _type: filetype }
+      return {
+        ...state,
+        video: [...state.video, value],
       }
 
     default: {
