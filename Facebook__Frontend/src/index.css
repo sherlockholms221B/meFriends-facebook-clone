@@ -165,3 +165,16 @@ h6,
 p {
   @apply brightness-125;
 } */
+
+.animate{
+  animation: animate 5s ease linear ;
+}
+
+@keyframes animate {
+  0%{
+    width: 0px;
+  }
+  100%{
+    width: 100%;
+  }
+}

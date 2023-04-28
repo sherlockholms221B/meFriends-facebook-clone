@@ -14,19 +14,24 @@ import { active, notActive } from './styles'
 
 //import authstore from zustand store
 import { allPostsQuery } from '../../utils/querries'
+
+//import sanityclient
 import { client } from '../../utils/client'
+
+//import context
+import { useGlobalContext } from '../../Hooks/context/UseContext'
+import { getAllPost } from '../../Functions/actions/external'
 
 //component
 const Posts = ({ profile }) => {
-  const [allPost, setAllPost] = React.useState([])
   const [location, setLocation] = React.useState('stories')
-
+  const {
+    externalAction: [state, dispatchCall],
+  } = useGlobalContext()
+  
   React.useEffect(() => {
-    const query = allPostsQuery()
-    client.fetch(query).then((data) => {
-      console.log(data)
-      setAllPost(data)
-    })
+    getAllPost(dispatchCall,{id:''})
+    
   }, [])
 
   return (
@@ -66,7 +71,7 @@ const Posts = ({ profile }) => {
           </section>
         )}
 
-        {allPost?.map((data, index) => (
+        {state?.map((data, index) => (
           <Post {...data} key={index} />
         ))}
       </section>

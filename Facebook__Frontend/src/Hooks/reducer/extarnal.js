@@ -6,7 +6,8 @@ import { GET_ALL_POST, GET_SINGLE_POST } from '../../Functions/type'
 export default function externalReducer(state = [], action) {
   switch (action.type) {
     case GET_ALL_POST:
-      return [...action.value.data]
+console.log(action.value)     
+      return [...action.value, ]
     case GET_SINGLE_POST:
       return [...state, action.payload]
 

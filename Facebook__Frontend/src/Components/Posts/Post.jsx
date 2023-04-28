@@ -14,7 +14,15 @@ import { To } from '../RDOMC'
 import { urlFor } from '../../utils/client'
 import Redirect from '../../examples/SoftRedirect'
 
-const Post = ({ topic, comments, image, postedBy, _createdAt, _id }) => {
+const Post = ({
+  topic,
+  comments,
+  postedBy,
+  _createdAt,
+  creatorID,
+  _id,
+  postfile,
+}) => {
   const [value, setValue] = React.useState('')
   const [isComment, setIsComment] = React.useState(false)
   const [viewMore, setViewMore] = React.useState(false)
@@ -72,7 +80,7 @@ const Post = ({ topic, comments, image, postedBy, _createdAt, _id }) => {
         </h5>
       </article>
       <To link={`/post/details/photo?fbid=${_id}`}>
-        <IMG post={image} postlength={image?.length} />
+        <IMG post={postfile} postlength={postfile?.length} />
       </To>
       <section className='flex flex-col '>
         <section className='flex flex-row flex-nowrap justify-between items-center mx-2 p-2 border-b-2 border-gray-300 dark:border-[#3a3b3c]'>
@@ -95,7 +103,6 @@ const Post = ({ topic, comments, image, postedBy, _createdAt, _id }) => {
           <COMBTN setIsComment={setIsComment} isComment={isComment} />
           <Share />
         </section>
-
         <Comments
           postDetail
           isComment={isComment}

@@ -11,18 +11,25 @@ export function post(data) {
   const {
     topic,
     audience,
-    file: { image },
+    file: { postfile },
     _creatorId,
     taged,
     dispatchCall,
   } = data
-  const template = image.map((image) => {
-    let template = {
-      _type: 'image',
-      _key: image.assetId.concat(image.sha1hash),
-      asset: {
-        _type: 'reference',
-        _ref: image?._id,
+  const template = postfile.map((postfile) => {
+    console.log(postfile)
+    let template
+    template = {
+      _key: postfile.assetId.concat(postfile.sha1hash),
+      extension: postfile.extension,
+      filename: postfile.filename,
+      file: {
+        _type: 'file',
+        asset: {
+          _type: 'reference',
+          _ref: postfile?._id,
+          _key: postfile.assetId.concat(postfile.sha1hash),
+        },
       },
     }
     return { ...template }
@@ -32,13 +39,14 @@ export function post(data) {
     _type: 'post',
     audience,
     topic,
-    image: template,
-    userId: _creatorId,
+    postfile: template,
+    creatorId: _creatorId,
     postedBy: {
       _type: 'postedBy',
       _ref: _creatorId,
     },
   }
+  console.log(document)
   client.create(document).then((response) => {
     dispatchCall({ type: GET_SINGLE_POST, payload: response })
   })

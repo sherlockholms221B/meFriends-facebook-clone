@@ -63,16 +63,12 @@ export default function reducer(state, action) {
     }
 
     case ADD_iMAGE_FILE:
-      return {
-        ...state,
-        postfile: [...state.postfile, action.value],
-      }
     case ADD_VIDEO_FILE:
-      const filetype = action.mimeType
-      const value = { ...action.value, _type: filetype }
+      const filetype = action.value.mimeType
+      const value = { ...action.value, filename: filetype }
       return {
         ...state,
-        video: [...state.video, value],
+        postfile: [...state.postfile, value],
       }
 
     default: {

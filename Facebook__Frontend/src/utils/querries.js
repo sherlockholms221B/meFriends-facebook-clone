@@ -4,15 +4,8 @@ export const allPostsQuery = () => {
     _id,
     topic,
     audience,
-       video[]{
-        _type,
-        asset->{
-          _id,
-          url
-        }
-      },
-      image[],
-      userId,
+       postfile[],
+      creatorId,
       postedBy->{
         _id,
         userName,
@@ -22,7 +15,7 @@ export const allPostsQuery = () => {
     comments[]{
       comment,
       _key,
-      _createdAt,
+      createdAt,
       postedBy,
     },
   }`
@@ -118,7 +111,7 @@ export const allUsersQuery = () => {
 export const userCreatedPostsQuery = (userId) => {
   const query = `*[ _type == 'post' && userId == '${userId}'] | order(_createdAt desc){
     _id,
-     caption,
+     caption,u
        video[]{
         asset->{
           _id,

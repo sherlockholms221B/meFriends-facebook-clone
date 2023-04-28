@@ -37,18 +37,14 @@ const AddFile = () => {
     if (window.File && window.FileReader && window.FileList && window.Blob) {
       for (let index = 0; index < input.files.length; index++) {
         if (input.files[index].type.match('image')) {
-          const { data, msg } = await upload(
+          const { data, msg } = await uploadvideo(
             input.files[index],
             loading,
             setLoading
           )
 
           addFile(dispatchAction, { value: { ...data } }, ADD_iMAGE_FILE)
-          // var reader = new FileReader()
-          // reader.onload = function (e) {
-          //   addFile(dispatch, { value: e.target.result })
-          // }
-          // reader.readAsDataURL(input.files[index])
+          
         } else if (input.files[index].type.match('video')) {
           const { data, msg } = await uploadvideo(
             input.files[index],
@@ -63,8 +59,6 @@ const AddFile = () => {
       alert('Your broswer does not support the specified function')
     }
   }
-  console.log(controller.video, 'hdhd')
-
   return (
     <section
       className={
@@ -72,14 +66,10 @@ const AddFile = () => {
         (controller.postfile.length !== 0 ? 'h-fit' : 'h-48')
       }
     >
-      {controller.postfile.length !== 0 && controller.video.length !== 0 && (
+      {controller.postfile.length !== 0 && (
         <IMG
           postlength={controller.postfile?.length}
-          post={
-            controller.postfile.length === 0
-              ? controller.postfile
-              : controller.video
-          }
+          post={controller.postfile}
         />
       )}
       {controller.postfile.length !== 0 && (
@@ -154,3 +144,8 @@ const AddFile = () => {
 }
 
 export default AddFile
+// var reader = new FileReader()
+          // reader.onload = function (e) {
+          //   addFile(dispatch, { value: e.target.result })
+          // }
+          // reader.readAsDataURL(input.files[index])

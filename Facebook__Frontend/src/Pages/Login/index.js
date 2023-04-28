@@ -133,6 +133,7 @@ export const upload = async (selectedFile, isloading, setisloading) => {
     filename: selectedFile.name,
   })
   setisloading(false)
+  console.log(data)
 
   return {
     data: data,
@@ -159,7 +160,7 @@ export const uploadvideo = async (selectedFile, isloading, setisloading) => {
     filename: selectedFile.name,
   })
   setisloading(false)
-
+  console.log(data)
   return {
     data: data,
     msg: 'upload successful',

@@ -21,30 +21,30 @@ const PSTIMG = ({ synced, image, video }) => {
   const [index, setIndex] = React.useState(0)
 
   React.useEffect(() => {
-    const lastindex = image?.length - 1
+    const lastindex = comments?.length - 1
     if (index < 0) {
       setIndex(lastindex)
     }
     if (index > lastindex) {
       setIndex(0)
     }
-  }, [index, image?.length])
-
-  React.useEffect(() => {
-    let slider = setInterval(() => {
-      setIndex(index + 1)
-    }, 5000)
-
-    return () => {
-      clearInterval(slider)
-    }
   }, [index])
+
+  // React.useEffect(() => {
+  //   let slider = setInterval(() => {
+  //     setIndex(index + 1)
+  //   }, 5000)
+
+  //   return () => {
+  //     clearInterval(slider)
+  //   }
+  // }, [index])
 
   return (
     /* POST DETAILS IMAGE COMPONENT */
     <React.Fragment>
       <section className=' max-w-[600px] w-full mx-auto h-full flex flex-row relative overflow-hidden'>
-        {image?.map(({ asset, _key, _type }, i) => {
+        {/* {image?.map(({ asset, _key, _type }, i) => {
           let position = 'nextSlide'
           if (index === i) {
             position = 'activeSlide'
@@ -63,20 +63,30 @@ const PSTIMG = ({ synced, image, video }) => {
               />
             </React.Fragment>
           )
-        })}
+        })} */}
         {synced && (
           <section
             className={`absolute top-0 right-0 left-0 w-full p-4 flex flex-col gap-3`}
           >
-            <div className='flex flex-row gap-1'>
-              {comments.map((data, index) => (
-                <div
-                  className='w-full h-1 tab:h-2 bg-gray-400 rounded-full'
-                  key={index}
-                >
-                  <div className='w-full h-1 tab:h-2 bg-white rounded-full' />
-                </div>
-              ))}
+            <div className='flex flex-row gap-1 w-full border'>
+              {comments.map((data, i) => {
+                let animation = 'bg-blue-600 w-full'
+                if (index === i) {
+                  animation = 'animate-ping bg-white'
+                }
+                if (index === i - 1) {
+                  animation = 'bg-green-500'
+                }
+
+                return (
+                  <div
+                    className='w-full h-1 tab:h-2 bg-red-400 rounded-full'
+                    key={index}
+                  >
+                    <div className={`h-1 tab:h-2 rounded-full ${animation} `} />
+                  </div>
+                )
+              })}
             </div>
             <div className='flex flex-row items-center justify-between'>
               <figure className='flex flex-row items-center gap-3'>

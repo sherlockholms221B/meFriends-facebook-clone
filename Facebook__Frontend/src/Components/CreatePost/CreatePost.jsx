@@ -123,7 +123,7 @@ const CreatePost = () => {
                 audience: audState,
                 taged: selectedFriends,
                 _creatorId: userProfile?._id,
-                file: { image: controller.postfile },
+                file: { postfile: controller.postfile },
                 state,
                 dispatchCall,
               }
