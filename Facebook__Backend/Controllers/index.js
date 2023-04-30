@@ -1,15 +1,15 @@
 // Routes configuration controllers
 //import data from data.json
-import data from "../data.js";
-
+import { posts } from '../data.js'
 //import sanity client from sanityclient
 // import client from "../Clients/index.js";
 
-//socials controllers
-const getPostRoute = (req, res) => {
-  res.send("get post ");
-  const user = {};
-};
+const getPostRoute = async (req, res) => {
+  const { _id } = req.query
+  console.log(_id)
+
+  res.status(200).json(posts)
+}
 
 const makePostRoute = (req, res) => {
   res.send("MakePostRoute");

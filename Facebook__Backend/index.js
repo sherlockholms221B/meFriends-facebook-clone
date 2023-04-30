@@ -1,18 +1,27 @@
-import express from "express";
-import router from "./Routes/index.js";
-import cors from "cors";
+//import express module
+import express from 'express'
 
-const app = express();
-const options = {
-  route: "http://localhost:3000",
-};
+//import cors module & allow cross origin requsts
+import cors from 'cors'
+
+//import routes from routes
+import router from './Routes/index.js'
+
+//initialize express
+const app = express()
+
+//use express json
 app.use(express.json())
-app.use(cors());
+// app.use(express.urlencoded({}))
 
-app.use(router);
+//
+app.use(cors())
 
-const PORT = 5000;
+//routes
+app.use(router)
+
+const PORT = 5000
 
 app.listen(PORT, () => {
-  console.log(`listening on port ${PORT}`);
-});
+  console.log(`listening on port ${PORT}`)
+})
