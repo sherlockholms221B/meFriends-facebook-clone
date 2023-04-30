@@ -1,13 +1,10 @@
 import React from 'react'
 
-//import higher oder cmp
-import MegWrapper from '../MegWrapper'
-
 //import root component
 import NotificationRoots from './NotificationRoots'
 
-const Notifications = () => {
+const MobileNotificatons = () => {
   return <NotificationRoots />
 }
 
-export default MegWrapper(Notifications)
+export default MobileNotificatons
