@@ -8,7 +8,7 @@ const Photos = () => {
     <section className='bg-white dark:bg-dark400 rounded-lg p-3 flex flex-col gap-5  '>
       <section className='flex items-center justify-between'>
         <h2 className='text-xl font-bold dark:text-thdark500'>Photos</h2>
-        <button className='capitalize font-normal text-lg text-center ring-2 dark:ring-blue-500 rounded-md px-2 py-1 blue_text'>
+        <button className='capitalize font-normal text-lg text-center ring-2 dark:ring-blue-500 rounded-md px-2 py-1 text-blue-500'>
           See all Photos
         </button>
       </section>

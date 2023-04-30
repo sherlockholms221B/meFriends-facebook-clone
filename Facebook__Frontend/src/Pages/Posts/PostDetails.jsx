@@ -43,7 +43,7 @@ const PostDetails = () => {
             className='text-3xl dark:text-thdark500'
             onClick={() => navigate(-1)}
           />
-          <Icon.MdOutlineFacebook className='text-5xl shade_blue' />
+          <Icon.MdOutlineFacebook className='text-5xl text-blue-400' />
         </div>
         <THRDot />
       </section>
@@ -62,7 +62,7 @@ const PostDetails = () => {
         <div className='w-full tab:w-550 dark:bg-dark400 h-full overflow-y-auto'>
           <div className='flex flex-row flex-nowrap justify-between items-center mx-2 p-2 border-b-2 border-gray-300 dark:border-[#3a3b3c]'>
             <div className='flex items-center justify-center'>
-              <Icon.AiOutlineLike className='mr-1 blue_text' />
+              <Icon.AiOutlineLike className='mr-1 text-blue-500' />
               <p className='text-sm text-gray-500 '>234</p>
             </div>
             <div className='flex items-center justify-center'>

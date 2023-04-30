@@ -7,7 +7,7 @@ const EDIOP = () => {
   return (
     <section className='dark:bg-dark400 bg-white rounded-lg p-3 flex flex-col gap-5  '>
       <h2 className='text-xl font-bold dark:text-thdark500'>Intro</h2>
-      <p className='light_text_gray dark:text-thlight500 font-normal text-lg text-center'>
+      <p className='text-gray-500 dark:text-thlight500 font-normal text-lg text-center'>
         Hi my name is Sanctus, I am a Full Stack Developer. I am poised to help
         you achieve your goals...
       </p>
@@ -24,9 +24,9 @@ const EDIOP = () => {
           icon: <Icon.FaUserGraduate />,
         },
       ].map(({ title, icon }, i) => (
-        <div className='flex_row gap-2' key={i}>
-          <p className='light_text_gray font-normal text-2xl'>{icon}</p>
-          <h2 className='light_text_gray dark:text-thlight500 font-normal text-lg text-center'>
+        <div className='flex flex-row items-center w-full gap-2' key={i}>
+          <p className='text-gray-500 font-normal text-2xl'>{icon}</p>
+          <h2 className='text-gray-500 dark:text-thlight500 font-normal text-lg text-center'>
             {title}
           </h2>
         </div>

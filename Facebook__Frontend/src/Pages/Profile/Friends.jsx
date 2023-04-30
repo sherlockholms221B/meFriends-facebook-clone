@@ -13,7 +13,7 @@ const Friends = () => {
             4,108 friends
           </p>
         </article>
-        <button className='capitalize font-normal text-lg text-center ring-2 dark:ring-blue-500 rounded-md px-2 py-1 blue_text'>
+        <button className='capitalize font-normal text-lg text-center ring-2 dark:ring-blue-500 rounded-md px-2 py-1 text-blue-500'>
           See all friends
         </button>
       </div>

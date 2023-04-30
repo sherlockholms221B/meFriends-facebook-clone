@@ -29,7 +29,7 @@ const StoryDetails = () => {
             className='text-3xl dark:text-thdark500'
             onClick={() => navigate(-1)}
           />
-          <Icon.MdOutlineFacebook className='text-5xl shade_blue' />
+          <Icon.MdOutlineFacebook className='text-5xl text-blue-400' />
         </section>
         <hr className='dark:border-bd500 border-black' />
         <section className='p-4 h-full overflow-y-auto flex flex-col gap-4'>

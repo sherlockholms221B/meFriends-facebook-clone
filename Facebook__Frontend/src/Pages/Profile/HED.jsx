@@ -50,7 +50,7 @@ const HED = () => {
           <h3 className='text-4xl dark:text-thdark500 font-bold'>
             {userProfile?.userName}
           </h3>
-          <p className='text-xl light_text_gray dark:text-thlight500 font-semibold'>
+          <p className='text-xl text-gray-500 dark:text-thlight500 font-semibold'>
             4.1k friends
           </p>
           <section className='full h-9'>
@@ -65,7 +65,7 @@ const HED = () => {
               <p
                 className={`${
                   i < 5 && i !== 0 && 'hidden sm:block'
-                } light_text_gray dark:text-thlight500 font-semibold text-lg cursor-pointer`}
+                } text-gray-500 dark:text-thlight500 font-semibold text-lg cursor-pointer`}
                 key={i}
               >
                 {item}
