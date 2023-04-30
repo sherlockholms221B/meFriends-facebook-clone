@@ -1,10 +1,18 @@
 import React from 'react'
 
-
-import MessageRoot from './MessageRoot'
+//import custom icons
 import { Icon } from '../../utils/Icon'
+
+//import higer order commponent
 import MegWrapper from '../../Components/MegWrapper'
+
+//import re useable components
 import { Input } from '../../Components'
+
+//lazy loading of components
+const MessageRoot = React.lazy(() => {
+  return import('./MessageRoot')
+})
 const Messages = () => {
   const [searchChats, setSearchChats] = React.useState('')
 

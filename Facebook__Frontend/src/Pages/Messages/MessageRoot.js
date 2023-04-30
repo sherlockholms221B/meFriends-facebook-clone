@@ -3,8 +3,6 @@ import * as React from 'react'
 //import moment module
 import moment from 'moment'
 
-
-
 //import constants
 import { comments } from '../../utils/constants'
 
@@ -21,12 +19,12 @@ const MessageRoot = ({ children, title, actionButton }) => {
   const { setChatState, setMessageState } = useGlobalContext()
   return (
     <React.Fragment>
-      <section className='flex flex-col gap-2 rounded-t-lg'>
+      <section className='flex flex-col gap-0 md:gap-2 rounded-t-lg dark:bg-dark400 bg-white'>
         <SoftMassagePanelview title={title} actionButton={actionButton} />
-        <>
+        <React.Fragment>
           <hr className='mdsm:hidden' />
-        </>
-        <section className='relative w-full flex flex-row justify-center items-center p-3'>
+        </React.Fragment>
+        <section className='relative w-full flex flex-row justify-center items-center'>
           {children}
         </section>
         {title === 'Chats' && (
@@ -38,18 +36,15 @@ const MessageRoot = ({ children, title, actionButton }) => {
               {
                 title: 'Communities',
               },
-            ].map(({ title, i }) => (
-              <p
-                key={i}
-                className='text-md dark:text-thdark500 capitalize rounded-full py-1 px-2 font-medium bg-tpBlue500 brightness-125'
-              >
-                {title}
-              </p>
+            ].map(({ title }, index) => (
+              <div className='px-2 py-1 rounded bg-[#0c449f24]' key={index}>
+                <h5 className='text-blue-600 text-base font-medium'>{title}</h5>
+              </div>
             ))}
           </article>
         )}
       </section>
-      <section className='max-h-full md:max-h-[380px] gap-3 w-full overflow-auto home_scroll pr-1 pl-1 pt-2 pb-12 mdsm:pb-0'>
+      <section className='dark:bg-dark400 bg-white max-h-full md:max-h-[380px] gap-3 w-full overflow-auto home_scroll pr-1 pl-1 pt-2 pb-12 mt-3 md:mt-0 mdsm:pb-0'>
         {comments.map(
           (
             { creator, profile: [{ profileImage, createdAt }], comment },
@@ -66,7 +61,7 @@ const MessageRoot = ({ children, title, actionButton }) => {
               <img
                 src={profileImage}
                 alt='sender'
-                className='w-20 h-20 mdsm:w-10 mdsm:h-10 rounded-full object-cover'
+                className='w-16 h-16 mdsm:w-10 mdsm:h-10 rounded-full object-cover ring-2 ring-dark300'
               />
               <article className='flex flex-col justify-center items-start'>
                 <h3 className='capitalize text-black dark:text-thdark500  text-lg font-medium'>
