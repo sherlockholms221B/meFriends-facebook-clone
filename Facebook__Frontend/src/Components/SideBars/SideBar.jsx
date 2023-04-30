@@ -5,10 +5,10 @@ import { Active, Footer, Profile } from '../index'
 import { SideLinks } from '../../utils/LWRef'
 import { barHarder, barContainer, roundedIcon } from '../../utils/useStyles'
 import { groupsLinks } from '../../utils/links'
-import { Button, Demarcate, Paragraph, To } from '../RDOMC'
+import { Button, Demarcate } from '../RDOMC'
 import Groups from '../Groups'
 import SidelayOut from './components/layout'
-import SlideLinks from './components/side actions'
+import SlideLinks from './components/SoftSideActions/SoftSideActions'
 import Redirect from '../../examples/SoftRedirect'
 
 //import custom icon
@@ -33,26 +33,34 @@ const SideBar = () => {
         customstyles=' group relative hover:bg-inherit lg:hover:bg-light500 lg:dark:hover:bg-dark300 flex flex-row gap-4 items-center w-full  rounded-md   py-2 mt-2'
       >
         <Icon.MdHome className='text-3xl text-blue-700' />
-        <Paragraph title={barHarder}>Home</Paragraph>
+        <li className=' text-black dark:text-thdark500 tracking-wider font-bold text-lg brightness-95 hidden lg:block'>
+          Home
+        </li>
         <Active page='home' current={null} />
       </Redirect>
       <Redirect link='/backface/api/profile' customstyles='w-full'>
-        <Profile hidden size customstyle={' py-2 ' + barContainer} />
+        <Profile
+          hidden
+          size
+          customstyle=' py-2 group relative hover:bg-inherit lg:hover:bg-light500 lg:dark:hover:bg-dark300 flex flex-row gap-3.5 items-center w-full rounded-md '
+        />
       </Redirect>
       <Demarcate />
       {SideLinks().map((page, i) => (
         <SlideLinks page={page} index={i} key={page.title + i} />
       ))}
       <Button
-        title={` ${barContainer} py-1 `}
+        title='group relative hover:bg-inherit lg:hover:bg-light500 lg:dark:hover:bg-dark300 flex flex-row gap-4 items-center w-full rounded-md py-1'
         functionCall={() => {
           SideMenu(dispatchAction, { name: SIDE_MENU, value: true })
         }}
       >
-        <Paragraph title={`${roundedIcon} text-lg p-2`}>
+        <i className='group-hover:brightness-150 dark:bg-dark300 dark:text-white text-black rounded-full  bg-light400 text-lg p-2'>
           <Icon.TbGridDots />
-        </Paragraph>
-        <Paragraph title={`${barHarder}`}>See all</Paragraph>
+        </i>
+        <li className=' text-black dark:text-thdark500 tracking-wider font-bold text-lg brightness-95 hidden lg:block'>
+          See all
+        </li>
         <Active page={`menu`} current={null} />
       </Button>
       <Demarcate />
@@ -73,15 +81,17 @@ const SideBar = () => {
         hiddentab
       />
       <Button
-        title={` ${barContainer} py-1 `}
+        title='group relative hover:bg-inherit lg:hover:bg-light500 lg:dark:hover:bg-dark300 flex flex-row gap-4 items-center w-full rounded-md py-1'
         functionCall={() => {
           shortCuts(dispatchAction, { name: SIDE_SHORT_CUT, value: true })
         }}
       >
-        <Paragraph title={`${roundedIcon} text-lg p-2`}>
+        <i className='group-hover:brightness-150 dark:bg-dark300 dark:text-white text-black rounded-full  bg-light400 text-lg p-2'>
           <Icon.HiLink />
-        </Paragraph>
-        <Paragraph title={barHarder}>Shortcuts</Paragraph>
+        </i>
+        <li className=' text-black dark:text-thdark500 tracking-wider font-bold text-lg brightness-95 hidden lg:block'>
+          Shortcuts
+        </li>
         <Active page={`menu`} />
       </Button>
       <Footer />
