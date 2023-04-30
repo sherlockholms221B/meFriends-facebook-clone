@@ -67,13 +67,6 @@ export const Demarcate = () => {
   )
 }
 
-export const To = ({ children, link, title }) => {
-  return (
-    <Link to={link} className={`${title && title}`}>
-      {children}
-    </Link>
-  )
-}
 
 export const Paragraph = ({ children, link, title }) => {
   return <p className={`${title && title} `}>{children}</p>
