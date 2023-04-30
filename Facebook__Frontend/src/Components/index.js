@@ -22,7 +22,6 @@ import CreatePostLinks from './CreatePost/components/CreatePostLinks'
 import TagPeople from './CreatePost/TagPeople'
 import ToolTip from './ToolTip'
 import NoPost from './NoPost'
-import Messages from './Messages/Messages'
 import Notifications from './Notifications/Notifications'
 import Groups from './Groups'
 import GoPorfile from './GoProfile.jsx/GoPorfile'
@@ -38,7 +37,6 @@ import CMPFooter from './CMPFooter'
 import Share from './Posts/Share'
 import COMBTN from './Comments/COMBTN'
 import PostAIR from './CreatePost/components/PostAIR'
-import Chat from './Messages/components/SoftChart/Chat'
 import GPDT from './GPDT'
 import Profile from './Profile'
 import IMG from './Posts/IMG'
@@ -70,8 +68,6 @@ export {
   ToolTip,
   NoPost,
   Notifications,
-  Messages,
-  Chat,
   Groups,
   GoPorfile,
   Support,

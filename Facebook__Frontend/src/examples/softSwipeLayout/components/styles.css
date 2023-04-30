@@ -51,6 +51,23 @@
   transform: rotate(-90deg);
 }
 
-.swiper-nextEl{
-      background: #000;
+.swiper-button-prev, .swiper-button-next{
+  padding: 0.25em;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 8rem;
+  background: #0c17ad9b;
+  color: whitesmoke;
 }
+
+/* @media screen and (max-width: 5000px){
+  
+  .swiper-button-prev, .swiper-button-next{
+   display: none;
+  }
+} */
+
+/* .dark .dark\:swiper-button-prev{
+  background:green;
+} */

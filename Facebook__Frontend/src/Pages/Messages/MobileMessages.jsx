@@ -4,7 +4,7 @@ import * as React from 'react'
 import { mNavLink } from '../../utils/links'
 
 //import compnents
-import MbarLink from '../Navigation Bar/components/SoftMobileNav'
+import MbarLink from '../../Components/Navigation Bar/components/SoftMobileNav'
 
 //import react error boundary
 import ErrorBoundary from '../../ErrorBundary'
@@ -16,6 +16,7 @@ import { Icon } from '../../utils/Icon'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 //import components
+import { comments } from '../../utils/constants'
 
 // Import Swiper styles
 import 'swiper/css'
@@ -24,7 +25,6 @@ import 'swiper/css/navigation'
 
 // import required modules
 import { Navigation } from 'swiper'
-import { comments } from '../../utils/constants'
 
 //import meassage roots
 const MessageRoot = React.lazy(() => {

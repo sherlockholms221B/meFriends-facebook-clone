@@ -48,7 +48,7 @@ const MarketPlace = () => {
 
 const MarketPlaceBtn = () => {
   return (
-    <section className='dark:bg-dark400 flex flex-col w-[400px] h-full vertical_scroll px-3 items-start pt-3 pb-3 text-start'>
+    <section className='dark:bg-dark400 flex flex-col w-[400px] h-full  px-3 items-start pt-3 pb-3 text-start'>
       <article className='pl-3 w-full text-start flex justify-between items-center'>
         <h5 className='text-3xl text-gray-800 dark:text-thdark500 brightness-105 tracking-wide'>
           <strong>Marketplace</strong>

@@ -17,7 +17,7 @@ const MenuSL = () => {
           Menu
         </h5>
       </article>
-      <section className='w-full h-full vertical_scroll flex flex-row justify-evenly items-stretch mt-2'>
+      <section className='w-full h-full  flex flex-row justify-evenly items-stretch mt-2'>
         <section className='rounded-md dark:bg-dark400 w-[60%] flex flex-col items-center pt-3 pb-3'>
           <article className='pl-3 w-full text-start'>
             <h5 className='text-lg text-gray-800 dark:text-thdark500 font-medium brightness-90'>

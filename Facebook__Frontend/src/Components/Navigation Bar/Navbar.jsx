@@ -32,9 +32,9 @@ const Navbar = () => {
       ref={navBarRef}
       className='dark:bg-dark400 flex flex-col md:flex-row justify-between fixed top-0 right-0 w-full z-10 items-center bg-white shadow-inner border-b dark:border-b-2 dark:border-bd500'
     >
-      <section className=' dark:bg-dark400 flex_row justify-between bg-white shadow-inner  dark:pb-1 dark:border-bd500 px-2 xs:px-4 py-1.5 '>
+      <section className=' dark:bg-dark400 flex flex-row items-center w-full justify-between bg-white shadow-inner  dark:pb-1 dark:border-bd500 px-2 xs:px-4 py-1.5 '>
         <button onClick={refresh}>
-          <h1 className='text-2xl font-semibold xs:text-[28px] mdsm:font-bold mdsm:text-3xl dark:text-white deep_blue'>
+          <h1 className='text-2xl font-semibold xs:text-[28px] mdsm:font-bold mdsm:text-3xl dark:text-white text-blue-600'>
             MeFriend
           </h1>
         </button>

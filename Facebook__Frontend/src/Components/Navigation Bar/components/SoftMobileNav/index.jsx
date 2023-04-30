@@ -16,7 +16,7 @@ const MbarLink = ({ icon, outlined, alarts, tip, link }) => {
         {tip === query || (query === null && tip === 'home') ? (
           <p className='text-2xl xs:text-3xl text-blue-500'>{icon}</p>
         ) : (
-          <p className='text-2xl xs:text-3xl dark_white'>{outlined}</p>
+          <p className='text-2xl xs:text-3xl dark:text-thdark500'>{outlined}</p>
         )}
         {alarts >= 0 && (
           <article className='flex items-center justify-center absolute w-5 h-4 rounded-full bg-red-600 -top-1 -right-1 ring-2 dark:ring-white ring-light400 z-10'>

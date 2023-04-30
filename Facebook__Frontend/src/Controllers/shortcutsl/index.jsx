@@ -11,7 +11,7 @@ import { Input } from '../../Components'
 //
 const ShortCutsSl = () => {
   return (
-    <section className='dark:bg-dark400 flex flex-col w-[380px] h-full vertical_scroll px-3 items-start pt-3 pb-3 text-start'>
+    <section className='dark:bg-dark400 flex flex-col w-[380px] h-full  px-3 items-start pt-3 pb-3 text-start'>
       <article className='pl-3 w-full text-start'>
         <h5 className='text-2xl text-gray-800 dark:text-thdark500 font-semibold brightness-105 tracking-wide'>
           Shortcuts

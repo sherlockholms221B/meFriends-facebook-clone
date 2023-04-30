@@ -10,7 +10,7 @@ import Photos from './Profile/Photos'
 import HED from './Profile/HED'
 import PSTIMG from './Posts/PSTIMG'
 import { FriendStack } from '../Components/RDOMC'
-import StoryDetails from './storyDetails/index'
+import StoryDetails from './StoryDetails/index'
 import IMG from '../Components/Posts/IMG'
 
 export {

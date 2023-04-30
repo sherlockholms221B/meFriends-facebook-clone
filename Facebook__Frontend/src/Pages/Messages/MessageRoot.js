@@ -3,8 +3,7 @@ import * as React from 'react'
 //import moment module
 import moment from 'moment'
 
-//import components
-import Input from '../Input'
+
 
 //import constants
 import { comments } from '../../utils/constants'

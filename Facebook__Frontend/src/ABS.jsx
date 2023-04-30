@@ -6,19 +6,19 @@ import {
   AddToYour,
   TagPeople,
   Notifications,
-  Messages,
   GoPorfile,
   Support,
   Settings,
   Feedback,
   Display,
-  Chat,
   GPDT,
 } from './Components/index'
 import MOverlay from './Components/SideBars/components/MOverlay'
 import MenuSL from './Controllers/menusl/index'
 import GroupSl from './Controllers/groupsl/index'
 import ShortCutsSl from './Controllers/shortcutsl/index'
+import Chat from './Pages/Messages/components/SoftChart/Chat'
+import Messages from './Pages/Messages/Messages'
 const ABS = () => {
   const {
     addToYourState,

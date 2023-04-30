@@ -17,7 +17,7 @@ const SoftTextArea = ({ currentRef, state, setState }) => {
   }
 
   return (
-    <section className='w-full max-h-[280px] overflow-auto vertical_scroll '>
+    <section className='w-full max-h-[280px] overflow-auto  '>
       <textarea
         ref={currentRef}
         value={state}

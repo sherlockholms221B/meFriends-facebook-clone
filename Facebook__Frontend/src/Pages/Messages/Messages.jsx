@@ -1,10 +1,10 @@
 import React from 'react'
 
-import MegWrapper from '../MegWrapper'
 
 import MessageRoot from './MessageRoot'
-import Input from '../Input'
 import { Icon } from '../../utils/Icon'
+import MegWrapper from '../../Components/MegWrapper'
+import { Input } from '../../Components'
 const Messages = () => {
   const [searchChats, setSearchChats] = React.useState('')
 

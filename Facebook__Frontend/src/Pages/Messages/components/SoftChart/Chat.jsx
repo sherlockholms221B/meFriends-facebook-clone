@@ -1,23 +1,20 @@
-import React, { useState } from 'react'
+import * as React from 'react'
 import { motion } from 'framer-motion'
-import moment from 'moment'
+import { useGlobalContext } from '../../../../Hooks/context/UseContext'
+import { PostOptions, Profile, ToolTip } from '../../../../Components'
 import { MdOutlineExpandMore } from 'react-icons/md'
+import moment from 'moment'
 import { ImPhone } from 'react-icons/im'
-import { HiMinus } from 'react-icons/hi'
 import { BsCameraReelsFill } from 'react-icons/bs'
+import { HiMinus } from 'react-icons/hi'
 import { Icon } from '../../../../utils/Icon'
 import { chat } from '../../../../utils/constants'
 import { person_eight } from '../../../../Assets/exports'
-import { useRef } from 'react'
-import { useGlobalContext } from '../../../../Hooks/context/UseContext'
-import ToolTip from '../../../ToolTip'
-import PostOptions from '../../../Posts/PostOptions'
-import Profile from '../../../Profile'
 
 const Chat = () => {
   const { setChatState, chatSettings, setChatSettings } = useGlobalContext()
-  const [value, setValue] = useState('')
-  const textRef = useRef(null)
+  const [value, setValue] = React.useState('')
+  const textRef = React.useRef(null)
   const createPostHeadings = (e) => {
     const element = textRef.current
     element.style.height = 'auto'
@@ -51,11 +48,11 @@ const Chat = () => {
             </article>
           </section>
           <ToolTip
-            title={`chat setttings`}
-            effect={`float`}
-            type={`dark`}
-            place={`left`}
-            id={`chat`}
+            title='chat setttings'
+            effect='float'
+            type='dark'
+            place='left'
+            id='chat'
           />
           <section className='flex items-center gap-2 group'>
             {[
