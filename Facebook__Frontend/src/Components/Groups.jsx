@@ -10,14 +10,7 @@ import { Icon } from '../utils/Icon'
 //import action type
 import { SIDE_GROUP } from '../Functions/type'
 
-const Groups = ({
-  isMbar,
-  barHarder,
-  barContainer,
-  roundedIcon,
-  groupsLinks,
-  hiddentab,
-}) => {
+const Groups = ({ isMbar, groupsLinks, hiddentab }) => {
   const {
     dynamicLocation,
     internalAction: [controller, dispatchAction],
@@ -59,15 +52,19 @@ const Groups = ({
       ))}
       {!hiddentab && (
         <Button
-          title={` ${barContainer} py-1 `}
+          title='relative hover:bg-inherit xl:hover:bg-light500 xl:dark:hover:bg-dark300 flex flex-row items-center w-full rounded-md py-1'
           functionCall={() => {
             sideGroup(dispatchAction, { name: SIDE_GROUP, value: true })
           }}
         >
-          <Paragraph title={`${roundedIcon} text-lg p-2 `}>
+          <Paragraph title='dark:bg-dark300 dark:text-white text-black rounded-full  bg-light400 text-lg p-2 '>
             <Icon.MdGroups />
           </Paragraph>
-          {isMbar && <p className={barHarder}>See all groups</p>}
+          {isMbar && (
+            <li className=' text-black dark:text-thdark500 tracking-wider font-bold text-lg brightness-95 hidden lg:block'>
+              See all groups
+            </li>
+          )}
           <Active page={`menu`} current={null} />
         </Button>
       )}

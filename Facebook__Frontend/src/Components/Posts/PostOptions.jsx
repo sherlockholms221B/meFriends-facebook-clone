@@ -15,7 +15,7 @@ const PostOptions = ({ isChat }) => {
         (isChat
           ? ' -left-full top-5'
           : 'top-full right-2 left-2  mdxs:top-10 mdxs:right-10 mdxs:left-auto') +
-        ' opacity-0 vertical_scroll rounded-tl-lg rounded-b-lg  shadow-lg z-10 h-[400px] overflow-auto absolute bg-white p-2 dark:bg-dark400 dark:shadow-black dark:shadow-sm '
+        ' opacity-0  rounded-tl-lg rounded-b-lg  shadow-lg z-10 h-[400px] overflow-auto absolute bg-white p-2 dark:bg-dark400 dark:shadow-black dark:shadow-sm '
       }
     >
       <div className='mr-4 ml-1'>

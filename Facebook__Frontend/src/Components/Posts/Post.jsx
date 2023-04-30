@@ -8,7 +8,6 @@ import { Icon } from '../../utils/Icon'
 
 //import components
 import { Comments, PostOptions, Like, Share, COMBTN, IMG } from '../index'
-import { To } from '../RDOMC'
 
 //import sanity url reader
 import { urlFor } from '../../utils/client'
@@ -79,13 +78,13 @@ const Post = ({
           {topic}
         </h5>
       </article>
-      <To link={`/post/details/photo?fbid=${_id}`}>
+      <Redirect link={`/post/details/photo?fbid=${_id}`}>
         <IMG post={postfile} postlength={postfile?.length} />
-      </To>
+      </Redirect>
       <section className='flex flex-col '>
         <section className='flex flex-row flex-nowrap justify-between items-center mx-2 p-2 border-b-2 border-gray-300 dark:border-[#3a3b3c]'>
           <article className='flex items-center justify-center'>
-            <Icon.AiOutlineLike className='mr-1 blue_text' />
+            <Icon.AiOutlineLike className='mr-1 text-blue-500' />
             <p className='text-sm text-gray-500 '>234</p>
           </article>
           <article className='flex items-center justify-center'>
