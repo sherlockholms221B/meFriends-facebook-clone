@@ -19,20 +19,20 @@ const MessageRoot = ({ children, title, actionButton }) => {
   const { setChatState, setMessageState } = useGlobalContext()
   return (
     <React.Fragment>
-      <section className='flex flex-col gap-0 md:gap-2 rounded-t-lg'>
+      <section className='dark:bg-dark400 bg-white flex flex-col gap-0 md:gap-2 rounded-t-lg'>
         <SoftMassagePanelview title={title} actionButton={actionButton} />
         <React.Fragment>
           <hr className='mdsm:hidden' />
         </React.Fragment>
-        <section className='relative w-full flex flex-row justify-center items-center'>
-          {children}
-        </section>
-        <React.Fragment>
-          <hr className='mdsm:hidden' />
-        </React.Fragment>
       </section>
+      <section className='mb-2 mt-2 md:mt-0 relative w-full flex flex-row justify-center items-center'>
+        {children}
+      </section>
+      <React.Fragment>
+        <hr className='mdsm:hidden' />
+      </React.Fragment>
 
-      <section className='max-h-full md:max-h-[380px] gap-3 w-full overflow-auto home_scroll pr-1 pl-1 pt-2 pb-12 mdsm:pb-0'>
+      <section className='dark:bg-dark400 bg-white max-h-full md:max-h-[380px] gap-3 w-full overflow-auto home_scroll pr-1 pl-1 pt-2 pb-12 mdsm:pb-0'>
         <div className='w-full h-fit flex justify-start md:justify-between items-center px-2 py-1'>
           <h5 className='dark:text-white text-black text-sm font-semibold'>
             Earliar

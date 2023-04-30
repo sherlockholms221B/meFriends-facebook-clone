@@ -12,22 +12,14 @@ import ErrorBoundary from '../../ErrorBundary'
 //import custom icon
 import { Icon } from '../../utils/Icon'
 
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react'
-
-//import components
-import { comments } from '../../utils/constants'
 
 // Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 
-// import required modules
-import { Navigation } from 'swiper'
-import { MdPhotoCamera } from 'react-icons/md'
 
-//import meassage roots
+//lazy load meassage roots
 const NotificationsRoot = React.lazy(() => {
   return import('./NotificationRoots')
 })
@@ -35,7 +27,7 @@ const NotificationsRoot = React.lazy(() => {
 const MobileNotifications = () => {
   return (
     <section className='dark:bg-dark500 bg-light500 w-screen h-full '>
-      <section className='flex flex-row items-center w-full justify-between px-4 py-2 mt-1 mdsm:hidden'>
+      <section className='dark:bg-dark400 bg-white flex flex-row items-center w-full justify-between px-4 py-2 mt-1 mdsm:hidden'>
         {mNavLink.map((data, index) => (
           <MbarLink {...data} key={index} />
         ))}
@@ -65,7 +57,7 @@ const MobileNotifications = () => {
               },
             ]}
           >
-            <div className='w-[90%] h-fit dark:bg-dark300 flex justify-center items-center rounded-sm '>
+            <div className='w-[90%] h-fit dark:bg-dark300 flex justify-center items-center rounded-sm p-1.5'>
               <h5 className='text-blue-600 text-sm'>Mark all as read</h5>
             </div>
           </NotificationsRoot>
