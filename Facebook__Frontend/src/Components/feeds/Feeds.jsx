@@ -41,7 +41,7 @@ const Posts = ({ profile }) => {
         {!profile && <SoftProfileLayout />}
         {profile && (
           <section className='dark:bg-dark400 bg-white rounded-md shadow-lg mt-4 md:order-1 md:mb-4 border dark:border-bd500'>
-            <div className='flex_row justify-around  capitalize border-b-2 px-1 dark:border-bd500  border-[#D8D5D5] transition-colors'>
+            <div className='flex flex-row items-center w-full justify-around  capitalize border-b-2 px-1 dark:border-bd500  border-[#D8D5D5] transition-colors'>
               {feedLinks.map(({ name, icon }, index) => (
                 <button
                   className={

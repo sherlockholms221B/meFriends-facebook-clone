@@ -51,7 +51,7 @@ const GoPorfile = () => {
           section
           className='dark:hover:bg-dark300 hover:bg-light300 h-fit flex flex-row justify-between items-center gap-3 p-2 rounded-md'
         >
-          <h5 className='deep_blue cursor-pointer font-medium'>
+          <h5 className='text-blue-600 cursor-pointer font-medium'>
             See all profiles
           </h5>
           <article className='flex items-center justify-center  w-6 h-6 rounded-full bg-red-600  border-2 dark:border-bd500 border-white'>

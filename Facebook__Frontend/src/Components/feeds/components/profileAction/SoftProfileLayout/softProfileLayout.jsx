@@ -16,7 +16,7 @@ const SoftProfileLayout = (props) => {
   // const query = new URLSearchParams(search).get('talling')
   return (
     <section className='dark:bg-dark400 bg-white rounded-md shadow-lg md:order-2  mt-4'>
-      <section className='flex_row justify-between px-4 border-b-2 border-gray-300 dark:border-[#3a3b3c] py-1'>
+      <section className='flex flex-row items-center w-full justify-between px-4 border-b-2 border-gray-300 dark:border-[#3a3b3c] py-1'>
         <strong className='text-sm mdsm:text-base lg:text-xl tracking-wide dark:text-thdark500'>
           Posts
         </strong>

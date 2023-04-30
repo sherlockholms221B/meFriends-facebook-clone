@@ -53,7 +53,7 @@ const TagPeople = () => {
           <Icon.MdOutlineSearch className='absolute top-3 left-3 text-gray-400 text-2xl cursor-pointer ' />
         </div>
         <button
-          className='capitalize font-medium deep_blue'
+          className='capitalize font-medium text-blue-600'
           type='button'
           onClick={() => {
             previous(setCreatePostState, setTagPeopleState, setGoBack)

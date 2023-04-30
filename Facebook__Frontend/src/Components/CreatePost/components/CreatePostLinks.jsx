@@ -50,7 +50,7 @@ const CreatePostLinks = ({ home }) => {
                 } ${i === 1 && 'text-blue-600  hover:bg-[#49a0ec1c]'} ${
                   i === 2 && 'text-yellow-600  hover:bg-[#ece6491c]'
                 } ${i === 3 && 'text-red-600  hover:bg-[#e549491c]'} ${
-                  i === 4 && 'shade_blue  hover:bg-[#498aec1c]'
+                  i === 4 && 'text-blue-400  hover:bg-[#498aec1c]'
                 }  text-2xl p-2 rounded-full`}
                 onClick={(e) =>
                   IconHandler({
@@ -105,17 +105,17 @@ const CreatePostLinks = ({ home }) => {
                 } ${i === 1 && 'text-blue-600  hover:bg-[#49a0ec1c]'} ${
                   i === 2 && 'text-yellow-600  hover:bg-[#ece6491c]'
                 } ${i === 3 && 'text-red-600  hover:bg-[#e549491c]'} ${
-                  i === 4 && 'shade_blue  hover:bg-[#498aec1c]'
+                  i === 4 && 'text-blue-400  hover:bg-[#498aec1c]'
                 }  ${
                   i === 5 && 'text-purple-600  hover:bg-[#e549c61c]'
                 } flex flex-row items-center  gap-2 pl-2 sm:pr-12 py-2 w-[40%] hover:bg-light300 rounded-md cursor-pointer `}
               >
                 <p
                   className={`${i === 0 && 'text-green-600 '} ${
-                    i === 1 && 'deep_blue'
+                    i === 1 && 'text-blue-600'
                   } ${i === 2 && 'text-yellow-600'} ${
                     i === 3 && 'text-red-600'
-                  } ${i === 4 && 'shade_blue'} ${
+                  } ${i === 4 && 'text-blue-400'} ${
                     i === 5 && 'text-purple-600'
                   } text-3xl `}
                   onClick={(e) => IconHandler(e)}
