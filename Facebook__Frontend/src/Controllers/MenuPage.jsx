@@ -18,7 +18,6 @@ const MenuPage = (Component, ComponentBtn, idName) =>
     const search = useLocation().search
     const query = new URLSearchParams(search).get('talling')
      const { location } = useGlobalContext()
-     console.log(location);
 
     return (
       <React.Fragment>

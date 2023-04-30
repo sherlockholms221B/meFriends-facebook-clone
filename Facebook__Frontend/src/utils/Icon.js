@@ -44,7 +44,13 @@ import {
   HiPlusSm,
 } from 'react-icons/hi'
 import { GoTriangleDown } from 'react-icons/go'
-import { BiImageAdd, BiWifi, BiZoomIn, BiZoomOut } from 'react-icons/bi'
+import {
+  BiImageAdd,
+  BiWifi,
+  BiZoomIn,
+  BiZoomOut,
+  BiMessageAltEdit,
+} from 'react-icons/bi'
 import {
   BsFillKeyboardFill,
   BsFillExclamationTriangleFill,
@@ -66,6 +72,7 @@ import {
   FaFacebookMessenger,
   FaUserGraduate,
   FaUserTag,
+  FaEdit,
 } from 'react-icons/fa'
 import {
   AiOutlineBug,
@@ -80,6 +87,7 @@ import {
 } from 'react-icons/ri'
 import { TbGridDots } from 'react-icons/tb'
 import { IoGrid, IoChevronBack } from 'react-icons/io5'
+import { ImEnlarge } from 'react-icons/im'
 
 export const Icon = {
   AiOutlineBug,
@@ -128,6 +136,7 @@ export const Icon = {
   BsFillKeyboardFill,
   BsGlobe,
   BsList,
+  BiMessageAltEdit,
   BsTagsFill,
   BsExclamationSquareFill,
   BiImageAdd,
@@ -139,6 +148,7 @@ export const Icon = {
   FaExpandAlt,
   FaChevronRight,
   FaChevronLeft,
+  FaEdit,
   FaUserGraduate,
   FaQuestionCircle,
   FaUserFriends,
@@ -156,4 +166,5 @@ export const Icon = {
   TbGridDots,
   IoGrid,
   IoChevronBack,
+  ImEnlarge,
 }

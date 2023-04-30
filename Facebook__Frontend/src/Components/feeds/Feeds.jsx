@@ -28,11 +28,11 @@ const Posts = ({ profile }) => {
   const {
     externalAction: [state, dispatchCall],
   } = useGlobalContext()
-  
-  React.useEffect(() => {
-    getAllPost(dispatchCall,{id:''})
-    
-  }, [])
+
+  // React.useEffect(() => {
+  //   getAllPost(dispatchCall,{id:''})
+
+  // }, [])
 
   return (
     <section className='overflow-hidden h-screen mx-auto lap:mx-0 w-full sm:w-520 xlg:w-[700px] px-0.5 pt-0.5 mdsm:pt-2'>
@@ -63,11 +63,9 @@ const Posts = ({ profile }) => {
                 </button>
               ))}
             </div>
-            <section className='rounded-md flex flex-nowrap mdxs:p-2 p-1'>
-              {(location === 'stories' || location === null) && <Stories />}
-              {location === 'reels' && <Reels />}
-              {location === 'rooms' && <Rooms />}
-            </section>
+            {(location === 'stories' || location === null) && <Stories />}
+            {location === 'reels' && <Reels />}
+            {location === 'rooms' && <Rooms />}
           </section>
         )}
 

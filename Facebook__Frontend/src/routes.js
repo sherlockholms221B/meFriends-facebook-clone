@@ -1,5 +1,7 @@
 import { Login, PostDetails, Profile, STPage, StoryDetails } from './Pages'
 import { Friends, Saved, Memories, MarketPlace, Watch } from './Controllers'
+import MobileNotificatons from './Components/Notifications/MobileNotificatons'
+import MobileMessages from './Components/Messages/MobileMessages'
 
 const layoutRoute = [
   {
@@ -41,6 +43,14 @@ const layoutRoute = [
   {
     route: '/menu/watch/fbid',
     component: <Watch />,
+  },
+  {
+    route: '/mefriends-messages-all/room',
+    component: <MobileMessages />,
+  },
+  {
+    route: '/mefriends-notifications-all/notify-me',
+    component: <MobileNotificatons />,
   },
 ]
 

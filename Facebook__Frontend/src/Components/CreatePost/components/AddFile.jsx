@@ -37,7 +37,7 @@ const AddFile = () => {
     if (window.File && window.FileReader && window.FileList && window.Blob) {
       for (let index = 0; index < input.files.length; index++) {
         if (input.files[index].type.match('image')) {
-          const { data, msg } = await uploadvideo(
+          const { data, msg } = await upload(
             input.files[index],
             loading,
             setLoading

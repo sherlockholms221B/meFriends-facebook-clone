@@ -46,14 +46,14 @@ export const mNavLink = [
     outlined: <RiMessengerLine />,
     alarts: '3',
     tip: 'messenger',
-    link: '/',
+    link: 'mefriends-messages-all/room',
   },
   {
     icon: <IoNotifications />,
     outlined: <IoNotificationsOutline />,
     alarts: '1',
     tip: 'notification',
-    link: '/',
+    link: 'mefriends-notifications-all/notify-me',
   },
   {
     icon: <BsHouseFill />,

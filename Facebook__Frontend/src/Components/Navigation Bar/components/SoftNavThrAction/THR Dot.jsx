@@ -1,11 +1,11 @@
 import React from 'react'
 import { MdMenu, MdOutlineExpandMore } from 'react-icons/md'
 import { Link } from 'react-router-dom'
-import { useGlobalContext } from '../../Hooks/context/UseContext'
-import { IconHandler } from '../../Functions/utilities/SH'
-import { NavDot1 } from '../../utils/LWRef'
-import { Profile, ToolTip } from '../index'
-import { Icon } from '../../utils/Icon'
+import { useGlobalContext } from '../../../../Hooks/context/UseContext'
+import { IconHandler } from '../../../../Functions/utilities/SH'
+import { NavDot1 } from '../../../../utils/LWRef'
+import { Profile, ToolTip } from '../../../index'
+import { Icon } from '../../../../utils/Icon'
 
 const THRDot = () => {
   const {

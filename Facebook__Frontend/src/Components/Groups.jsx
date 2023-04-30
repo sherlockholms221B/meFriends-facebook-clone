@@ -23,7 +23,7 @@ const Groups = ({
     internalAction: [controller, dispatchAction],
   } = useGlobalContext()
   return (
-    <>
+    <React.Fragment>
       {groupsLinks.map(({ img, name }) => (
         <Link
           onMouseOver={(e) => {
@@ -71,7 +71,7 @@ const Groups = ({
           <Active page={`menu`} current={null} />
         </Button>
       )}
-    </>
+    </React.Fragment>
   )
 }
 

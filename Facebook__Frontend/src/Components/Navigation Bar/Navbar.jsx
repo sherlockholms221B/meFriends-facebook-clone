@@ -1,9 +1,8 @@
-import React, { useState, useRef, useLayoutEffect } from 'react'
-//location
-import { useLocation } from 'react-router-dom'
+import * as React from 'react'
+
 //import component from components
 import { Input, THRDot } from '../index'
-import MbarLink from './components/mobile'
+import MbarLink from './components/SoftMobileNav'
 
 //import functions
 import { refresh } from '../../Functions/utilities/SH'
@@ -18,12 +17,11 @@ import { mNavLink } from '../../utils/links'
 import { Icon } from '../../utils/Icon'
 
 const Navbar = () => {
-  const [searchValue, setSearchValue] = useState('')
-  const [isMbar, setIsMbar] = useState('home')
-  const navBarRef = useRef(null)
+  const [searchValue, setSearchValue] = React.useState('')
+  const navBarRef = React.useRef(null)
   const { dynamicLocation } = useGlobalContext()
 
-  useLayoutEffect(() => {
+  React.useLayoutEffect(() => {
     const element = navBarRef.current.getBoundingClientRect()
     const elementHeight = element.height
     dynamicLocation({ height: elementHeight })
@@ -42,9 +40,9 @@ const Navbar = () => {
         </button>
         <section className='hidden mdsm:flex relative w-11 h-11 md:w-fit md: md:h-fit justify-center items-center dark:bg-dark300 rounded-full ml-10'>
           <Input
-            type={`text`}
-            name={`search`}
-            placeholder={`Search Mefriend`}
+            type='text'
+            name='search'
+            placeholder='Search Mefriend'
             handleChange={(e) => {
               e.stopPropagation()
               setSearchValue(e.target.value)
@@ -53,19 +51,11 @@ const Navbar = () => {
           />
           <Icon.MdOutlineSearch className=' md:absolute relative md:top-2.5 md:left-3 top-0 left-0 text-gray-500 text-2xl cursor-pointer dark:text-thlight500 xlg:-left-6' />
         </section>
-
         <THRDot />
       </section>
-
       <section className='flex flex-row items-center w-full justify-between px-4 py-2 mt-1 mdsm:hidden'>
         {mNavLink.map((data, index) => (
-          <MbarLink
-            {...data}
-            isMbar={isMbar}
-            setIsMbar={setIsMbar}
-            index={index}
-            key={index}
-          />
+          <MbarLink {...data} key={index} />
         ))}
       </section>
     </nav>
