@@ -13,5 +13,10 @@ export default {
       title: 'Comment',
       type: 'string',
     },
+    {
+      name: 'createdAt',
+      title: 'Created At',
+      type: 'date',
+    },
   ],
 }
