@@ -4,7 +4,8 @@ export const allPostsQuery = () => {
     _id,
     topic,
     audience,
-       postfile[],
+    image[],
+    video[],
       creatorId,
       postedBy->{
         _id,
@@ -26,28 +27,16 @@ export const allPostsQuery = () => {
 export const postDetailQuery = (postId) => {
   const query = `*[_type == "post" && _id == '${postId}']{
     _id,
-     caption,
-       video[]{
-        asset->{
-          _id,
-          url
-        }
-      },
-      userId,
+     topic,
+       video[],
+      creatorId,
     postedBy->{
       _id,
       userName,
       profileImage,
       
     },
-    image[]{
-      _type,
-      asset->{
-        _ref,
-        _url,
-        _id
-      }
-    },
+    image[],
      likes,
     comments[]{
       comment,

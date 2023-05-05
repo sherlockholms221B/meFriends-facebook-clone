@@ -85,7 +85,7 @@ import {
   RiLogoutBoxRFill,
   RiSettings2Fill,
 } from 'react-icons/ri'
-import { TbGridDots } from 'react-icons/tb'
+import { TbGridDots, TbDots } from 'react-icons/tb'
 import { IoGrid, IoChevronBack } from 'react-icons/io5'
 import { ImEnlarge } from 'react-icons/im'
 
@@ -164,6 +164,7 @@ export const Icon = {
   HiPlusSm,
   HiLink,
   TbGridDots,
+  TbDots,
   IoGrid,
   IoChevronBack,
   ImEnlarge,

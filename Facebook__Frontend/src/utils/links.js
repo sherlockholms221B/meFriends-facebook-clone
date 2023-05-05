@@ -59,7 +59,7 @@ export const mNavLink = [
     icon: <BsHouseFill />,
     outlined: <BsHouse />,
     alarts: '1',
-    tip: 'groups',
+    tip: 'Marketplace',
     link: 'menu/marketplace/fbid',
   },
 ]
