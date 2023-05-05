@@ -5,7 +5,6 @@ import {
   PostAudience,
   AddToYour,
   TagPeople,
-  Notifications,
   GoPorfile,
   Support,
   Settings,
@@ -19,6 +18,7 @@ import GroupSl from './Controllers/groupsl/index'
 import ShortCutsSl from './Controllers/shortcutsl/index'
 import Chat from './Pages/Messages/components/SoftChart/Chat'
 import Messages from './Pages/Messages/Messages'
+import Notifications from './Pages/Notifications/Notifications'
 const ABS = () => {
   const {
     addToYourState,

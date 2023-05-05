@@ -1,7 +1,7 @@
 import { Login, PostDetails, Profile, STPage, StoryDetails } from './Pages'
 import { Friends, Saved, Memories, MarketPlace, Watch } from './Controllers'
-import MobileNotificatons from './Components/Notifications/MobileNotificatons'
 import MobileMessages from './Pages/Messages/MobileMessages'
+import MobileNotificatons from './Pages/Notifications/MobileNotificatons'
 
 const layoutRoute = [
   {
