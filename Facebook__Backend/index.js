@@ -13,8 +13,22 @@ const app = express()
 //use express json
 app.use(express.json())
 
+//cors options
+const whitelist = ['http://localhost:3000', 'http://example2.com']
+const  corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1 || !origin) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  },
+}
+
 //allow cross-origin requests
-app.use(cors())
+app.use(
+  cors(corsOptions)
+)
 
 //routes
 app.use(router)
