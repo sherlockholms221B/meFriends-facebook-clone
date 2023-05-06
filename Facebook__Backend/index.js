@@ -12,15 +12,15 @@ const app = express()
 
 //use express json
 app.use(express.json())
-// app.use(express.urlencoded({}))
 
-//
+//allow cross-origin requests
 app.use(cors())
 
 //routes
 app.use(router)
 
-const PORT = 5000
+//declear port or take in the process.env
+const PORT = process.env.PORT || 8080
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`)
