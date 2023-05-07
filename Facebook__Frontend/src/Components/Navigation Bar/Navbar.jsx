@@ -19,13 +19,13 @@ import { Icon } from '../../utils/Icon'
 const Navbar = () => {
   const [searchValue, setSearchValue] = React.useState('')
   const navBarRef = React.useRef(null)
-  const { dynamicLocation } = useGlobalContext()
+  const { dynamicLocation, location } = useGlobalContext()
 
   React.useLayoutEffect(() => {
     const element = navBarRef.current.getBoundingClientRect()
     const elementHeight = element.height
     dynamicLocation({ height: elementHeight })
-  }, [])
+  }, [location.height])
 
   return (
     <nav
