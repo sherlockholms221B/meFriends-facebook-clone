@@ -200,7 +200,12 @@ export const makeComentRoute = async (req, res) => {
       coments
     }`)
     //
+    client
+      .patch(POST_ID)
+      .setIfMissing({ coment: [] })
+      .insert('after', 'comment[-1]', { coment: COMENT })
     res.send('MakeComentRoute')
+    //
   } catch (error) {
     //
     res.status(500).json({ messsage: error.message, error })
@@ -208,7 +213,7 @@ export const makeComentRoute = async (req, res) => {
   }
 }
 
-//shoping route controllers
+//shoping route controllers #MARKETPLACE
 export const getProduct = async (req, res) => {
   try {
     res.send('get product ')
@@ -216,7 +221,7 @@ export const getProduct = async (req, res) => {
     console.log(error)
   }
 }
-
+//
 export const createProduct = async (req, res) => {
   try {
     console.log(req.body)
@@ -225,3 +230,4 @@ export const createProduct = async (req, res) => {
     console.log(error)
   }
 }
+//
