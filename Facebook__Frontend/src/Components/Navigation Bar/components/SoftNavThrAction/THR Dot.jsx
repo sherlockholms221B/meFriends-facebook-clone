@@ -1,13 +1,29 @@
-import React from 'react'
+import * as React from 'react'
+
+//import react icons
 import { MdMenu, MdOutlineExpandMore } from 'react-icons/md'
+
+//import react-router module
 import { Link } from 'react-router-dom'
+
+//import global context
 import { useGlobalContext } from '../../../../Hooks/context/UseContext'
+
+//import iconhandler
 import { IconHandler } from '../../../../Functions/utilities/SH'
+
+//import link with ref
 import { NavDot1 } from '../../../../utils/LWRef'
+
+//import component with
 import { Profile, ToolTip } from '../../../index'
+
+//import custom icon
 import { Icon } from '../../../../utils/Icon'
 
 const THRDot = () => {
+  // const isONLINE = window.navigator
+  // console.log(window.navigator.onLine)
   const {
     setMessageState,
     setNotificationState,

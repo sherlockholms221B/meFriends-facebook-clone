@@ -32,7 +32,7 @@ const Groups = ({ isMbar, groupsLinks, hiddentab }) => {
             !isMbar
               ? 'pl-1'
               : 'pl-2 lg:hover:bg-light500  lg:dark:hover:bg-dark300 hover:bg-inherit'
-          } relative mb-0.5 flex flex-row gap-4 items-center w-full py-2 rounded-md`}
+          } relative mb-0.5 flex flex-row gap-2.5 items-center w-full py-1.5 pl-1  rounded-md`}
         >
           <img
             onMouseOver={(e) => e.stopPropagation()}
@@ -43,7 +43,7 @@ const Groups = ({ isMbar, groupsLinks, hiddentab }) => {
           {isMbar && (
             <h3
               onMouseOver={(e) => e.stopPropagation()}
-              className={`dark:text-white hidden lg:block text-md font-semibold text-gray-900 `}
+              className={`dark:text-white hidden lg:block text-base font-semibold text-gray-900 `}
             >
               {name}
             </h3>
@@ -52,7 +52,9 @@ const Groups = ({ isMbar, groupsLinks, hiddentab }) => {
       ))}
       {!hiddentab && (
         <Button
-          title='relative hover:bg-inherit xl:hover:bg-light500 xl:dark:hover:bg-dark300 flex flex-row items-center w-full rounded-md py-1'
+          title={`relative hover:bg-inherit xl:hover:bg-light500 xl:dark:hover:bg-dark300 flex flex-row items-center w-full rounded-md ${
+            !hiddentab && 'pl-1'
+          }pl-1 gap-2.5`}
           functionCall={() => {
             sideGroup(dispatchAction, { name: SIDE_GROUP, value: true })
           }}
@@ -61,7 +63,7 @@ const Groups = ({ isMbar, groupsLinks, hiddentab }) => {
             <Icon.MdGroups />
           </Paragraph>
           {isMbar && (
-            <li className=' text-black dark:text-thdark500 tracking-wider font-bold text-lg brightness-95 hidden lg:block'>
+            <li className=' text-black dark:text-thdark500 tracking-wider font-bold text-base brightness-95 hidden lg:block'>
               See all groups
             </li>
           )}

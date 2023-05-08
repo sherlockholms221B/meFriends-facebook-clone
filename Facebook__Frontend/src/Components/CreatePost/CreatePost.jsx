@@ -23,6 +23,7 @@ import { AddFile, CreatePostLinks, PostAIR, Profile } from '../index'
 
 //import utilities function
 import { post } from '../../Functions/utilities'
+import { createPost } from '../../Functions/actions/external'
 
 const CreatePost = () => {
   const textRef = React.useRef(null)
@@ -124,10 +125,8 @@ const CreatePost = () => {
                 taged: selectedFriends,
                 _creatorId: userProfile?._id,
                 file: { postfile: controller.postfile },
-                state,
-                dispatchCall,
               }
-              post(data)
+              createPost(dispatchCall, data)
             }
           }}
         >

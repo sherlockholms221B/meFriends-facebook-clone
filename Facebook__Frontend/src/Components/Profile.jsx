@@ -24,7 +24,7 @@ const Profile = ({ size, hidden, customstyle }) => {
       />
       <figcaption className='w-fit'>
         {hidden && (
-          <p className=' text-black dark:text-thdark500 tracking-wider font-bold text-lg brightness-95 capitalize hidden lg:block'>
+          <p className=' text-black dark:text-thdark500 tracking-wider font-bold text-base brightness-95 capitalize hidden lg:block'>
             {userProfile?.userName}
           </p>
         )}

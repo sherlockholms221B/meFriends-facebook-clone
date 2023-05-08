@@ -8,7 +8,7 @@ const SlideLinks = ({ page, index }) => {
     <Redirect
       key={index + page.title}
       link={`${page.url}?talling=${page.title}`}
-      customstyles='group relative hover:bg-inherit lg:hover:bg-light500 lg:dark:hover:bg-dark300 flex flex-row gap-4 items-center w-full  rounded-md py-2'
+      customstyles='group relative hover:bg-inherit lg:hover:bg-light500 lg:dark:hover:bg-dark300 flex flex-row gap-2.5 items-center w-full  rounded-md py-1 pl-1 '
     >
       {page.icon}
       <p className='text-md text-gray-800 font-semibold dark:text-thdark500 hidden lg:block tracking-wider'>

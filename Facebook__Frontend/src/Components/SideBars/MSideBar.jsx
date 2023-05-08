@@ -36,12 +36,12 @@ const MSideBar = () => {
 
   return (
     <SidelayOut
-      title='bg-white dark:bg-dark400 pr-3 border-r dark:border-bd500 bg-light500'
+      title='bg-white dark:bg-dark400 pr-2.5 border-r dark:border-bd500 bg-light500'
       padding={location.height}
     >
       <Redirect
         link={`/`}
-        title='relative hover:bg-inherit xl:hover:bg-light500 xl:dark:hover:bg-dark300 flex flex-row items-center w-full rounded-md py-2'
+        customstyles='relative hover:bg-light500 dark:hover:bg-dark300 flex flex-row items-center w-full rounded-md py-1 px-1 my-1.5'
       >
         <Icon.MdHome className='text-3xl dark:text-thdark500 text-black' />
         <Active page='home' current={null} />
@@ -52,7 +52,7 @@ const MSideBar = () => {
         <Redirect
           key={index + title}
           link={`/${url}?talling=${title}`}
-          customstyles='relative  xl:dark:hover:bg-dark300 xl:hover:bg-light500 hover:bg-inherit mt-0.5 mb-0.5 flex flex-row items-center w-full py-2 rounded-md '
+          customstyles='relative  dark:hover:bg-dark300 hover:bg-light500 mt-0.5 mb-0.5 flex flex-row items-center w-full py-1 px-1  rounded-md '
         >
           {icon}
 
@@ -60,12 +60,12 @@ const MSideBar = () => {
         </Redirect>
       ))}
       <Button
-        title='relative hover:bg-inherit xl:hover:bg-light500 xl:dark:hover:bg-dark300 flex flex-row items-center w-full rounded-md py-1 '
+        title='relative hover:bg-inherit lg:hover:bg-light500 lg:dark:hover:bg-dark300 flex flex-row items-center w-full rounded-md py-1 '
         functionCall={() => {
           SideMenu(dispatchAction, { name: SIDE_MENU, value: true })
         }}
       >
-        <i title='dark:bg-dark300 dark:text-white text-black rounded-full  bg-light400 text-lg p-2'>
+        <i className='dark:bg-dark300 dark:text-white text-black rounded-full  bg-light400 text-lg p-2'>
           <Icon.TbGridDots />
         </i>
         <Active page={`menu`} current={null} />
@@ -75,12 +75,12 @@ const MSideBar = () => {
       <Demarcate />
       <Groups isMbar={false} groupsLinks={groupsLinks} hiddentab />
       <Button
-        title='relative hover:bg-inherit xl:hover:bg-light500 xl:dark:hover:bg-dark300 flex flex-row items-center w-full rounded-md py-1'
+        title='relative lg:hover:bg-light500 lg:dark:hover:bg-dark300 flex flex-row items-center w-full rounded-md py-1'
         functionCall={() => {
           shortCuts(dispatchAction, { name: SIDE_SHORT_CUT, value: true })
         }}
       >
-        <i title='dark:bg-dark300 dark:text-white text-black rounded-full  bg-light400 text-lg p-2'>
+        <i className='dark:bg-dark300 dark:text-white text-black rounded-full  bg-light400 text-lg p-2'>
           <Icon.HiLink />
         </i>
         <Active page='menu' current={null} />

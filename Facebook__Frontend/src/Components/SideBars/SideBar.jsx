@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 
 //import components
 import { Active, Footer, Profile } from '../index'
@@ -20,6 +20,7 @@ import { useGlobalContext } from '../../Hooks/context/UseContext'
 //import reducer actions
 import { SideMenu, shortCuts } from '../../Functions/actions/internal'
 import { SIDE_MENU, SIDE_SHORT_CUT } from '../../Functions/type'
+//
 const SideBar = () => {
   const {
     internalAction: [controller, dispatchAction],
@@ -30,10 +31,10 @@ const SideBar = () => {
     <SidelayOut title='lg:w-[300px] dark:bg-dark400 dark:lg:bg-dark500'>
       <Redirect
         link='/'
-        customstyles=' group relative hover:bg-inherit lg:hover:bg-light500 lg:dark:hover:bg-dark300 flex flex-row gap-4 items-center w-full  rounded-md   py-2 mt-2'
+        customstyles=' group relative hover:bg-inherit lg:hover:bg-light500 lg:dark:hover:bg-dark300 flex flex-row gap-2.5 items-center w-full rounded-md py-1 pl-1 mt-2'
       >
         <Icon.MdHome className='text-3xl text-blue-700' />
-        <li className=' text-black dark:text-thdark500 tracking-wider font-bold text-lg brightness-95 hidden lg:block'>
+        <li className=' text-black dark:text-thdark500 tracking-wider font-bold text-base brightness-95 hidden lg:block'>
           Home
         </li>
         <Active page='home' current={null} />
@@ -42,7 +43,7 @@ const SideBar = () => {
         <Profile
           hidden
           size
-          customstyle=' py-2 group relative hover:bg-inherit lg:hover:bg-light500 lg:dark:hover:bg-dark300 flex flex-row gap-3.5 items-center w-full rounded-md '
+          customstyle='py-1 pl-1  group relative hover:bg-inherit lg:hover:bg-light500 lg:dark:hover:bg-dark300 flex flex-row gap-2.5 items-center w-full rounded-md '
         />
       </Redirect>
       <Demarcate />
@@ -50,15 +51,15 @@ const SideBar = () => {
         <SlideLinks page={page} index={i} key={page.title + i} />
       ))}
       <Button
-        title='group relative hover:bg-inherit lg:hover:bg-light500 lg:dark:hover:bg-dark300 flex flex-row gap-4 items-center w-full rounded-md py-1'
+        title='group relative hover:bg-inherit lg:hover:bg-light500 lg:dark:hover:bg-dark300 flex flex-row gap-2.5 items-center w-full rounded-md py-1 pl-1 '
         functionCall={() => {
           SideMenu(dispatchAction, { name: SIDE_MENU, value: true })
         }}
       >
-        <i className='group-hover:brightness-150 dark:bg-dark300 dark:text-white text-black rounded-full  bg-light400 text-lg p-2'>
+        <i className='group-hover:brightness-150 dark:bg-dark300 dark:text-white text-black rounded-full  bg-light400 text-base p-2'>
           <Icon.TbGridDots />
         </i>
-        <li className=' text-black dark:text-thdark500 tracking-wider font-bold text-lg brightness-95 hidden lg:block'>
+        <li className=' text-black dark:text-thdark500 tracking-wider font-bold text-base brightness-95 hidden lg:block'>
           See all
         </li>
         <Active page={`menu`} current={null} />
@@ -81,15 +82,15 @@ const SideBar = () => {
         hiddentab
       />
       <Button
-        title='group relative hover:bg-inherit lg:hover:bg-light500 lg:dark:hover:bg-dark300 flex flex-row gap-4 items-center w-full rounded-md py-1'
+        title='group relative hover:bg-inherit lg:hover:bg-light500 lg:dark:hover:bg-dark300 flex flex-row gap-2.5 items-center w-full rounded-md py-1 pl-1 '
         functionCall={() => {
           shortCuts(dispatchAction, { name: SIDE_SHORT_CUT, value: true })
         }}
       >
-        <i className='group-hover:brightness-150 dark:bg-dark300 dark:text-white text-black rounded-full  bg-light400 text-lg p-2'>
+        <i className='group-hover:brightness-150 dark:bg-dark300 dark:text-white text-black rounded-full  bg-light400 text-base p-2'>
           <Icon.HiLink />
         </i>
-        <li className=' text-black dark:text-thdark500 tracking-wider font-bold text-lg brightness-95 hidden lg:block'>
+        <li className=' text-black dark:text-thdark500 tracking-wider font-bold text-base brightness-95 hidden lg:block'>
           Shortcuts
         </li>
         <Active page={`menu`} />

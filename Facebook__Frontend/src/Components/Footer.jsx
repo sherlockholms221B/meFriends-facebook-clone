@@ -5,8 +5,14 @@ import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
-    <footer className='hidden lg:block mt-10 mb-4 py-2 xl:flex flex-col gap-3 text-center pb-16'>
-      <h3 className='text-sm text-gray-500 '>
+    <footer className=' hidden lg:block mt-10 mb-4 py-2 xl:flex flex-col gap-3 text-start pb-16'>
+      <Link
+        to='http://xtus.netlify.app'
+        className='p-3 dark:bg-dark400 uppercase dark:text-white tracking-wider font-medium rounded-md '
+      >
+        contact developer
+      </Link>
+      <h3 className='mt-6 text-sm text-gray-500 '>
         This is a facebook clone web3 application designed only for educational
         purposes contact the developer for more.
       </h3>
@@ -18,12 +24,6 @@ const Footer = () => {
         Designed by <span className='text-gray-600 font-bold'>Santus@</span>{' '}
         christsanctus
       </p>
-      <Link
-        to='http://xtus.netlify.app'
-        className='p-4 dark:bg-dark400 uppercase dark:text-white tracking-wider font-medium rounded-md m-6'
-      >
-        contact developer
-      </Link>
     </footer>
   )
 }

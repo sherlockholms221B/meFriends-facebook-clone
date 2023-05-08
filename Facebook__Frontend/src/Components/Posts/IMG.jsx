@@ -1,4 +1,6 @@
-import React from 'react'
+import * as React from 'react'
+
+//import sanity image url reader
 import { urlFor } from '../../utils/client'
 
 const IMG = ({ post, postlength }) => {
