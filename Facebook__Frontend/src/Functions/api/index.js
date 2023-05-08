@@ -1,45 +1,33 @@
 import axios from 'axios'
 
-const BASEURL = 'http://localhost:5000/facebook-clone-modern'
+ const BASEURL = 'http://localhost:8080/facebook-clone-modern'
+ const API = axios.create({
+   baseURL: BASEURL,
+   //  timeout: 5000,
+ })
 
-const getUserCall = () => {}
-const getAllUserCall = () => {}
-const getPostDetailsCall = () => {}
-const getAllPostCall = (_id) => {
-  return axios.get(`${BASEURL}/get-all-post?${_id}`)
-}
-const createPostCall = () => {}
-const commentCall = () => {}
-const editCommentCall = () => {}
-const deleteCommentCall = () => {}
-const likeCall = () => {}
-const editPostCall = () => {}
-const deletePostCall = () => {}
-const friendRequestCall = () => {}
-const acceptFriendRequestCall = () => {}
-const getStoriesCall = () => {}
-const getStoryDetailsCall = () => {}
-const deleteStoryCall = () => {}
-const createStoryCall = () => {}
-const sharePostCall = () => {}
+ export const getUserCall = () => {}
+ export const getAllUserCall = () => {}
+ export const getPostDetailsCall = () => {}
+ export const getAllPostCall = (_id) => {
+   return API.get(`/get-all-post?${_id}`)
+ }
+ export const createPostCall = (data) => {
+   return API.post('/create-one-post', { data })
+ }
+ export const likeCall = ({ userId, postId }) => {
+   return API.put('/like-post', { USER_ID: userId, POST_ID: postId })
+ }
+ export const commentCall = () => {}
+ export const editCommentCall = () => {}
+ export const deleteCommentCall = () => {}
+ export const editPostCall = () => {}
+ export const deletePostCall = () => {}
+ export const friendRequestCall = () => {}
+ export const acceptFriendRequestCall = () => {}
+ export const getStoriesCall = () => {}
+ export const getStoryDetailsCall = () => {}
+ export const deleteStoryCall = () => {}
+ export const createStoryCall = () => {}
+ export const sharePostCall = () => {}
 
-export {
-  getUserCall,
-  getAllUserCall,
-  getPostDetailsCall,
-  getAllPostCall,
-  createPostCall,
-  commentCall,
-  editCommentCall,
-  deleteCommentCall,
-  likeCall,
-  editPostCall,
-  deletePostCall,
-  friendRequestCall,
-  acceptFriendRequestCall,
-  getStoriesCall,
-  getStoryDetailsCall,
-  deleteStoryCall,
-  createStoryCall,
-  sharePostCall,
-}

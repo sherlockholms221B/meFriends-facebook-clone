@@ -1,21 +1,93 @@
-import { client } from '../../utils/client'
-import { allPostsQuery } from '../../utils/querries'
-// import { getAllPostCall } from '../api'
-import { GET_ALL_POST } from '../type'
+//import axios instance from api
+import { createPostCall, getAllPostCall, likeCall } from '../api'
 
-const getAllPost = async (dispatch, { _id }) => {
+//import action type from types
+import { GET_ALL_POST, GET_SINGLE_POST } from '../type'
+
+//
+export async function getAllPost(dispatch) {
   try {
-    // const { data, status, statusText } = await getAllPostCall(_id)
-    const query = allPostsQuery()
-    const data = await client.fetch(query)
-
-    dispatch({ type: GET_ALL_POST, value: data })
+    const { posts, ring, message } = await getAllPostCall()
+    console.log(posts)
+    dispatch({ type: GET_ALL_POST, payload: posts })
   } catch (error) {
-    const { isNetworkError } = error
-    console.log(isNetworkError)
     console.log(error)
-    
   }
 }
 
-export { getAllPost }
+//
+export function getSinglePost(dispatch) {}
+
+//
+export const createPost = async (dispatch, document) => {
+  try {
+    const {
+      topic,
+      audience,
+      file: { postfile },
+      _creatorId,
+    } = document
+    const VIDEO_TEMPLETE = postfile
+      .filter((file) => file.filename.match('video'))
+      .map((postfile) => {
+        let template = {}
+        template = {
+          _key: postfile.assetId.concat(postfile.sha1hash),
+          // extension: postfile.extension,
+          filetype: postfile.filename,
+          url: postfile.url,
+          file: {
+            _type: 'file',
+            asset: {
+              _type: 'reference',
+              _ref: postfile?._id,
+              _key: postfile.assetId.concat(postfile.sha1hash),
+            },
+          },
+        }
+        return { ...template }
+      })
+    const IMAGE_TEMPLETE = postfile
+      .filter((file) => file.filename.match('image'))
+      .map((postfile) => {
+        let template = {}
+        template = {
+          _key: postfile.assetId.concat(postfile.sha1hash),
+          // extension: postfile.extension,
+          filetype: postfile.filename,
+          url: postfile.url,
+          file: {
+            _type: 'image',
+            asset: {
+              _type: 'reference',
+              _ref: postfile?._id,
+              _key: postfile.assetId.concat(postfile.sha1hash),
+            },
+          },
+        }
+        return { ...template }
+      })
+    const documents = {
+      _type: 'post',
+      audience,
+      topic,
+      video: VIDEO_TEMPLETE,
+      image: IMAGE_TEMPLETE,
+      creatorId: _creatorId,
+      postedBy: {
+        _type: 'postedBy',
+        _ref: _creatorId,
+      },
+    }
+    const data = await createPostCall(documents)
+    console.log(data)
+    // dispatch({ type: GET_SINGLE_POST, payload: data })
+  } catch (error) {}
+}
+
+export const likePost = async (dispatch, { userId, postId }) => {
+  try {
+    const data = await likeCall({ userId, postId })
+    console.log(data)
+  } catch (error) {}
+}
