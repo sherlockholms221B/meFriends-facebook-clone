@@ -27,7 +27,7 @@ const NotificationsRoot = React.lazy(() => {
 const MobileNotifications = () => {
   return (
     <section className='dark:bg-dark500 bg-light500 w-screen h-full '>
-      <section className='dark:bg-dark400 bg-white flex flex-row items-center w-full justify-between px-4 py-2 mt-1 mdsm:hidden'>
+      <section className='dark:bg-dark400 bg-white flex flex-row items-center w-full justify-between px-4 py-2 mdsm:hidden'>
         {mNavLink.map((data, index) => (
           <MbarLink {...data} key={index} />
         ))}
