@@ -122,7 +122,9 @@ export const deletePostRoute = async (req, res) => {
     })
     //
   } catch (error) {
+    //
     res.status(500).json({ messsage: error.message, error })
+    //
   }
 }
 
