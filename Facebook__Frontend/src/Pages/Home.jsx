@@ -13,15 +13,14 @@ import { loadingSet } from '../Functions/actions/internal'
 import { Icon } from '../utils/Icon'
 import SoftAppLoader from '../examples/SoftLoading/components/SoftAppLoader'
 
-// import { client } from '../utils/client'
-// import { getAllPost } from '../Functions/actions/external'
+import { getAllPost } from '../Functions/actions/external'
 
 export default function Home() {
   //Distructure context valuses from contexts
   const {
     location,
     internalAction: [controller, dispatchAction],
-    // externalAction: [state, dispatchCall],
+    externalAction: [state, dispatchCall],
   } = useGlobalContext()
 
   const { loading } = controller
@@ -36,25 +35,21 @@ export default function Home() {
       clearInterval(interval)
     }
   }, [dispatchAction])
-  
 
   //get all posts
-  // React.useEffect(() => {
-  //   getAllPost(dispatchCall, { _id: 'all-post' })
-  // }, [dispatchCall])
-  // console.log(state)
-  
+  React.useEffect(() => {
+    getAllPost(dispatchCall)
+  }, [dispatchCall])
+
   function isloading() {
     let template
     if (loading) {
-      template = (
-        <SoftAppLoader/>
-        )
-        return template
-      }
-      template = (
-        <React.Fragment>
-         <Navbar />
+      template = <SoftAppLoader />
+      return template
+    }
+    template = (
+      <React.Fragment>
+        <Navbar />
         <section
           style={{ paddingTop: `${location.height}px` }}
           className='flex items-strech justify-center sm:justify-between  dark:bg-dark500 relative h-screen w-screen bg-light500'
