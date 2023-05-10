@@ -1,5 +1,10 @@
 //import axios instance from api
-import { createPostCall, getAllPostCall, likeCall } from '../api'
+import {
+  createPostCall,
+  getAllPostCall,
+  getPostDetailsCall,
+  likeCall,
+} from '../api'
 
 //import action type from types
 import { GET_ALL_POST, GET_SINGLE_POST } from '../type'
@@ -7,16 +12,32 @@ import { GET_ALL_POST, GET_SINGLE_POST } from '../type'
 //
 export async function getAllPost(dispatch) {
   try {
-    const { posts, ring, message } = await getAllPostCall()
-    console.log(posts)
+    //
+    const {
+      data: { posts, length, sound, message },
+    } = await getAllPostCall()
+    //
     dispatch({ type: GET_ALL_POST, payload: posts })
+    //
   } catch (error) {
     console.log(error)
   }
 }
 
 //
-export function getSinglePost(dispatch) {}
+export async function getSinglePost(dispatch, postId) {
+  try {
+    //
+    const {
+      data: { posts, length, sound, message },
+    } = await getPostDetailsCall(postId)
+    //
+    dispatch({ type: GET_SINGLE_POST, payload: posts })
+    //
+  } catch (error) {
+    console.log(error)
+  }
+}
 
 //
 export const createPost = async (dispatch, document) => {
