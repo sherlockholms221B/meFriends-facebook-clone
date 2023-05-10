@@ -22,13 +22,6 @@ const Posts = ({ profile }) => {
     externalAction: [state, dispatchCall],
   } = useGlobalContext()
 
-  // React.useEffect(() => {
-  //   // getAllPost(dispatchCall, { id: '' })
-  //   likePost(dispatchCall, {
-  //     userId: 'a25076df-7e88-4aa9-8998-343016a21b40',
-  //     postId: 'v1Ca4WRs8bWHuMMVm4XlMa',
-  //   })
-  // })
 
   return (
     <section className='overflow-hidden h-screen mx-auto lap:mx-0 w-full sm:w-520 xlg:w-[700px] px-0.5 pt-0.5 mdsm:pt-2'>
