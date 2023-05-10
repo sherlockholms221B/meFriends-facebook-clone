@@ -6,12 +6,12 @@ import { GET_ALL_POST, GET_SINGLE_POST } from '../../Functions/type'
 export default function externalReducer(state = [], action) {
   switch (action.type) {
     case GET_ALL_POST:
-      console.log(action.payload)
-      //  return [...state, ...action.payload]
-      break
+       return [...state, ...action.payload]
     case GET_SINGLE_POST:
-      return [...state, action.payload]
-
+      if (state.length) {
+        return [...state.filter((post) => post._id === action.payload[0]._id)]
+        }
+      return [...state,...action.payload]
     default:
       return
   }
