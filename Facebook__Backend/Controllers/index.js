@@ -163,23 +163,42 @@ export const likePostRoute = async (req, res) => {
       likes
     }`)
     //
-    // if (
-    //   TO_BE_LIKEED_OR_LIKED[0].likes === null ||
-    //   TO_BE_LIKEED_OR_LIKED[0].likes=== []
-    // ) {
-    const _ = await client
-      .patch(POST_ID)
-      .setIfMissing({ likes: [] })
-      .insert('after', 'likes[-1]', [
-        { _type: 'reference', _ref: USER_ID, _key: crypto.randomUUID() },
-      ])
-      .commit({ autoGenerateArrayKeys: true })
-    // }
+    if (
+      TO_BE_LIKEED_OR_LIKED[0].likes === null ||
+      TO_BE_LIKEED_OR_LIKED[0].likes === []
+    ) {
+      await client
+        .patch(POST_ID)
+        .setIfMissing({ likes: [] })
+        .insert('after', 'likes[-1]', [
+          { _type: 'reference', _ref: USER_ID, _key: crypto.randomUUID() },
+        ])
+        .commit({ autoGenerateArrayKeys: true })
+    } else {
+      const isLiked = TO_BE_LIKEED_OR_LIKED[0].likes.filter(
+        ({ _ref }) => _ref === USER_ID
+      )
+      if (isLiked.length) {
+        await client
+          .patch(POST_ID)
+          .unset([`likes[_ref=="${USER_ID}"]`])
+          .commit()
+      } else {
+        await client
+          .patch(POST_ID)
+          .setIfMissing({ likes: [] })
+          .insert('after', 'likes[-1]', [
+            { _type: 'reference', _ref: USER_ID, _key: crypto.randomUUID() },
+          ])
+          .commit({ autoGenerateArrayKeys: true })
+      }
+    }
     //
-
+    const posts = await client.fetch(allPostsQuery())
+    //
     res.status(200).json({
+      posts,
       likes: TO_BE_LIKEED_OR_LIKED[0].likes,
-      likePostRoute: _,
       sound: 'ALL_POST_TUNING_SOUND',
       message: 'Success',
     })
@@ -194,19 +213,41 @@ export const likePostRoute = async (req, res) => {
 //
 export const makeComentRoute = async (req, res) => {
   try {
-    const { COMENT, USER_ID, POST_ID } = req.query
+    const { COMENT, USER_ID, POST_ID } = req.body
     //
-    const TO_BE_COMENTED_OR_COMENTED =
+    var today = new Date()
+    var dd = String(today.getDate()).padStart(2, '0')
+    var mm = String(today.getMonth() + 1).padStart(2, '0') //January is 0!
+    var yyyy = today.getFullYear()
+    //
+    client
+      .patch(POST_ID)
+      .setIfMissing({ coments: [] })
+      .insert('after', 'coments[-1]', [
+        {
+          _type: 'coment',
+          postedBy: {
+            _ref: USER_ID,
+            _key: crypto.randomUUID(),
+            _type: 'postedBy',
+          },
+          coment: COMENT,
+          createdAt: `${yyyy}-${mm}-${dd}`,
+        },
+      ])
+      .commit({ autoGenerateArrayKeys: true })
+    //
+    const UPDATED_POST =
       await client.fetch(`*[_type == "post" && _id == '${POST_ID}']{
       ...,
       coments
     }`)
     //
-    client
-      .patch(POST_ID)
-      .setIfMissing({ coment: [] })
-      .insert('after', 'comment[-1]', { coment: COMENT })
-    res.send('MakeComentRoute')
+    res.status(200).json({
+      post: UPDATED_POST,
+      sound: 'ALL_POST_TUNING_SOUND',
+      message: 'Success',
+    })
     //
   } catch (error) {
     //
