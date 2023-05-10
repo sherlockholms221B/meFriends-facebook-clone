@@ -8,7 +8,9 @@ import axios from 'axios'
 
  export const getUserCall = () => {}
  export const getAllUserCall = () => {}
- export const getPostDetailsCall = () => {}
+export const getPostDetailsCall = (Id) => {
+  return API.get(`/get-single-post?POST_ID=${Id}`)
+}
  export const getAllPostCall = (_id) => {
    return API.get(`/get-all-post?${_id}`)
  }
