@@ -16,25 +16,26 @@ import PSTIMG from './PSTIMG'
 
 //import icons from utils
 import { Icon } from '../../utils/Icon'
-import { postDetailQuery } from '../../utils/querries'
-import { client } from '../../utils/client'
+import { getSinglePost } from '../../Functions/actions/external'
+import { useGlobalContext } from '../../Hooks/context/UseContext'
 
 const PostDetails = () => {
   const navigate = useNavigate()
   const [isComment, setIsComment] = React.useState(true)
   const [viewMore, setViewMore] = React.useState(true)
   const [value, setValue] = React.useState('')
-  const [details, setdetails] = React.useState([])
-
+  //Distructure context valuses from contexts
+  const {
+    location,
+    internalAction: [controller, dispatchAction],
+    externalAction: [state, dispatchCall],
+  } = useGlobalContext()
   const search = useLocation().search
   const _postId = new URLSearchParams(search).get('fbid')
-
+  console.log(state)
   React.useLayoutEffect(() => {
-    const query = postDetailQuery(_postId)
-    client.fetch(query).then((data) => {
-      setdetails(data[0])
-    })
-  }, [_postId])
+    getSinglePost(dispatchCall, _postId)
+  }, [_postId, dispatchCall])
   return (
     <React.Fragment>
       <section className='flex justify-between items-center py-1 pr-2 border-b-2 dark:border-bd500 dark:bg-dark400 '>
@@ -57,7 +58,7 @@ const PostDetails = () => {
               <Icon.FaExpandAlt className='text-lg text-thdark500' />
             </div>
           </section>
-          <PSTIMG {...details} />
+          <PSTIMG {...state[0]} />
         </section>
         <div className='w-full tab:w-550 dark:bg-dark400 h-full overflow-y-auto'>
           <div className='flex flex-row flex-nowrap justify-between items-center mx-2 p-2 border-b-2 border-gray-300 dark:border-[#3a3b3c]'>
@@ -83,7 +84,7 @@ const PostDetails = () => {
               setViewMore={setViewMore}
               value={value}
               setValue={setValue}
-              comments={details?.comments}
+              comments={state[0]?.coments}
             />
           </section>
           <section className='flex flex-row flex-nowrap gap-2 items-center px-3 pt-2 pb-3 border-t-2 dark:border-bd500'>

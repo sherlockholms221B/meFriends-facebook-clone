@@ -1,5 +1,9 @@
 import * as React from 'react'
 
+//import moment module
+import moment from 'moment'
+
+//import react router module
 import { useNavigate } from 'react-router-dom'
 
 //import data
@@ -10,52 +14,51 @@ import { motion } from 'framer-motion'
 
 //import icons
 import { Icon } from '../../utils/Icon'
-import moment from 'moment'
+
+//
 import { profile } from '../../Assets/exports'
 
-//import sanity url reader
-import { urlFor } from '../../utils/client'
 
-const PSTIMG = ({ synced, image, video }) => {
+const PSTIMG = ({ synced, postfile }) => {
   const navigate = useNavigate()
   const [index, setIndex] = React.useState(0)
 
   React.useEffect(() => {
-    const lastindex = comments?.length - 1
+    const lastindex = postfile?.length - 1
     if (index < 0) {
       setIndex(lastindex)
     }
     if (index > lastindex) {
       setIndex(0)
     }
+  }, [index, postfile?.length])
+
+  React.useEffect(() => {
+    let slider = setInterval(() => {
+      setIndex(index + 1)
+    }, 5000)
+
+    return () => {
+      clearInterval(slider)
+    }
   }, [index])
-
-  // React.useEffect(() => {
-  //   let slider = setInterval(() => {
-  //     setIndex(index + 1)
-  //   }, 5000)
-
-  //   return () => {
-  //     clearInterval(slider)
-  //   }
-  // }, [index])
 
   return (
     /* POST DETAILS IMAGE COMPONENT */
     <React.Fragment>
       <section className=' max-w-[600px] w-full mx-auto h-full flex flex-row relative overflow-hidden'>
-        {/* {image?.map(({ asset, _key, _type }, i) => {
+        {postfile?.map(({ url, filetype }, i) => {
           let position = 'nextSlide'
           if (index === i) {
             position = 'activeSlide'
           }
-          if (index === i - 1 || (i === 0 && index === image.length - 1)) {
+          if (index === i - 1 || (i === 0 && index === postfile.length - 1)) {
             position = 'lastSlide'
           }
           return (
-            <React.Fragment key={i + _key}>
+            <React.Fragment key={i}>
               <img
-                src={urlFor(asset).url()}
+                src={url}
                 alt='post'
                 className={`${position} ${
                   synced ? 'rounded-xl' : ''
@@ -63,7 +66,7 @@ const PSTIMG = ({ synced, image, video }) => {
               />
             </React.Fragment>
           )
-        })} */}
+        })}
         {synced && (
           <section
             className={`absolute top-0 right-0 left-0 w-full p-4 flex flex-col gap-3`}
