@@ -18,7 +18,7 @@ const Post = ({
   comments,
   postedBy,
   _createdAt,
-  creatorID,
+  creatorId,
   _id,
   postfile,
 }) => {
