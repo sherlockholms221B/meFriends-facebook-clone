@@ -1,6 +1,6 @@
 export default {
-  name: 'comment',
-  title: 'Comment',
+  name: 'coment',
+  title: 'Coment',
   type: 'document',
   fields: [
     {
@@ -9,14 +9,18 @@ export default {
       type: 'postedBy',
     },
     {
-      name: 'comment',
-      title: 'Comment',
+      name: 'coment',
+      title: 'Coment',
       type: 'string',
     },
     {
       name: 'createdAt',
       title: 'Created At',
       type: 'date',
+      options: {
+        dateFormat: 'YYYY-MM-DD',
+        calendarTodayLabel: 'Today',
+      },
     },
   ],
 }
