@@ -13,7 +13,11 @@ import { loadingSet } from '../Functions/actions/internal'
 import { Icon } from '../utils/Icon'
 import SoftAppLoader from '../examples/SoftLoading/components/SoftAppLoader'
 
+//import functions from utils.functions
 import { getAllPost } from '../Functions/actions/external'
+
+//import socket.io-client from socket-file
+// import {socket} from '../socket'
 
 export default function Home() {
   //Distructure context valuses from contexts
@@ -34,12 +38,12 @@ export default function Home() {
     return () => {
       clearInterval(interval)
     }
-  }, [dispatchAction])
+  }, [])
 
-  //get all posts
-  React.useEffect(() => {
-    getAllPost(dispatchCall)
-  }, [dispatchCall])
+  // get all posts
+  // React.useEffect(() => {
+  //   getAllPost(dispatchCall)
+  // }, [dispatchCall])
 
   function isloading() {
     let template
