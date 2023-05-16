@@ -9,14 +9,14 @@ import {
   useRef,
   useReducer,
   useMemo,
+  useEffect,
 } from 'react'
 
 // import reducer functions
 import reducer from '../reducer/internal.js'
 import externalReducer from '../reducer/extarnal.js'
-
 //import action types
-import { SIDE_GROUP,SIDE_SHORT_CUT,SIDE_MENU } from '../../Functions/type.js'
+import { SIDE_GROUP, SIDE_SHORT_CUT, SIDE_MENU } from '../../Functions/type.js'
 
 //set up react create context
 const AppContext = createContext(null)
@@ -44,6 +44,19 @@ export const AppProvider = ({ children }) => {
   const [mobileMenu, setMobileMenu] = useState(false)
   const [selectedFriends, setSelectedFriends] = useState([])
   const [postvalue, setPostvalue] = useState('')
+  ////
+  const [selectedChat, setSelectedChat] = useState()
+  const [user, setUser] = useState()
+  const [notification, setNotification] = useState([])
+  const [chats, setChats] = useState()
+
+  useEffect(() => {
+    const userInfo = JSON.parse(localStorage.getItem('userInfo'))
+    setUser(userInfo)
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+  ////
 
   const [audState, setAudState] = useState('Public')
 
@@ -67,19 +80,19 @@ export const AppProvider = ({ children }) => {
     // groupSlideLink: false,
     // shortCut: false,
     sidebaraction: {
-     SIDE_MENU: {
-    SIDE_MENU: false,
-      name: SIDE_MENU
-  },
- SIDE_GROUP: {
-    SIDE_GROUP: false,
-      name: SIDE_GROUP
-  },
-  SIDE_SHORT_CUT:{
-    SIDE_SHORT_CUT: false,
-      name: SIDE_SHORT_CUT
-  }
-},
+      SIDE_MENU: {
+        SIDE_MENU: false,
+        name: SIDE_MENU,
+      },
+      SIDE_GROUP: {
+        SIDE_GROUP: false,
+        name: SIDE_GROUP,
+      },
+      SIDE_SHORT_CUT: {
+        SIDE_SHORT_CUT: false,
+        name: SIDE_SHORT_CUT,
+      },
+    },
     postfile: [],
     video: [],
   }
@@ -99,6 +112,16 @@ export const AppProvider = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
+        //
+        selectedChat,
+        setSelectedChat,
+        user,
+        setUser,
+        notification,
+        setNotification,
+        chats,
+        setChats,
+        //
         internalAction,
         externalAction,
         isSubMenuOpen,
