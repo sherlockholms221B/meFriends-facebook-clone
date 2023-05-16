@@ -12,13 +12,20 @@ import { Input } from '../../Components'
 //import Errorboudary
 import ErrorBoundary from '../../ErrorBundary'
 
+//
+import socket from '../../socket'
 //lazy loading of components
 const MessageRoot = React.lazy(() => {
   return import('./MessageRoot')
 })
 const Messages = () => {
   const [searchChats, setSearchChats] = React.useState('')
+  React.useEffect(() => {
+    socket.on('connection', (sock) => {
+    })
 
+    socket.emit('setup',{_id:'rsdhgsldhgp;ej45u3-583u-repryhesdj'})
+},[])
   return (
     <ErrorBoundary
       fallback={
@@ -40,7 +47,9 @@ const Messages = () => {
           title='Chats'
           actionButton={[
             {
-              icon: <Icon.HiDotsHorizontal />,
+              icon: <Icon.HiDotsHorizontal onClick={() => {
+                socket.emit('join chat','gsogkhsndlglsdf;sdjg445etefhdk')
+              }} />,
             },
             {
               icon: <Icon.ImEnlarge />,

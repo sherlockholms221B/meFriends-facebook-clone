@@ -41,7 +41,7 @@ const MobileMessages = () => {
         ))}
       </section>
       <>
-        <hr />
+        <hr className='dark:border-bd500' />
       </>
       <ErrorBoundary
         fallback={
