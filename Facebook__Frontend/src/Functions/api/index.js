@@ -3,7 +3,7 @@ import axios from 'axios'
  const BASEURL = 'http://localhost:8080/facebook-clone-modern'
  const API = axios.create({
    baseURL: BASEURL,
-   //  timeout: 5000,
+   //  timeout: 9000,
  })
 
  export const getUserCall = () => {}
