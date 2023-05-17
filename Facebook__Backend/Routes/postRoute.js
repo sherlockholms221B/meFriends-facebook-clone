@@ -1,4 +1,4 @@
-import express from "express";
+import express from 'express'
 import {
   getPostRoute,
   getSinglePost,
@@ -8,7 +8,7 @@ import {
   deletePostRoute,
   getProduct,
   createProduct,
-} from '../Controllers/index.js'
+} from '../Controllers/PostControllers.js'
 
 const router = express.Router()
 
@@ -22,8 +22,8 @@ router
 router.delete('/facebook-clone-modern/delete-post', deletePostRoute)
 router.put('/facebook-clone-modern/like-post', likePostRoute)
 //shoping routes
-router.get("/facebook-clone-modern/get-all/product/home", getProduct);
-router.post("/facebook-clone-modern/create-product", createProduct);
+router.get('/facebook-clone-modern/get-all/product/home', getProduct)
+router.post('/facebook-clone-modern/create-product', createProduct)
 
 // export functons
-export default router;
+export default router

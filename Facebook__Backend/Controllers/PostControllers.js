@@ -2,7 +2,7 @@
  Edit this file if you know what you are doing */
 import crypto from 'crypto'
 //import sanity client
-import { client } from '../Clients/index.js'
+import { client } from '../Clients/client.js'
 
 //import post query client
 import { allPostsQuery, postDetailQuery } from '../Queris/querries.js'
