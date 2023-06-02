@@ -1,6 +1,7 @@
 //import axios instance from api
 import {
   createPostCall,
+  getAllChatCall,
   getAllPostCall,
   getPostDetailsCall,
   likeCall,
@@ -111,4 +112,24 @@ export const likePost = async (dispatch, { userId, postId }) => {
     const data = await likeCall({ userId, postId })
     console.log(data)
   } catch (error) {}
+}
+
+//
+
+export async function getAllChat(setChats, setSelectedChat, chat_id) {
+  try {
+    // const config = {
+    //   headers: {
+    //     Authorization: `Bearer ${user.token}`,
+    //   },
+    // }
+
+    const {
+      data: { chat },
+    } = await getAllChatCall(chat_id)
+    setChats(chat)
+    setSelectedChat(chat[0])
+  } catch (e) {
+    console.log(e)
+  }
 }
