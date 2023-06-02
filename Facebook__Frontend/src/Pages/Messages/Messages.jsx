@@ -18,20 +18,20 @@ import socket from '../../socket'
 const MessageRoot = React.lazy(() => {
   return import('./MessageRoot')
 })
+//
 const Messages = () => {
   const [searchChats, setSearchChats] = React.useState('')
   React.useEffect(() => {
-    socket.on('connection', (sock) => {
-    })
+    socket.on('connection', (sock) => {})
 
-    socket.emit('setup',{_id:'rsdhgsldhgp;ej45u3-583u-repryhesdj'})
-},[])
+    socket.emit('setup', { _id: 'rsdhgsldhgp;ej45u3-583u-repryhesdj' })
+  }, [])
   return (
     <ErrorBoundary
       fallback={
         <div className='w-full h-full flex items-center justify-center'>
           <p className='text-black dark:text-white'>
-            can't fetch Notifications
+            Oops! there have been an error fetching Messages
           </p>
         </div>
       }
@@ -47,9 +47,13 @@ const Messages = () => {
           title='Chats'
           actionButton={[
             {
-              icon: <Icon.HiDotsHorizontal onClick={() => {
-                socket.emit('join chat','gsogkhsndlglsdf;sdjg445etefhdk')
-              }} />,
+              icon: (
+                <Icon.HiDotsHorizontal
+                  onClick={() => {
+                    socket.emit('join chat', 'gsogkhsndlglsdf;sdjg445etefhdk')
+                  }}
+                />
+              ),
             },
             {
               icon: <Icon.ImEnlarge />,

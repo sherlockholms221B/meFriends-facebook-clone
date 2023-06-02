@@ -7,149 +7,148 @@ import moment from 'moment'
 import { ImPhone } from 'react-icons/im'
 import { BsCameraReelsFill } from 'react-icons/bs'
 import { HiMinus } from 'react-icons/hi'
-import { Icon } from '../../../../utils/Icon'
-import { chat } from '../../../../utils/constants'
-import { person_eight } from '../../../../Assets/exports'
-import io from 'socket.io-client'
-// import UpdateGroupChatModal from './miscellaneous/UpdateGroupChatModal'
-import { useState } from 'react'
-import axios from 'axios'
-const ENDPOINT = 'http://localhost:5000' // "https://talk-a-tive.herokuapp.com"; -> After deployment
+import { Icon } from '../../../../utils/Icon';
+import { person_eight } from '../../../../Assets/exports';
+import io from 'socket.io-client';
+import { useState } from 'react';
+import axios from 'axios';
+import { IoIosSend } from 'react-icons/io';
+import useAuthStore from '../../../../Store/AuthStore';
 
-var socket, selectedChatCompare
+// eslint-disable-next-line
+var socket, selectedChatCompare;
 const Chat = () => {
-  const { setChatState, chatSettings, setChatSettings } = useGlobalContext()
-  const [value, setValue] = React.useState('')
-  const textRef = React.useRef(null)
-  const [messages, setMessages] = React.useState([])
-  const [loading, setLoading] = useState(false)
-  const [newMessage, setNewMessage] = useState('')
-  const [socketConnected, setSocketConnected] = useState(false)
-  const [typing, setTyping] = useState(false)
-  const [istyping, setIsTyping] = useState(false)
-  const [fetchAgain, setFetchAgain] = useState(false)
+  const { setChatState, chatSettings, setChatSettings } = useGlobalContext();
+  const textRef = React.useRef(null);
+  const [messages, setMessages] = React.useState([]);
+  const [loading, setLoading] = useState(false);
+  const [newMessage, setNewMessage] = useState('');
+  const [socketConnected, setSocketConnected] = useState(false);
+  const [typing, setTyping] = useState(false);
+  const [istyping, setIsTyping] = useState(false);
+  const [fetchAgain, setFetchAgain] = useState(false);
   //
+  const { userProfile } = useAuthStore();
 
-  // const defaultOptions = {
-  //   loop: true,
-  //   autoplay: true,
-  //   animationData: animationData,
-  //   rendererSettings: {
-  //     preserveAspectRatio: 'xMidYMid slice',
-  //   },
-  // }
   const { selectedChat, setSelectedChat, user, notification, setNotification } =
-    useGlobalContext()
+    useGlobalContext();
+
+  React.useEffect(() => {
+    socket = io('http://localhost:8080');
+    socket.emit('setup', userProfile);
+    socket.on('connected', () => setSocketConnected(true));
+    socket.on('typing', () => setIsTyping(true));
+    socket.on('stop typing', () => setIsTyping(false));
+
+    // eslint-disable-next-line
+  }, []);
 
   const fetchMessages = async () => {
-    if (!selectedChat) return
-
+    if (!selectedChat) return;
     try {
-      const config = {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      }
+      // const config = {
+      //   headers: {
+      //     Authorization: `Bearer ${user.token}`,
+      //   },
+      // }
 
-      setLoading(true)
-
-      const { data } = await axios.get(
-        `/api/message/${selectedChat._id}`,
-        config
-      )
-      setMessages(data)
-      setLoading(false)
-
-      socket.emit('join chat', selectedChat._id)
+      const {
+        data: { messages },
+      } = await axios.get(
+        `http://localhost:8080/facebook-clone-modern/api/message/${selectedChat._id}`
+      );
+      setMessages(messages);
+      socket.emit('join chat', selectedChat._id);
     } catch (error) {}
-  }
+  };
 
   const sendMessage = async (event) => {
-    if (event.key === 'Enter' && newMessage) {
-      socket.emit('stop typing', selectedChat._id)
+    if (newMessage) {
+      socket.emit('stop typing', selectedChat._id);
       try {
-        const config = {
-          headers: {
-            'Content-type': 'application/json',
-            Authorization: `Bearer ${user.token}`,
-          },
-        }
-        console.log(selectedChat)
-        setNewMessage('')
-        const { data } = await axios.post(
-          '/api/message',
+        // const config = {
+        //   headers: {
+        //     'Content-type': 'application/json',
+        //     Authorization: `Bearer ${user.token}`,
+        //   },
+        // }
+        // setNewMessage('')
+        await axios.post(
+          'http://localhost:8080/facebook-clone-modern/api/message',
           {
+            sender: userProfile?._id,
             content: newMessage,
-            chatId: selectedChat,
-          },
-          config
-        )
-        socket.emit('new message', data)
-        setMessages([...messages, data])
+            messageId: messages[0]?._id,
+            chatId: selectedChat._id,
+          }
+        );
+        const { data } = await axios.post(
+          'http://localhost:8080/facebook-clone-modern/api/chat',
+          {
+            senderId: userProfile?._id,
+            content: newMessage,
+            messageId: messages[0]?._id,
+            chatId: selectedChat._id,
+          }
+        );
+        // console.log(data, 'real time massage sending')
+        socket.emit('new message', {
+          data: data.data[0],
+          senderId: userProfile?._id,
+        });
+        setMessages([...messages, data]);
       } catch (error) {}
     }
-  }
-
+  };
   React.useEffect(() => {
-    socket = io(ENDPOINT)
-    socket.emit('setup', user)
-    socket.on('connected', () => setSocketConnected(true))
-    socket.on('typing', () => setIsTyping(true))
-    socket.on('stop typing', () => setIsTyping(false))
-
+    fetchMessages();
+    selectedChatCompare = selectedChat;
     // eslint-disable-next-line
-  }, [])
-
-  React.useEffect(() => {
-    fetchMessages()
-
-    selectedChatCompare = selectedChat
-    // eslint-disable-next-line
-  }, [selectedChat])
+  }, [selectedChat]);
 
   React.useEffect(() => {
     socket.on('message recieved', (newMessageRecieved) => {
       if (
         !selectedChatCompare || // if chat is not selected or doesn't match current chat
-        selectedChatCompare._id !== newMessageRecieved.chat._id
+        selectedChatCompare._id !== newMessageRecieved._id
       ) {
         if (!notification.includes(newMessageRecieved)) {
-          setNotification([newMessageRecieved, ...notification])
-          setFetchAgain(!fetchAgain)
+          setNotification([newMessageRecieved, ...notification]);
+          setFetchAgain(!fetchAgain);
         }
       } else {
-        setMessages([...messages, newMessageRecieved])
+        setMessages([...messages, newMessageRecieved]);
       }
-    })
-  })
+    });
+  });
 
-  const typingHandler = (e) => {
-    setNewMessage(e.target.value)
+  // const typingHandler = (e) => {
+  //   setNewMessage(e.target.value)
 
-    if (!socketConnected) return
+  //   if (!socketConnected) return
 
-    if (!typing) {
-      setTyping(true)
-      // socket.emit("typing", selectedChat._id);
-    }
-    let lastTypingTime = new Date().getTime()
-    var timerLength = 3000
-    setTimeout(() => {
-      var timeNow = new Date().getTime()
-      var timeDiff = timeNow - lastTypingTime
-      if (timeDiff >= timerLength && typing) {
-        socket.emit('stop typing', selectedChat._id)
-        setTyping(false)
-      }
-    }, timerLength)
-  }
+  //   if (!typing) {
+  //     setTyping(true)
+  //     // socket.emit("typing", selectedChat._id);
+  //   }
+  //   let lastTypingTime = new Date().getTime()
+  //   var timerLength = 3000
+  //   setTimeout(() => {
+  //     var timeNow = new Date().getTime()
+  //     var timeDiff = timeNow - lastTypingTime
+  //     if (timeDiff >= timerLength && typing) {
+  //       socket.emit('stop typing', selectedChat._id)
+  //       setTyping(false)
+  //     }
+  //   }, timerLength)
+  // }
   //
   const createPostHeadings = (e) => {
-    const element = textRef.current
-    element.style.height = 'auto'
-    const sHeight = e.target.scrollHeight
-    element.style.height = `${sHeight}px`
-  }
+    const element = textRef.current;
+    element.style.height = 'auto';
+    const sHeight = e.target.scrollHeight;
+    element.style.height = `${sHeight}px`;
+  };
   return (
     <motion.div
       drag='x'
@@ -199,78 +198,80 @@ const Chat = () => {
                 >
                   {icon}
                 </button>
-              )
+              );
             })}
           </section>
         </div>
-        <div className='flex flex-col gap-4 max-h-[350px] overflow-auto home_scroll pt-2 pl-2 pb-2 pr-5 '>
-          {chat.map((chat, i) => {
+        <div className='flex flex-col max-h-[350px] overflow-auto home_scroll pt-2 pl-2 pb-2 pr-5 '>
+          {messages[0]?.message.map((ONNx, i) => {
             return (
-              <div key={i} className='flex flex-col gap-4'>
-                <div className='flex flex-row gap-2 items-start'>
-                  <div className='relative border-2 dark:border-bd500 border-white rounded-full cursor-pointer'>
-                    <img
-                      src={person_eight}
-                      alt='profile'
-                      className='object-cover w-7 h-7 rounded-full'
-                    />
-                  </div>
-                  <div className='group flex flex-col w-fit gap-1'>
-                    {chat?.sender?.map((message, i) => (
+              <div key={i} className='flex flex-col'>
+                {userProfile._id !== ONNx.sender[0]?._ref && (
+                  <div className='flex flex-row gap-2 items-start mb-2'>
+                    <div className='relative border-2 dark:border-bd500 border-white rounded-full cursor-pointer'>
+                      <img
+                        src={person_eight}
+                        alt='profile'
+                        className='object-cover w-7 h-7 rounded-full'
+                      />
+                    </div>
+                    <div className='flex flex-col w-fit'>
                       <p
                         key={i}
-                        className='px-2 py-1 rounded-lg text-left dark:bg-dark300 dark:text-thdark500 max-w-[70%] w-fit  first:rounded-tl-2xl first:rounded-bl-none last:rounded-bl-2xl last:rounded-tl-none brightness-110'
+                        className='px-2 py-1 rounded-lg text-left dark:bg-dark300 dark:text-thdark500 max-w-[90%] w-fit first:rounded-tl-2xl first:rounded-bl-none last:rounded-bl-2xl last:rounded-tl-none brightness-110'
                       >
-                        {message}
+                        {ONNx?.subject}
                       </p>
-                    ))}
+                    </div>
                   </div>
-                </div>
-
-                {chat.length !== 4 && (
-                  <p className='text-white'>{chat.length}</p>
                 )}
-                <div className='flex flex-col items-end gap-1'>
-                  {chat?.respond?.map((message, i) => (
+                <div className='flex flex-col items-end mb-2'>
+                  {userProfile._id === ONNx.sender[0]?._ref && (
                     <p
                       key={i}
                       className='px-2 py-1 rounded-lg text-left bg-blue-500 max-w-[70%] w-fit first:rounded-tr-2xl first:rounded-br-none last:rounded-br-2xl last:rounded-tr-none dark:text-thdark500 brightness-125'
                     >
-                      {message}
+                      {ONNx?.subject}
                     </p>
-                  ))}
+                  )}
                 </div>
               </div>
-            )
+            );
           })}
         </div>
-        <div className='relative flex justify-end border-t-2 dark:border-bd500 border-gray-300 py-2'>
+        <div className='relative flex justify-end items-center border-t-2 gap-x-2 dark:border-bd500 border-gray-300 p-2'>
           <textarea
             ref={textRef}
-            value={value}
+            value={newMessage}
             onMouseOut={() => {
-              const element = textRef.current
-              element.style.height = 'auto'
-              element.style.height = '30px'
+              const element = textRef.current;
+              element.style.height = 'auto';
+              element.style.height = '30px';
             }}
-            onChange={(e) => setValue(e.target.value)}
+            onChange={(e) => setNewMessage(e.target.value)}
             onKeyUp={(e) => createPostHeadings(e)}
             placeholder={`Aa`}
             className='outline-none w-[150px] focus:w-full h-8 pl-3 focus:pl-1 overflow-hidden text-start flex justify-start items-center transition-all rounded-md cursor-pointer resize-none dark:bg-dark300 dark:text-white placeholder:text-gray-500 font-meduim'
           />
           <button
-            onClick={() => {
-              sendMessage()
+            onClick={(e) => {
+              sendMessage(e);
             }}
-            className='text-lg font-medium'
+            className='w-fit h-fit'
           >
-            send
+            <IoIosSend
+              onClick={(e) => {
+                sendMessage(e);
+              }}
+              fontSize={35}
+              className='font-medium text-blue-500'
+            />
           </button>
         </div>
         {chatSettings && <PostOptions isChat />}
       </div>
     </motion.div>
-  )
-}
+  );
+};
 
 export default Chat
