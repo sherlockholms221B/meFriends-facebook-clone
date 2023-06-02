@@ -31,5 +31,10 @@ export const getPostDetailsCall = (Id) => {
  export const getStoryDetailsCall = () => {}
  export const deleteStoryCall = () => {}
  export const createStoryCall = () => {}
- export const sharePostCall = () => {}
+export const sharePostCall = () => {}
+
+//
+export const getAllChatCall = (chat_id) => {
+  return API.get(`/api/chat`, { CHAT_ID: chat_id })
+}
 
