@@ -21,7 +21,6 @@ const MenuPage = (Component, ComponentBtn, idName) =>
     const search = useLocation().search
     const query = new URLSearchParams(search).get('talling')
     const { location } = useGlobalContext()
-    console.log(WILL_ANIMATE)
 
     return (
       <React.Fragment>
@@ -43,7 +42,7 @@ const MenuPage = (Component, ComponentBtn, idName) =>
             <section className='min-w-[260px] w-full h-full relative flex flex-col md:flex-row items-center bg-light500 dark:bg-dark500'>
               <motion.div
                 whileInView={
-                  WILL_ANIMATE ? { opacity: [0.99, 1] } : { opacity: [0, 1] }
+                  WILL_ANIMATE ? { opacity: [0, 1] } : { opacity: [0.99, 1] }
                 }
                 transition={{ duration: 1, ease: 'easeInOut' }}
                 className='md:w-550 w-full dark:bg-dark500 md:dark:bg-dark400 bg-white h-fit md:h-full overflow-hidden flex items-start justify-start md:justify-center md:border-r-2 md:dark:border-bd500'
@@ -53,8 +52,8 @@ const MenuPage = (Component, ComponentBtn, idName) =>
               <motion.div
                 whileInView={
                   WILL_ANIMATE
-                    ? { opacity: [0.99, 1] }
-                    : { opacity: [0, 1], x: [200, 0] }
+                    ? { opacity: [0, 1], x: [200, 0] }
+                    : { opacity: [0.99, 1] }
                 }
                 transition={{ duration: 0.5, easing: 'easeInOut' }}
                 className='w-full h-full md:h-full bg-light500 dark:bg-dark500 text-white relative flex justify-center overflow-auto'
