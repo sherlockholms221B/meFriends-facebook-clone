@@ -25,25 +25,26 @@ export default function Home() {
     location,
     internalAction: [controller, dispatchAction],
     externalAction: [state, dispatchCall],
-  } = useGlobalContext()
+  } = useGlobalContext();
 
-  const { loading } = controller
+  const { loading } = controller;
 
   // useEffect to turn off loading
   React.useEffect(() => {
     const interval = setTimeout(() => {
-      loadingSet(dispatchAction, false)
-    }, 100)
+      loadingSet(dispatchAction, false);
+    }, 100);
 
     return () => {
-      clearInterval(interval)
-    }
-  }, [])
+      clearInterval(interval);
+    };
+    // eslint-disable-next-line
+  }, []);
 
   // get all posts
-  // React.useEffect(() => {
-  //   getAllPost(dispatchCall)
-  // }, [dispatchCall])
+  React.useEffect(() => {
+    getAllPost(dispatchCall);
+  }, [dispatchCall]);
 
   function isloading() {
     let template
