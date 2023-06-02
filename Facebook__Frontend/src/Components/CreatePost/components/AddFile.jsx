@@ -66,12 +66,12 @@ const AddFile = () => {
         (controller.postfile.length !== 0 ? 'h-fit' : 'h-48')
       }
     >
-      {controller.postfile.length !== 0 && (
+      {/* {controller.postfile.length !== 0 && (
         <IMG
           postlength={controller.postfile?.length}
           post={controller.postfile}
         />
-      )}
+      )} */}
       {controller.postfile.length !== 0 && (
         <section className='absolute top-0 right-0 left-0 flex justify-between p-5'>
           <section className='flex flex-row gap-3 items-center'>
