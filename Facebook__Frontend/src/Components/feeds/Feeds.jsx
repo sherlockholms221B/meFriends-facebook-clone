@@ -19,9 +19,9 @@ import { useGlobalContext } from '../../Hooks/context/UseContext'
 const Posts = ({ profile }) => {
   const [location, setLocation] = React.useState('stories')
   const {
+    // eslint-disable-next-line
     externalAction: [state, dispatchCall],
-  } = useGlobalContext()
-
+  } = useGlobalContext();
 
   return (
     <section className='overflow-hidden h-screen mx-auto lap:mx-0 w-full sm:w-520 xlg:w-[700px] px-0.5 pt-0.5 mdsm:pt-2'>

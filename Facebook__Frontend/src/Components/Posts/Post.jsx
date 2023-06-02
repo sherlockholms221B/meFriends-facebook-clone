@@ -9,9 +9,12 @@ import { Icon } from '../../utils/Icon'
 //import components
 import { Comments, PostOptions, Like, Share, COMBTN, IMG } from '../index'
 
+//import components
+import Redirect from '../../examples/SoftRedirect'
+
 //import sanity url reader
 import { urlFor } from '../../utils/client'
-import Redirect from '../../examples/SoftRedirect'
+
 
 const Post = ({
   topic,
@@ -21,16 +24,19 @@ const Post = ({
   creatorId,
   _id,
   postfile,
+  likes,
 }) => {
-  const [value, setValue] = React.useState('')
-  const [isComment, setIsComment] = React.useState(false)
-  const [viewMore, setViewMore] = React.useState(false)
-  const [postOption, setPostOption] = React.useState(false)
-  const togleMenu = React.useRef(null)
+  const [value, setValue] = React.useState('');
+  const [isComment, setIsComment] = React.useState(false);
+  const [viewMore, setViewMore] = React.useState(false);
+  const [postOption, setPostOption] = React.useState(false);
+  const togleMenu = React.useRef(null);
+
+  const rtnlikes = likes=== null ?[]:likes
 
   React.useEffect(() => {
-    setViewMore(false)
-  }, [isComment])
+    setViewMore(false);
+  }, [isComment]);
 
   return (
     <section className='dark:border dark:border-bd500 dark:bg-dark400 md:order-3 flex flex-col rounded-md bg-white drop-shadow-xl shadow-xl mt-4'>
@@ -65,7 +71,7 @@ const Post = ({
             className='text-2xl font-semibold text-gray-500 p-2 rounded-full dark:hover:bg-dark300 hover:bg-light500 '
             ref={togleMenu}
             onClick={() => {
-              setPostOption(!postOption)
+              setPostOption(!postOption);
             }}
           >
             <Icon.HiDotsHorizontal />
@@ -83,10 +89,12 @@ const Post = ({
       </Redirect>
       <section className='flex flex-col '>
         <section className='flex flex-row flex-nowrap justify-between items-center mx-2 p-2 border-b-2 border-gray-300 dark:border-[#3a3b3c]'>
-          <article className='flex items-center justify-center'>
-            <Icon.AiOutlineLike className='mr-1 text-blue-500' />
-            <p className='text-sm text-gray-500 '>234</p>
-          </article>
+          {rtnlikes.length !==0 && (
+            <article className='flex items-center justify-center'>
+              <Icon.AiOutlineLike className='mr-1 text-blue-500' />
+              <p className='text-sm text-gray-500 '>{rtnlikes.length}</p>
+            </article>
+          )}
           <article className='flex items-center justify-center'>
             <p className='mr-1 text-sm text-gray-500 '>22 comments</p>
             <p className='text-sm text-gray-500 '>7 share</p>
@@ -98,7 +106,7 @@ const Post = ({
             (isComment && 'mx-2 border-b-2 border-gray-300 dark:border-bd500')
           }
         >
-          <Like />
+          <Like likes={rtnlikes} />
           <COMBTN setIsComment={setIsComment} isComment={isComment} />
           <Share />
         </section>
@@ -114,7 +122,7 @@ const Post = ({
         />
       </section>
     </section>
-  )
-}
+  );
+};
 
 export default Post

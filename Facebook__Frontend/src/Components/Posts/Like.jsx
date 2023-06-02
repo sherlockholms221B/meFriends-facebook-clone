@@ -1,22 +1,23 @@
-import React, { useRef } from 'react'
-import { AiOutlineLike } from 'react-icons/ai'
-import { like } from '../../Assets/Audio/index'
+import * as React from 'react';
 
-const Like = () => {
-  const likeRef = useRef(null)
-  const likePost = (e) => {
-    // e.preventDefault()
-    const element = likeRef.current
-    // element.preventDefault()
-    element
-      .play()
-      .then(() => element.pause)
-      .catch((err) => console.log(err))
-  }
+//to be updateded
+import { AiOutlineLike } from 'react-icons/ai';
+import { like } from '../../Assets/Audio/index';
+import { likePost } from '../../Functions/actions/external';
+import { useGlobalContext } from '../../Hooks/context/UseContext';
+
+//
+const Like = ({ likes }) => {
+  const likeRef = React.useRef(null);
+  const {
+    location,
+    internalAction: [controller, dispatchAction],
+    externalAction: [state, dispatchCall],
+  } = useGlobalContext();
   return (
     <button
-      onClick={() => {
-        likePost()
+      onClick={(event) => {
+        // likePost(dispatchAction, { userId, postId, likeRef });
       }}
       className='flex flex-row flex-nowrap justify-center  items-center sm:dark:hover:bg-dark300 sm:hover:bg-light500 bg-light500 dark:bg-dark300 sm:dark:bg-inherit sm:rounded-[3px] rounded-full px-6 xs:px-8 py-2 cursor-pointer '
     >
@@ -26,7 +27,7 @@ const Like = () => {
       </p>
       <audio src={like} ref={likeRef} />
     </button>
-  )
-}
+  );
+};
 
-export default Like
+export default Like;
