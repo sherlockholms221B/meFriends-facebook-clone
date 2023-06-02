@@ -8,6 +8,7 @@ import { GetUser } from './index'
 import useAuthStore from '../../Store/AuthStore'
 import { useNavigate } from 'react-router-dom'
 import { Demarcate } from '../../Components/RDOMC'
+import { useState } from 'react';
 
 export function LogIn({
   email,
@@ -16,10 +17,11 @@ export function LogIn({
   setWrongeDataType,
   wrongeDataType,
 }) {
-  const navigate = useNavigate()
-  const { addUser } = useAuthStore()
+  const [value, setvalue] = useState('');
+  const navigate = useNavigate();
+  const { addUser } = useAuthStore();
 
-  const { next } = useMultistepForm([])
+  const { next } = useMultistepForm([]);
   return (
     <FormWrapper title=''>
       <section
@@ -50,8 +52,11 @@ export function LogIn({
           name='login'
           type='password'
           value={password}
-          handleChange={(e) => updateFields({ password: e.target.value })}
+          handleChange={(e) => {
+            updateFields({ password: e.target.value });
+          }}
         />
+
         <button
           type='button'
           onClick={async () => {
@@ -59,9 +64,9 @@ export function LogIn({
               { email, password },
               addUser,
               navigate
-            )
-            setWrongeDataType({ ...wrongeDataType, msg: msg })
-            localStorage.setItem('user', data[0])
+            );
+            setWrongeDataType({ ...wrongeDataType, msg: msg });
+            localStorage.setItem('user', data[0]);
           }}
           className='text-white font-bold bg-blue-800 w-full rounded-md p-2 text-xl hover:bg-blue-700'
         >
@@ -79,5 +84,5 @@ export function LogIn({
         </button>
       </section>
     </FormWrapper>
-  )
+  );
 }
