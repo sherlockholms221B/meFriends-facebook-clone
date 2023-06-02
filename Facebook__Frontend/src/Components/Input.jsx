@@ -14,8 +14,8 @@ const Input = ({
     <React.Fragment>
       <input
         onClick={(e) => {
-          e.stopPropagation()
-          e.preventDefault()
+          e.stopPropagation();
+          e.preventDefault();
         }}
         type={type}
         required={required}
