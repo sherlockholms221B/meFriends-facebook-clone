@@ -48,7 +48,8 @@ export const AppProvider = ({ children }) => {
   const [selectedChat, setSelectedChat] = useState()
   const [user, setUser] = useState()
   const [notification, setNotification] = useState([])
-  const [chats, setChats] = useState()
+  const [chats, setChats] = useState([])
+  const [fetchAgain, setFetchAgain] = useState(false)
 
   useEffect(() => {
     const userInfo = JSON.parse(localStorage.getItem('userInfo'))
@@ -121,6 +122,8 @@ export const AppProvider = ({ children }) => {
         setNotification,
         chats,
         setChats,
+        fetchAgain,
+        setFetchAgain,
         //
         internalAction,
         externalAction,
