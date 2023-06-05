@@ -79,8 +79,8 @@ likes,
   }`
   return query
 }
-export const signInUser = (email) => {
-  const query = `*[_type =="user" && email=='${email}']`
+export const signInUser = (email, userId) => {
+  const query = `*[_type =="user" && email=='${email}'|| _id== '${userId}]`
 
   return query
 }

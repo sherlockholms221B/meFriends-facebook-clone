@@ -7,11 +7,20 @@ import http from 'http'
 //import cors module & allow cross origin requsts
 import cors from 'cors'
 
+//
+import {config} from 'dotenv'
+//
+
 //import routes from routes
-import router from './Routes/postRoute.js'
+import messageRoutes from './Routes/messageRoute.js'
+import postRoutes from './Routes/postRoute.js'
+import chatRoutes from './Routes/chatRoute.js'
 
 //middlewares
 import { errorHandler, notFound } from './Middleware/errorMiddleware.js'
+
+//allow for environmental variables
+config()
 
 //initialize express
 const app = express()
@@ -23,7 +32,7 @@ app.use(express.json())
 
 //cors options
 const whitelist = ['http://localhost:3000', 'http://example2.com']
-const  corsOptions = {
+const corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1 || !origin) {
       callback(null, true)
@@ -34,12 +43,12 @@ const  corsOptions = {
 }
 
 //allow cross-origin requests
-app.use(
-  cors(corsOptions)
-)
+app.use(cors(corsOptions))
 
 //routes
-app.use(router)
+app.use('/facebook-clone-modern',postRoutes)
+app.use('/facebook-clone-modern/api/chat', chatRoutes)
+app.use('/facebook-clone-modern/api/message', messageRoutes)
 
 
 // Error Handling middlewares
@@ -67,7 +76,7 @@ const io = new Server(_socket, {
 });
 
 io.on("connection", (socket) => {
-  console.log("Connected to socket.io");
+  // console.log("Connected to socket.io");
   socket.on("setup", (userData) => {
     socket.join(userData._id);
     socket.emit("connected");
@@ -75,25 +84,26 @@ io.on("connection", (socket) => {
 
   socket.on("join chat", (room) => {
     socket.join(room);
-    console.log("User Joined Room: " + room);
+    // console.log("User Joined Room: " + room);
   });
   socket.on("typing", (room) => socket.in(room).emit("typing"));
   socket.on("stop typing", (room) => socket.in(room).emit("stop typing"));
 
-  socket.on("new message", (newMessageRecieved) => {
-    var chat = newMessageRecieved.chat;
+  socket.on("new message", ({data,senderId}) => {
+    // var chat = data?.message
+    const ppl = data?.whoIsIn_id
 
-    if (!chat.users) return console.log("chat.users not defined");
+    if (!ppl.length || ppl.length === 1) return //console.log("chat.users not defined");
 
-    chat.users.forEach((user) => {
-      if (user._id == newMessageRecieved.sender._id) return;
+    ppl.forEach((user) => {
+      if (user?._ref == senderId) return; //return if the user is the sender.
 
-      socket.in(user._id).emit("message recieved", newMessageRecieved);
+      socket.in(user?._ref).emit('message recieved', data)//dispatch emit action
     });
   });
 
   socket.off("setup", () => {
-    console.log("USER DISCONNECTED");
+    // console.log("USER DISCONNECTED");
     socket.leave(userData._id);
   });
 });

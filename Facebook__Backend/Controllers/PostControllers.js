@@ -2,25 +2,25 @@
  Edit this file if you know what you are doing */
 import crypto from 'crypto'
 //import sanity client
-import { client } from '../Clients/client.js'
+import client from '../Clients/client.js';
 
 //import post query client
-import { allPostsQuery, postDetailQuery } from '../Queris/querries.js'
+import { allPostsQuery, postDetailQuery } from '../Queris/querries.js';
 
 //get all posts based on users frineds, tags,serach terms and ...rest
 export const getPostRoute = async (req, res) => {
   try {
     //
-    const posts = await client.fetch(allPostsQuery())
+    const posts = await client.fetch(allPostsQuery());
     //
     if (!posts.length) {
       return res.status(304).json({
         messsage: 'Add friends to see posts',
-      })
+      });
     }
     //
     //
-    let newPosts = []
+    let newPosts = [];
     for (let index = 0; index < posts.length; index++) {
       newPosts = [
         ...newPosts,
@@ -28,7 +28,7 @@ export const getPostRoute = async (req, res) => {
           ...posts[index],
           postfile: [...posts[index].image, ...posts[index].video],
         },
-      ]
+      ];
     }
     //
     return res.status(200).json({
@@ -36,28 +36,28 @@ export const getPostRoute = async (req, res) => {
       sound: 'ALL_POST_TUNING_SOUND',
       message: 'Success',
       length: posts.length,
-    })
+    });
   } catch (error) {
-    res.status(500).json({ messsage: error.message, error })
+    res.status(500).json({ messsage: error.message, error });
   }
-}
+};
 
 //get single post
 export const getSinglePost = async (req, res) => {
   try {
     //get post id
-    const { POST_ID } = req.query
+    const { POST_ID } = req.query;
     //
-    const post = await client.fetch(postDetailQuery(POST_ID))
+    const post = await client.fetch(postDetailQuery(POST_ID));
     //
     if (!post.length) {
       return res.status(304).json({
         messsage: `No post matching the _id: ${POST_ID}`,
-      })
+      });
     }
     //
     //
-    let newPost = []
+    let newPost = [];
     for (let index = 0; index < post.length; index++) {
       newPost = [
         ...newPost,
@@ -65,7 +65,7 @@ export const getSinglePost = async (req, res) => {
           ...post[index],
           postfile: [...post[index].image, ...post[index].video],
         },
-      ]
+      ];
     }
     //
     return res.status(200).json({
@@ -73,25 +73,25 @@ export const getSinglePost = async (req, res) => {
       sound: 'ALL_POST_TUNING_SOUND',
       message: 'Success',
       length: post.length,
-    })
+    });
     //
   } catch (error) {
-    res.status(500).json({ messsage: error.message, error })
+    res.status(500).json({ messsage: error.message, error });
   }
-}
+};
 
 //
 export const deletePostRoute = async (req, res) => {
   try {
     //get post id
-    const { POST_ID, USER_ID } = req.query
+    const { POST_ID, USER_ID } = req.query;
     //get the post to be deleted
-    const TO_BE_DELETED = await client.fetch(postDetailQuery(POST_ID))
+    const TO_BE_DELETED = await client.fetch(postDetailQuery(POST_ID));
     //
     if (!TO_BE_DELETED.length) {
       return res
         .status(404)
-        .json({ message: 'No post with the specified id was found' })
+        .json({ message: 'No post with the specified id was found' });
     }
     //
     if (
@@ -103,15 +103,15 @@ export const deletePostRoute = async (req, res) => {
       //
       return res
         .status(403)
-        .json({ message: 'You are not allowed to delete this post' })
+        .json({ message: 'You are not allowed to delete this post' });
       //
     }
 
     const deletedPost = await client.delete({
       query: `*[_type == "post" && _id == '${TO_BE_DELETED[0]._id}']`,
-    })
+    });
     //
-    const posts = await client.fetch(allPostsQuery())
+    const posts = await client.fetch(allPostsQuery());
     //
     res.status(200).json({
       deletedPost,
@@ -119,23 +119,23 @@ export const deletePostRoute = async (req, res) => {
       sound: 'ALL_POST_TUNING_SOUND',
       message: 'Success',
       length: posts.length,
-    })
+    });
     //
   } catch (error) {
     //
-    res.status(500).json({ messsage: error.message, error })
+    res.status(500).json({ messsage: error.message, error });
     //
   }
-}
+};
 
 //
 export const createPostRoute = async (req, res) => {
   try {
-    const documents = req.body.data
+    const documents = req.body.data;
     //
-    const newPost = await client.create(documents)
+    const newPost = await client.create(documents);
     //
-    const posts = await client.fetch(allPostsQuery())
+    const posts = await client.fetch(allPostsQuery());
     //
     res.status(200).json({
       newPost,
@@ -143,25 +143,25 @@ export const createPostRoute = async (req, res) => {
       sound: 'ALL_POST_TUNING_SOUND',
       message: 'Success',
       length: posts.length,
-    })
+    });
     //
   } catch (error) {
     //
-    res.status(500).json({ messsage: error.message, error })
+    res.status(500).json({ messsage: error.message, error });
     //
   }
-}
+};
 
 //
 export const likePostRoute = async (req, res) => {
   try {
-    const { USER_ID, POST_ID } = req.body
+    const { USER_ID, POST_ID } = req.body;
     //
     const TO_BE_LIKEED_OR_LIKED =
       await client.fetch(`*[_type == "post" && _id == '${POST_ID}']{
       ...,
       likes
-    }`)
+    }`);
     //
     if (
       TO_BE_LIKEED_OR_LIKED[0].likes === null ||
@@ -173,16 +173,16 @@ export const likePostRoute = async (req, res) => {
         .insert('after', 'likes[-1]', [
           { _type: 'reference', _ref: USER_ID, _key: crypto.randomUUID() },
         ])
-        .commit({ autoGenerateArrayKeys: true })
+        .commit({ autoGenerateArrayKeys: true });
     } else {
       const isLiked = TO_BE_LIKEED_OR_LIKED[0].likes.filter(
         ({ _ref }) => _ref === USER_ID
-      )
+      );
       if (isLiked.length) {
         await client
           .patch(POST_ID)
           .unset([`likes[_ref=="${USER_ID}"]`])
-          .commit()
+          .commit();
       } else {
         await client
           .patch(POST_ID)
@@ -190,35 +190,36 @@ export const likePostRoute = async (req, res) => {
           .insert('after', 'likes[-1]', [
             { _type: 'reference', _ref: USER_ID, _key: crypto.randomUUID() },
           ])
-          .commit({ autoGenerateArrayKeys: true })
+          .commit({ autoGenerateArrayKeys: true });
       }
     }
     //
-    const posts = await client.fetch(allPostsQuery())
+    const posts = await client.fetch(allPostsQuery());
     //
     res.status(200).json({
       posts,
       likes: TO_BE_LIKEED_OR_LIKED[0].likes,
       sound: 'ALL_POST_TUNING_SOUND',
       message: 'Success',
-    })
+    });
     //
   } catch (error) {
     //
-    res.status(500).json({ messsage: error.message, error })
+    res.status(500).json({ messsage: error.message, error });
     //
   }
-}
+};
 
 //
 export const makeComentRoute = async (req, res) => {
   try {
-    const { COMENT, USER_ID, POST_ID } = req.body
+    const { COMENT, USER_ID, POST_ID } = req.body;
     //
-    var today = new Date()
-    var dd = String(today.getDate()).padStart(2, '0')
-    var mm = String(today.getMonth() + 1).padStart(2, '0') //January is 0!
-    var yyyy = today.getFullYear()
+    //getting the current users post date
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
     //
     client
       .patch(POST_ID)
@@ -235,42 +236,24 @@ export const makeComentRoute = async (req, res) => {
           createdAt: `${yyyy}-${mm}-${dd}`,
         },
       ])
-      .commit({ autoGenerateArrayKeys: true })
+      .commit({ autoGenerateArrayKeys: true });
     //
     const UPDATED_POST =
       await client.fetch(`*[_type == "post" && _id == '${POST_ID}']{
       ...,
       coments
-    }`)
+    }`);
     //
     res.status(200).json({
       post: UPDATED_POST,
       sound: 'ALL_POST_TUNING_SOUND',
       message: 'Success',
-    })
+    });
     //
   } catch (error) {
     //
-    res.status(500).json({ messsage: error.message, error })
+    res.status(500).json({ messsage: error.message, error });
     //
   }
-}
+};
 
-//shoping route controllers #MARKETPLACE
-export const getProduct = async (req, res) => {
-  try {
-    res.send('get product ')
-  } catch (error) {
-    console.log(error)
-  }
-}
-//
-export const createProduct = async (req, res) => {
-  try {
-    console.log(req.body)
-    res.status(200).send({ data })
-  } catch (error) {
-    console.log(error)
-  }
-}
-//
