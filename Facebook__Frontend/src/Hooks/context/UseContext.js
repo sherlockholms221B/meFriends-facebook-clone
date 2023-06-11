@@ -51,30 +51,31 @@ export const AppProvider = ({ children }) => {
   const [chats, setChats] = useState([])
   const [fetchAgain, setFetchAgain] = useState(false)
 
+  const pathname = document.documentURI;
   useEffect(() => {
-    const userInfo = JSON.parse(localStorage.getItem('userInfo'))
-    setUser(userInfo)
+    const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+    setUser(userInfo);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, []);
   ////
 
-  const [audState, setAudState] = useState('Public')
+  const [audState, setAudState] = useState('Public');
 
   const [location, setLocation] = useState({
     height: 0,
     left: 0,
     center: 0,
-  })
-  const likeRef = useRef(null)
+  });
+  const likeRef = useRef(null);
 
   const dynamicLocation = (cordinate) => {
-    const { height, left, center } = cordinate
-    setIsSubMenuOpen(true)
-    setLocation({ height: height, center: center, left: left })
+    const { height, left, center } = cordinate;
+    setIsSubMenuOpen(true);
+    setLocation({ height: height, center: center, left: left });
 
-    return
-  }
+    return;
+  };
   const initialState = {
     loading: true,
     // menuSideLink: false,
@@ -96,19 +97,19 @@ export const AppProvider = ({ children }) => {
     },
     postfile: [],
     video: [],
-  }
+  };
 
-  const [controller, dispatchAction] = useReducer(reducer, initialState)
-  const [state, dispatchCall] = useReducer(externalReducer, [])
+  const [controller, dispatchAction] = useReducer(reducer, initialState);
+  const [state, dispatchCall] = useReducer(externalReducer, []);
 
   const internalAction = useMemo(
     () => [controller, dispatchAction],
     [controller, dispatchAction]
-  )
+  );
   const externalAction = useMemo(
     () => [state, dispatchCall],
     [state, dispatchCall]
-  )
+  );
 
   return (
     <AppContext.Provider
@@ -124,6 +125,8 @@ export const AppProvider = ({ children }) => {
         setChats,
         fetchAgain,
         setFetchAgain,
+        //
+        pathname,
         //
         internalAction,
         externalAction,
@@ -175,7 +178,7 @@ export const AppProvider = ({ children }) => {
     >
       {children}
     </AppContext.Provider>
-  )
+  );
 }
 
 // meFriends  Dashboard React custom hook for using context
