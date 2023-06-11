@@ -4,8 +4,7 @@ import imageUrlBuilder from '@sanity/image-url';
 export const client = createClient({
   projectId: 'nuhfhosf',
   dataset: 'production',
-  token:
-    'skgSYa0erssoHjaMqTivWgArMrcJNar9poGYwnPwA260uN70ELqszfccvVf4ZuULFko4MQtLTplJDHXuGLOJy19M5sWaCErleOQGuCpcw3DrfpFpyEf8NABR93CrI1YJjiVKH2NzhkMmQPzS9fljyvvLKPfNyOXWOmvNl9rWZNChxANiLid4',
+  token: process.env.REACT_APP_SANITY_PROJECT_TOKEN,
   useCdn: false,
   apiVersion: '2022-09-20',
 });
