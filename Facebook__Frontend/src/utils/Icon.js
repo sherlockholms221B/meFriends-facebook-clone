@@ -34,23 +34,24 @@ import {
   MdOutlineFolderShared,
   MdBookmarkBorder,
   MdOutlineHistory,
-} from 'react-icons/md'
-import { GiEarthAmerica } from 'react-icons/gi'
+  MdStar,
+} from 'react-icons/md';
+import { GiEarthAmerica } from 'react-icons/gi';
 import {
   HiLockClosed,
   HiDotsHorizontal,
   HiLink,
   HiOutlineSwitchHorizontal,
   HiPlusSm,
-} from 'react-icons/hi'
-import { GoTriangleDown } from 'react-icons/go'
+} from 'react-icons/hi';
+import { GoTriangleDown } from 'react-icons/go';
 import {
   BiImageAdd,
   BiWifi,
   BiZoomIn,
   BiZoomOut,
   BiMessageAltEdit,
-} from 'react-icons/bi'
+} from 'react-icons/bi';
 import {
   BsFillKeyboardFill,
   BsFillExclamationTriangleFill,
@@ -60,7 +61,7 @@ import {
   BsTagsFill,
   BsCodeSlash,
   BsList,
-} from 'react-icons/bs'
+} from 'react-icons/bs';
 import {
   FaMoon,
   FaQuestionCircle,
@@ -73,21 +74,21 @@ import {
   FaUserGraduate,
   FaUserTag,
   FaEdit,
-} from 'react-icons/fa'
+} from 'react-icons/fa';
 import {
   AiOutlineBug,
   AiOutlineLike,
   AiOutlineFieldTime,
   AiOutlineSwitcher,
-} from 'react-icons/ai'
+} from 'react-icons/ai';
 import {
   RiFeedbackFill,
   RiLogoutBoxRFill,
   RiSettings2Fill,
-} from 'react-icons/ri'
-import { TbGridDots, TbDots } from 'react-icons/tb'
-import { IoGrid, IoChevronBack } from 'react-icons/io5'
-import { ImEnlarge } from 'react-icons/im'
+} from 'react-icons/ri';
+import { TbGridDots, TbDots } from 'react-icons/tb';
+import { IoGrid, IoChevronBack } from 'react-icons/io5';
+import { ImEnlarge } from 'react-icons/im';
 
 export const Icon = {
   AiOutlineBug,
@@ -103,6 +104,7 @@ export const Icon = {
   MdPublic,
   MdArrowBack,
   MdOutlineSearch,
+  MdStar,
   MdMarkEmailRead,
   MdPerson,
   MdGroups,
@@ -168,4 +170,4 @@ export const Icon = {
   IoGrid,
   IoChevronBack,
   ImEnlarge,
-}
+};
