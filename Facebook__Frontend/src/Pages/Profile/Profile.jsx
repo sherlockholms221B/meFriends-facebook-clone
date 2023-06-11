@@ -11,8 +11,7 @@ import { HED, EDIOP, Friends, Photos } from '../index'
 import MSideBar from '../../Components/SideBars/MSideBar'
 
 const Profile = () => {
-  const { location } = useGlobalContext()
-  console.log(location)
+  const { location } = useGlobalContext();
   return (
     <section>
       <Navbar />
