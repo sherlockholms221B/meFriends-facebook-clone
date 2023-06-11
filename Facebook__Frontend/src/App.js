@@ -15,6 +15,8 @@ import ABS from './ABS'
 //import routes from './Routes'
 import layoutRoute from './routes'
 
+//import global context from context
+import { useGlobalContext } from './Hooks/context/UseContext'
 
 const App = () => {
   //check theme every time app renders
@@ -22,6 +24,15 @@ const App = () => {
     themeCheck()
   }, [])
 
+  //context pathname.
+  const { pathname } = useGlobalContext()
+  
+  //scrolling the individual page to last section
+  React.useEffect(() => {
+    document.documentElement.scrollTop = 0
+    document.scrollingElement.scrollTop = 0
+  }, [pathname])
+  
   return (
     <React.Fragment>
       <Routes>
