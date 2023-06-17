@@ -1,4 +1,4 @@
-//import statments from deffernt modules
+// import statments from deffernt modules
 import asyncHandler from 'express-async-handler';
 import client from '../Clients/client.js';
 //this function get all chat entries
