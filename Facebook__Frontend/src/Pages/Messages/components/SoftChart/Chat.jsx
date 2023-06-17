@@ -9,14 +9,16 @@ import { BsCameraReelsFill } from 'react-icons/bs'
 import { HiMinus } from 'react-icons/hi'
 import { Icon } from '../../../../utils/Icon';
 import { person_eight } from '../../../../Assets/exports';
-import io from 'socket.io-client';
+// import io from 'socket.io-client';
 import { useState } from 'react';
+// import { io } from 'socket.io-client';
+
 import axios from 'axios';
 import { IoIosSend } from 'react-icons/io';
 import useAuthStore from '../../../../Store/AuthStore';
 
 // eslint-disable-next-line
-var socket, selectedChatCompare;
+// var socket, selectedChatCompare;
 const Chat = () => {
   const { setChatState, chatSettings, setChatSettings } = useGlobalContext();
   const textRef = React.useRef(null);
@@ -32,16 +34,18 @@ const Chat = () => {
 
   const { selectedChat, setSelectedChat, user, notification, setNotification } =
     useGlobalContext();
+  const url = process.env.REACT_APP_BASE_URL;
+  // const url = 'http://localhost:8080';
 
-  React.useEffect(() => {
-    socket = io('http://localhost:8080');
-    socket.emit('setup', userProfile);
-    socket.on('connected', () => setSocketConnected(true));
-    socket.on('typing', () => setIsTyping(true));
-    socket.on('stop typing', () => setIsTyping(false));
+  // React.useEffect(() => {
+  //   socket = io(url);
+  //   socket.emit('setup', userProfile);
+  //   socket.on('connected', () => setSocketConnected(true));
+  //   socket.on('typing', () => setIsTyping(true));
+  //   socket.on('stop typing', () => setIsTyping(false));
 
-    // eslint-disable-next-line
-  }, []);
+  //   // eslint-disable-next-line
+  // }, []);
 
   const fetchMessages = async () => {
     if (!selectedChat) return;
@@ -55,16 +59,16 @@ const Chat = () => {
       const {
         data: { messages },
       } = await axios.get(
-        `http://localhost:8080/facebook-clone-modern/api/message/${selectedChat._id}`
+        `${process.env.REACT_APP_BASE_URL}/facebook-clone-modern/api/message/${selectedChat._id}`
       );
       setMessages(messages);
-      socket.emit('join chat', selectedChat._id);
+      // socket.emit('join chat', selectedChat._id);
     } catch (error) {}
   };
 
   const sendMessage = async (event) => {
     if (newMessage) {
-      socket.emit('stop typing', selectedChat._id);
+      // socket.emit('stop typing', selectedChat._id);
       try {
         // const config = {
         //   headers: {
@@ -74,7 +78,7 @@ const Chat = () => {
         // }
         // setNewMessage('')
         await axios.post(
-          'http://localhost:8080/facebook-clone-modern/api/message',
+          `${process.env.REACT_APP_BASE_URL}/facebook-clone-modern/api/message`,
           {
             sender: userProfile?._id,
             content: newMessage,
@@ -83,7 +87,7 @@ const Chat = () => {
           }
         );
         const { data } = await axios.post(
-          'http://localhost:8080/facebook-clone-modern/api/chat',
+          `${process.env.REACT_APP_BASE_URL}/facebook-clone-modern/api/chat`,
           {
             senderId: userProfile?._id,
             content: newMessage,
@@ -92,34 +96,34 @@ const Chat = () => {
           }
         );
         // console.log(data, 'real time massage sending')
-        socket.emit('new message', {
-          data: data.data[0],
-          senderId: userProfile?._id,
-        });
+        // socket.emit('new message', {
+        //   data: data.data[0],
+        //   senderId: userProfile?._id,
+        // });
         setMessages([...messages, data]);
       } catch (error) {}
     }
   };
   React.useEffect(() => {
     fetchMessages();
-    selectedChatCompare = selectedChat;
+    // selectedChatCompare = selectedChat;
     // eslint-disable-next-line
   }, [selectedChat]);
 
   React.useEffect(() => {
-    socket.on('message recieved', (newMessageRecieved) => {
-      if (
-        !selectedChatCompare || // if chat is not selected or doesn't match current chat
-        selectedChatCompare._id !== newMessageRecieved._id
-      ) {
-        if (!notification.includes(newMessageRecieved)) {
-          setNotification([newMessageRecieved, ...notification]);
-          setFetchAgain(!fetchAgain);
-        }
-      } else {
-        setMessages([...messages, newMessageRecieved]);
-      }
-    });
+    // socket.on('message recieved', (newMessageRecieved) => {
+    //   if (
+    //     !selectedChatCompare || // if chat is not selected or doesn't match current chat
+    //     selectedChatCompare._id !== newMessageRecieved._id
+    //   ) {
+    //     if (!notification.includes(newMessageRecieved)) {
+    //       setNotification([newMessageRecieved, ...notification]);
+    //       setFetchAgain(!fetchAgain);
+    //     }
+    //   } else {
+    //     setMessages([...messages, newMessageRecieved]);
+    //   }
+    // });
   });
 
   // const typingHandler = (e) => {

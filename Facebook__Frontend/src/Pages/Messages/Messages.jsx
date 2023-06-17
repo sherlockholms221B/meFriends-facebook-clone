@@ -13,19 +13,41 @@ import { Input } from '../../Components'
 import ErrorBoundary from '../../ErrorBundary'
 
 //
-import socket from '../../socket'
+// import socket from '../../socket'
+
+import { io } from 'socket.io-client';
+import useAuthStore from '../../Store/AuthStore';
+
 //lazy loading of components
 const MessageRoot = React.lazy(() => {
-  return import('./MessageRoot')
-})
+  return import('./MessageRoot');
+});
 //
 const Messages = () => {
-  const [searchChats, setSearchChats] = React.useState('')
-  React.useEffect(() => {
-    socket.on('connection', (sock) => {})
+  const { userProfile } = useAuthStore();
+  const [searchChats, setSearchChats] = React.useState('');
+  //
+  // React.useEffect(() => {
+  //   socket.on('connection', (sock) => {
+  //     socket.emit('setup', { _id: 'rsdhgsldhgp;ej45u3-583u-repryhesdj' });
+  //   });
+  // }, []);
 
-    socket.emit('setup', { _id: 'rsdhgsldhgp;ej45u3-583u-repryhesdj' })
-  }, [])
+  const url = 'http://localhost:8080';
+
+  React.useEffect(() => {
+  const  socket = io(url);
+    socket.on('connection', () => {
+      console.log('finaly concted to sokect');
+    });
+
+    socket.emit('setup', userProfile);
+    // socket.on('typing', () => setIsTyping(true));
+    // socket.on('stop typing', () => setIsTyping(false));
+
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <ErrorBoundary
       fallback={
@@ -50,7 +72,7 @@ const Messages = () => {
               icon: (
                 <Icon.HiDotsHorizontal
                   onClick={() => {
-                    socket.emit('join chat', 'gsogkhsndlglsdf;sdjg445etefhdk')
+                    // socket.emit('join chat', 'gsogkhsndlglsdf;sdjg445etefhdk')
                   }}
                 />
               ),
@@ -75,7 +97,7 @@ const Messages = () => {
         </MessageRoot>
       </React.Suspense>
     </ErrorBoundary>
-  )
-}
+  );
+};
 
 export default MegWrapper(Messages)

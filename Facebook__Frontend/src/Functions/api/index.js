@@ -1,6 +1,7 @@
 import axios from 'axios'
 
- const BASEURL = 'http://localhost:8080/facebook-clone-modern'
+//  const BASEURL = 'http://localhost:8080/facebook-clone-modern'
+const BASEURL = `${process.env.REACT_APP_BASE_URL}/facebook-clone-modern`;
  const API = axios.create({
    baseURL: BASEURL,
    //  timeout: 9000,
