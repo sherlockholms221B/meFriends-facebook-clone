@@ -3,13 +3,8 @@ import client from '../Clients/client.js';
 import asyncHandler from 'express-async-handler';
 
 //this function get all chat entries
-export const getAllChat = async (req, res) => {
+export const getAllChat = asyncHandler(async (req, res) => {
   const { CHAT_ID } = req.body;
-  // var currentdate = new Date()
-  // var datetime = `last seen: ${currentdate.getDate()}-${
-  //   currentdate.getMonth() + 1
-  // }-${currentdate.getFullYear()} at ${currentdate.getHours()}:${currentdate.getMinutes()}:${currentdate.getSeconds()}`
-  //
   try {
     //
     const CHAT =
@@ -29,7 +24,7 @@ export const getAllChat = async (req, res) => {
   } catch (error) {
     res.status(500).json({ messsage: error.message });
   }
-};
+});
 
 //
 export async function sendChat(req, res) {
