@@ -8,20 +8,33 @@ import {
 } from '../api'
 
 //import action type from types
-import { GET_ALL_POST, GET_SINGLE_POST } from '../type'
+import { GET_ALL_POST, GET_SINGLE_POST, LIKE_POST } from '../type';
+import {
+  likeSound,
+  commentSound,
+  messageSound,
+  errorSound,
+} from '../../Assets/Audio';
+
+const playSound = (soundInstance) => {
+  //checking conditions comes latter.
+  let audioInstance = new Audio(soundInstance);
+  audioInstance.loop = false;
+  audioInstance.play();
+};
 
 //
 export async function getAllPost(dispatch) {
   try {
     //
     const {
-      data: { posts, length, sound, message },
-    } = await getAllPostCall()
+      data: { posts }, //returns the length message and sound
+    } = await getAllPostCall();
     //
-    dispatch({ type: GET_ALL_POST, payload: posts })
+    dispatch({ type: GET_ALL_POST, payload: posts });
     //
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 }
 
@@ -31,12 +44,12 @@ export async function getSinglePost(dispatch, postId) {
     //
     const {
       data: { posts, length, sound, message },
-    } = await getPostDetailsCall(postId)
+    } = await getPostDetailsCall(postId);
     //
-    dispatch({ type: GET_SINGLE_POST, payload: posts })
+    dispatch({ type: GET_SINGLE_POST, payload: posts });
     //
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 }
 
@@ -48,11 +61,11 @@ export const createPost = async (dispatch, document) => {
       audience,
       file: { postfile },
       _creatorId,
-    } = document
+    } = document;
     const VIDEO_TEMPLETE = postfile
       .filter((file) => file.filename.match('video'))
       .map((postfile) => {
-        let template = {}
+        let template = {};
         template = {
           _key: postfile.assetId.concat(postfile.sha1hash),
           // extension: postfile.extension,
@@ -66,13 +79,13 @@ export const createPost = async (dispatch, document) => {
               _key: postfile.assetId.concat(postfile.sha1hash),
             },
           },
-        }
-        return { ...template }
-      })
+        };
+        return { ...template };
+      });
     const IMAGE_TEMPLETE = postfile
       .filter((file) => file.filename.match('image'))
       .map((postfile) => {
-        let template = {}
+        let template = {};
         template = {
           _key: postfile.assetId.concat(postfile.sha1hash),
           // extension: postfile.extension,
@@ -86,9 +99,9 @@ export const createPost = async (dispatch, document) => {
               _key: postfile.assetId.concat(postfile.sha1hash),
             },
           },
-        }
-        return { ...template }
-      })
+        };
+        return { ...template };
+      });
     const documents = {
       _type: 'post',
       audience,
@@ -100,19 +113,25 @@ export const createPost = async (dispatch, document) => {
         _type: 'postedBy',
         _ref: _creatorId,
       },
-    }
-    const data = await createPostCall(documents)
-    console.log(data)
+    };
+    const data = await createPostCall(documents);
+    console.log(data);
     // dispatch({ type: GET_SINGLE_POST, payload: data })
   } catch (error) {}
-}
+};
 
 export const likePost = async (dispatch, { userId, postId }) => {
   try {
-    const data = await likeCall({ userId, postId })
-    console.log(data)
-  } catch (error) {}
-}
+    playSound(likeSound);
+    const { data } = await likeCall({ userId, postId });
+    const { likes, posts } = data;
+
+    //dispatch reducer action
+    dispatch({ type: LIKE_POST, payload: { posts, likes } });
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 //
 
