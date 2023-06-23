@@ -187,8 +187,8 @@ export const useGlobalContext = () => {
 
   if (!context) {
     throw new Error(
-      'useSoftUIController should be used inside the SoftUIControllerProvider.'
-    )
+      'meFriend controller should be used inside the meFriend Provider.'
+    );
   }
 
   return context

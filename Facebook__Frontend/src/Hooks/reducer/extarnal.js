@@ -1,7 +1,7 @@
 //external api call
 
 //action types aleady decleared
-import { GET_ALL_POST, GET_SINGLE_POST } from '../../Functions/type'
+import { GET_ALL_POST, GET_SINGLE_POST, LIKE_POST } from '../../Functions/type';
 
 export default function externalReducer(state = [], action) {
   switch (action.type) {
@@ -12,7 +12,11 @@ export default function externalReducer(state = [], action) {
         return [...state.filter((post) => post._id === action.payload[0]._id)];
       }
       return [...state, ...action.payload];
+    case LIKE_POST:
+      console.log(action.payload, state);
+
+      return [...state, ...action.payload.posts];
     default:
-      return;
+      throw new Error('Unhandled action type');
   }
 }
