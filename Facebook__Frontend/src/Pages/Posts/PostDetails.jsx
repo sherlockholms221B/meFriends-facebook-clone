@@ -4,38 +4,31 @@ import * as React from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 
 //import components
-import {
-  COMBTN,
-  Comments,
-  Input,
-  Like,
-  Profile,
-  THRDot,
-} from '../../Components'
-import PSTIMG from './PSTIMG'
-
+import { COMBTN, Comments, Input, Profile, THRDot } from '../../Components';
+import PSTIMG from './PSTIMG';
+import { LikeBTN } from '../../Components/Posts/Like';
 //import icons from utils
-import { Icon } from '../../utils/Icon'
-import { getSinglePost } from '../../Functions/actions/external'
-import { useGlobalContext } from '../../Hooks/context/UseContext'
+import { Icon } from '../../utils/Icon';
+import { getSinglePost } from '../../Functions/actions/external';
+import { useGlobalContext } from '../../Hooks/context/UseContext';
 
 const PostDetails = () => {
-  const navigate = useNavigate()
-  const [isComment, setIsComment] = React.useState(true)
-  const [viewMore, setViewMore] = React.useState(true)
-  const [value, setValue] = React.useState('')
+  const navigate = useNavigate();
+  const [isComment, setIsComment] = React.useState(true);
+  const [viewMore, setViewMore] = React.useState(true);
+  const [value, setValue] = React.useState('');
   //Distructure context valuses from contexts
   const {
     location,
     internalAction: [controller, dispatchAction],
     externalAction: [state, dispatchCall],
-  } = useGlobalContext()
-  const search = useLocation().search
-  const _postId = new URLSearchParams(search).get('fbid')
-  console.log(state)
+  } = useGlobalContext();
+  const search = useLocation().search;
+  const _postId = new URLSearchParams(search).get('fbid');
+  console.log(state);
   React.useLayoutEffect(() => {
-    getSinglePost(dispatchCall, _postId)
-  }, [_postId, dispatchCall])
+    getSinglePost(dispatchCall, _postId);
+  }, [_postId, dispatchCall]);
   return (
     <React.Fragment>
       <section className='flex justify-between items-center py-1 pr-2 border-b-2 dark:border-bd500 dark:bg-dark400 '>
@@ -73,7 +66,7 @@ const PostDetails = () => {
           <section
             className={`flex flex-row flex-nowrap justify-around px-2 py-1 items-center mx-2 border-b-2 border-gray-300 dark:border-bd500`}
           >
-            <Like />
+            <LikeBTN />
             <COMBTN isComment={isComment} setIsComment={setIsComment} />
           </section>
           <section className='tab:max-h-[73%] max-h-[53%] overflow-auto home_scroll'>
@@ -100,7 +93,7 @@ const PostDetails = () => {
         </div>
       </section>
     </React.Fragment>
-  )
-}
+  );
+};
 
 export default PostDetails
