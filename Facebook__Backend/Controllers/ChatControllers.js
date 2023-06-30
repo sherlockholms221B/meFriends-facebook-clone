@@ -1,9 +1,9 @@
 //import statments from deffernt modules
-import client from '../Clients/client.js';
-import asyncHandler from 'express-async-handler';
+const client = require('../Clients/client.js');
+const asyncHandler = require('express-async-handler');
 
 //this function get all chat entries
-export const getAllChat = asyncHandler(async (req, res) => {
+ const getAllChat = asyncHandler(async (req, res) => {
   const { CHAT_ID } = req.body;
   try {
     //
@@ -27,7 +27,7 @@ export const getAllChat = asyncHandler(async (req, res) => {
 });
 
 //
-export async function sendChat(req, res) {
+ async function sendChat(req, res) {
   var currentdate = new Date();
   var datetime = `last seen: ${currentdate.getDate()}-${
     currentdate.getMonth() + 1
@@ -39,7 +39,7 @@ export async function sendChat(req, res) {
     );
     if (
       TO_BE_UPDATED[0].messsage !== null ||
-      TO_BE_UPDATED[0].messsage !== []
+      TO_BE_UPDATED[0].messsage.length !== 0
     ) {
       const _ = await client
         .patch(messageId)
@@ -70,62 +70,7 @@ export async function sendChat(req, res) {
 }
 
 //
-export async function deleteChatForMe() {
-  try {
-  } catch (error) {
-    console.log('error sending');
-  }
-}
-
-//
-export async function deleteChatForEveryone() {
-  try {
-  } catch (error) {
-    console.log('error sending');
-  }
-}
-
-//
-export async function reactOnChat() {
-  try {
-  } catch (error) {
-    console.log('error sending');
-  }
-}
-//
-export async function accessChat(req, res) {
-  try {
-    res.status(200).json({ message: 'this is a chat route ' });
-  } catch (error) {
-    console.log('error sending');
-  }
-}
-//
-export async function createGroupChat(req, res) {
-  try {
-    res.status(200).json({ message: 'this is not a group chat' });
-  } catch (error) {
-    console.log('error sending');
-  }
-}
-//
-export async function removeFromGroup() {
-  try {
-  } catch (error) {
-    console.log('error sending');
-  }
-}
-//
-export async function addToGroup() {
-  try {
-  } catch (error) {
-    console.log('error sending');
-  }
-}
-//
-export async function renameGroup() {
-  try {
-  } catch (error) {
-    console.log('error sending');
-  }
-}
+module.exports = {
+  getAllChat,
+  sendChat,
+};
