@@ -1,8 +1,8 @@
 // import statments from deffernt modules
-import asyncHandler from 'express-async-handler';
-import client from '../Clients/client.js';
+const asyncHandler = require('express-async-handler');
+const client = require('../Clients/client.js');
 //this function get all chat entries
-export const getAllMessage = asyncHandler(async (req, res) => {
+ const getAllMessage = asyncHandler(async (req, res) => {
   const { CHAT_ID } = req.query;
   // console.log(req.body)
 
@@ -24,7 +24,7 @@ export const getAllMessage = asyncHandler(async (req, res) => {
 });
 
 //
-export const sendMessage = asyncHandler(async (req, res) => {
+ const sendMessage = asyncHandler(async (req, res) => {
   var currentdate = new Date();
   var datetime = `last seen: ${currentdate.getDate()}-${
     currentdate.getMonth() + 1
@@ -36,7 +36,7 @@ export const sendMessage = asyncHandler(async (req, res) => {
     );
     if (
       TO_BE_UPDATE_MESSAGE[0].latestMessage !== null ||
-      TO_BE_UPDATE_MESSAGE[0].latestMessage !== []
+      TO_BE_UPDATE_MESSAGE[0].latestMessage.length !== 0
     ) {
       const _ = await client
         .patch(chatId)
@@ -71,7 +71,7 @@ const _ = () => {
   console.log('hello world');
 };
 
-export const recieveMessage = (req, res) => {
+ const recieveMessage = (req, res) => {
   const { MESSAGE_ID } = req.body;
   console.log(MESSAGE_ID);
 
@@ -108,3 +108,8 @@ export const recieveMessage = (req, res) => {
     });
   }
 };
+
+
+module.exports = {
+  getAllMessage,sendMessage,recieveMessage
+}

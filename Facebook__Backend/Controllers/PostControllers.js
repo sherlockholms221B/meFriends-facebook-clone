@@ -1,14 +1,13 @@
 /* route configuration for mefriend client end. You can add more action controller here. 
  Edit this file if you know what you are doing */
-import crypto from 'crypto'
-//import sanity client
-import client from '../Clients/client.js';
-
-//import post query client
-import { allPostsQuery, postDetailQuery } from '../Queris/querries.js';
+const crypto = require('crypto');
+//const   sanity client
+const client = require('../Clients/client.js');
+//const   post query client
+const { allPostsQuery, postDetailQuery } = require('../Queris/querries.js');
 
 //get all posts based on users frineds, tags,serach terms and ...rest
-export const getPostRoute = async (req, res) => {
+const getPostRoute = async (req, res) => {
   try {
     //
     const posts = await client.fetch(allPostsQuery());
@@ -43,7 +42,7 @@ export const getPostRoute = async (req, res) => {
 };
 
 //get single post
-export const getSinglePost = async (req, res) => {
+const getSinglePost = async (req, res) => {
   try {
     //get post id
     const { POST_ID } = req.query;
@@ -81,7 +80,7 @@ export const getSinglePost = async (req, res) => {
 };
 
 //
-export const deletePostRoute = async (req, res) => {
+const deletePostRoute = async (req, res) => {
   try {
     //get post id
     const { POST_ID, USER_ID } = req.query;
@@ -129,7 +128,7 @@ export const deletePostRoute = async (req, res) => {
 };
 
 //
-export const createPostRoute = async (req, res) => {
+const createPostRoute = async (req, res) => {
   try {
     const documents = req.body.data;
     //
@@ -153,7 +152,7 @@ export const createPostRoute = async (req, res) => {
 };
 
 //
-export const likePostRoute = async (req, res) => {
+const likePostRoute = async (req, res) => {
   try {
     const { USER_ID, POST_ID } = req.body;
     //
@@ -165,7 +164,7 @@ export const likePostRoute = async (req, res) => {
     //
     if (
       TO_BE_LIKEED_OR_LIKED[0].likes === null ||
-      TO_BE_LIKEED_OR_LIKED[0].likes === []
+      TO_BE_LIKEED_OR_LIKED[0].likes.length === 0
     ) {
       await client
         .patch(POST_ID)
@@ -211,7 +210,7 @@ export const likePostRoute = async (req, res) => {
 };
 
 //
-export const makeComentRoute = async (req, res) => {
+const makeComentRoute = async (req, res) => {
   try {
     const { COMENT, USER_ID, POST_ID } = req.body;
     //
@@ -257,3 +256,11 @@ export const makeComentRoute = async (req, res) => {
   }
 };
 
+module.exports = {
+  getSinglePost,
+  getPostRoute,
+  deletePostRoute,
+  createPostRoute,
+  likePostRoute,
+  makeComentRoute,
+};
