@@ -1,32 +1,29 @@
-import * as React from 'react'
-import { motion } from 'framer-motion'
-import { useGlobalContext } from '../../../../Hooks/context/UseContext'
-import { PostOptions, Profile, ToolTip } from '../../../../Components'
-import { MdOutlineExpandMore } from 'react-icons/md'
-import moment from 'moment'
-import { ImPhone } from 'react-icons/im'
-import { BsCameraReelsFill } from 'react-icons/bs'
-import { HiMinus } from 'react-icons/hi'
+import * as React from 'react';
+import { motion } from 'framer-motion';
+import { useGlobalContext } from '../../../../Hooks/context/UseContext';
+import { PostOptions, Profile, ToolTip } from '../../../../Components';
+import { MdOutlineExpandMore } from 'react-icons/md';
+import moment from 'moment';
+import { ImPhone } from 'react-icons/im';
+import { BsCameraReelsFill } from 'react-icons/bs';
+import { HiMinus } from 'react-icons/hi';
 import { Icon } from '../../../../utils/Icon';
 import { person_eight } from '../../../../Assets/exports';
-// import io from 'socket.io-client';
 import { useState } from 'react';
-// import { io } from 'socket.io-client';
 
 import axios from 'axios';
 import { IoIosSend } from 'react-icons/io';
 import useAuthStore from '../../../../Store/AuthStore';
+import { io } from 'socket.io-client';
 
 // eslint-disable-next-line
-// var socket, selectedChatCompare;
+var selectedChatCompare;
 const Chat = () => {
   const { setChatState, chatSettings, setChatSettings } = useGlobalContext();
   const textRef = React.useRef(null);
   const [messages, setMessages] = React.useState([]);
-  const [loading, setLoading] = useState(false);
   const [newMessage, setNewMessage] = useState('');
   const [socketConnected, setSocketConnected] = useState(false);
-  const [typing, setTyping] = useState(false);
   const [istyping, setIsTyping] = useState(false);
   const [fetchAgain, setFetchAgain] = useState(false);
   //
@@ -34,11 +31,8 @@ const Chat = () => {
 
   const { selectedChat, setSelectedChat, user, notification, setNotification } =
     useGlobalContext();
-  const url = process.env.REACT_APP_BASE_URL;
-  // const url = 'http://localhost:8080';
 
   // React.useEffect(() => {
-  //   socket = io(url);
   //   socket.emit('setup', userProfile);
   //   socket.on('connected', () => setSocketConnected(true));
   //   socket.on('typing', () => setIsTyping(true));
@@ -46,6 +40,31 @@ const Chat = () => {
 
   //   // eslint-disable-next-line
   // }, []);
+
+  React.useEffect(() => {
+    console.log(typeof process.env.REACT_APP_BASE_URL);
+    const socket = io(String(process.env.REACT_APP_BASE_URL)); // Connect to the Socket.io server
+
+    // Handle the "connect" event
+    socket.on('connect', () => {
+      console.log('Connected to the server');
+    });
+
+    // Handle the "chat message" event
+    socket.on('chat message', (msg) => {
+      console.log('Received message: ' + msg);
+      // Handle the received message as needed
+    });
+
+    // Example: Sending a message from the client to the server
+    const message = 'Hello, server!';
+    socket.emit('chat message', message);
+
+    // Clean up the socket connection when the component unmounts
+    return () => {
+      socket.disconnect();
+    };
+  }, []);
 
   const fetchMessages = async () => {
     if (!selectedChat) return;
@@ -95,7 +114,7 @@ const Chat = () => {
             chatId: selectedChat._id,
           }
         );
-        // console.log(data, 'real time massage sending')
+        console.log(data, 'real time massage sending');
         // socket.emit('new message', {
         //   data: data.data[0],
         //   senderId: userProfile?._id,
@@ -104,27 +123,27 @@ const Chat = () => {
       } catch (error) {}
     }
   };
-  React.useEffect(() => {
-    fetchMessages();
-    // selectedChatCompare = selectedChat;
-    // eslint-disable-next-line
-  }, [selectedChat]);
+  // React.useEffect(() => {
+  //   fetchMessages();
+  //   selectedChatCompare = selectedChat;
+  //   // eslint - disable - next - line;
+  // }, [selectedChat]);
 
-  React.useEffect(() => {
-    // socket.on('message recieved', (newMessageRecieved) => {
-    //   if (
-    //     !selectedChatCompare || // if chat is not selected or doesn't match current chat
-    //     selectedChatCompare._id !== newMessageRecieved._id
-    //   ) {
-    //     if (!notification.includes(newMessageRecieved)) {
-    //       setNotification([newMessageRecieved, ...notification]);
-    //       setFetchAgain(!fetchAgain);
-    //     }
-    //   } else {
-    //     setMessages([...messages, newMessageRecieved]);
-    //   }
-    // });
-  });
+  // React.useEffect(() => {
+  //   socket.on('message recieved', (newMessageRecieved) => {
+  //     if (
+  //       !selectedChatCompare || // if chat is not selected or doesn't match current chat
+  //       selectedChatCompare._id !== newMessageRecieved._id
+  //     ) {
+  //       if (!notification.includes(newMessageRecieved)) {
+  //         setNotification([newMessageRecieved, ...notification]);
+  //         setFetchAgain(!fetchAgain);
+  //       }
+  //     } else {
+  //       setMessages([...messages, newMessageRecieved]);
+  //     }
+  //   });
+  // });
 
   // const typingHandler = (e) => {
   //   setNewMessage(e.target.value)
@@ -278,4 +297,4 @@ const Chat = () => {
   );
 };
 
-export default Chat
+export default Chat;

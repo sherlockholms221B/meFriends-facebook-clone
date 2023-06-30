@@ -19,7 +19,7 @@
     "react-router-dom": "^6.4.1",
     "react-scripts": "5.0.1",
     "react-tooltip": "^4.5.0",
-    "socket.io-client": "^4.6.1",
+    "socket.io-client": "^4.7.0",
     "sweetalert2": "^11.7.5",
     "swiper": "^8.4.5",
     "uuid": "^9.0.0",
