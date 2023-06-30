@@ -1,4 +1,4 @@
-export const allPostsQuery = () => {
+const allPostsQuery = () => {
   const query = `*[_type == "post"] | order(_createdAt desc){
     _createdAt,
     _id,
@@ -19,12 +19,12 @@ export const allPostsQuery = () => {
       createdAt,
       postedBy,
     },
-  }`
+  }`;
 
-  return query
-}
+  return query;
+};
 
-export const postDetailQuery = (postId) => {
+const postDetailQuery = (postId) => {
   const query = `*[_type == "post" && _id == "${postId}"]{
     _id,
      topic,
@@ -46,11 +46,11 @@ export const postDetailQuery = (postId) => {
         profileImage,
       },
     }
-  }`
-  return query
-}
+  }`;
+  return query;
+};
 
-export const searchPostsQuery = (searchTerm) => {
+const searchPostsQuery = (searchTerm) => {
   const query = `*[_type == "post" && caption match '${searchTerm}*' || topic match '${searchTerm}*'] {
     _id,
      caption,
@@ -76,27 +76,27 @@ likes,
       profileImage,
     },
     }
-  }`
-  return query
-}
-export const signInUser = (email, userId) => {
-  const query = `*[_type =="user" && email=='${email}'|| _id== '${userId}]`
+  }`;
+  return query;
+};
+const signInUser = (email, userId) => {
+  const query = `*[_type =="user" && email=='${email}'|| _id== '${userId}]`;
 
-  return query
-}
-export const singleUserQuery = (userId) => {
-  const query = `*[_type == "user" && _id == '${userId}']`
+  return query;
+};
+const singleUserQuery = (userId) => {
+  const query = `*[_type == "user" && _id == '${userId}']`;
 
-  return query
-}
+  return query;
+};
 
-export const allUsersQuery = () => {
-  const query = `*[_type == "user"]`
+const allUsersQuery = () => {
+  const query = `*[_type == "user"]`;
 
-  return query
-}
+  return query;
+};
 
-export const userCreatedPostsQuery = (userId) => {
+const userCreatedPostsQuery = (userId) => {
   const query = `*[ _type == 'post' && userId == '${userId}'] | order(_createdAt desc){
     _id,
      caption,u
@@ -124,12 +124,12 @@ export const userCreatedPostsQuery = (userId) => {
       
     },
     }
-  }`
+  }`;
 
-  return query
-}
+  return query;
+};
 
-export const userLikedPostsQuery = (userId) => {
+const userLikedPostsQuery = (userId) => {
   const query = `*[_type == 'post' && '${userId}' in likes[]._ref ] | order(_createdAt desc) {
     _id,
      caption,
@@ -157,12 +157,12 @@ export const userLikedPostsQuery = (userId) => {
       profileImage,
     },
     }
-  }`
+  }`;
 
-  return query
-}
+  return query;
+};
 
-export const topicPostsQuery = (topic) => {
+const topicPostsQuery = (topic) => {
   const query = `*[_type == "post" && topic match '${topic}*'] {
     _id,
      caption,
@@ -189,7 +189,20 @@ export const topicPostsQuery = (topic) => {
       profileImage,
     },
     }
-  }`
+  }`;
 
-  return query
-}
+  return query;
+};
+
+//elsint-diable-next-line
+module.exports = {
+  allPostsQuery,
+  singleUserQuery,
+  userCreatedPostsQuery,
+  userLikedPostsQuery,
+  searchPostsQuery,
+  topicPostsQuery,
+  allUsersQuery,
+  signInUser,
+  postDetailQuery,
+};

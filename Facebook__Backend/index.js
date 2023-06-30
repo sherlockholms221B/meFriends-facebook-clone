@@ -1,53 +1,49 @@
-//import express module
-import express from 'express'
+//.env's
+require('dotenv').config();
 
-//import nodejs http module
-import http from 'http'
+// const express = require('express');
+// const app = express();
+// const http = require('http').Server(app);
+// const io = require('socket.io')(http, {
+//   cors: {
+//     origin: 'http://localhost:3001',
+//   },
+// });
 
-//import cors module & allow cross origin requsts
-import cors from 'cors'
+const express = require('express');
+const http = require('http');
+const socketIO = require('socket.io');
 
-//
-import {config} from 'dotenv'
-//
+const app = express();
+const server = http.createServer(app);
+const io = socketIO(server, {
+  cors: {
+    origin: 'http://localhost:3001',
+  },
+});
+const cors = require('cors');
 
 //import routes from routes
-import messageRoutes from './Routes/messageRoute.js'
-import postRoutes from './Routes/postRoute.js'
-import chatRoutes from './Routes/chatRoute.js'
+const messageRoutes = require('./Routes/messageRoute.js');
+const postRoutes = require('./Routes/postRoute.js');
+const chatRoutes = require('./Routes/chatRoute.js');
 
 //middlewares
-import { errorHandler, notFound } from './Middleware/errorMiddleware.js'
+const { errorHandler, notFound } = require('./Middleware/errorMiddleware.js');
+app.use(
+  cors({
+    origin: 'http://localhost:3001',
+    credentials: true, // if you need to send cookies or authorization headers
+  })
+); // Enable CORS for all routes
 
-//allow for environmental variables
-config()
+app.use(express.json());
 
-//initialize express
-const app = express()
+app.get('/api/data', (req, res) => {
+  // Handle the request and send a response
+  res.json({ message: 'Hello from the server!' });
+});
 
-const server = http.createServer(app)
-
-//use express json
-app.use(express.json())
-
-//cors options
-const whitelist = [
-  'http://localhost:3000',
-  'https://facebook-pi.netlify.app/',
-  'http://192.168.207.153:3000',
-];
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-};
-
-//allow cross-origin requests
-app.use(cors(corsOptions));
 
 //routes
 app.use('/facebook-clone-modern', postRoutes);
@@ -55,28 +51,8 @@ app.use('/facebook-clone-modern/api/chat', chatRoutes);
 app.use('/facebook-clone-modern/api/message', messageRoutes);
 
 // Error Handling middlewares
-app.use(notFound);
-app.use(errorHandler);
-
-//declear port or take in the process.env
-const PORT = process.env.PORT || 8080;
-
-// const _socket =
-  
-  server.listen(
-  PORT,
-  console.log(`Server running on PORT ${PORT}...`)
-);
-
-// import { Server } from 'socket.io';
-// const io = new Server(_socket, {
-//   pingTimeout: 60000,
-//   cors: {
-//     // origin: 'https://facebook-pi.netlify.app',
-//     origin: 'http://localhost:3000',
-//     // credentials: true,
-//   },
-// });
+// app.use(notFound);
+// app.use(errorHandler);
 
 // io.on('connection', (socket) => {
 //   console.log('Connected to socket.io');
@@ -110,3 +86,25 @@ const PORT = process.env.PORT || 8080;
 //     socket.leave(userData._id);
 //   });
 // });
+
+io.on('connection', (socket) => {
+  console.log('A user connected');
+
+  // Handle when a client sends a message
+  socket.on('chat message', (msg) => {
+    console.log('Message received: ' + msg);
+    io.emit('chat message', msg); // Broadcast the message to all connected clients
+  });
+
+  // Handle disconnection
+  socket.on('disconnect', () => {
+    console.log('A user disconnected');
+  });
+});
+
+//declear port or take in the process.env
+const PORT = process.env.PORT || 3000;
+
+server.listen(PORT, console.log(`Server running on PORT ${PORT}...`));
+
+
