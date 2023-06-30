@@ -6,4 +6,4 @@ const generateToken = (id) => {
   })
 }
 
-export { generateToken }
+module.exports = { generateToken };

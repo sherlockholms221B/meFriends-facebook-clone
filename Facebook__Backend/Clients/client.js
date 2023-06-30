@@ -1,4 +1,4 @@
-import { createClient } from '@sanity/client';
+const  { createClient } = require( '@sanity/client')
 
 const client = createClient({
   projectId: 'nuhfhosf',
@@ -8,4 +8,4 @@ const client = createClient({
   apiVersion: '2022-09-20',
 });
 
-export default client;
+module.exports = client;
