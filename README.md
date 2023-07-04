@@ -1,4 +1,5 @@
 # MeFriends
+![MeFriends](https://i.ibb.co/KLNKJsW/bandicam-2022-12-28-12-21-00-654.jpg)
 
 Welcome to MeFriends, a video and photo sharing social media application! MeFriends is designed to provide you with a platform to connect and share moments with your friends and family. This readme file will guide you through the features and functionality of MeFriends.
 
