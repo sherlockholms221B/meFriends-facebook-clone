@@ -15,6 +15,14 @@ Welcome to MeFriends, a video and photo sharing social media application! MeFrie
 
 MeFriends is a complex web application that aims to provide a seamless and enjoyable experience for sharing videos, photos, and interacting with others. With a similar layout and functionality to Facebook, MeFriends allows you to create a profile, post content, like and comment on posts, and discover suggested accounts to follow. It leverages the power of Sanity, an advanced content management system, to enhance the fetching capabilities and manage the content efficiently.
 
+MeFriends is the result of my passion for creating a visual-first social media experience that goes beyond words. I believe that a picture is worth a thousand words, and MeFriends will offers a platform where your visual stories can come to life.
+
+From spontaneous adventures to heartfelt moments, MeFriends will provides a seamless interface to capture and share your life's highlights. My intuitive design ensures a user-friendly experience, allowing you to focus on what truly matters – expressing yourself and connecting with others who appreciate your unique perspective.
+
+With MeFriends, I aim to foster a vibrant community of visual storytellers, encouraging creativity, inspiration, and meaningful interactions. Join me on this exciting journey and be part of the next generation of social media.
+
+Stay tuned for updates, new features, and exciting collaborations as I continue to enhance the MeFriends experience. Let's celebrate the power of visual storytelling together!
+
 ## Features
 
 MeFriends offers the following key features:
