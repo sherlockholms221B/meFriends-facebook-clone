@@ -1,5 +1,7 @@
 /* route configuration for mefriend client end. You can add more action controller here. 
  Edit this file if you know what you are doing */
+
+ 
 const crypto = require('crypto');
 //const   sanity client
 const client = require('../Clients/client.js');

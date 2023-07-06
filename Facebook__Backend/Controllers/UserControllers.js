@@ -18,16 +18,14 @@ const allUsers = (req, res) => {
     }
   } catch (err) {
     const message = new Error(`serrver error:${err.message}`);
-    console.log(message);
     res.status(404).json({
       data: message,
     });
   }
-  res.send('allUsers');
 };
 
 //LOGIN USER.
-const authUser = (req, res) => {
+const loginUser = (req, res) => {
   //
   const { USER_DATA } = req.body;
 
@@ -107,4 +105,4 @@ const registerUser = (req, res) => {
   }
 };
 
-export { allUsers, authUser, registerUser };
+export { allUsers, loginUser, registerUser };
