@@ -17,7 +17,11 @@ const allPostsQuery = () => {
       comment,
       _key,
       createdAt,
-      postedBy,
+      postedBy->{
+        userName,
+        profileImage,
+        email,
+      },
     },
   }`;
 
@@ -37,15 +41,16 @@ const postDetailQuery = (postId) => {
     },
     image[],
      likes,
-    comments[]{
-      comment[],
+   comments[]{
+      comment,
       _key,
+      createdAt,
       postedBy->{
-        _ref,
-        _id,
+        userName,
         profileImage,
+        email,
       },
-    }
+    },
   }`;
   return query;
 };

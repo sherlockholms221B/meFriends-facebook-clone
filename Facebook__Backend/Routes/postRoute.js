@@ -16,9 +16,11 @@ router
   .get('/get-single-post', getSinglePost);
 router
   .post('/create-one-post', createPostRoute)
-  .post('/comment-on-post', makeComentRoute);
+  
 router.delete('/delete-post', deletePostRoute);
-router.put('/like-post', likePostRoute);
+router
+  .put('/like-post', likePostRoute)
+  .put('/comment-on-post', makeComentRoute);
 
 // export functons
 module.exports = router;
