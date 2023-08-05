@@ -42,10 +42,10 @@ export default {
       ],
     },
     {
-      name: 'coments',
-      title: 'Coments',
+      name: 'comments',
+      title: 'Comments',
       type: 'array',
-      of: [{ type: 'coment' }],
+      of: [{ type: 'comment' }],
     },
     {
       name: 'share',
