@@ -21,7 +21,13 @@ export const getPostDetailsCall = (Id) => {
  export const likeCall = ({ userId, postId }) => {
    return API.put('/like-post', { USER_ID: userId, POST_ID: postId })
  }
- export const commentCall = () => {}
+export const commentCall = ({ userId, postId, commentText }) => {
+  return API.put('/comment-on-post', {
+    USER_ID: userId,
+    POST_ID: postId,
+    COMMENT: commentText,
+  });
+};
  export const editCommentCall = () => {}
  export const deleteCommentCall = () => {}
  export const editPostCall = () => {}

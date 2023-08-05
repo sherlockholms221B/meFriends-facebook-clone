@@ -63,7 +63,7 @@ const Posts = ({ profile }) => {
         ))}
       </section>
     </section>
-  )
+  );
 }
 
 export default Posts

@@ -2,6 +2,7 @@
   "name": "clone",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8080",
   "dependencies": {
     "@sanity/client": "^3.4.1",
     "@sanity/image-url": "^1.0.1",

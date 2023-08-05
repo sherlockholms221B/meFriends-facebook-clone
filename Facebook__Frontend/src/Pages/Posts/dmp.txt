@@ -1,0 +1,55 @@
+   {synced && (
+          <section
+            className={`absolute top-0 right-0 left-0 w-full p-4 flex flex-col gap-3`}
+          >
+            <div className='flex flex-row gap-1 w-full border'>
+              {comments.map((data, i) => {
+                let animation = 'bg-blue-600 w-full'
+                if (index === i) {
+                  animation = 'animate-ping bg-white'
+                }
+                if (index === i - 1) {
+                  animation = 'bg-green-500'
+                }
+
+                return (
+                  <div
+                    className='w-full h-1 tab:h-2 bg-red-400 rounded-full'
+                    key={index}
+                  >
+                    <div className={`h-1 tab:h-2 rounded-full ${animation} `} />
+                  </div>
+                )
+              })}
+            </div>
+            <div className='flex flex-row items-center justify-between'>
+              <figure className='flex flex-row items-center gap-3'>
+                <img
+                  src={profile}
+                  alt='storie'
+                  className='h-12 w-12 rounded-full ring-4 ring-blue-600'
+                />
+                <figcaption className='flex flex-col text-start'>
+                  <h5 className='capitalize dark:text-thdark500 text-black brightness-95'>
+                    <b>{'John Diggle'}</b>
+                  </h5>
+                  <article className='flex flex-row '>
+                    <u className='dark:text-blue-700 text-black text-base mr-1'>
+                      {comments.length} new
+                    </u>
+                    <center>
+                      <strong className='dark:text-white text-black'>.</strong>
+                    </center>
+                    <u className='dark:text-thlight500 text-black text-base ml-1'>
+                      {moment(new Date()).fromNow()}
+                    </u>
+                  </article>
+                </figcaption>
+              </figure>
+              <Icon.MdClose
+                className='text-3xl dark:text-thdark500'
+                onClick={() => navigate(-1)}
+              />
+            </div>
+          </section>
+        )}

@@ -1,14 +1,20 @@
 //import axios instance from api
 import {
+  commentCall,
   createPostCall,
   getAllChatCall,
   getAllPostCall,
   getPostDetailsCall,
   likeCall,
-} from '../api'
+} from '../api';
 
 //import action type from types
-import { GET_ALL_POST, GET_SINGLE_POST, LIKE_POST } from '../type';
+import {
+  GET_ALL_POST,
+  GET_SINGLE_POST,
+  LEAVE_A_COMMENT,
+  LIKE_POST,
+} from '../type';
 import {
   likeSound,
   commentSound,
@@ -17,10 +23,15 @@ import {
 } from '../../Assets/Audio';
 
 const playSound = (soundInstance) => {
-  //checking conditions comes latter.
-  let audioInstance = new Audio(soundInstance);
-  audioInstance.loop = false;
-  audioInstance.play();
+  // Mute the audio element to prevent sound from playing out loud
+  const audioElement = new Audio(soundInstance);
+  audioElement.loop = false;
+
+  // Add 'playsinline' attribute to prevent the speaker icon from appearing
+  audioElement.setAttribute('playsinline', '');
+
+  // Play the audio
+  audioElement.play();
 };
 
 //
@@ -28,9 +39,12 @@ export async function getAllPost(dispatch) {
   try {
     //
     const {
-      data: { posts }, //returns the length message and sound
+      data: {
+        data: { posts },
+      }, //returns the length message and sound
     } = await getAllPostCall();
     //
+    console.log(posts);
     dispatch({ type: GET_ALL_POST, payload: posts });
     //
   } catch (error) {
@@ -124,10 +138,34 @@ export const likePost = async (dispatch, { userId, postId }) => {
   try {
     playSound(likeSound);
     const { data } = await likeCall({ userId, postId });
-    const { likes, posts } = data;
+    const { likes, post } = data;
 
+    // console.log(likes, post);
     //dispatch reducer action
-    dispatch({ type: LIKE_POST, payload: { posts, likes } });
+    dispatch({ type: LIKE_POST, payload: { post, likes, postId, userId } });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+//
+
+export const createComment = async (
+  dispatch,
+  { userId, postId, commentText }
+) => {
+  try {
+    console.log(userId, postId, commentText);
+    // Make the API call to create a new comment
+    const {
+      data: { post, comment },
+    } = await commentCall({ userId, postId, commentText });
+
+    // Dispatch reducer action to update the state with the new comment
+    dispatch({
+      type: LEAVE_A_COMMENT,
+      payload: { comment: comment, postId: post[0]._id },
+    });
   } catch (error) {
     console.log(error);
   }
@@ -145,10 +183,11 @@ export async function getAllChat(setChats, setSelectedChat, chat_id) {
 
     const {
       data: { chat },
-    } = await getAllChatCall(chat_id)
-    setChats(chat)
-    setSelectedChat(chat[0])
+    } = await getAllChatCall(chat_id);
+    setChats(chat);
+    setSelectedChat(chat[0]);
   } catch (e) {
-    console.log(e)
+    console.log(e);
   }
 }
+

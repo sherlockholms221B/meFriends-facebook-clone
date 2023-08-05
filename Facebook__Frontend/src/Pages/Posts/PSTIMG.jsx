@@ -1,129 +1,112 @@
-import * as React from 'react'
-
-//import moment module
-import moment from 'moment'
-
-//import react router module
-import { useNavigate } from 'react-router-dom'
-
-//import data
-import { comments } from '../../utils/constants'
-
-//import motion animation module
-import { motion } from 'framer-motion'
-
-//import icons
-import { Icon } from '../../utils/Icon'
-
-//
-import { profile } from '../../Assets/exports'
-
+import React from 'react';
+import moment from 'moment';
+import { useNavigate } from 'react-router-dom';
+import { comments } from '../../utils/constants';
+import { motion } from 'framer-motion';
+import { Icon } from '../../utils/Icon';
+import { profile } from '../../Assets/exports';
 
 const PSTIMG = ({ synced, postfile }) => {
-  const navigate = useNavigate()
-  const [index, setIndex] = React.useState(0)
+  const navigate = useNavigate();
+  const [index, setIndex] = React.useState(0);
+  const [progress, setProgress] = React.useState(0);
+  const [viewedFiles, setViewedFiles] = React.useState(0);
 
   React.useEffect(() => {
-    const lastindex = postfile?.length - 1
+    const lastindex = postfile?.length - 1;
     if (index < 0) {
-      setIndex(lastindex)
+      setIndex(lastindex);
     }
     if (index > lastindex) {
-      setIndex(0)
+      setIndex(0);
     }
-  }, [index, postfile?.length])
+  }, [index, postfile?.length]);
 
   React.useEffect(() => {
     let slider = setInterval(() => {
-      setIndex(index + 1)
-    }, 5000)
+      setIndex((prevIndex) => (prevIndex + 1) % postfile?.length);
+      setProgress(0); // Reset progress when the slide changes
+    }, 5000);
 
     return () => {
-      clearInterval(slider)
-    }
-  }, [index])
+      clearInterval(slider);
+    };
+  }, [index, postfile?.length]);
+
+  React.useEffect(() => {
+    // Update progress every 100 milliseconds
+    const interval = setInterval(() => {
+      setProgress((prevProgress) => prevProgress + (100 / 5000) * 100); // 5000ms is the interval for slide change
+    }, 100);
+
+    // Clear the interval on unmount
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleNextSlide = () => {
+    setIndex((prevIndex) => (prevIndex + 1) % postfile?.length);
+    setProgress(0); // Reset progress when moving to the next slide
+    setViewedFiles((prevCount) => Math.min(prevCount + 1, postfile?.length));
+  };
 
   return (
     /* POST DETAILS IMAGE COMPONENT */
     <React.Fragment>
-      <section className=' max-w-[600px] w-full mx-auto h-full flex flex-row relative overflow-hidden'>
+      {/* Blue bars for viewed files */}
+      <div className='flex gap-1'>
+        {postfile?.map((_, i) => (
+          <div
+            key={i}
+            className={`h-1 w-4 bg-${i < viewedFiles ? 'blue' : 'gray'}-500`}
+          />
+        ))}
+      </div>
+      {/* Swiper component for the slider */}
+      <section className='max-w-[600px] w-full mx-auto h-full flex flex-row relative overflow-hidden'>
         {postfile?.map(({ url, filetype }, i) => {
-          let position = 'nextSlide'
+          let position = 'nextSlide';
           if (index === i) {
-            position = 'activeSlide'
+            position = 'activeSlide';
           }
           if (index === i - 1 || (i === 0 && index === postfile.length - 1)) {
-            position = 'lastSlide'
+            position = 'lastSlide';
           }
+
+          // Determine if the media file is an image or video
+          const isImage = filetype.split('/').includes('image');
+          const isVideo = filetype.split('/').includes('video');
+
           return (
             <React.Fragment key={i}>
-              <img
-                src={url}
-                alt='post'
-                className={`${position} ${
-                  synced ? 'rounded-xl' : ''
-                } h-full object-cover transition-all absolute w-full top-0 right-0 `}
-              />
-            </React.Fragment>
-          )
-        })}
-        {synced && (
-          <section
-            className={`absolute top-0 right-0 left-0 w-full p-4 flex flex-col gap-3`}
-          >
-            <div className='flex flex-row gap-1 w-full border'>
-              {comments.map((data, i) => {
-                let animation = 'bg-blue-600 w-full'
-                if (index === i) {
-                  animation = 'animate-ping bg-white'
-                }
-                if (index === i - 1) {
-                  animation = 'bg-green-500'
-                }
-
-                return (
-                  <div
-                    className='w-full h-1 tab:h-2 bg-red-400 rounded-full'
-                    key={index}
-                  >
-                    <div className={`h-1 tab:h-2 rounded-full ${animation} `} />
-                  </div>
-                )
-              })}
-            </div>
-            <div className='flex flex-row items-center justify-between'>
-              <figure className='flex flex-row items-center gap-3'>
+              {/* Render image */}
+              {isImage && (
                 <img
-                  src={profile}
-                  alt='storie'
-                  className='h-12 w-12 rounded-full ring-4 ring-blue-600'
+                  src={url}
+                  alt='post'
+                  className={`${position} ${
+                    synced ? 'rounded-xl' : ''
+                  } h-full object-cover transition-all absolute w-full top-0 right-0 `}
                 />
-                <figcaption className='flex flex-col text-start'>
-                  <h5 className='capitalize dark:text-thdark500 text-black brightness-95'>
-                    <b>{'John Diggle'}</b>
-                  </h5>
-                  <article className='flex flex-row '>
-                    <u className='dark:text-blue-700 text-black text-base mr-1'>
-                      {comments.length} new
-                    </u>
-                    <center>
-                      <strong className='dark:text-white text-black'>.</strong>
-                    </center>
-                    <u className='dark:text-thlight500 text-black text-base ml-1'>
-                      {moment(new Date()).fromNow()}
-                    </u>
-                  </article>
-                </figcaption>
-              </figure>
-              <Icon.MdClose
-                className='text-3xl dark:text-thdark500'
-                onClick={() => navigate(-1)}
-              />
-            </div>
-          </section>
-        )}
+              )}
+
+              {/* Render video */}
+              {isVideo && (
+                <video
+                  src={url}
+                  alt='post'
+                  className={`${position} ${
+                    synced ? 'rounded-xl' : ''
+                  } h-full object-cover transition-all absolute w-full top-0 right-0 `}
+                  controls
+                  autoPlay
+                />
+              )}
+            </React.Fragment>
+          );
+        })}
       </section>
 
+      {/* Navigation buttons */}
       <motion.button
         whileHover={{
           x: [0, 20],
@@ -143,7 +126,7 @@ const PSTIMG = ({ synced, postfile }) => {
         <Icon.FaChevronRight />
       </motion.button>
     </React.Fragment>
-  )
-}
+  );
+};
 
-export default PSTIMG
+export default PSTIMG;

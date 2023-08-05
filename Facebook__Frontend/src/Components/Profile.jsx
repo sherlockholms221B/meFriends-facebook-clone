@@ -9,13 +9,17 @@ import useAuthStore from '../Store/AuthStore'
 //import image url reader from sanity client
 import { urlFor } from '../utils/client'
 
-const Profile = ({ size, hidden, customstyle }) => {
-  const { userProfile } = useAuthStore()
+const Profile = ({ size, hidden, customstyle, data }) => {
+  const { userProfile } = useAuthStore();
 
   return (
     <figure className={customstyle}>
       <img
-        src={urlFor(userProfile?.profileImage.asset).url()}
+        src={
+          data?.profileImage
+            ? urlFor(data?.profileImage.asset).url()
+            : urlFor(userProfile?.profileImage.asset).url()
+        }
         alt='profile'
         className={
           ' rounded-full object-cover ' +
@@ -25,12 +29,12 @@ const Profile = ({ size, hidden, customstyle }) => {
       <figcaption className='w-fit'>
         {hidden && (
           <p className=' text-black dark:text-thdark500 tracking-wider font-bold text-base brightness-95 capitalize hidden lg:block'>
-            {userProfile?.userName}
+            {data?.userName ? data?.userName : userProfile?.userName}
           </p>
         )}
       </figcaption>
     </figure>
-  )
-}
+  );
+};
 
 export default Profile

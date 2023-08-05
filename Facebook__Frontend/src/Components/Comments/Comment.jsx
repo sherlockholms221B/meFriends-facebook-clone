@@ -1,46 +1,34 @@
-import React from 'react'
+import React from 'react';
+import moment from 'moment';
+import Redirect from '../../examples/SoftRedirect';
+import Profile from '../Profile';
 
-//import moment
-import moment from 'moment'
-
-//import component
-import Redirect from '../../examples/SoftRedirect'
-import Profile from '../Profile'
-
-const Comment = ({
-  _createdAt,
-  userName,
-  _id,
-  profileImage,
-  isComment,
-  setIsComment,
-  comment,
-}) => {
+const Comment = ({ postedBy, isComment, createdAt, comment }) => {
   return (
-      isComment && (
-        <section className='flex flex-row flex-nowrap items-start pl-2 justify-start mt-2 mb-1  '>
-          <Redirect
-            link='/backface/api/profile'
-            customstyles='cousor-pointer mr-3 '
-          >
-            <Profile />
-          </Redirect>
-          <section className='flex flex-col items-start gap-2 w-full rounded-lg dark:bg-dark300 bg-light500 pt-2 px-2 shadow-lg shadow-zinc-900 z-[2]'>
-            <div className='flex flex-col items-start  w-full rounded-lg dark:bg-dark400 bg-light500 py-2 px-2 shadow-md shadow-black z-[4]'>
-              <h2 className='capitalize text-md text-black-200 font-medium mb-1 cursor-pointer dark:text-thdark500 tracking-wide'>
-                {userName}
-              </h2>
-              <p className='text-sm text-gray-600 dark:text-thlight500 tracking-normal'>
-                {comment}
-              </p>
-            </div>
-            <p className='text-sm text-gray-500 ml-2 mb-1 dark:text-thdark500'>
-              {moment(_createdAt).fromNow()}
+    isComment && (
+      <section className='flex flex-row items-start mt-2 mb-1'>
+        <Redirect
+          link='/backface/api/profile'
+          customstyles='cursor-pointer mr-3'
+        >
+          <Profile data={postedBy} />
+        </Redirect>
+        <div className='flex flex-col w-full items-start rounded-lg dark:bg-dark400 bg-light500 py-2 px-2 shadow-md shadow-black z-[4]'>
+          <div className='w-full rounded-lg p-2 mb-1 capitalize text-md font-medium bg-light500 dark:bg-dark300 hover:bg-light300  placeholder:text-gray-600 dark:placeholder:text-thlight500 dark:text-white dark:focus:bg-dark300'>
+            <h2 className='text-md font-semibold capitalize tracking-wide '>
+              {postedBy?.userName}
+            </h2>
+            <p className='text-sm text-gray-700 dark:text-thlight500 tracking-normal'>
+              {comment}
             </p>
-          </section>
-        </section>
+          </div>
+          <div className='text-sm text-gray-500 dark:text-gray-400'>
+            {moment(createdAt).fromNow()}
+          </div>
+        </div>
+      </section>
     )
-  )
-}
+  );
+};
 
-export default Comment
+export default Comment;

@@ -32,8 +32,6 @@ const Post = ({
   const [postOption, setPostOption] = React.useState(false);
   const togleMenu = React.useRef(null);
 
-  const rtnlikes = likes === null ? [] : likes;
-
   React.useEffect(() => {
     setViewMore(false);
   }, [isComment]);
@@ -89,9 +87,11 @@ const Post = ({
       </Redirect>
       <section className='flex flex-col '>
         <section className='flex flex-row flex-nowrap justify-between items-center mx-2 p-2 border-b-2 border-gray-300 dark:border-[#3a3b3c]'>
-          <LikeVW rtnlikes={rtnlikes} />
+          <LikeVW likes={likes} />
           <article className='flex items-center justify-center'>
-            <p className='mr-1 text-sm text-gray-500 '>22 comments</p>
+            <p className='mr-1 text-sm text-gray-500 '>
+              {comments?.length} comments
+            </p>
             <p className='text-sm text-gray-500 '>7 share</p>
           </article>
         </section>
@@ -101,16 +101,15 @@ const Post = ({
             (isComment && 'mx-2 border-b-2 border-gray-300 dark:border-bd500')
           }
         >
-          <LikeBTN likes={rtnlikes} postId={_id} />
+          <LikeBTN likes={likes} postId={_id} />
           <COMBTN setIsComment={setIsComment} isComment={isComment} />
           <Share />
         </section>
         <Comments
           postDetail
+          postId={_id}
           isComment={isComment}
           setIsComment={setIsComment}
-          viewMore={viewMore}
-          setViewMore={setViewMore}
           value={value}
           setValue={setValue}
           comments={comments}

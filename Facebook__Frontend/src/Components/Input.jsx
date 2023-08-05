@@ -17,6 +17,8 @@ const Input = ({
           e.stopPropagation();
           e.preventDefault();
         }}
+        autoSave='off'
+        autoComplete='off'
         type={type}
         required={required}
         autoFocus={autoFocus}
@@ -34,7 +36,7 @@ const Input = ({
           'pl-10 py-3 pr-4 sm:w-[410px] xs:w-260 w-210 placeholder:text-md'
         } ${name === 'menusl' && 'pl-10 py-2 w-full placeholder:text-md'} ${
           name === 'comment' &&
-          'w-[88%] mdxs:w-[93%] px-2 py-2 placeholder:text-sm'
+          'w-[80%] mdxs:w-[85%] px-2 py-2 placeholder:text-sm'
         }  ${
           name === 'chats' &&
           'w-11/12 pl-10 py-1.5 pr-4 placeholder:text-md placeholder:font-normal'
@@ -49,7 +51,7 @@ const Input = ({
         }
 
         ${name === 'story' && 'w-full p-2 ring-2 ring-white'}
-        outline-none  bg-light500 dark:bg-dark300 hover:bg-light300  placeholder:text-gray-600 dark:placeholder:text-thlight500 dark:text-white dark:focus:bg-dark300`}
+        outline-none  bg-light500 dark:bg-dark300 hover:bg-light300  placeholder:text-gray-600 dark:placeholder:text-thlight500 dark:text-white dark:focus:bg-dark300 `}
       />
     </React.Fragment>
   );
