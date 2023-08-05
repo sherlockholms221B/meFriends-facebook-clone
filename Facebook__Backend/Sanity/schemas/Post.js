@@ -9,6 +9,25 @@ export default {
       type: 'string',
     },
     {
+      name: 'media',
+      type: 'array',
+      title: 'Media',
+      of: [
+        {
+          type: 'image',
+          title: 'Image',
+          description: 'Media content like photos and images.',
+        },
+        {
+          type: 'file',
+          title: 'Video',
+          description: 'Upload or select a video for the post.',
+          accept: 'video/*',
+        },
+        // You can add more types here, e.g., gif, etc.
+      ],
+    },
+    {
       name: 'image',
       title: 'Image',
       type: 'array',
@@ -18,14 +37,6 @@ export default {
           fields: [
             { name: 'file', tittle: 'File', type: 'image' },
             { name: 'filetype', title: 'File type', type: 'string' },
-            {
-              name: 'slug',
-              tittle: 'Slug',
-              type: 'slug',
-              options: {
-                source: 'filetype',
-              },
-            },
             {
               name: 'url',
               title: 'URL',
@@ -45,14 +56,6 @@ export default {
           fields: [
             { name: 'file', tittle: 'file', type: 'file' },
             { name: 'filetype', title: 'File type', type: 'string' },
-            {
-              name: 'slug',
-              tittle: 'Slug',
-              type: 'slug',
-              options: {
-                source: 'filetype',
-              },
-            },
             {
               name: 'url',
               title: 'URL',
@@ -85,10 +88,10 @@ export default {
       ],
     },
     {
-      name: 'coments',
-      title: 'Coments',
+      name: 'comments',
+      title: 'Comments',
       type: 'array',
-      of: [{ type: 'coment' }],
+      of: [{ type: 'comment' }],
     },
     {
       name: 'share',
@@ -106,12 +109,14 @@ export default {
       ],
     },
     {
-      name: 'taged',
-      title: 'Taged',
+      name: 'tags',
       type: 'array',
+      title: 'Tags and Mentions',
       of: [
         {
           type: 'reference',
+          description:
+            'Tags and mentions of other users or pages within the post.',
           to: [
             {
               type: 'user',
@@ -121,9 +126,13 @@ export default {
       ],
     },
     {
-      name: 'postaudience',
-      title: 'Post Audience',
+      name: 'privacySettings',
       type: 'string',
+      title: 'Privacy Settings',
+      description: 'Information about the privacy settings of the post.',
+      options: {
+        list: ['Public', 'Friends Only', 'Custom Audience', 'Private'],
+      },
     },
     {
       name: 'subscribers',
