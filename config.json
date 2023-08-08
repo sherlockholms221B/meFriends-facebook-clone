@@ -1,0 +1,35 @@
+{
+  "app": {
+    "name": "MeFriends",
+    "version": "1.0.0",
+    "environment": "production"
+  },
+  "server": {
+    "port": 3000,
+    "host": "localhost"
+  },
+  "database": {
+    "url": "mongodb://localhost:27017/mefriends"
+  },
+  "api": {
+    "baseUrl": "https://api.mefriends.com",
+    "apiKey": "YOUR_API_KEY"
+  },
+  "auth": {
+    "secretKey": "YOUR_SECRET_KEY",
+    "tokenExpiration": "24h"
+  },
+  "logging": {
+    "level": "info",
+    "filePath": "/var/log/mefriends.log"
+  },
+  "storage": {
+    "type": "s3",
+    "s3": {
+      "accessKeyId": "YOUR_ACCESS_KEY",
+      "secretAccessKey": "YOUR_SECRET_ACCESS_KEY",
+      "bucketName": "mefriends-storage",
+      "region": "us-west-1"
+    }
+  }
+}
