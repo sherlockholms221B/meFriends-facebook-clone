@@ -9,12 +9,14 @@ import { BsCameraReelsFill } from 'react-icons/bs';
 import { HiMinus } from 'react-icons/hi';
 import { Icon } from '../../../../utils/Icon';
 import { person_eight } from '../../../../Assets/exports';
-import { useState } from 'react';
+import { useState, useEffect } from 'react'; // Add useEffect
 
 import axios from 'axios';
 import { IoIosSend } from 'react-icons/io';
 import useAuthStore from '../../../../Store/AuthStore';
-import { io } from 'socket.io-client';
+import { getUrl, socketIo } from '../../../../config';
+
+// ...
 
 // eslint-disable-next-line
 var selectedChatCompare;
@@ -32,39 +34,20 @@ const Chat = () => {
   const { selectedChat, setSelectedChat, user, notification, setNotification } =
     useGlobalContext();
 
-  // React.useEffect(() => {
-  //   socket.emit('setup', userProfile);
-  //   socket.on('connected', () => setSocketConnected(true));
-  //   socket.on('typing', () => setIsTyping(true));
-  //   socket.on('stop typing', () => setIsTyping(false));
-
-  //   // eslint-disable-next-line
-  // }, []);
-
-  React.useEffect(() => {
-    console.log(typeof process.env.REACT_APP_BASE_URL);
-    const socket = io(String(process.env.REACT_APP_BASE_URL)); // Connect to the Socket.io server
-
-    // Handle the "connect" event
-    socket.on('connect', () => {
-      console.log('Connected to the server');
-    });
-
-    // Handle the "chat message" event
-    socket.on('chat message', (msg) => {
-      console.log('Received message: ' + msg);
-      // Handle the received message as needed
-    });
-
-    // Example: Sending a message from the client to the server
-    const message = 'Hello, server!';
-    socket.emit('chat message', message);
+  useEffect(() => {
+    // Connect to socket.io server
+    socketIo.emit('setup', userProfile);
+    socketIo.on('connected', () => setSocketConnected(true));
+    // socketIo.on('typing', () => setIsTyping(true));
+    // socketIo.on('stop typing', () => setIsTyping(false));
 
     // Clean up the socket connection when the component unmounts
     return () => {
-      socket.disconnect();
+      socketIo.off('connected');
+      socketIo.disconnect();
     };
-  }, []);
+    //eslint-disable-next-line
+  }, [userProfile]);
 
   const fetchMessages = async () => {
     if (!selectedChat) return;
@@ -78,16 +61,16 @@ const Chat = () => {
       const {
         data: { messages },
       } = await axios.get(
-        `${process.env.REACT_APP_BASE_URL}/facebook-clone-modern/api/message/${selectedChat._id}`
+        `${getUrl()}/facebook-clone-modern/api/message/${selectedChat._id}`
       );
       setMessages(messages);
-      // socket.emit('join chat', selectedChat._id);
+      socketIo.emit('join chat', selectedChat._id);
     } catch (error) {}
   };
 
   const sendMessage = async (event) => {
     if (newMessage) {
-      // socket.emit('stop typing', selectedChat._id);
+      // socketIo.emit('stop typing', selectedChat._id);
       try {
         // const config = {
         //   headers: {
@@ -96,17 +79,14 @@ const Chat = () => {
         //   },
         // }
         // setNewMessage('')
-        await axios.post(
-          `${process.env.REACT_APP_BASE_URL}/facebook-clone-modern/api/message`,
-          {
-            sender: userProfile?._id,
-            content: newMessage,
-            messageId: messages[0]?._id,
-            chatId: selectedChat._id,
-          }
-        );
+        await axios.post(`${getUrl()}/facebook-clone-modern/api/message`, {
+          sender: userProfile?._id,
+          content: newMessage,
+          messageId: messages[0]?._id,
+          chatId: selectedChat._id,
+        });
         const { data } = await axios.post(
-          `${process.env.REACT_APP_BASE_URL}/facebook-clone-modern/api/chat`,
+          `${getUrl()}/facebook-clone-modern/api/chat`,
           {
             senderId: userProfile?._id,
             content: newMessage,
@@ -114,58 +94,38 @@ const Chat = () => {
             chatId: selectedChat._id,
           }
         );
-        console.log(data, 'real time massage sending');
-        // socket.emit('new message', {
-        //   data: data.data[0],
-        //   senderId: userProfile?._id,
-        // });
+        console.log(data[0], 'real time massage sending');
+        socketIo.emit('new message', {
+          data: data.data[0],
+          senderId: userProfile?._id,
+        });
         setMessages([...messages, data]);
       } catch (error) {}
     }
   };
-  // React.useEffect(() => {
-  //   fetchMessages();
-  //   selectedChatCompare = selectedChat;
-  //   // eslint - disable - next - line;
-  // }, [selectedChat]);
+  React.useEffect(() => {
+    fetchMessages();
+    selectedChatCompare = selectedChat;
+    //eslint-disable-next-line
+  }, [selectedChat]);
 
-  // React.useEffect(() => {
-  //   socket.on('message recieved', (newMessageRecieved) => {
-  //     if (
-  //       !selectedChatCompare || // if chat is not selected or doesn't match current chat
-  //       selectedChatCompare._id !== newMessageRecieved._id
-  //     ) {
-  //       if (!notification.includes(newMessageRecieved)) {
-  //         setNotification([newMessageRecieved, ...notification]);
-  //         setFetchAgain(!fetchAgain);
-  //       }
-  //     } else {
-  //       setMessages([...messages, newMessageRecieved]);
-  //     }
-  //   });
-  // });
+  React.useEffect(() => {
+    socketIo.on('message recieved', (newMessageRecieved) => {
+      console.log(newMessageRecieved);
+      if (
+        !selectedChatCompare || // if chat is not selected or doesn't match current chat
+        selectedChatCompare._id !== newMessageRecieved._id
+      ) {
+        if (!notification.includes(newMessageRecieved)) {
+          setNotification([newMessageRecieved, ...notification]);
+          setFetchAgain(!fetchAgain);
+        }
+      } else {
+        setMessages([...messages, newMessageRecieved]);
+      }
+    });
+  });
 
-  // const typingHandler = (e) => {
-  //   setNewMessage(e.target.value)
-
-  //   if (!socketConnected) return
-
-  //   if (!typing) {
-  //     setTyping(true)
-  //     // socket.emit("typing", selectedChat._id);
-  //   }
-  //   let lastTypingTime = new Date().getTime()
-  //   var timerLength = 3000
-  //   setTimeout(() => {
-  //     var timeNow = new Date().getTime()
-  //     var timeDiff = timeNow - lastTypingTime
-  //     if (timeDiff >= timerLength && typing) {
-  //       socket.emit('stop typing', selectedChat._id)
-  //       setTyping(false)
-  //     }
-  //   }, timerLength)
-  // }
-  //
   const createPostHeadings = (e) => {
     const element = textRef.current;
     element.style.height = 'auto';

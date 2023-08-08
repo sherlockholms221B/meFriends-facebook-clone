@@ -12,9 +12,14 @@ import { Input } from '../../Components';
 //import Errorboudary
 import ErrorBoundary from '../../ErrorBundary';
 
+//import spinner loader
+import { HashLoader } from 'react-spinners';
+
 //
 
 import useAuthStore from '../../Store/AuthStore';
+
+import { socketIo } from '../../config';
 
 //lazy loading of components
 const MessageRoot = React.lazy(() => {
@@ -25,24 +30,12 @@ const Messages = () => {
   const { userProfile } = useAuthStore();
   const [searchChats, setSearchChats] = React.useState('');
 
-  // React.useEffect(() => {
-  //   socket.on('connection', (sock) => {
-  //     socket.emit('setup', { _id: 'rsdhgsldhgp;ej45u3-583u-repryhesdj' });
-  //   });
-  // }, []);
-
-  // React.useEffect(() => {
-  //   socket.on('connection', () => {
-  //     console.log('finaly concted to sokect');
-  //   });
-
-  //   socket.emit('setup', userProfile);
-  //   // socket.on('typing', () => setIsTyping(true));
-  //   // socket.on('stop typing', () => setIsTyping(false));
-
-  //   // eslint-disable-next-line
-  // }, []);
-
+  React.useEffect(() => {
+    socketIo.on('connection', () => {
+      console.log('finaly concted to sokect');
+    });
+    // eslint-disable-next-line
+  }, []);
   return (
     <ErrorBoundary
       fallback={
@@ -55,8 +48,8 @@ const Messages = () => {
     >
       <React.Suspense
         fallback={
-          <div className=''>
-            <h4 className=''>loading...</h4>
+          <div className='w-full h-full'>
+            <HashLoader color='blue' />
           </div>
         }
       >
@@ -66,9 +59,6 @@ const Messages = () => {
             {
               icon: (
                 <Icon.HiDotsHorizontal
-                  onClick={() => {
-                    // socket.emit('join chat', 'gsogkhsndlglsdf;sdjg445etefhdk')
-                  }}
                 />
               ),
             },

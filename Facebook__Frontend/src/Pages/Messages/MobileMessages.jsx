@@ -18,19 +18,21 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 //import components
 import { comments } from '../../utils/constants'
 
+import { BeatLoader, HashLoader } from 'react-spinners'; // Import BeatLoader from react-spinners
+
 // Import Swiper styles
-import 'swiper/css'
-import 'swiper/css/pagination'
-import 'swiper/css/navigation'
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 // import required modules
-import { Navigation } from 'swiper'
-import { MdPhotoCamera } from 'react-icons/md'
+import { Navigation } from 'swiper';
+import { MdPhotoCamera } from 'react-icons/md';
 
 //import meassage roots
 const MessageRoot = React.lazy(() => {
-  return import('./MessageRoot')
-})
+  return import('./MessageRoot');
+});
 
 const MobileMessages = () => {
   return (
@@ -53,7 +55,8 @@ const MobileMessages = () => {
         <React.Suspense
           fallback={
             <div className='w-full h-full flex items-center justify-center'>
-              <p className='text-black dark:text-white'>loading...</p>
+              {/* Replace the "loading..." text with the BeatLoader */}
+              <HashLoader color='blue' />
             </div>
           }
         >
@@ -127,7 +130,7 @@ const MobileMessages = () => {
         </React.Suspense>
       </ErrorBoundary>
     </section>
-  )
-}
+  );
+};
 
 export default MobileMessages

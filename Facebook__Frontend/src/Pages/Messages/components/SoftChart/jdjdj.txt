@@ -1,0 +1,51 @@
+// Get the socket URL from the environment variable
+const socketURL = process.env.NODE_ENV === 'production'
+  ? process.env.REACT_APP_SERVER_URL // Use the environment variable for production
+  : 'http://localhost:5000'; // Use the local server URL for development
+
+const socket = require('socket.io-client')(socketURL);
+
+  React.useEffect(() => {
+    // Handle the "connect" event
+    socketIo.on('connect', () => {
+      console.log('Connected to the server');
+    });
+
+    // Handle the "chat message" event
+    socketIo.on('chat message', (msg) => {
+      console.log('Received message: ' + msg);
+      // Handle the received message as needed
+    });
+
+    // Example: Sending a message from the client to the server
+    const message = 'Hello, server!';
+    socketIo.emit('chat message', message);
+
+    // Clean up the socket connection when the component unmounts
+    return () => {
+      socketIo.disconnect();
+    };
+  }, []);
+
+
+   // const typingHandler = (e) => {
+  //   setNewMessage(e.target.value)
+
+  //   if (!socketConnected) return
+
+  //   if (!typing) {
+  //     setTyping(true)
+  //     // socketIo.emit("typing", selectedChat._id);
+  //   }
+  //   let lastTypingTime = new Date().getTime()
+  //   var timerLength = 3000
+  //   setTimeout(() => {
+  //     var timeNow = new Date().getTime()
+  //     var timeDiff = timeNow - lastTypingTime
+  //     if (timeDiff >= timerLength && typing) {
+  //       socketIo.emit('stop typing', selectedChat._id)
+  //       setTyping(false)
+  //     }
+  //   }, timerLength)
+  // }
+  //
