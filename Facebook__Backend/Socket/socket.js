@@ -6,7 +6,7 @@ module.exports = (server) => {
   const io = socketIO(server, {
     //allow cors for dev url.
     cors: {
-      origin: 'http://localhost:3000',
+      origin: '*',
     },
   });
 
@@ -43,7 +43,7 @@ module.exports = (server) => {
 
     socket.on('disconnect', () => {
       console.log('USER DISCONNECTED');
-      socket.leave(userData._id);
+      // socket.leave(userData._id);
     });
   });
 
