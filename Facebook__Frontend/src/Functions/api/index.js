@@ -1,20 +1,19 @@
 import axios from 'axios'
+import { getUrl } from '../../config';
 
-//  const BASEURL = 'http://localhost:8080/facebook-clone-modern'
-const BASEURL = `${process.env.REACT_APP_BASE_URL}/facebook-clone-modern`;
- const API = axios.create({
-   baseURL: BASEURL,
-   //  timeout: 9000,
- })
+const BASEURL = `${getUrl()}/facebook-clone-modern`;
+const API = axios.create({
+  baseURL: BASEURL,
+});
 
- export const getUserCall = () => {}
- export const getAllUserCall = () => {}
+export const getUserCall = () => {};
+export const getAllUserCall = () => {};
+export const getAllPostCall = (_id) => {
+  return API.get(`/get-all-post?${_id}`);
+};
 export const getPostDetailsCall = (Id) => {
-  return API.get(`/get-single-post?POST_ID=${Id}`)
-}
- export const getAllPostCall = (_id) => {
-   return API.get(`/get-all-post?${_id}`)
- }
+  return API.get(`/get-single-post?POST_ID=${Id}`);
+};
  export const createPostCall = (data) => {
    return API.post('/create-one-post', { data })
  }
