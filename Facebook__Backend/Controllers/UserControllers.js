@@ -1,7 +1,7 @@
 //Don't edit this file if you dont know what you are doing.
 //import sanity client.
 const  client = require( '../Clients/client')
-// const  protect = require( '../Middleware/authMiddleware')
+const protect = require('../Middleware/authMiddleware');
 const  bcrypt = require( 'bcryptjs')
 
 //FETCH ALL USER.
