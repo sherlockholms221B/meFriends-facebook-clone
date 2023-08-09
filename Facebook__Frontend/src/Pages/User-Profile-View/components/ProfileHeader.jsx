@@ -27,6 +27,7 @@ const ProfileHeader = () => {
     const element = headerRef.current.getBoundingClientRect();
     const elementHeight = element.height;
     dynamicLocation({ headerHeight: elementHeight });
+    //eslint-disable-next-line
   }, []);
   return (
     <section
