@@ -18,7 +18,7 @@ import { urlFor } from '../../../utils/client';
 //import react custom icons
 import { Icon } from '../../../utils/Icon';
 
-const ProfileHeader = () => {
+const ProfileHeader = ({ data }) => {
   const { dynamicLocation } = useGlobalContext();
   const { userProfile } = useAuthStore();
   const headerRef = React.useRef(null);

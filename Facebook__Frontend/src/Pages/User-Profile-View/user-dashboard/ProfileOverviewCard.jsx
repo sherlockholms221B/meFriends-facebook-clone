@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 
 //import context
 import { useGlobalContext } from '../../../Hooks/context/UseContext';
@@ -9,9 +10,23 @@ import { ProfileHeader, ProfileEditor, FriendList, PhotoGallery } from '..';
 
 //import layout
 import MSideBar from '../../../Components/SideBars/MSideBar';
+import { getSingleUser } from '../../../Functions/actions/external';
 
 const ProfileOverviewCard = () => {
-  const { location } = useGlobalContext();
+  const {
+    location,
+    //eslint-disable-next-line
+    externalAction: [state, dispatchCall],
+  } = useGlobalContext();
+
+  // const search = useLocation().search;
+  // const userId = new URLSearchParams(search).get('fbid');
+
+  // // Fetch single user on initial component mount
+  // React.useLayoutEffect(() => {
+  //   getSingleUser(dispatchCall, userId);
+  // }, [userId, dispatchCall]);
+
   return (
     <section>
       <Navbar />
