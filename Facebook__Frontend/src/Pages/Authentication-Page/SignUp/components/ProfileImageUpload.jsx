@@ -3,7 +3,7 @@ import { FormWrapper } from './FormWrapper';
 import { useState } from 'react';
 import { upload } from '../..';
 
-export function ProfileUpload({ updateFields, profile, setProfile }) {
+export function ProfileImageUpload({ updateFields, profile, setProfile }) {
   const [isloading, setisloading] = useState(false);
   const [msg, setMsg] = useState('');
   return (

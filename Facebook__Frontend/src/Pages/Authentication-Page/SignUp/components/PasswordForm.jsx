@@ -1,7 +1,7 @@
 import { Input } from '../../../../Components';
 import { FormWrapper } from './FormWrapper';
 
-export function Password({
+export function PasswordForm({
   newPassword,
   password,
   updateFields,

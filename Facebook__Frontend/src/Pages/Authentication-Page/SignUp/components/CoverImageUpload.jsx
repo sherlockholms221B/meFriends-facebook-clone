@@ -3,13 +3,13 @@ import { FormWrapper } from './FormWrapper'
 import { useState } from 'react'
 import { upload } from '../..'
 
-export function CoverUpload({
+export function CoverImageUpload({
   backgroundImage,
   setBackgroundImage,
   wrongeDataType,
 }) {
-  const [isloading, setisloading] = useState(false)
-  const [msg, setMsg] = useState('')
+  const [isloading, setisloading] = useState(false);
+  const [msg, setMsg] = useState('');
   return (
     <FormWrapper
       title='Upload your background image. This can be change at your convinient time.'
@@ -62,14 +62,14 @@ export function CoverUpload({
                     name='profile'
                     className='w-0 h-0'
                     onChange={async (e) => {
-                      const selectedFile = e.target.files[0]
+                      const selectedFile = e.target.files[0];
                       const { data, msg } = await upload(
                         selectedFile,
                         isloading,
                         setisloading
-                      )
-                      setBackgroundImage(data)
-                      setMsg(msg)
+                      );
+                      setBackgroundImage(data);
+                      setMsg(msg);
                     }}
                   />
                 </label>
@@ -79,5 +79,5 @@ export function CoverUpload({
         </div>
       </section>
     </FormWrapper>
-  )
+  );
 }

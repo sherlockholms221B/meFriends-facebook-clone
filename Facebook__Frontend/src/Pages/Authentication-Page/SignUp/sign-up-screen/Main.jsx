@@ -1,15 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { AccountForm } from '../components/AccountForm';
-import { AddressForm } from '../components/AddressForm';
-import { useMultistepForm } from '../components/useMultistepForm';
-import { Password } from './Passwords';
-import { LogIn } from '../components/LogIn';
-import { UserForm } from '../components/UserForm';
-import { ProfileUpload } from './ImageUpload';
+import { useNavigate } from 'react-router-dom';
+
 import { createUser } from '../../index';
 import useAuthStore from '../../../../Store/AuthStore';
-import { useNavigate } from 'react-router-dom';
-import { CoverUpload } from '../components/CoverImage';
 import { Demarcate } from '../../../../Components/RDOMC';
 import { Icon } from '../../../../utils/Icon';
 
