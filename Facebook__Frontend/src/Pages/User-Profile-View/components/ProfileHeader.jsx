@@ -1,22 +1,22 @@
 import * as React from 'react';
 
 //import context
-import { useGlobalContext } from '../../Hooks/context/UseContext';
+import { useGlobalContext } from '../../../Hooks/context/UseContext';
 
 //import data
-import { comments } from '../../utils/constants';
+import { comments } from '../../../utils/constants';
 
 //import components
-import { FriendStack } from '../../Components';
+import { FriendStack } from '../../../Components';
 
 //import store from zustand
-import useAuthStore from '../../Store/AuthStore';
+import useAuthStore from '../../../Store/AuthStore';
 
 //import sanity url from client
-import { urlFor } from '../../utils/client';
+import { urlFor } from '../../../utils/client';
 
 //import react custom icons
-import { Icon } from '../../utils/Icon';
+import { Icon } from '../../../utils/Icon';
 
 const ProfileHeader = () => {
   const { dynamicLocation } = useGlobalContext();

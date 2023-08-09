@@ -1,7 +1,7 @@
 import React from 'react';
 
 //import data
-import { storiesbox } from '../../utils/constants';
+import { storiesbox } from '../../../utils/constants';
 
 const PhotoGallery = () => {
   return (

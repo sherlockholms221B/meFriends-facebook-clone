@@ -5,12 +5,7 @@ import { useGlobalContext } from '../../../Hooks/context/UseContext';
 
 //import components
 import { CMPFooter, Feeds, Navbar } from '../../../Components';
-import {
-  ProfileHeader,
-  ProfileEditor,
-  FriendList,
-  PhotoGallery,
-} from '../index';
+import { ProfileHeader, ProfileEditor, FriendList, PhotoGallery } from '..';
 
 //import layout
 import MSideBar from '../../../Components/SideBars/MSideBar';

@@ -1,7 +1,7 @@
 import React from 'react';
 
 //import icons
-import { Icon } from '../../utils/Icon';
+import { Icon } from '../../../utils/Icon';
 
 const ProfileEditor = () => {
   return (
