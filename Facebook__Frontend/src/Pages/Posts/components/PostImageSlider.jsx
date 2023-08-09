@@ -1,14 +1,16 @@
 import React from 'react';
 import moment from 'moment';
 import { useNavigate } from 'react-router-dom';
-import { comments } from '../../utils/constants';
+import { comments } from '../../../utils/constants';
 import { motion } from 'framer-motion';
-import { Icon } from '../../utils/Icon';
-import { profile } from '../../Assets/exports';
+import { Icon } from '../../../utils/Icon';
+import { profile } from '../../../Assets/exports';
 
-const PSTIMG = ({ synced, postfile }) => {
+const PostImageSlider = ({ synced, postfile }) => {
+  //eslint-disable-next-line
   const navigate = useNavigate();
   const [index, setIndex] = React.useState(0);
+  //eslint-disable-next-line
   const [progress, setProgress] = React.useState(0);
   const [viewedFiles, setViewedFiles] = React.useState(0);
 
@@ -129,4 +131,4 @@ const PSTIMG = ({ synced, postfile }) => {
   );
 };
 
-export default PSTIMG;
+export default PostImageSlider;

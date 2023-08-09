@@ -1,6 +1,6 @@
 import React from 'react';
 // Utils and functions
-import { Icon } from '../../utils/Icon';
+import { Icon } from '../../../utils/Icon';
 
 const ZoomControl = () => {
   // Define an array of icon components with their respective names and icons

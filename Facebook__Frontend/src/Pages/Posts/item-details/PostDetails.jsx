@@ -2,19 +2,20 @@ import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 // Custom components
-import { COMBTN, Comments, Input, Profile, THRDot } from '../../Components';
+import { COMBTN, Comments, THRDot } from '../../../Components';
 
 // Utils and functions
-import { logo } from '../../Assets/exports';
-import { Icon } from '../../utils/Icon';
-import { getSinglePost } from '../../Functions/actions/external';
+import { logo } from '../../../Assets/exports';
+import { Icon } from '../../../utils/Icon';
+import { getSinglePost } from '../../../Functions/actions/external';
 
 // Context hooks
-import { useGlobalContext } from '../../Hooks/context/UseContext';
-import ZoomControl from '.';
-import { LikeBTN } from '../../Components/Posts/Like';
-import PSTIMG from './PSTIMG';
-import CommentInput from '../../Components/Comments/CommentInput';
+import { useGlobalContext } from '../../../Hooks/context/UseContext';
+import { LikeBTN } from '../../../Components/Posts/Like';
+import CommentInput from '../../../Components/Comments/CommentInput';
+
+//components
+import { ZoomControl, PostImageSlider } from '../index';
 
 const PostDetails = () => {
   // Navigate to other pages
@@ -63,7 +64,7 @@ const PostDetails = () => {
           {/* Zoom control for the image */}
           <ZoomControl />
           {/* Display the image */}
-          <PSTIMG {...state[0]} />
+          <PostImageSlider {...state[0]} />
         </section>
 
         {/* Right section with post details, likes, and comments */}
