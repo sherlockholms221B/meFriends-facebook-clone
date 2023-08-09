@@ -1,16 +1,22 @@
-import { Login, PostDetails, Profile, STPage, StoryDetails } from './Pages'
-import { Friends, Saved, Memories, MarketPlace, Watch } from './Controllers'
-import MobileMessages from './Pages/Messages/MobileMessages'
-import MobileNotificatons from './Pages/Notifications/MobileNotificatons'
+import { PostDetails } from './Pages/Posts-Info';
+// import { ProfileOverviewCard } from './Pages/User-Profile-View';
+import { SearchResultsView } from './Pages/Search-Results-Page';
+import { StoryMediaViewer } from './Pages/Narrative-Media-Display';
+
+//
+// import { Login } from './Pages';
+import { Friends, Saved, Memories, MarketPlace, Watch } from './Controllers';
+// import MobileMessages from './Pages/Messages/MobileMessages';
+// import MobileNotificatons from './Pages/Notifications/MobileNotificatons';
 
 const layoutRoute = [
   {
     route: '/dashbord/api-me-friends/login',
-    component: <Login />,
+    // component: <Login />,
   },
   {
     route: '/backface/api/profile',
-    component: <Profile />,
+    // component: <ProfileOverviewCard />,
   },
   {
     route: '/post/details/photo',
@@ -18,11 +24,11 @@ const layoutRoute = [
   },
   {
     route: '/story/details/photo',
-    component: <StoryDetails />,
+    component: <StoryMediaViewer />,
   },
   {
     route: '/api/search/random',
-    component: <STPage />,
+    component: <SearchResultsView />,
   },
   {
     route: '/menu/friends/fbid',
@@ -46,12 +52,12 @@ const layoutRoute = [
   },
   {
     route: '/mefriends-messages-all/room',
-    component: <MobileMessages />,
+    // component: <MobileMessages />,
   },
   {
     route: '/mefriends-notifications-all/notify-me',
-    component: <MobileNotificatons />,
+    // component: <MobileNotificatons />,
   },
-]
+];
 
-export default layoutRoute
+export default layoutRoute;
