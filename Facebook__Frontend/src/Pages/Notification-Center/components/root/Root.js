@@ -1,22 +1,22 @@
-import * as React from 'react'
+import * as React from 'react';
 
 //import moment module
-import moment from 'moment'
+import moment from 'moment';
 
 //import constants
-import { comments } from '../../utils/constants'
+import { comments } from '../../../../utils/constants';
 
 //import utilitis function
-import { randomNumberGenerator } from '../../Functions/utilities/random.'
+import { randomNumberGenerator } from '../../../../Functions/utilities/random.';
 
 //import useglobal context
-import { useGlobalContext } from '../../Hooks/context/UseContext'
+import { useGlobalContext } from '../../../../Hooks/context/UseContext';
 
 //import custom react icons
-import SoftMassagePanelview from '../Messages/components/SoftMassagePanelview/SoftMassagePanelview'
+import SoftMassagePanelview from '../Messages/components/SoftMassagePanelview/SoftMassagePanelview';
 
 const MessageRoot = ({ children, title, actionButton }) => {
-  const { setChatState, setMessageState } = useGlobalContext()
+  const { setChatState, setMessageState } = useGlobalContext();
   return (
     <React.Fragment>
       <section className='dark:bg-dark400 bg-white flex flex-col gap-0 md:gap-2 rounded-t-lg'>
@@ -50,8 +50,8 @@ const MessageRoot = ({ children, title, actionButton }) => {
               className='w-full flex flex-row gap-3 items-center cursor-pointer bg-[#0c4aad15] px-2 py-1.5 mt-0.5 mb-0.5 rounded-md'
               key={index + creator}
               onClick={() => {
-                setMessageState(false)
-                setChatState(true)
+                setMessageState(false);
+                setChatState(true);
               }}
             >
               <img
@@ -82,7 +82,7 @@ const MessageRoot = ({ children, title, actionButton }) => {
         </h4>
       </section>
     </React.Fragment>
-  )
-}
+  );
+};
 
-export default MessageRoot
+export default MessageRoot;

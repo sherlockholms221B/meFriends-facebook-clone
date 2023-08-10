@@ -1,18 +1,19 @@
-import React from 'react'
+import React from 'react';
 
 //import custom icons
-import { Icon } from '../../utils/Icon'
+import { Icon } from '../../../utils/Icon';
 
 //import higher order components
-import MegWrapper from '../../Components/MegWrapper'
+import MegWrapper from '../../../Components/MegWrapper';
 
 //import error bundary
-import ErrorBoundary from '../../ErrorBundary'
+import ErrorBoundary from '../../../ErrorBundary';
 
 //lazy loading component
 const NotificationRoots = React.lazy(() => {
-  return import('./NotificationRoots')
-})
+  //eslint-disable-next-line
+  return import('../components/root/Root');
+});
 const Notifications = () => {
   return (
     <ErrorBoundary
@@ -56,7 +57,7 @@ const Notifications = () => {
         </NotificationRoots>
       </React.Suspense>
     </ErrorBoundary>
-  )
-}
+  );
+};
 
-export default MegWrapper(Notifications)
+export default MegWrapper(Notifications);

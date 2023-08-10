@@ -1,13 +1,13 @@
 // Import necessary modules and components from external files
 import React, { useEffect, useState } from 'react';
 import moment from 'moment';
-import { comments } from '../../utils/constants';
-import { randomNumberGenerator } from '../../Functions/utilities/random.';
-import { useGlobalContext } from '../../Hooks/context/UseContext';
-import SoftMassagePanelview from './components/SoftMassagePanelview/SoftMassagePanelview';
+import { comments } from '../../../../utils/constants';
+import { randomNumberGenerator } from '../../../../Functions/utilities/random.';
+import { useGlobalContext } from '../../../../Hooks/context/UseContext';
+import SoftMassagePanelview from '../Massage-Panel-view/SoftMassagePanelview';
 import axios from 'axios';
-import { getAllChat } from '../../Functions/actions/external';
-import { urlFor } from '../../utils/client';
+import { getAllChat } from '../../../../Functions/actions/external';
+import { urlFor } from '../../../../utils/client';
 
 // MessageRoot component function
 const MessageRoot = ({ children, title, actionButton }) => {

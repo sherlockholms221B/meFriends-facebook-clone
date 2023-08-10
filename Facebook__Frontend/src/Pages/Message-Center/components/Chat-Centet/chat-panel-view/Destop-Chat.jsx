@@ -1,20 +1,20 @@
 import * as React from 'react';
 import { motion } from 'framer-motion';
-import { useGlobalContext } from '../../../../Hooks/context/UseContext';
-import { PostOptions, Profile, ToolTip } from '../../../../Components';
+import { useGlobalContext } from '../../../../../Hooks/context/UseContext';
+import { PostOptions, Profile, ToolTip } from '../../../../../Components';
 import { MdOutlineExpandMore } from 'react-icons/md';
 import moment from 'moment';
 import { ImPhone } from 'react-icons/im';
 import { BsCameraReelsFill } from 'react-icons/bs';
 import { HiMinus } from 'react-icons/hi';
-import { Icon } from '../../../../utils/Icon';
-import { person_eight } from '../../../../Assets/exports';
+import { Icon } from '../../../../../utils/Icon';
+import { person_eight } from '../../../../../Assets/exports';
 import { useState, useEffect } from 'react'; // Add useEffect
 
 import axios from 'axios';
 import { IoIosSend } from 'react-icons/io';
-import useAuthStore from '../../../../Store/AuthStore';
-import { getUrl, socketIo } from '../../../../config';
+import useAuthStore from '../../../../../Store/AuthStore';
+import { getUrl, socketIo } from '../../../../../config';
 
 // ...
 

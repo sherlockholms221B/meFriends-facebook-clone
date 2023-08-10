@@ -1,29 +1,29 @@
 import * as React from 'react';
 
 //import custom icons
-import { Icon } from '../../utils/Icon';
+import { Icon } from '../../../utils/Icon';
 
 //import higer order commponent
-import MegWrapper from '../../Components/MegWrapper';
+import MegWrapper from '../../../Components/MegWrapper';
 
 //import re useable components
-import { Input } from '../../Components';
+import { Input } from '../../../Components';
 
 //import Errorboudary
-import ErrorBoundary from '../../ErrorBundary';
+import ErrorBoundary from '../../../ErrorBundary';
 
 //import spinner loader
 import { HashLoader } from 'react-spinners';
 
 //
 
-import useAuthStore from '../../Store/AuthStore';
+import useAuthStore from '../../../Store/AuthStore';
 
-import { socketIo } from '../../config';
+import { socketIo } from '../../../config';
 
 //lazy loading of components
 const MessageRoot = React.lazy(() => {
-  return import('./MessageRoot');
+  return import('../components/roots/Root');
 });
 //
 const Messages = () => {
@@ -57,10 +57,7 @@ const Messages = () => {
           title='Chats'
           actionButton={[
             {
-              icon: (
-                <Icon.HiDotsHorizontal
-                />
-              ),
+              icon: <Icon.HiDotsHorizontal />,
             },
             {
               icon: <Icon.ImEnlarge />,

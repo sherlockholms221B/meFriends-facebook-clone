@@ -1,24 +1,24 @@
-import * as React from 'react'
+import * as React from 'react';
 
 //import links
-import { mNavLink } from '../../utils/links'
+import { mNavLink } from '../../../utils/links';
 
 //import compnents
-import MbarLink from '../../Components/Navigation Bar/components/SoftMobileNav'
+import MbarLink from '../../../Components/Navigation Bar/components/SoftMobileNav';
 
 //import react error boundary
-import ErrorBoundary from '../../ErrorBundary'
+import ErrorBoundary from '../../../ErrorBundary';
 
 //import custom icon
-import { Icon } from '../../utils/Icon'
+import { Icon } from '../../../utils/Icon';
 
 // Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react'
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 //import components
-import { comments } from '../../utils/constants'
+import { comments } from '../../../utils/constants';
 
-import { BeatLoader, HashLoader } from 'react-spinners'; // Import BeatLoader from react-spinners
+import { HashLoader } from 'react-spinners'; // Import BeatLoader from react-spinners
 
 // Import Swiper styles
 import 'swiper/css';
@@ -31,7 +31,7 @@ import { MdPhotoCamera } from 'react-icons/md';
 
 //import meassage roots
 const MessageRoot = React.lazy(() => {
-  return import('./MessageRoot');
+  return import('../components/roots/Root');
 });
 
 const MobileMessages = () => {
@@ -133,4 +133,4 @@ const MobileMessages = () => {
   );
 };
 
-export default MobileMessages
+export default MobileMessages;

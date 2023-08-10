@@ -1,28 +1,26 @@
-import * as React from 'react'
+import * as React from 'react';
 
 //import links
-import { mNavLink } from '../../utils/links'
+import { mNavLink } from '../../../utils/links';
 
 //import compnents
-import MbarLink from '../../Components/Navigation Bar/components/SoftMobileNav'
+import MbarLink from '../../../Components/Navigation Bar/components/SoftMobileNav';
 
 //import react error boundary
-import ErrorBoundary from '../../ErrorBundary'
+import ErrorBoundary from '../../../ErrorBundary';
 
 //import custom icon
-import { Icon } from '../../utils/Icon'
-
+import { Icon } from '../../../utils/Icon';
 
 // Import Swiper styles
-import 'swiper/css'
-import 'swiper/css/pagination'
-import 'swiper/css/navigation'
-
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 //lazy load meassage roots
 const NotificationsRoot = React.lazy(() => {
-  return import('./NotificationRoots')
-})
+  return import('../root');
+});
 
 const MobileNotifications = () => {
   return (
@@ -64,7 +62,7 @@ const MobileNotifications = () => {
         </React.Suspense>
       </ErrorBoundary>
     </section>
-  )
-}
+  );
+};
 
-export default MobileNotifications
+export default MobileNotifications;
