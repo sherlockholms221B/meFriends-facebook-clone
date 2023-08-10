@@ -1,5 +1,5 @@
 import { PostDetails } from './Pages/Posts-Info';
-// import { ProfileOverviewCard } from './Pages/User-Profile-View';
+import { ProfileOverviewCard } from './Pages/User-Profile-View';
 import { SearchResultsView } from './Pages/Search-Results-Page';
 import { StoryMediaViewer } from './Pages/Narrative-Media-Display';
 
@@ -16,7 +16,7 @@ const layoutRoute = [
   },
   {
     route: '/backface/api/profile',
-    // component: <ProfileOverviewCard />,
+    component: <ProfileOverviewCard />,
   },
   {
     route: '/post/details/photo',

@@ -3,8 +3,9 @@ import * as React from 'react'
 //import router from react-router-dom
 import { Routes, Route } from 'react-router-dom'
 
-//import pages from copoonents
-import { Home, Protector } from './Pages'
+//import pages from components
+import{ MainScreen } from './Pages/Welcome-Page/index'
+import { Protector } from './Pages'
 
 //import theme checker from function & run check when app renders
 import { themeCheck } from './Functions/utilities/darkTheme'
@@ -40,7 +41,7 @@ const App = () => {
           path='/'
           element={
             <Protector>
-              <Home />
+              <MainScreen />
             </Protector>
           }
         />
@@ -51,12 +52,12 @@ const App = () => {
               key={index + route.route}
               element={route.component}
             />
-          )
+          );
         })}
       </Routes>
       <ABS />
     </React.Fragment>
-  )
+  );
 }
 
 export default App

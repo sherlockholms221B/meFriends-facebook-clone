@@ -16,9 +16,9 @@ import MOverlay from './Components/SideBars/components/MOverlay'
 import MenuSL from './Controllers/menusl/index'
 import GroupSl from './Controllers/groupsl/index'
 import ShortCutsSl from './Controllers/shortcutsl/index'
-import Chat from './Pages/Messages/components/SoftChart/Chat'
-import Messages from './Pages/Messages/Messages'
-import Notifications from './Pages/Notifications/Notifications'
+// import Chat from './Pages/Messages/components/SoftChart/Chat'
+// import Messages from './Pages/Messages/Messages'
+// import Notifications from './Pages/Notifications/Notifications'
 const ABS = () => {
   const {
     addToYourState,
@@ -50,14 +50,14 @@ const ABS = () => {
       {postAudienceState && <PostAudience />}
       {tagPeopleState && <TagPeople />}
       {addToYourState && <AddToYour />}
-      {messageState && <Messages />}
-      {notificationState && <Notifications />}
+      {/* {messageState && <Messages />} */}
+      {/* {notificationState && <Notifications />} */}
       {profileState && <GoPorfile />}
       {settingsState && <Settings />}
       {displayState && <Display />}
       {supportState && <Support />}
       {feedbackState && <Feedback />}
-      {chatState && <Chat />}
+      {/* {chatState && <Chat />} */}
       {SIDE_MENU && <MenuSL />}
       {SIDE_SHORT_CUT && <ShortCutsSl />}
       {SIDE_GROUP && <GroupSl />}
