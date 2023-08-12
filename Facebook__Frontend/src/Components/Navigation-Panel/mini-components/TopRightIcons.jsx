@@ -16,7 +16,7 @@ import { IconHandler } from '../../../Functions/utilities/SH';
 import { NavDot1 } from '../../../utils/LWRef';
 
 //import component with
-import { Profile, ToolTip } from '../../index';
+import { UserProfileImage, CustomTooltip } from '../../Miscellaneous/module';
 
 //import custom icon
 import { Icon } from '../../../utils/Icon';
@@ -61,7 +61,7 @@ const TopRightIcons = () => {
           <div className='dark:border-0 flex items-center justify-center absolute w-[18px] h-[18px] rounded-full ring-2 ring-white bg-red-700 top-0 right-0 z-10'>
             <p className='text-white text-[12px] font-bold'>{alarts}</p>
           </div>
-          <ToolTip
+          <CustomTooltip
             title={tip}
             id={tip}
             effect={`float`}
@@ -88,12 +88,12 @@ const TopRightIcons = () => {
           setNotificationState(false);
         }}
       >
-        <Profile link={'/'} />
+        <UserProfileImage link={'/'} />
         <div className='hidden mdsm:flex absolute w-[15px] h-[15px] rounded-full bg-red-600 top-0 right-0 ring-2 ring-white z-10' />
         <div className='hidden mdsm:flex absolute bottom-[-3px] dark:ring-slate-800 dark:bg-dark300 right-0 rounded-full bg-light300 ring-2 ring-white w-4 h-4  justify-center items-center'>
           <MdOutlineExpandMore className='text-tablet dark:text-white text-black font-bold' />
         </div>
-        <ToolTip
+        <CustomTooltip
           title={`account`}
           effect={`float`}
           type={`dark`}

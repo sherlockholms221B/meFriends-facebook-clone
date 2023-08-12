@@ -5,10 +5,11 @@ import { feedLinks } from '../../../utils/links';
 // import { posts } from '../utils/constants'
 
 //import component
-import { Stories, Reels, Rooms } from '../../index.js';
 import { Post } from '../../Publication-Stream/module';
-import SoftFeedsAction from './mini-components/feedsAction/SoftActions/softFeedsAction';
-import SoftProfileLayout from '../mini-components/softProfileLayout';
+import { Rooms } from '../../Environments/module';
+import { Reels } from '../../Actual-Stuff/module';
+import {MyStroies  } from '../../Journeys/module';
+import { FeedsActionSection, PostLayoutOptions } from '../module';
 
 //import styles
 import { active, notActive } from '../styles';
@@ -27,8 +28,8 @@ const Posts = ({ profile }) => {
   return (
     <section className='overflow-hidden h-screen mx-auto lap:mx-0 w-full sm:w-520 xlg:w-[700px] px-0.5 pt-0.5 mdsm:pt-2'>
       <section className='flex flex-col w-full h-full overflow-auto scroll-hidden pb-20'>
-        <SoftFeedsAction />
-        {!profile && <SoftProfileLayout />}
+        <FeedsActionSection />
+        {!profile && <PostLayoutOptions />}
         {profile && (
           <section className='dark:bg-dark400 bg-white rounded-md shadow-lg mt-4 md:order-1 md:mb-4 border dark:border-bd500'>
             <div className='flex flex-row items-center w-full justify-around  capitalize border-b-2 px-1 dark:border-bd500  border-[#D8D5D5] transition-colors'>
@@ -53,7 +54,7 @@ const Posts = ({ profile }) => {
                 </button>
               ))}
             </div>
-            {(location === 'stories' || location === null) && <Stories />}
+            {(location === 'stories' || location === null) && <MyStroies />}
             {location === 'reels' && <Reels />}
             {location === 'rooms' && <Rooms />}
           </section>

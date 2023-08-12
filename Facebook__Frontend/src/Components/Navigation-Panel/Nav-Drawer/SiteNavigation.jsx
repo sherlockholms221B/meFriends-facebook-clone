@@ -1,8 +1,8 @@
 import * as React from 'react';
 
 //import component from components
-import { Input, THRDot } from '../../index';
-import MbarLink from '../mini-components/MobileMenuButton';
+import { CustomInput } from '../../Miscellaneous/module';
+import { TopRightIcons, MobileMenuButton } from '../module';
 
 //import functions
 import { refresh } from '../../../Functions/utilities/SH';
@@ -40,7 +40,7 @@ const Navbar = () => {
           </h1>
         </button>
         <section className='hidden mdsm:flex relative w-11 h-11 md:w-fit md: md:h-fit justify-center items-center dark:bg-dark300 rounded-full ml-10'>
-          <Input
+          <CustomInput
             type='text'
             name='search'
             placeholder='Search Mefriend'
@@ -52,11 +52,11 @@ const Navbar = () => {
           />
           <Icon.MdOutlineSearch className=' md:absolute relative md:top-2.5 md:left-3 top-0 left-0 text-gray-500 text-2xl cursor-pointer dark:text-thlight500 xlg:-left-6' />
         </section>
-        <THRDot />
+        <TopRightIcons />
       </section>
       <section className='flex flex-row items-center w-full justify-between px-4 py-2 mt-1 mdsm:hidden'>
         {mNavLink.map((data, index) => (
-          <MbarLink {...data} key={index} />
+          <MobileMenuButton {...data} key={index} />
         ))}
       </section>
     </nav>

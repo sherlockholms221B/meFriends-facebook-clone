@@ -1,6 +1,6 @@
 import React from 'react';
 import { GrSend } from 'react-icons/gr';
-import { Input, Profile } from '../../../index';
+import { UserProfileImage, CustomInput } from '../../../Miscellaneous/module';
 import { createComment } from '../../../../Functions/actions/external';
 import useAuthStore from '../../../../Store/AuthStore';
 import { useGlobalContext } from '../../../../Hooks/context/UseContext';
@@ -28,9 +28,9 @@ const CommentInput = ({ value, setValue, postId }) => {
   return (
     <div className='flex flex-col mb-4 flex-1'>
       <div className='flex flex-row items-start mb-2'>
-        <Profile link='/profile' size />
+        <UserProfileImage link='/profile' size />
         <div className='flex flex-col flex-grow ml-4 p-2 rounded-md bg-light500 dark:bg-dark300 hover:bg-light300 placeholder:text-gray-600 dark:placeholder:text-thlight500 dark:text-white dark:focus:bg-dark300'>
-          <Input
+          <CustomInput
             handleChange={(e) => setValue(e.target.value)}
             value={value}
             type={`text`}

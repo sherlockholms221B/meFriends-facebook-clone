@@ -1,8 +1,7 @@
 import React from 'react';
 import { useGlobalContext } from '../../../Hooks/context/UseContext';
-import Head from '../../CreatePost/components/Head';
-
-import MegWrapper from '../../MegWrapper';
+import { SectionHeader } from '../../Content-Creation/module';
+import MegWrapper from '../../HOCs/MegWrapperHOC ';
 import { Icon } from '../../../utils/Icon';
 const Feedback = () => {
   const { setFeedbackState, setProfileState, setGoBack, feedbackState } =
@@ -13,7 +12,7 @@ const Feedback = () => {
         feedbackState ? 'py-4 translate_x' : 'py-4'
       } dark:border dark:border-bd500 rounded-lg `}
     >
-      <Head
+      <SectionHeader
         title={`Give feedback to Facebook`}
         setFirstState={setProfileState}
         setSecondState={setFeedbackState}

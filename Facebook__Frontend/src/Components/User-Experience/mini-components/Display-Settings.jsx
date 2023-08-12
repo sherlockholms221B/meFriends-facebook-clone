@@ -1,10 +1,10 @@
 import React, { useRef } from 'react';
 
 import { useGlobalContext } from '../../../Hooks/context/UseContext';
-import Head from '../../CreatePost/components/Head';
-import MegWrapper from '../../MegWrapper';
+import MegWrapper from '../../HOCs/MegWrapperHOC ';
 import { themeSwitcher } from '../../../Functions/utilities/darkTheme';
 import { Icon } from '../../../utils/Icon';
+import { SectionHeader } from '../../Content-Creation/module';
 
 const DisplaySettings = () => {
   const lightMode = useRef(null);
@@ -17,7 +17,7 @@ const DisplaySettings = () => {
     useGlobalContext();
   return (
     <section className={` ${displayState ? 'pb-4 translate_x' : 'pb-4'} `}>
-      <Head
+      <SectionHeader
         title={`Display & accessibility`}
         setFirstState={setProfileState}
         setSecondState={setDisplayState}

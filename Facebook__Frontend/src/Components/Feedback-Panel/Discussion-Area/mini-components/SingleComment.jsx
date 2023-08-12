@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-import UserProfile from '../../../Profile';
+import UserProfile from '../../../Miscellaneous/UserProfileImage';
 import Redirect from '../../../../examples/SoftRedirect';
 
 const SingleComment = ({ postedBy, isComment, createdAt, comment }) => {

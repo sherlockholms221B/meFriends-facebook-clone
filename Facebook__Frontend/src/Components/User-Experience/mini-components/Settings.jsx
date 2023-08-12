@@ -1,10 +1,10 @@
 import React from 'react';
 
-import MegWrapper from '../../MegWrapper';
+import MegWrapper from '../../HOCs/MegWrapperHOC ';
 import { useGlobalContext } from '../../../Hooks/context/UseContext';
-import { Head } from '../../index';
 import { IconHandler } from '../../../Functions/utilities/SH';
 import { Icon } from '../../../utils/Icon';
+import { SectionHeader } from '../../Content-Creation/module';
 
 const Settings = () => {
   const {
@@ -18,7 +18,7 @@ const Settings = () => {
   } = useGlobalContext();
   return (
     <div className={` ${settingsState ? 'pb-4 translate_x' : 'pb-4 '} `}>
-      <Head
+      <SectionHeader
         title={`Settings & privacy`}
         setFirstState={setProfileState}
         setSecondState={setSettingsState}

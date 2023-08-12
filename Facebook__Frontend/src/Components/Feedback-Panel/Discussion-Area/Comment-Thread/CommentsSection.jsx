@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
 //import components
-import { Comment } from '../../../index';
 
-import CommentInput from '../mini-components/CommentInput';
+import {CommentInput,SingleComment} from '../../module';
 
 const CommentsSection = ({
   comments,
@@ -64,7 +63,7 @@ const CommentsSection = ({
             <CommentInput value={value} setValue={setValue} postId={postId} />
           )}
           {visibleComments?.map(({ comment, postedBy, createdAt }, index) => (
-            <Comment
+            <SingleComment
               key={index}
               isComment={isComment}
               setIsComment={setIsComment}

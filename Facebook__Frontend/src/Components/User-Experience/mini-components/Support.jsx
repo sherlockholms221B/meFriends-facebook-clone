@@ -3,9 +3,9 @@ import React from 'react';
 import { FaBookmark } from 'react-icons/fa';
 import { useGlobalContext } from '../../../Hooks/context/UseContext';
 import { IconHandler } from '../../../Functions/utilities/SH';
-import Head from '../../CreatePost/components/Head';
+import { SectionHeader } from '../../Content-Creation/module';
 
-import MegWrapper from '../../MegWrapper';
+import MegWrapper from '../../HOCs/MegWrapperHOC ';
 import { Icon } from '../../../utils/Icon';
 const Support = () => {
   const {
@@ -19,7 +19,7 @@ const Support = () => {
   } = useGlobalContext();
   return (
     <div className={` ${supportState ? 'pb-4 translate_x' : 'pb-4'} `}>
-      <Head
+      <SectionHeader
         title={`Help & support`}
         setFirstState={setProfileState}
         setSecondState={setSupportState}

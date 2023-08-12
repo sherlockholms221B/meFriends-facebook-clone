@@ -1,14 +1,11 @@
 import React from 'react';
 
-//import react-router-dom module
-// import { Link } from 'react-router-dom'
-
 //import higher order components wrapper
-import MegWrapper from '../../MegWrapper';
+import MegWrapper from '../../HOCs/MegWrapperHOC ';
 
 //import components
-import { CMPFooter, Profile } from '../../index';
-import { Demarcate } from '../../RDOMC';
+import { CustomFooter } from '../../Footer-Section/module';
+import { Divider, UserProfileImage } from '../../Miscellaneous/module';
 
 //import context
 import { useGlobalContext } from '../../../Hooks/context/UseContext';
@@ -41,12 +38,12 @@ const ProfileMenu = () => {
         className={` p-1 shadow-lg rounded-md drop-shadow-md shadow-gray-400 dark:shadow-zinc-900`}
       >
         <section role='button' onClick={() => setProfileState(false)}>
-          <Profile
+          <UserProfileImage
             hidden
-            customstyle='flex flex row gap-4 items-center hover:bg-light300 dark:hover:bg-dark300 h-fit flex flex-row items-center gap-3 px-2 py-1 rounded-md cursor-pointer'
+            customStyle='flex flex row gap-4 items-center hover:bg-light300 dark:hover:bg-dark300 h-fit flex flex-row items-center gap-3 px-2 py-1 rounded-md cursor-pointer'
           />
         </section>
-        <Demarcate />
+        <Divider />
         <section
           section
           className='dark:hover:bg-dark300 hover:bg-light300 h-fit flex flex-row justify-between items-center gap-3 p-2 rounded-md'
@@ -97,7 +94,7 @@ const ProfileMenu = () => {
           </section>
         ))}
       </section>
-      <CMPFooter />
+      <CustomFooter />
     </section>
   );
 };
