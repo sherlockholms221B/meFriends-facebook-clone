@@ -8,7 +8,7 @@ import { person_nine, person_eight } from '../../../Assets/exports';
 import { MdOutlineSearch, MdVideoCall } from 'react-icons/md';
 import { DIcons } from '../../../Assets/3d Icons';
 //
-import { SponsoredContent } from '../index';
+import { SponsoredContent } from '../module';
 
 const ProductAdvertisement = () => {
   const [add, setAdd] = useState(false);
