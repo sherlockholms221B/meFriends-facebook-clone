@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 // Custom components
-import { COMBTN, Comments, THRDot } from '../../../Components';
+import { THRDot } from '../../../Components';
 
 // Utils and functions
 import { logo } from '../../../Assets/exports';
@@ -12,7 +12,11 @@ import { getSinglePost } from '../../../Functions/actions/external';
 // Context hooks
 import { useGlobalContext } from '../../../Hooks/context/UseContext';
 import { LikeBTN } from '../../../Components/Posts/Like';
-import CommentInput from '../../../Components/Comments/CommentInput';
+import {
+  CommentInput,
+  CommentButton,
+  CommentsSection,
+} from '../../../Components/Feedback-Panel';
 
 //components
 import { ZoomControl, PostImageSlider } from '../index';
@@ -93,12 +97,12 @@ const PostDetails = () => {
             {/* Like button */}
             <LikeBTN postId={state[0]?._id} like={state[0]?.likes} />
             {/* Comment button */}
-            <COMBTN isComment={isComment} setIsComment={setIsComment} />
+            <CommentButton isComment={isComment} setIsComment={setIsComment} />
           </section>
 
           {/* Section for displaying comments */}
           <section className='tab:max-h-[73%] max-h-[53%] overflow-auto home_scroll'>
-            <Comments
+            <CommentsSection
               isComment={isComment}
               setIsComment={setIsComment}
               viewMore={viewMore}
