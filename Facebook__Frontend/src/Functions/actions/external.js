@@ -149,7 +149,6 @@ export const likePost = async (dispatch, { userId, postId }) => {
 };
 
 //
-
 export const createComment = async (
   dispatch,
   { userId, postId, commentText }
@@ -172,7 +171,6 @@ export const createComment = async (
 };
 
 //
-
 export async function getAllChat(setChats, setSelectedChat, chat_id) {
   try {
     // const config = {
@@ -191,3 +189,5 @@ export async function getAllChat(setChats, setSelectedChat, chat_id) {
   }
 }
 
+//
+export const getSingleUser= (dispatch,{userId})=>{}
