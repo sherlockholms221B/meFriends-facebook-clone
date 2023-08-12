@@ -15,7 +15,7 @@ const layoutRoute = [
     // component: <Login />,
   },
   {
-    route: '/backface/api/profile',
+    route: '/profile',
     component: <ProfileOverviewCard />,
   },
   {
