@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { Icon } from '../../../utils/Icon';
 
 //import utils components
-import Input from '../../../Components/Input';
+import { CustomInput } from '../../../Components/Miscellaneous/module';
 
 const SearchResultsView = () => {
   //set up vaule
@@ -24,7 +24,7 @@ const SearchResultsView = () => {
         >
           <Icon.MdArrowBack className='text-2xl  dark:text-white' />
         </button>
-        <Input
+        <CustomInput
           value={value}
           handleChange={(e) => setValue(e.target.value)}
           name='searchpage'

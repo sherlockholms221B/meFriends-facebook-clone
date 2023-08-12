@@ -2,8 +2,7 @@ import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 // Custom components
-import { THRDot } from '../../../Components';
-
+import { TopRightIcons } from '../../../Components/Navigation-Panel/module';
 // Utils and functions
 import { logo } from '../../../Assets/exports';
 import { Icon } from '../../../utils/Icon';
@@ -11,15 +10,15 @@ import { getSinglePost } from '../../../Functions/actions/external';
 
 // Context hooks
 import { useGlobalContext } from '../../../Hooks/context/UseContext';
-import { LikeBTN } from '../../../Components/Posts/Like';
+import { LikeButton } from '../../../Components/Publication-Stream/module';
 import {
   CommentInput,
   CommentButton,
   CommentsSection,
-} from '../../../Components/Feedback-Panel';
+} from '../../../Components/Feedback-Panel/module';
 
 //components
-import { ZoomControl, PostImageSlider } from '../index';
+import { ZoomControl, PostImageSlider } from '../module';
 
 const PostDetails = () => {
   // Navigate to other pages
@@ -58,7 +57,7 @@ const PostDetails = () => {
           <img src={logo} alt='src logo' className='w-10 h-10 object-cover' />
         </div>
         {/* Display a line with three dots */}
-        <THRDot />
+        <TopRightIcons />
       </section>
 
       {/* Main content section */}
@@ -95,7 +94,7 @@ const PostDetails = () => {
             className={`flex flex-row flex-nowrap justify-around px-2 py-1 items-center mx-2 border-b-2 border-gray-300 dark:border-bd500`}
           >
             {/* Like button */}
-            <LikeBTN postId={state[0]?._id} like={state[0]?.likes} />
+            <LikeButton postId={state[0]?._id} like={state[0]?.likes} />
             {/* Comment button */}
             <CommentButton isComment={isComment} setIsComment={setIsComment} />
           </section>

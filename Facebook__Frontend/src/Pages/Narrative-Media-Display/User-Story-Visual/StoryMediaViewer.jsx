@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 //import react-router-dom module from 'react-router';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,10 +6,9 @@ import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
 
 //import component
-import { Input, THRDot } from '../../../Components';
-import { Button } from '../../../Components/RDOMC';
-import SoftButton from '../../../examples/SoftButton';
-import { PostImageSlider } from '../../Posts-Info';
+import { PostImageSlider } from '../../Posts-Info/module';
+import { CustomInput } from '../../../Components/Miscellaneous/module';
+import { TopRightIcons } from '../../../Components/Navigation-Panel/module';
 
 //import custom icons
 import { Icon } from '../../../utils/Icon';
@@ -37,9 +35,9 @@ const StoryMediaViewer = () => {
             <h5 className='text-3xl text-gray-800 dark:text-thdark500 brightness-105 tracking-wide'>
               <strong>Stories</strong>
             </h5>
-            <SoftButton
-              title='bg-transparent text-start text-xs mt-1'
-              functionCall={() => {}}
+            <button
+              className='bg-transparent text-start text-xs mt-1'
+              onClick={() => {}}
             >
               <u className='dark:text-blue-700 text-black text-base mr-1'>
                 Archive
@@ -50,28 +48,28 @@ const StoryMediaViewer = () => {
               <u className='dark:text-blue-700 text-black text-base ml-1'>
                 Settings
               </u>
-            </SoftButton>
+            </button>
           </article>
 
           <b className=' dark:text-thdark500 text-black tracking-normal'>
             Your story
           </b>
-          <Button
-            functionCall={() => {}}
-            title='flex flex-row items-center gap-2 px-3'
+          <button
+            onClick={() => {}}
+            className='flex flex-row items-center gap-2 px-3'
           >
-            <Button functionCall={() => {}} title='p-3 bg-dark300 rounded-full'>
+            <button onClick={() => {}} className='p-3 bg-dark300 rounded-full'>
               <Icon.HiPlusSm className='text-blue-400' fontSize={50} />
-            </Button>
-            <Button functionCall={() => {}} title='flex flex-col '>
+            </button>
+            <button onClick={() => {}} className='flex flex-col '>
               <h5 className='dark:text-white text-black'>
                 <b>Create a stroy</b>
               </h5>
               <p className='text-black dark:text-thlight500 text-sm'>
                 Share a photo or write something
               </p>
-            </Button>
-          </Button>
+            </button>
+          </button>
           <b className=' dark:text-thdark500 text-black tracking-normal'>
             All stories
           </b>
@@ -123,14 +121,14 @@ const StoryMediaViewer = () => {
       </aside>
       <section className='w-full bg-black h-full text-white relative flex justify-center'>
         <section className=' hidden tab:flex absolute justify-end items-center top-2 right-4 w-full'>
-          <THRDot />
+          <TopRightIcons />
         </section>
         <section className=' max-w-[500px] w-full mx-auto h-full flex flex-col justify-between items-center relative overflow-hidden p-4'>
           <section className='h-[90%] w-full rounded-xl relative'>
             <PostImageSlider synced />
           </section>
           <section className='w-full'>
-            <Input
+            <CustomInput
               autoFocus
               handleChange={() => {}}
               name='story'

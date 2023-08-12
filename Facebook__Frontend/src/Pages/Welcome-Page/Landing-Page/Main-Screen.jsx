@@ -1,8 +1,9 @@
 import * as React from 'react';
 
-import { ProductAdvertisement } from '../../../Components/Marketing-Ad-View';
-//import MainScreen component from component
-import { SideBar, Feeds, Navbar } from '../../../Components/index';
+import { ProductAdvertisement } from '../../../Components/Marketing-Ad-View/module';
+import { SiteNavigation } from '../../../Components/Navigation-Panel/module';
+import { SideBar } from '../../../Components/Sidebar-Content/module';
+import { Feeds } from '../../../Components/Activity-Feeds/module';
 
 //import context
 import { useGlobalContext } from '../../../Hooks/context/UseContext';
@@ -22,6 +23,7 @@ export default function MainScreen() {
   const {
     location,
     internalAction: [controller, dispatchAction],
+    // eslint-disable-next-line
     externalAction: [state, dispatchCall],
   } = useGlobalContext();
 
@@ -52,7 +54,7 @@ export default function MainScreen() {
     }
     template = (
       <React.Fragment>
-        <Navbar />
+        <SiteNavigation />
         <section
           style={{ paddingTop: `${location.height}px` }}
           className='flex items-strech justify-center sm:justify-between  dark:bg-dark500 relative h-screen w-screen bg-light500'
@@ -72,10 +74,3 @@ export default function MainScreen() {
 
   return isloading();
 }
-
-/* <React.Profiler id='Navigation' onRender={(id,phase,actualduration,baseduration,startTime,commitTime,internalactions) => {
-          console.log(id,phase,actualduration,baseduration,startTime,commitTime,internalactions)
-        }}> */
-// <Navbar />
-
-/* </React.Profiler> */

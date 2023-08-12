@@ -5,11 +5,18 @@ import { useLocation } from 'react-router-dom';
 import { useGlobalContext } from '../../../Hooks/context/UseContext';
 
 //import components
-import { CMPFooter, Feeds, Navbar } from '../../../Components';
-import { ProfileHeader, ProfileEditor, FriendList, PhotoGallery } from '..';
+import {
+  ProfileHeader,
+  ProfileEditor,
+  FriendList,
+  PhotoGallery,
+} from '../module';
 
 //import layout
-import MSideBar from '../../../Components/SideBars/MSideBar';
+import { Feeds } from '../../../Components/Activity-Feeds/module';
+import { MobileSidebar } from '../../../Components/Sidebar-Content/module';
+import { CustomFooter } from '../../../Components/Footer-Section/module';
+import { SiteNavigation } from '../../../Components/Navigation-Panel/module';
 import { getSingleUser } from '../../../Functions/actions/external';
 
 const ProfileOverviewCard = () => {
@@ -29,13 +36,13 @@ const ProfileOverviewCard = () => {
 
   return (
     <section>
-      <Navbar />
+      <SiteNavigation />
       <div
         style={{ paddingTop: `${location.height}px` }}
         className='flex items-center justify-center dark:bg-dark500 relative overflow-auto h-[100vh] w-[100vw] bg-light500'
       >
         <div className=' flex items-strech sm:justify-between w-screen h-full'>
-          <MSideBar />
+          <MobileSidebar />
           <div className=' min-w-[260px] w-full  overflow-auto h-full scroll-hidden'>
             <div className='h-fit '>
               <ProfileHeader />
@@ -44,7 +51,7 @@ const ProfileOverviewCard = () => {
                   <ProfileEditor />
                   <PhotoGallery />
                   <FriendList />
-                  <CMPFooter hidden />
+                  <CustomFooter hidden />
                 </section>
                 <section className='overflow-auto scroll-hidden'>
                   <Feeds isNot={false} />

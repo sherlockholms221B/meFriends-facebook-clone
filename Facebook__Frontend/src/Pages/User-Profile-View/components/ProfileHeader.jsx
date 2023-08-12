@@ -7,7 +7,7 @@ import { useGlobalContext } from '../../../Hooks/context/UseContext';
 import { comments } from '../../../utils/constants';
 
 //import components
-import { FriendStack } from '../../../Components';
+import { FriendsStack } from '../module';
 
 //import store from zustand
 import useAuthStore from '../../../Store/AuthStore';
@@ -56,7 +56,7 @@ const ProfileHeader = ({ data }) => {
             4.1k friends
           </p>
           <section className='full h-9'>
-            <FriendStack comments={comments} />
+            <FriendsStack comments={comments} />
           </section>
         </section>
       </section>
