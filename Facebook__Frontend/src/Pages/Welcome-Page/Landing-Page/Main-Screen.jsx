@@ -1,12 +1,8 @@
 import * as React from 'react';
 
+import { ProductAdvertisement } from '../../../Components/Marketing-Ad-View';
 //import MainScreen component from component
-import {
-  SideBar,
-  Feeds,
-  Advertisment,
-  Navbar,
-} from '../../../Components/index';
+import { SideBar, Feeds, Navbar } from '../../../Components/index';
 
 //import context
 import { useGlobalContext } from '../../../Hooks/context/UseContext';
@@ -20,9 +16,6 @@ import SoftAppLoader from '../../../examples/SoftLoading/components/SoftAppLoade
 
 //import functions from utils.functions
 import { getAllPost } from '../../../Functions/actions/external';
-
-//import socket.io-client from socket-file
-// import {socket} from '../socket'
 
 export default function MainScreen() {
   //Distructure context valuses from contexts
@@ -66,7 +59,7 @@ export default function MainScreen() {
         >
           <SideBar />
           <Feeds profile />
-          <Advertisment />
+          <ProductAdvertisement />
         </section>
         <section className='absolute bottom-5 dark:bg-dark300 bg-white p-3 right-5 rounded-full flex items-center justify-center cursor-pointer hover:brightness-105 shadow-md border dark:border-bd500'>
           <Icon.FaEdit className='dark:text-white text-dark500 text-xl' />
